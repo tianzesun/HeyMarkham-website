@@ -49,7 +49,7 @@ pnpm start
 ## 📁 Project Structure
 
 ```
-markham-website/
+HeyMarkham-website/
 ├── apps/
 │   └── frontend/                 # Next.js Frontend Application
 │       ├── src/
