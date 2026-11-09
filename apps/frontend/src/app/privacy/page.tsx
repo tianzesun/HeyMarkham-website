@@ -18,6 +18,10 @@ export default function PrivacyPage() {
       <article className="max-w-3xl mx-auto px-6 py-16 md:py-20 text-slate-700 dark:text-slate-300 leading-relaxed">
         <h1 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white mb-3">Privacy Policy</h1>
         <p className="text-sm text-slate-500 dark:text-slate-400 mb-10">Last updated: {LAST_UPDATED}</p>
+        <p className="mb-10">
+          This policy covers this website and its demo. For the Hey Markham mobile app, see the{' '}
+          <Link href="/app/privacy" className="text-primary-600 dark:text-primary-400 underline">app privacy policy</Link>.
+        </p>
 
         <Section title="Who we are">
           <p>
