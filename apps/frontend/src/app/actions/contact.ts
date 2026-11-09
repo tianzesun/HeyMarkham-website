@@ -45,7 +45,7 @@ export async function submitContactForm(
     console.error(`[contact ${correlationId}] CONTACT_WEBHOOK_URL is not configured`);
     return {
       success: false,
-      error: `We couldn't send your message. Please email info@aydenait.com instead. (Ref: ${correlationId})`,
+      error: `We couldn't send your message. Please email contact@aydenait.com instead. (Ref: ${correlationId})`,
     };
   }
 

@@ -138,7 +138,7 @@ export default function HomePage() {
                 Voice-First Experience
               </div>
               <h2 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">
-                Just Say "Hey Markham" — Get Answers Instantly
+                Just Say &ldquo;Hey Markham&rdquo; — Get Answers Instantly
               </h2>
               <p className="text-lg text-primary-200">
                 Like having a personal city assistant in your pocket. Hands-free, hassle-free, available 24/7.
@@ -173,7 +173,7 @@ export default function HomePage() {
                         </div>
                         <div className="space-y-3">
                           <div className="bg-white/10 rounded-lg p-3">
-                            <p className="text-white text-sm">"Hey Markham, when's my garbage collection?"</p>
+                            <p className="text-white text-sm">&ldquo;Hey Markham, when&rsquo;s my garbage collection?&rdquo;</p>
                           </div>
                           <div className="bg-white rounded-lg p-3">
                             <p className="text-slate-700 text-sm">Clear-bag garbage goes out every other week and your green bin every week. Have it at the curb by 7 AM.</p>
@@ -198,7 +198,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">Natural Voice Recognition</h3>
-                    <p className="text-primary-200 text-sm">Ask in plain Canadian English, the way you'd ask a neighbour.</p>
+                    <p className="text-primary-200 text-sm">Ask in plain Canadian English, the way you&rsquo;d ask a neighbour.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -225,7 +225,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-1">Wake Word Activation</h3>
-                    <p className="text-primary-200 text-sm">Turn on the mic button, then just say "Hey Markham" and ask your question.</p>
+                    <p className="text-primary-200 text-sm">Turn on the mic button, then just say &ldquo;Hey Markham&rdquo; and ask your question.</p>
                   </div>
                 </div>
               </div>
@@ -277,14 +277,14 @@ export default function HomePage() {
                     <MousePointer className="w-6 h-6 text-red-600 dark:text-red-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white">The "Multiple-Click" Problem</h3>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">Finding simple info shouldn't be this hard</p>
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white">The &ldquo;Multiple-Click&rdquo; Problem</h3>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm">Finding simple info shouldn&rsquo;t be this hard</p>
                   </div>
                 </div>
 
                 <div className="bg-slate-50 dark:bg-slate-900 rounded-lg p-6 mb-6">
                   <p className="text-slate-700 dark:text-slate-300 mb-4">
-                    <strong>Example:</strong> "When is the next yard waste pickup?"
+                    <strong>Example:</strong> &ldquo;When is the next yard waste pickup?&rdquo;
                   </p>
                   <div className="flex flex-wrap items-center gap-2 text-sm">
                     <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">Home</span>
@@ -329,8 +329,8 @@ export default function HomePage() {
                   <Bot className="w-6 h-6 text-amber-600 dark:text-amber-400" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white">The "Smart-ish" Chatbot Problem</h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm">Why existing chatbots don't actually help</p>
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white">The &ldquo;Smart-ish&rdquo; Chatbot Problem</h3>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm">Why existing chatbots don&rsquo;t actually help</p>
                 </div>
               </div>
 
@@ -344,14 +344,14 @@ export default function HomePage() {
                   <div className="space-y-3">
                     <div className="bg-slate-50 dark:bg-slate-900 rounded p-3">
                       <p className="text-sm text-slate-600 dark:text-slate-400">User asks:</p>
-                      <p className="text-sm font-medium text-slate-900 dark:text-white">"Can my visitor park on the street tonight?"</p>
+                      <p className="text-sm font-medium text-slate-900 dark:text-white">&ldquo;Can my visitor park on the street tonight?&rdquo;</p>
                     </div>
                     <div className="flex justify-center">
                       <div className="text-2xl">↓</div>
                     </div>
                     <div className="bg-red-50 dark:bg-red-900/20 rounded p-3">
                       <p className="text-sm text-slate-600 dark:text-slate-400">Chatbot response:</p>
-                      <p className="text-sm text-red-700 dark:text-red-300">"I found 15 results for 'park'. Did you mean: parks, park permits, parking lots?"</p>
+                      <p className="text-sm text-red-700 dark:text-red-300">&ldquo;I found 15 results for &rsquo;park&rsquo;. Did you mean: parks, park permits, parking lots?&rdquo;</p>
                     </div>
                   </div>
                 </div>
@@ -365,14 +365,14 @@ export default function HomePage() {
                   <div className="space-y-3">
                     <div className="bg-slate-50 dark:bg-slate-900 rounded p-3">
                       <p className="text-sm text-slate-600 dark:text-slate-400">User asks:</p>
-                      <p className="text-sm font-medium text-slate-900 dark:text-white">"Can my visitor park on the street tonight?"</p>
+                      <p className="text-sm font-medium text-slate-900 dark:text-white">&ldquo;Can my visitor park on the street tonight?&rdquo;</p>
                     </div>
                     <div className="flex justify-center">
                       <div className="text-2xl">↓</div>
                     </div>
                     <div className="bg-green-50 dark:bg-green-900/20 rounded p-3">
                       <p className="text-sm text-slate-600 dark:text-slate-400">HeyMarkham response:</p>
-                      <p className="text-sm text-green-700 dark:text-green-300">"Street parking isn't allowed from 2:30 AM to 6 AM unless signs say otherwise, but you can request an overnight exemption online for $6 a night, up to 10 a year per licence plate."</p>
+                      <p className="text-sm text-green-700 dark:text-green-300">&ldquo;Street parking isn&rsquo;t allowed from 2:30 AM to 6 AM unless signs say otherwise, but you can request an overnight exemption online for $6 a night, up to 10 a year per licence plate.&rdquo;</p>
                       <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
                         <AnswerSource source="https://www.markham.ca/permits-licences-taxes/parking/overnight-street-parking-request" linkClassName="hover:text-primary-600 dark:hover:text-primary-300" />
                       </p>
@@ -796,7 +796,7 @@ export default function HomePage() {
                    <div className="space-y-3">
                      <div className="flex items-center gap-3 text-primary-200">
                        <Mail className="w-5 h-5" />
-                       <a href="mailto:info@aydenait.com" className="hover:text-white transition-colors">info@aydenait.com</a>
+                       <a href="mailto:contact@aydenait.com" className="hover:text-white transition-colors">contact@aydenait.com</a>
                      </div>
                      <div className="flex items-center gap-3 text-primary-200">
                        <Phone className="w-5 h-5" />

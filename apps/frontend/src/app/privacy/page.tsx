@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const LAST_UPDATED = 'October 27, 2026'
 
-const EMAIL = 'info@aydenait.com'
+const EMAIL = 'contact@aydenait.com'
 const PHONE = '289-859-9523'
 
 export default function PrivacyPage() {

@@ -1,40 +1,35 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useSyncExternalStore } from 'react';
 import { Sun, Moon } from 'lucide-react';
 
+type Theme = 'light' | 'dark';
+
+// The "dark" class on <html> is the source of truth (theme-init.js sets it before React loads),
+// so the toggle reads it directly and re-renders whenever it changes.
+const subscribe = (onChange: () => void) => {
+  const observer = new MutationObserver(onChange);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  return () => observer.disconnect();
+};
+const currentTheme = (): Theme => (document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+const serverTheme = (): Theme => 'light';
+
 export const ThemeToggle = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const theme = useSyncExternalStore(subscribe, currentTheme, serverTheme);
 
+  // Follow the system setting until the visitor picks a theme
   useEffect(() => {
-    // Check for saved preference or system preference
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    
-    // theme-init.js has already applied the class; sync the icon to it
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-    } else {
-      setTheme(document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-    }
-
-    // Listen for system theme changes
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = (e: MediaQueryListEvent) => {
-      if (!localStorage.getItem('theme')) {
-        const newTheme = e.matches ? 'dark' : 'light';
-        setTheme(newTheme);
-        document.documentElement.classList.toggle('dark', e.matches);
-      }
+      if (!localStorage.getItem('theme')) document.documentElement.classList.toggle('dark', e.matches);
     };
-
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
+    const newTheme: Theme = theme === 'light' ? 'dark' : 'light';
     localStorage.setItem('theme', newTheme);
     document.documentElement.classList.toggle('dark', newTheme === 'dark');
   };
