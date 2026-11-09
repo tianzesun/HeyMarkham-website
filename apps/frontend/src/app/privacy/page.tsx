@@ -19,7 +19,7 @@ export default function PrivacyPage() {
         <h1 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white mb-3">Privacy Policy</h1>
         <p className="text-sm text-slate-500 dark:text-slate-400 mb-10">Last updated: {LAST_UPDATED}</p>
         <p className="mb-10">
-          This policy covers this website and its demo. For the Hey Markham mobile app, see the{' '}
+          This policy covers this website. For the Hey Markham mobile app, see the{' '}
           <Link href="/app/privacy" className="text-primary-600 dark:text-primary-400 underline">app privacy policy</Link>.
         </p>
 
@@ -43,19 +43,12 @@ export default function PrivacyPage() {
             message is kept in our Formspree account and in our email inbox.
           </p>
 
-          <h3 className="font-semibold text-slate-900 dark:text-white mb-2">Demo questions</h3>
+          <h3 className="font-semibold text-slate-900 dark:text-white mb-2">The live assistant and the app</h3>
           <p className="mb-4">
-            Questions you type into the demo are answered entirely in your browser. They are not sent to
-            us or stored by us.
-          </p>
-
-          <h3 className="font-semibold text-slate-900 dark:text-white mb-2">Voice</h3>
-          <p className="mb-4">
-            Voice features are off until you turn them on, and your browser will ask for microphone
-            permission first. Speech is converted to text by your browser&rsquo;s built-in speech
-            recognition. Depending on your browser, the browser maker (for example Google for Chrome or
-            Apple for Safari) may process that audio under its own privacy policy. We do not receive or
-            store your audio or transcripts.
+            &ldquo;Try it live&rdquo; opens the Hey Markham assistant in a new tab, and the store buttons open
+            the app listings. This website doesn&rsquo;t ask for your microphone and doesn&rsquo;t receive
+            the questions you ask there: they go to the Hey Markham service to be answered, as described
+            in the <Link href="/app/privacy" className="text-primary-600 dark:text-primary-400 underline">app privacy policy</Link>.
           </p>
 
           <h3 className="font-semibold text-slate-900 dark:text-white mb-2">Preferences</h3>
@@ -71,8 +64,7 @@ export default function PrivacyPage() {
             page address, the site that linked you here, your approximate location (country, region
             and city), your device type, and your browser and operating system. Visitors are told apart
             only by a hash of the request, which is discarded after 24 hours, and we see the results only
-            as totals. It does not record what you type into the demo, the FAQ search or the contact
-            form. See{' '}
+            as totals. It does not record what you type into the FAQ search or the contact form. See{' '}
             <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 underline">Vercel&rsquo;s Web Analytics privacy information</a>{' '}
             for details.
           </p>

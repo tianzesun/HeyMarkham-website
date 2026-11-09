@@ -2,8 +2,9 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { Mic, Menu, X, ArrowRight } from 'lucide-react';
+import { Mic, Menu, X, ArrowUpRight } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
+import { LIVE_URL } from '../lib/links';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,13 +63,14 @@ export const Header: React.FC = () => {
           {/* CTA Button */}
           <div className="animate-fade-up hidden md:flex items-center gap-3 [animation-delay:300ms]">
             <ThemeToggle />
-            <Link
-              href="/#demo"
+            <a
+              href={LIVE_URL}
+              target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-sm transition-all shadow-sm hover:-translate-y-0.5"
             >
-              Try the Demo
-              <ArrowRight size={16} />
-            </Link>
+              Try it live
+              <ArrowUpRight size={16} />
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -105,13 +107,14 @@ export const Header: React.FC = () => {
                 </Link>
               ))}
               <div className="pt-3 mt-3 border-t border-slate-800">
-                <Link
-                  href="/#demo"
+                <a
+                  href={LIVE_URL}
+                  target="_blank" rel="noopener noreferrer"
                   className="block mx-4 bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-lg font-medium text-sm text-center transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Try the Demo
-                </Link>
+                  Try it live
+                </a>
               </div>
             </div>
           </div>

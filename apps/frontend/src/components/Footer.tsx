@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { Mic } from 'lucide-react';
+import { LIVE_URL } from '../lib/links';
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -28,7 +29,8 @@ export const Footer: React.FC = () => {
             <h4 className="font-semibold text-slate-900 dark:text-white mb-4">Product</h4>
             <ul className="space-y-2">
               <li><Link href="/#features" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Features</Link></li>
-              <li><Link href="/#demo" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Demo</Link></li>
+              <li><a href={LIVE_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Try it live</a></li>
+              <li><Link href="/#try" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Get the app</Link></li>
               <li><Link href="/#contact" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">For Municipalities</Link></li>
             </ul>
           </div>
@@ -65,7 +67,7 @@ export const Footer: React.FC = () => {
 
         <p className="mt-6 text-xs text-slate-500 dark:text-slate-400 text-center md:text-left">
           HeyMarkham is an independent service by Aydenait Solutions and is not affiliated with or endorsed by the City of Markham.
-          Demo answers were checked against official sources in October 2026; always confirm current details on the source page.
+          FAQ answers were checked against official sources in October 2026; always confirm current details on the source page.
         </p>
       </div>
     </footer>

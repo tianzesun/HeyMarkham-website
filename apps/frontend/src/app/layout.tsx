@@ -3,7 +3,6 @@ import { Analytics } from '@vercel/analytics/next'
 import '../styles/globals.css'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
-import { VoiceWakeWord } from '../components/VoiceWakeWord'
 
 export { metadata, viewport } from './metadata'
 
@@ -49,7 +48,6 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <VoiceWakeWord />
         {/* Cookie-free visit counts; what's collected is described on the privacy page */}
         <Analytics />
       </body>
