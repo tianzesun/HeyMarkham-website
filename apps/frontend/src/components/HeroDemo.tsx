@@ -100,8 +100,6 @@ export const HeroDemo = () => {
     recognition.onend = () => setIsRecording(false);
     demoRecognitionRef.current = recognition;
     return () => recognition.abort();
-    // askDemo only touches refs and state setters, so the first-render closure stays correct
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const toggleDemoRecording = () => {

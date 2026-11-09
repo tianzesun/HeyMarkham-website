@@ -30,6 +30,8 @@ export default function RootLayout({
     // suppressHydrationWarning: theme-init.js may add the "dark" class before React hydrates
     <html lang="en-CA" className={`scroll-smooth ${sourceSans.variable} ${merriweather.variable}`} suppressHydrationWarning>
       <head>
+        {/* Must run before first paint to avoid a light flash in dark mode; it's tiny and same-origin (CSP 'self') */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script src="/theme-init.js" />
       </head>
       <body className="font-sans relative overflow-x-hidden">

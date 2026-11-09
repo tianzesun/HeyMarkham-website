@@ -115,12 +115,12 @@ export const ContactForm = () => {
          <div className="text-center text-sm min-h-[20px]">
           {optimisticContact.status === 'idle' && (
             <p className="text-primary-200">
-              We'll reply by email as soon as we can
+              We&rsquo;ll reply by email as soon as we can
             </p>
           )}
           {optimisticContact.status === 'success' && (
             <p className="text-green-300">
-              Message sent! We'll get back to you shortly.
+              Message sent! We&rsquo;ll get back to you shortly.
             </p>
           )}
           {optimisticContact.status === 'error' && (

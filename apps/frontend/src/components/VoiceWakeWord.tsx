@@ -30,7 +30,8 @@ export const VoiceWakeWord = () => {
   const playTone = useCallback((frequency: number, duration: number, volume: number = 0.1) => {
     try {
       if (!audioContextRef.current) {
-        audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+        audioContextRef.current = new (window.AudioContext ||
+          (window as Window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext!)();
       }
       const context = audioContextRef.current;
       const oscillator = context.createOscillator();
