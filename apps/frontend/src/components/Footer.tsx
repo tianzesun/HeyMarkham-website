@@ -40,6 +40,7 @@ export const Footer: React.FC = () => {
               <li><a href="https://www.markham.ca" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">City of Markham (official site)</a></li>
               <li><Link href="/#faq" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">FAQ</Link></li>
               <li><Link href="/privacy" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/app/support" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Mobile app help &amp; privacy</Link></li>
             </ul>
           </div>
 
