@@ -5,14 +5,14 @@ import {
   Volume2, Headphones, CreditCard, BookOpen, Car, Lightbulb,
   Sparkles, Wifi, PhoneCall, Leaf, Waves, Trees, CalendarDays
 } from 'lucide-react';
-import { HeroDemo } from '../components/HeroDemo';
+import { HeroTryLive } from '../components/HeroTryLive';
 import { ContactForm } from '../components/ContactForm';
 import { FAQSection } from '../components/FAQSection';
 import { RevealOnScroll } from '../components/RevealOnScroll';
 import { faqDatabase } from '../lib/faq-data';
 import { AnswerSource } from '../components/AnswerSource';
 
-// Server-rendered; only HeroDemo, FAQSection and ContactForm hydrate in the browser
+// Server-rendered; only FAQSection and ContactForm hydrate in the browser
 export default function HomePage() {
   // Generate static heights for voice bars to avoid hydration mismatch
   const voiceBarHeights = ['16px', '24px', '12px', '20px', '28px'];
@@ -29,7 +29,7 @@ export default function HomePage() {
     {
       icon: <CheckCircle2 className="w-6 h-6" />,
       title: `${checkedAnswerCount} Answers Checked`,
-      description: "Every answer in this demo is checked against an official source, mostly markham.ca, and the list keeps growing.",
+      description: "Every answer in our FAQ is checked against an official source, mostly markham.ca, and the list keeps growing.",
     },
     {
       icon: <Link2 className="w-6 h-6" />,
@@ -104,9 +104,9 @@ export default function HomePage() {
     <div className="min-h-screen w-full flex flex-col bg-white dark:bg-slate-950">
       <RevealOnScroll />
       <div className="flex-grow">
-        <HeroDemo />
+        <HeroTryLive />
 
-        {/* Quick and accurate: proof points that are true of this demo */}
+        {/* Quick and accurate: proof points that are true of the checked FAQ answers */}
         <section className="py-14 px-6 bg-slate-900 dark:bg-slate-950 border-t border-slate-800">
           <div className="max-w-7xl mx-auto">
             <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-white text-center mb-3">
@@ -430,7 +430,7 @@ export default function HomePage() {
                 In the full product, every answer starts from official city documents and cites them when it reaches you.
               </p>
               <p data-reveal className="mt-3 text-sm text-slate-500 dark:text-slate-400" style={{ transitionDelay: '0.15s' }}>
-                The demo on this page is a simplified offline version: it matches your question to checked answers and links to each source.
+                Try it live to see it work: ask anything, and each answer links to the official pages it came from.
               </p>
             </div>
 
@@ -615,7 +615,7 @@ export default function HomePage() {
               <div className="flex flex-col">
                 <div className="flex items-center gap-2 mb-4 px-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white">Available in Demo</h3>
+                  <h3 className="font-semibold text-slate-900 dark:text-white">Available Now</h3>
                   <span className="ml-auto text-xs text-slate-600 dark:text-slate-300 bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded-full">3 items</span>
                 </div>
                 <div className="bg-green-50 dark:bg-green-900/20 rounded-t-xl p-4 border-b-2 border-green-400 flex-shrink-0">
@@ -751,7 +751,7 @@ export default function HomePage() {
                  Start with a pilot. See the results. Then decide.
                </p>
                <p className="mt-3 text-sm text-primary-200">
-                 Residents: have feedback or a question about the demo? Use the same form.
+                 Residents: have feedback or a question about Hey Markham? Use the same form.
                </p>
              </div>
 

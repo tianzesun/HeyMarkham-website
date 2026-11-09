@@ -16,7 +16,7 @@ export default function AppPrivacyPage() {
         This policy explains how AydenAIT Solution Inc. (&ldquo;AydenAIT&rdquo;, &ldquo;we&rdquo;) handles personal
         information in the Hey Markham app for iPhone and Android. We handle personal information in accordance with
         Canada&rsquo;s <i>Personal Information Protection and Electronic Documents Act</i> (PIPEDA). The{' '}
-        <A href="/privacy">website privacy policy</A> covers this website and its demo.
+        <A href="/privacy">website privacy policy</A> covers this website.
       </p>
 
       <Section title="Two ways to use the app">
