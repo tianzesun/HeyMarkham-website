@@ -57,12 +57,12 @@ export default function AppPrivacyPage() {
           street.
         </p>
         <p>
-          <b>Location (only if you turn it on).</b> Location is off until you turn it on in Settings, Location, or tap
-          &ldquo;Use my location&rdquo; under an answer. Your phone asks for your permission first, and only while you
-          use the app, never in the background. When it&rsquo;s on, your phone&rsquo;s position, rounded to about 100
-          metres, is sent with each question. It is used only to answer questions about where you are, such as your
+          <b>Location (only if you allow it).</b> The app asks for location only when you tap &ldquo;Use my
+          location&rdquo; under an answer, such as one about your ward or the nearest library. Your phone then asks for
+          your permission, for use only while you use the app, never in the background. Once you allow it, your
+          phone&rsquo;s position, rounded to about 100 metres, is sent with each question. It is used only to answer questions about where you are, such as your
           ward and councillor or the nearest library, community centre or park. It is not stored or logged, and
-          answers don&rsquo;t repeat it.
+          answers don&rsquo;t repeat it. You can stop it at any time in your phone&rsquo;s settings.
         </p>
         <p>
           <b>Notifications (only if you allow them).</b> The app asks once whether it may send notifications. If you
@@ -82,7 +82,7 @@ export default function AppPrivacyPage() {
           in, a sign-in token is kept in your phone&rsquo;s secure storage (Keychain or Keystore).
         </p>
         <p>
-          <b>What we don&rsquo;t collect.</b> No location unless you turn it on, and never in the background; no
+          <b>What we don&rsquo;t collect.</b> No location unless you allow it, and never in the background; no
           contacts, photos or files, no advertising identifiers, no tracking across other apps or websites, and no ads. Please don&rsquo;t include personal
           details such as your SIN, health information or account numbers in a question.
         </p>
@@ -92,7 +92,7 @@ export default function AppPrivacyPage() {
         <ul>
           <li>To answer your questions using public City of Markham information</li>
           <li>To keep your history, saved questions, settings and profile when you are signed in</li>
-          <li>If you turn on location, to answer questions about where you are</li>
+          <li>If you allow location, to answer questions about where you are</li>
           <li>If you allow notifications, to send the kinds of message you chose</li>
           <li>To find questions the app answers poorly, and improve answers</li>
           <li>To keep the service secure and prevent abuse</li>
@@ -149,7 +149,7 @@ export default function AppPrivacyPage() {
       <Section title="Your choices and rights">
         <ul>
           <li>Use the app as a guest, without an account</li>
-          <li>Turn location on or off in Settings, Location, or in your phone&rsquo;s settings</li>
+          <li>Allow or stop location in your phone&rsquo;s settings</li>
           <li>Allow or turn off notifications, and choose which kinds you get, in the inbox or your phone&rsquo;s settings</li>
           <li>View and change your profile in Settings, Your profile</li>
           <li>Delete single questions or your whole history in Your questions</li>
