@@ -57,6 +57,23 @@ export default function AppPrivacyPage() {
           street.
         </p>
         <p>
+          <b>Location (only if you turn it on).</b> Location is off until you turn it on in Settings, Location, or tap
+          &ldquo;Use my location&rdquo; under an answer. Your phone asks for your permission first, and only while you
+          use the app, never in the background. When it&rsquo;s on, your phone&rsquo;s position, rounded to about 100
+          metres, is sent with each question. It is used only to answer questions about where you are, such as your
+          ward and councillor or the nearest library, community centre or park. It is not stored or logged, and
+          answers don&rsquo;t repeat it.
+        </p>
+        <p>
+          <b>Notifications (only if you allow them).</b> The app asks once whether it may send notifications. If you
+          allow them, your phone is registered with the Hey Markham service using a random identifier created by the
+          app, a push token from your phone&rsquo;s notification service, the kinds of message you chose (alerts, news,
+          service updates, offers), and your phone&rsquo;s platform, system version and app version. This isn&rsquo;t
+          linked to your account. It is used only to send the messages you chose, and is no longer used once your
+          phone stops accepting them, for example after you remove the app. You can change your choices in the inbox
+          or turn notifications off in your phone&rsquo;s settings.
+        </p>
+        <p>
           <b>Feedback.</b> If you rate an answer as helpful or not, we receive the rating with the question and answer,
           not linked to your account.
         </p>
@@ -65,8 +82,8 @@ export default function AppPrivacyPage() {
           in, a sign-in token is kept in your phone&rsquo;s secure storage (Keychain or Keystore).
         </p>
         <p>
-          <b>What we don&rsquo;t collect.</b> No location from your phone, no contacts, photos or files, no advertising
-          identifiers, no tracking across other apps or websites, and no ads. Please don&rsquo;t include personal
+          <b>What we don&rsquo;t collect.</b> No location unless you turn it on, and never in the background; no
+          contacts, photos or files, no advertising identifiers, no tracking across other apps or websites, and no ads. Please don&rsquo;t include personal
           details such as your SIN, health information or account numbers in a question.
         </p>
       </Section>
@@ -75,6 +92,8 @@ export default function AppPrivacyPage() {
         <ul>
           <li>To answer your questions using public City of Markham information</li>
           <li>To keep your history, saved questions, settings and profile when you are signed in</li>
+          <li>If you turn on location, to answer questions about where you are</li>
+          <li>If you allow notifications, to send the kinds of message you chose</li>
           <li>To find questions the app answers poorly, and improve answers</li>
           <li>To keep the service secure and prevent abuse</li>
         </ul>
@@ -97,9 +116,14 @@ export default function AppPrivacyPage() {
           <li>
             <b>Apple or Google speech services</b> on your phone, when you speak a question.
           </li>
+          <li>
+            <b>Expo</b> (650 Industries, Inc.) and your phone&rsquo;s notification service (Apple Push Notification
+            service or Google Firebase Cloud Messaging) deliver notifications, if you allow them. They receive the push
+            token and the message, not your questions or account.
+          </li>
         </ul>
         <p>
-          Google and Apple may process information outside Canada, including in the United States, where it is subject
+          Google, Apple and Expo may process information outside Canada, including in the United States, where it is subject
           to local laws. We may also disclose personal information where required by law. Links in answers open City
           of Markham web pages, which have their own privacy policies.
         </p>
@@ -125,6 +149,8 @@ export default function AppPrivacyPage() {
       <Section title="Your choices and rights">
         <ul>
           <li>Use the app as a guest, without an account</li>
+          <li>Turn location on or off in Settings, Location, or in your phone&rsquo;s settings</li>
+          <li>Allow or turn off notifications, and choose which kinds you get, in the inbox or your phone&rsquo;s settings</li>
           <li>View and change your profile in Settings, Your profile</li>
           <li>Delete single questions or your whole history in Your questions</li>
           <li>
