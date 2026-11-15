@@ -3,14 +3,14 @@ import type { Metadata, Viewport } from 'next';
 export const metadata: Metadata = {
   metadataBase: new URL('https://heymarkham.vercel.app'),
   title: {
-    default: 'HeyMarkham - Voice-Enabled AI Assistant for Markham Residents',
+    default: 'HeyMarkham: Quick Answers on City of Markham Services',
     template: '%s | HeyMarkham',
   },
-  description: 'Quick, accurate answers about Markham city services, drawn from official City information with links to the source. Ask by voice or text, 24/7: garbage collection, parking, permits, recreation and more.',
+  description: 'Quick answers about City of Markham services by voice or text, with links to official pages: garbage, parking, permits, property tax, recreation and events.',
   keywords: [
-    'Markham', 'AI assistant', 'voice assistant', 'Markham garbage collection', 'Markham recycling',
-    'Markham parks', 'Markham events', 'city services', 'smart city', 'Markham Ontario',
-    'municipal services', 'Hey Markham', 'Markham AI', 'City of Markham', 'Markham permits'
+    'Hey Markham', 'Hey Markham app', 'City of Markham', 'Markham city services', 'Markham app',
+    'Markham garbage collection', 'Markham recycling', 'Markham parking', 'Markham permits',
+    'Markham property tax', 'Markham parks', 'Markham events', 'Markham Ontario', 'voice assistant'
   ],
   authors: [{ name: 'HeyMarkham' }],
   creator: 'HeyMarkham',
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     telephone: false,
   },
   openGraph: {
-    title: 'HeyMarkham - Voice-Enabled AI Assistant for Markham Residents',
-    description: 'Quick, accurate answers about Markham city services 24/7, with links to official sources. Just say "Hey Markham".',
+    title: 'HeyMarkham: Quick Answers on City of Markham Services',
+    description: 'Quick answers about City of Markham services, any time, with links to official pages. On the web or in the app.',
     url: 'https://heymarkham.vercel.app',
     siteName: 'HeyMarkham',
     locale: 'en_CA',
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HeyMarkham - Voice-Enabled AI Assistant for Markham Residents',
-    description: 'Quick, accurate answers about Markham city services 24/7, with links to official sources. Just say "Hey Markham".',
+    title: 'HeyMarkham: Quick Answers on City of Markham Services',
+    description: 'Quick answers about City of Markham services, any time, with links to official pages. On the web or in the app.',
     creator: '@heymarkham',
   },
   robots: {
