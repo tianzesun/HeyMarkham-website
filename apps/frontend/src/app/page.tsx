@@ -57,6 +57,30 @@ export default function HomePage() {
     },
   ];
 
+  // Screenshots for the app section, each paired with what it shows
+  const appGallery = [
+    {
+      src: '/screenshots/app-answer.png',
+      caption: 'Answers with their official sources',
+      alt: 'Hey Markham answering "When is yard waste picked up?", with five official markham.ca sources and a Listen button',
+    },
+    {
+      src: '/screenshots/app-report.png',
+      caption: 'Report a problem with a photo',
+      alt: 'Hey Markham Report a problem screen with Take a photo, a problem type, details and Use where I am',
+    },
+    {
+      src: '/screenshots/app-events.png',
+      caption: "What's on around the city",
+      alt: 'Hey Markham Events screen listing upcoming City events with dates, times and places',
+    },
+    {
+      src: '/screenshots/app-inbox.png',
+      caption: 'Service updates in your inbox',
+      alt: 'Hey Markham Inbox with service updates such as a facility closure and road work, and City news',
+    },
+  ];
+
   // What the app does beyond answering questions; keep in step with lib/releases.ts
   const appFeatures = [
     {
@@ -336,6 +360,24 @@ export default function HomePage() {
               <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
                 The Hey Markham app for iPhone and Android helps you get things done around the city.
               </p>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
+              {appGallery.map((shot, i) => (
+                <figure data-reveal key={shot.src} className="flex flex-col items-center" style={{ transitionDelay: `${i * 0.1}s` }}>
+                  <div className="w-full max-w-[13rem] bg-slate-900 rounded-[1.75rem] sm:rounded-[2.25rem] p-1.5 sm:p-2 shadow-xl border-4 border-slate-700">
+                    <Image
+                      src={shot.src}
+                      alt={shot.alt}
+                      width={1080}
+                      height={2424}
+                      sizes="(min-width: 1024px) 208px, (min-width: 640px) 40vw, 45vw"
+                      className="w-full h-auto rounded-[1.25rem] sm:rounded-[1.75rem]"
+                    />
+                  </div>
+                  <figcaption className="mt-4 text-sm font-medium text-center text-slate-700 dark:text-slate-300">{shot.caption}</figcaption>
+                </figure>
+              ))}
             </div>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
