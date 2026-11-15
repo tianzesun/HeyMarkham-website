@@ -46,6 +46,10 @@ export default function AppSupportPage() {
           <b>I forgot my password.</b> On the sign-in screen, enter your email and tap Forgot password?
         </p>
         <p>
+          <b>Which version do I have, and what changed?</b> Your version is at the bottom of Settings. See{' '}
+          <A href="/app/releases">What&rsquo;s new</A> for the changes in each version.
+        </p>
+        <p>
           <b>How do I delete my account?</b> See <A href="/app/delete-account">Delete your account</A>.
         </p>
       </Section>
