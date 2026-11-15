@@ -1,10 +1,11 @@
 import { 
   Mic, Search, Brain, ShieldCheck, Mail, Phone, CheckCircle2, Clock,
-  AlertCircle, FileSearch, MessageSquare, Building2, Calendar, Users,
+  AlertCircle, FileSearch, MessageSquare, Calendar, Users,
   MousePointer, Bot, Link2, Home, Baby, Heart, Zap, Smartphone,
   Volume2, Headphones, CreditCard, BookOpen, Car, Lightbulb,
-  Sparkles, Wifi, PhoneCall, Leaf, Waves, Trees, CalendarDays
+  Leaf, Waves, Trees, CalendarDays
 } from 'lucide-react';
+import Image from 'next/image';
 import { HeroTryLive } from '../components/HeroTryLive';
 import { ContactForm } from '../components/ContactForm';
 import { FAQSection } from '../components/FAQSection';
@@ -14,8 +15,17 @@ import { AnswerSource } from '../components/AnswerSource';
 
 // Server-rendered; only FAQSection and ContactForm hydrate in the browser
 export default function HomePage() {
-  // Generate static heights for voice bars to avoid hydration mismatch
-  const voiceBarHeights = ['16px', '24px', '12px', '20px', '28px'];
+  // Real screenshots from the Hey Markham app
+  const appScreenshots = [
+    {
+      src: '/screenshots/app-home.png',
+      alt: 'Hey Markham app home screen asking “What would you like to know?”, with a mic button and a box to type a question',
+    },
+    {
+      src: '/screenshots/app-services.png',
+      alt: 'Hey Markham app Services screen with Contact the City and topics like Waste & recycling, Property tax and Parking',
+    },
+  ];
 
   // Counted from the data, so it stays true as more answers are checked
   const checkedAnswerCount = faqDatabase.filter(item => item.source).length;
@@ -141,53 +151,28 @@ export default function HomePage() {
                 Just Say &ldquo;Hey Markham&rdquo; — Get Answers Instantly
               </h2>
               <p className="text-lg text-primary-200">
-                Like having a personal city assistant in your pocket. Hands-free, hassle-free, available 24/7.
+                Like having a personal city assistant in your pocket. Ask out loud, hear the answer, any time of day.
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8 items-center">
-              {/* Phone Mockup */}
-              <div className="flex justify-center">
-                <div className="relative">
-                  <div className="w-64 h-[580px] bg-slate-900 rounded-[3rem] p-3 shadow-2xl border-4 border-slate-700">
-                    <div className="w-full h-full bg-gradient-to-b from-primary-800 to-primary-900 rounded-[2.5rem] overflow-hidden relative">
-                      <div className="flex justify-between items-center px-6 py-3 bg-black/20">
-                        <span className="text-white text-xs">9:41</span>
-                        <div className="flex gap-1">
-                          <Wifi className="w-3 h-3 text-white" />
-                          <PhoneCall className="w-3 h-3 text-white" />
-                        </div>
-                      </div>
-                      <div className="p-4 pt-8">
-                        <div className="text-center mb-6">
-                          <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                            <Building2 className="w-8 h-8 text-white" />
-                          </div>
-                          <h3 className="text-white font-bold">HeyMarkham</h3>
-                          <p className="text-primary-200 text-xs">Voice Assistant</p>
-                        </div>
-                        <div className="flex justify-center items-end gap-1 h-16 mb-6">
-                          {voiceBarHeights.map((height, i) => (
-                            <div key={i} className="w-2 bg-primary-300 rounded-full animate-pulse" style={{ height }} />
-                          ))}
-                        </div>
-                        <div className="space-y-3">
-                          <div className="bg-white/10 rounded-lg p-3">
-                            <p className="text-white text-sm">&ldquo;Hey Markham, when&rsquo;s my garbage collection?&rdquo;</p>
-                          </div>
-                          <div className="bg-white rounded-lg p-3">
-                            <p className="text-slate-700 text-sm">Clear-bag garbage goes out every other week and your green bin every week. Have it at the curb by 7 AM.</p>
-                          </div>
-                        </div>
-                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2">
-                          <div className="w-14 h-14 bg-primary-500 rounded-full flex items-center justify-center shadow-lg">
-                            <Mic className="w-6 h-6 text-white" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+              {/* App Screenshots */}
+              <div className="flex justify-center items-start gap-4 sm:gap-6">
+                {appScreenshots.map((shot, i) => (
+                  <div
+                    key={shot.src}
+                    className={`w-36 sm:w-48 lg:w-56 bg-slate-900 rounded-[2rem] sm:rounded-[2.5rem] p-2 shadow-2xl border-4 border-slate-700 ${i === 1 ? 'mt-12' : ''}`}
+                  >
+                    <Image
+                      src={shot.src}
+                      alt={shot.alt}
+                      width={1080}
+                      height={2424}
+                      sizes="(min-width: 1024px) 224px, (min-width: 640px) 192px, 144px"
+                      className="w-full h-auto rounded-[1.5rem] sm:rounded-[2rem]"
+                    />
                   </div>
-                </div>
+                ))}
               </div>
 
               {/* Features */}
@@ -206,8 +191,8 @@ export default function HomePage() {
                     <Headphones className="w-6 h-6 text-primary-200" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-1">Hands-Free Operation</h3>
-                    <p className="text-primary-200 text-sm">Perfect for multitasking — use while driving or carrying groceries.</p>
+                    <h3 className="text-white font-semibold mb-1">Answers Read Aloud</h3>
+                    <p className="text-primary-200 text-sm">In the app, listen to answers instead of reading them, and choose the voice that reads them.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -215,17 +200,17 @@ export default function HomePage() {
                     <Smartphone className="w-6 h-6 text-primary-200" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-1">Nothing to Install</h3>
-                    <p className="text-primary-200 text-sm">Works in your web browser on phone or computer. Voice works best in Chrome, Edge and Safari.</p>
+                    <h3 className="text-white font-semibold mb-1">In the App or Your Browser</h3>
+                    <p className="text-primary-200 text-sm">Ask in the Hey Markham app, or in your web browser on any phone or computer. In a browser, voice works best in Chrome, Edge and Safari.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Sparkles className="w-6 h-6 text-primary-200" />
+                    <Mic className="w-6 h-6 text-primary-200" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-1">Wake Word Activation</h3>
-                    <p className="text-primary-200 text-sm">Turn on the mic button, then just say &ldquo;Hey Markham&rdquo; and ask your question.</p>
+                    <h3 className="text-white font-semibold mb-1">Tap the Mic and Ask</h3>
+                    <p className="text-primary-200 text-sm">Tap the mic and ask your question out loud, or type it if you&rsquo;d rather.</p>
                   </div>
                 </div>
               </div>
