@@ -151,7 +151,7 @@ export default function HomePage() {
                 Just Say &ldquo;Hey Markham&rdquo; — Get Answers Instantly
               </h2>
               <p className="text-lg text-primary-200">
-                Like having a personal city assistant in your pocket. Hands-free, hassle-free, available 24/7.
+                Like having a personal city assistant in your pocket. Ask out loud, hear the answer, any time of day.
               </p>
             </div>
 
@@ -191,8 +191,8 @@ export default function HomePage() {
                     <Headphones className="w-6 h-6 text-primary-200" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-1">Hands-Free Operation</h3>
-                    <p className="text-primary-200 text-sm">Perfect for multitasking — use while driving or carrying groceries.</p>
+                    <h3 className="text-white font-semibold mb-1">Answers Read Aloud</h3>
+                    <p className="text-primary-200 text-sm">In the app, listen to answers instead of reading them, and choose the voice that reads them.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
