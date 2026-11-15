@@ -42,8 +42,11 @@ export default function AppPrivacyPage() {
         </p>
         <p>
           <b>Voice.</b> When you speak, your phone&rsquo;s own speech service (Apple on iPhone, Google on Android) turns
-          your voice into text. Hey Markham receives only the text, never the recording. Read-aloud answers are spoken by
-          your phone.
+          your voice into text. Hey Markham receives only the text, never the recording. Read-aloud answers are spoken,
+          in the voice you choose, by Microsoft Azure AI Speech in Canada: the Hey Markham service sends it the
+          answer&rsquo;s text, which can include your address if the answer is about your home, and plays back the
+          audio. {/* CONFIRM: Microsoft's current retention terms for text-to-speech input. */}
+          If that isn&rsquo;t available, your phone speaks the answer instead.
         </p>
         <p>
           <b>Your account (signed in only).</b> Your sign-in is managed by Google Identity Platform, which holds your
@@ -115,6 +118,10 @@ export default function AppPrivacyPage() {
           </li>
           <li>
             <b>Apple or Google speech services</b> on your phone, when you speak a question.
+          </li>
+          <li>
+            <b>Microsoft</b> (Azure AI Speech, in Canada) reads answers aloud. It receives the text of the answer, not
+            your question or account.
           </li>
           <li>
             <b>Expo</b> (650 Industries, Inc.) and your phone&rsquo;s notification service (Apple Push Notification
