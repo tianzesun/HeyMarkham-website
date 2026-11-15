@@ -31,6 +31,7 @@ export const Footer: React.FC = () => {
               <li><Link href="/#features" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Features</Link></li>
               <li><a href={LIVE_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Try it live</a></li>
               <li><Link href="/#try" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Get the app</Link></li>
+              <li><Link href="/app/releases" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">What&rsquo;s new in the app</Link></li>
               <li><Link href="/#contact" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">For Municipalities</Link></li>
             </ul>
           </div>
