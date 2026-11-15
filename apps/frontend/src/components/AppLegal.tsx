@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
-// Shared pieces for the mobile app's policy pages (/app/privacy, /app/terms, /app/delete-account,
-// /app/support). The App Store and Google Play link to these, and the app links to them from its
+// Shared pieces for the mobile app's pages (/app/privacy, /app/terms, /app/delete-account,
+// /app/support, /app/releases). The App Store and Google Play link to these, and the app links to them from its
 // sign-in screen and Settings. Keep them accurate to what the app and its API actually do
 // (HeyMarkham-mobile and HeyMarkham repos).
 //
@@ -15,19 +15,28 @@ export const APP_UPDATED = 'November 2026'
 
 const link = 'text-primary-600 dark:text-primary-400 underline'
 
-export function AppLegalPage({ title, children }: { title: string; children: React.ReactNode }) {
+export function AppLegalPage({
+  title,
+  updated = APP_UPDATED,
+  children,
+}: {
+  title: string
+  updated?: string
+  children: React.ReactNode
+}) {
   return (
     <div className="bg-white dark:bg-slate-950">
       <article className="max-w-3xl mx-auto px-6 py-16 md:py-20 text-slate-700 dark:text-slate-300 leading-relaxed">
         <p className="text-sm font-medium text-primary-600 dark:text-primary-400 mb-2">Hey Markham app</p>
         <h1 className="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white mb-3">{title}</h1>
-        <p className="text-sm text-slate-500 dark:text-slate-400 mb-10">Last updated: {APP_UPDATED}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-400 mb-10">Last updated: {updated}</p>
         {children}
         <p className="mt-12 flex flex-wrap gap-x-6 gap-y-2 text-sm">
           <Link href="/app/privacy" className={link}>App privacy policy</Link>
           <Link href="/app/terms" className={link}>App terms of use</Link>
           <Link href="/app/delete-account" className={link}>Delete your account</Link>
           <Link href="/app/support" className={link}>App support</Link>
+          <Link href="/app/releases" className={link}>What&rsquo;s new</Link>
         </p>
         <p className="mt-6">
           <Link href="/" className="text-primary-600 dark:text-primary-400 font-medium hover:underline">&larr; Back to HeyMarkham</Link>
