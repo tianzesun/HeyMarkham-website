@@ -122,30 +122,31 @@ export default function HomePage() {
     { value: "1", label: "Question", description: "All HeyMarkham needs" },
   ];
 
+  // Each story matches a checked answer in lib/faq-data.ts; keep the claims to what that answer says
   const winStories = [
     {
       icon: <Home className="w-6 h-6" />,
       persona: "The New Homeowner",
-      question: '"I just moved to Unionville. How do I get a parking permit?"',
-      traditionalPath: "Navigate to Parking Services → Permits → Residential → Download PDF form → Find office hours → Visit in person",
-      heymarkhamPath: "Ask the question → Get instant answer with link to apply online → Done",
-      outcome: "From confused to permitted in under 2 minutes"
+      question: '"I just moved to Unionville. Can I park on the street overnight?"',
+      traditionalPath: "Search for parking → Sort through permits, lots and park pages → Find the overnight rules → Look for the exemption request",
+      heymarkhamPath: "Ask the question → Hear the overnight rules and that you can request an exemption online → Follow the link to apply",
+      outcome: "From question to the application page in one step"
     },
     {
       icon: <Baby className="w-6 h-6" />,
       persona: "The Busy Parent",
-      question: '"Are there any swimming lessons for toddlers on Saturday mornings?"',
-      traditionalPath: "Find Recreation section → Browse program guide PDF → Search for swimming → Check schedules → Call to confirm availability",
-      heymarkhamPath: "Ask naturally → See available programs with times → Click to register",
-      outcome: "From searching to signed up in one conversation"
+      question: '"Where can my kids go swimming this weekend?"',
+      traditionalPath: "Find Recreation → Swimming → Open the program system → Search for drop-in swims",
+      heymarkhamPath: "Ask naturally → Hear which public swims Markham offers → Follow the link to drop-in times",
+      outcome: "Straight to the schedule, without the menus"
     },
     {
       icon: <Heart className="w-6 h-6" />,
       persona: "The Senior",
-      question: '"Where is the nearest cooling center open right now?"',
-      traditionalPath: "Call 905.477.5530 → Wait on hold → Hope operator knows → Get transferred → Write down address",
-      heymarkhamPath: "Speak the question → Get immediate location + hours → Option for directions",
-      outcome: "Life-saving information, instantly accessible"
+      question: '"Where can I go to cool off during a heat warning?"',
+      traditionalPath: "Call during office hours → Wait on hold if lines are busy → Write down the address",
+      heymarkhamPath: "Ask out loud → Hear that community centres open as cooling centres during heat warnings → Get directions to the nearest one in the app",
+      outcome: "The answer and the way there, without waiting on hold"
     },
   ];
 
@@ -652,7 +653,7 @@ export default function HomePage() {
                       <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-4">
                         <div className="flex items-center gap-2 mb-2">
                           <AlertCircle className="w-4 h-4 text-red-600 dark:text-red-400" />
-                          <span className="text-sm font-medium text-red-700 dark:text-red-300">Current Experience</span>
+                          <span className="text-sm font-medium text-red-700 dark:text-red-300">The Usual Way</span>
                         </div>
                         <p className="text-sm text-slate-600 dark:text-slate-400">{story.traditionalPath}</p>
                       </div>
