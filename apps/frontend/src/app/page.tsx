@@ -3,7 +3,7 @@ import {
   AlertCircle, FileSearch, MessageSquare, Calendar, Users,
   MousePointer, Bot, Link2, Home, Baby, Heart, Zap, Smartphone,
   Volume2, Headphones, CreditCard, BookOpen, Car, Lightbulb,
-  Sparkles, Leaf, Waves, Trees, CalendarDays
+  Leaf, Waves, Trees, CalendarDays
 } from 'lucide-react';
 import Image from 'next/image';
 import { HeroTryLive } from '../components/HeroTryLive';
