@@ -27,17 +27,19 @@ export const releases: Release[] = [
     version: '1.1.0',
     date: '2026-11-15',
     delivery: 'store',
-    title: 'Report a problem with a photo, find parks and see City events',
+    title: 'Report a problem with a photo, get directions to parks and see City events',
     new: [
       'Report a problem to the City with a photo, like a pothole, graffiti or a missed pickup. Hey Markham suggests the type of problem and drafts the details; you check them and send the report to the City from your own email.',
       'Say the details instead of typing them, and tap Use where I am to add the exact spot and street address.',
       'Parks & trails: the nearest park, splash pads, trails and how to book a park.',
+      'Directions to nearby parks, libraries, community centres and recycling depots in Apple Maps or Google Maps. Parks show their size and how many kilometres of paths they have, and About tells you more.',
       'Events: what’s coming up at the City, from markham.ca’s event listings.',
     ],
     improved: [
       'Reports can fill in your name, email, phone and address from your profile, only if you turn on Fill in from my profile.',
       'Photos are made smaller and their location data is removed before they leave your phone.',
       'Fixes can now reach you without waiting for a store update.',
+      'Send feedback from Settings: rate the app, share an idea or report a problem.',
     ],
   },
   {
