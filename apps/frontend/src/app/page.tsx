@@ -1,5 +1,5 @@
 import { 
-  Search, Brain, ShieldCheck, Mail, Phone, CheckCircle2, Clock,
+  Mic, Search, Brain, ShieldCheck, Mail, Phone, CheckCircle2, Clock,
   AlertCircle, FileSearch, MessageSquare, Calendar, Users,
   MousePointer, Bot, Link2, Home, Baby, Heart, Zap, Smartphone,
   Volume2, Headphones, CreditCard, BookOpen, Car, Lightbulb,
@@ -206,11 +206,11 @@ export default function HomePage() {
                 </div>
                 <div className="flex gap-4">
                   <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Sparkles className="w-6 h-6 text-primary-200" />
+                    <Mic className="w-6 h-6 text-primary-200" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-1">Wake Word Activation</h3>
-                    <p className="text-primary-200 text-sm">Turn on the mic button, then just say &ldquo;Hey Markham&rdquo; and ask your question.</p>
+                    <h3 className="text-white font-semibold mb-1">Tap the Mic and Ask</h3>
+                    <p className="text-primary-200 text-sm">Tap the mic and ask your question out loud, or type it if you&rsquo;d rather.</p>
                   </div>
                 </div>
               </div>
