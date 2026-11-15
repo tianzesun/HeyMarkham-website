@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
               <span className="font-bold text-slate-900 dark:text-white">HeyMarkham</span>
             </div>
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              AI-powered voice assistant for Markham residents.
+              Quick answers about City of Markham services, by voice or text.
             </p>
           </div>
 

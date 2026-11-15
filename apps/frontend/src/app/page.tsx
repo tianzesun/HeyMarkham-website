@@ -1,7 +1,7 @@
 import { 
   Mic, Search, Brain, ShieldCheck, Mail, Phone, CheckCircle2, Clock,
-  AlertCircle, FileSearch, MessageSquare, Calendar, Users,
-  MousePointer, Bot, Link2, Home, Baby, Heart, Zap, Smartphone,
+  AlertCircle, MessageSquare, Calendar, Users,
+  MousePointer, Link2, Home, Baby, Heart, Zap, Smartphone,
   Volume2, Headphones, CreditCard, BookOpen, Car, Lightbulb,
   Leaf, Waves, Trees, CalendarDays, Camera, Navigation, Languages, LayoutGrid,
   ArrowRight
@@ -129,22 +129,68 @@ export default function HomePage() {
     {
       icon: <Link2 className="w-6 h-6" />,
       title: "Verified by Source",
-      description: "Answers link back to the official city page they came from, so you can check the information for yourself instead of taking the AI's word for it."
+      description: "Answers link back to the official city page they came from, so you can check the information for yourself."
     },
     {
       icon: <MessageSquare className="w-6 h-6" />,
       title: "Natural Language",
-      description: 'Talk to it like a neighbour. Ask "Hey, what can I put in my blue bin?" instead of stiff, formal search terms. In the full product, the AI understands context, not just keywords.'
+      description: 'Talk to it like a neighbour. Ask "Hey, what can I put in my blue bin?" instead of guessing the right search words.'
     },
     {
       icon: <Brain className="w-6 h-6" />,
-      title: "Contextual Understanding",
-      description: "Unlike keyword-matching chatbots that fail when you phrase things differently, the full product's RAG system understands what you're actually asking, not just what words you used."
+      title: "Understands What You Mean",
+      description: "Ask the same thing in different words and still get the right answer, not a list of pages that happen to share a word."
     },
     {
       icon: <ShieldCheck className="w-6 h-6" />,
       title: "Says When It Doesn't Know",
-      description: "Answers are grounded in official city information. If the answer isn't in those sources, HeyMarkham says so and points you to the right contact instead of guessing."
+      description: "Answers come from official city information. If the answer isn't there, HeyMarkham says so and points you to the right contact instead of guessing."
+    },
+  ];
+
+  const howItWorksSteps = [
+    {
+      icon: <MessageSquare className="w-6 h-6" />,
+      title: "Ask",
+      description: "Say or type your question in your own words, the way you'd ask a neighbour.",
+    },
+    {
+      icon: <CheckCircle2 className="w-6 h-6" />,
+      title: "Get the answer",
+      description: "A short, plain answer, with a link to the official City page it came from.",
+    },
+    {
+      icon: <ArrowRight className="w-6 h-6" />,
+      title: "Get it done",
+      description: "Follow the link to apply, pay or book, or call the right department. In the app, get directions or report a problem too.",
+    },
+  ];
+
+  const searchComparison = [
+    {
+      topic: "Where you start",
+      website: "Guess the right menu or search words",
+      heyMarkham: "Ask in your own words",
+    },
+    {
+      topic: "What you get",
+      website: "A list of pages to read through",
+      heyMarkham: "A short answer, with the page it came from",
+    },
+    {
+      topic: "Finding the detail",
+      website: "Scan pages and PDFs for the line that applies to you",
+      heyMarkham: "The detail you asked for is in the answer",
+    },
+    {
+      topic: "After hours",
+      website: "Keep searching, or wait for the Contact Centre to open",
+      heyMarkham: "Ask any time, day or night",
+    },
+    {
+      topic: "On the go",
+      website: "Pinch and scroll through full web pages",
+      heyMarkham: "Ask by voice and, in the app, hear the answer read aloud",
     },
   ];
 
@@ -322,15 +368,15 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Section 1: Why Traditional City Portals Fail Residents */}
+        {/* Section 1: Why not just search markham.ca? */}
         <section className="py-16 px-6 bg-slate-50 dark:bg-slate-900">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
-                Why Traditional City Portals Fail Residents
+                Why Not Just Search markham.ca?
               </h2>
               <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
-                The search for the needle in the haystack
+                The answers are on markham.ca. Finding them is the hard part.
               </p>
             </div>
 
@@ -387,15 +433,15 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* The "Smart-ish" Chatbot Comparison */}
+            {/* Search box vs. Hey Markham */}
             <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-200 dark:border-slate-700">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
-                  <Bot className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+                  <Search className="w-6 h-6 text-amber-600 dark:text-amber-400" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white">The &ldquo;Smart-ish&rdquo; Chatbot Problem</h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm">Why existing chatbots don&rsquo;t actually help</p>
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white">The Search Box Problem</h3>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm">Search matches words, not what you mean</p>
                 </div>
               </div>
 
@@ -403,7 +449,7 @@ export default function HomePage() {
                 <div className="border border-red-200 dark:border-red-800 rounded-lg p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="px-3 py-1 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded-full text-sm font-medium">
-                      Keyword Matching (Dumb)
+                      A typical search box
                     </span>
                   </div>
                   <div className="space-y-3">
@@ -415,8 +461,8 @@ export default function HomePage() {
                       <div className="text-2xl">↓</div>
                     </div>
                     <div className="bg-red-50 dark:bg-red-900/20 rounded p-3">
-                      <p className="text-sm text-slate-600 dark:text-slate-400">Chatbot response:</p>
-                      <p className="text-sm text-red-700 dark:text-red-300">&ldquo;I found 15 results for &rsquo;park&rsquo;. Did you mean: parks, park permits, parking lots?&rdquo;</p>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">Search results:</p>
+                      <p className="text-sm text-red-700 dark:text-red-300">15 results for &lsquo;park&rsquo;: parks, park permits, parking lots&hellip;</p>
                     </div>
                   </div>
                 </div>
@@ -424,7 +470,7 @@ export default function HomePage() {
                 <div className="border border-green-200 dark:border-green-800 rounded-lg p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="px-3 py-1 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
-                      Contextual Understanding (Smart)
+                      Hey Markham
                     </span>
                   </div>
                   <div className="space-y-3">
@@ -449,7 +495,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Section 2: The "RAG" Difference */}
+        {/* Section 2: What makes the answers good */}
         <section id="features" className="py-16 px-6 bg-white dark:bg-slate-950">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-12">
@@ -457,7 +503,7 @@ export default function HomePage() {
                 Purpose-Built for Markham
               </h2>
               <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
-                Grounded in official city information, not the open internet.
+                Built on official City of Markham information, not the open internet.
               </p>
             </div>
 
@@ -481,130 +527,56 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* How It Actually Works: RAG Architecture */}
+        {/* How It Works, for residents: three steps, then searching markham.ca side by side */}
         <section id="solution" className="py-16 px-6 bg-slate-50 dark:bg-slate-900">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center max-w-3xl mx-auto mb-16">
-              <p data-reveal className="text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-3">
-                In the full HeyMarkham product
-              </p>
+            <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
-                How RAG Actually Works
+                From Question to Done
               </h2>
               <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
-                In the full product, every answer starts from official city documents and cites them when it reaches you.
-              </p>
-              <p data-reveal className="mt-3 text-sm text-slate-500 dark:text-slate-400" style={{ transitionDelay: '0.15s' }}>
-                Try it live to see it work: ask anything, and each answer links to the official pages it came from.
+                Three steps, and no menus to dig through.
               </p>
             </div>
 
-            {/* RAG Pipeline Animation */}
-            <div className="relative">
-              {/* Connection Line */}
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary-200 via-primary-400 to-primary-200 dark:from-primary-800 dark:via-primary-600 dark:to-primary-800 transform -translate-y-1/2 hidden lg:block" />
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-7 gap-6">
-                {/* Step 1 */}
-                <div data-reveal className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 relative z-10">
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary-600 dark:text-primary-400">
-                    <MessageSquare className="w-6 h-6" />
+            <div className="grid md:grid-cols-3 gap-6 mb-16">
+              {howItWorksSteps.map((step, i) => (
+                <div data-reveal key={step.title} className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700" style={{ transitionDelay: `${i * 0.1}s` }}>
+                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 rounded-lg flex items-center justify-center mb-4 text-primary-600 dark:text-primary-400">
+                    {step.icon}
                   </div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white text-center mb-2">1. Question</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 text-center">Resident asks question in natural language</p>
+                  <h3 className="font-semibold text-slate-900 dark:text-white mb-2">{i + 1}. {step.title}</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{step.description}</p>
                 </div>
-
-                {/* Step 2 */}
-                <div data-reveal className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 relative z-10" style={{ transitionDelay: '0.1s' }}>
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary-600 dark:text-primary-400">
-                    <Brain className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white text-center mb-2">2. Embedding</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 text-center">Question converted to 1536 dimensional vector</p>
-                </div>
-
-                {/* Step 3 */}
-                <div data-reveal className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 relative z-10" style={{ transitionDelay: '0.2s' }}>
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary-600 dark:text-primary-400">
-                    <Search className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white text-center mb-2">3. Search</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 text-center">Similarity search across official city documents</p>
-                </div>
-
-                {/* Step 4 */}
-                <div data-reveal className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 relative z-10" style={{ transitionDelay: '0.3s' }}>
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary-600 dark:text-primary-400">
-                    <FileSearch className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white text-center mb-2">4. Retrieve</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 text-center">Top 3 most relevant official documents returned</p>
-                </div>
-
-                {/* Step 5 */}
-                <div data-reveal className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 relative z-10" style={{ transitionDelay: '0.4s' }}>
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary-600 dark:text-primary-400">
-                    <BookOpen className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white text-center mb-2">5. Context</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 text-center">Documents injected into LLM prompt context window</p>
-                </div>
-
-                {/* Step 6 */}
-                <div data-reveal className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 relative z-10" style={{ transitionDelay: '0.5s' }}>
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 rounded-lg flex items-center justify-center mx-auto mb-4 text-primary-600 dark:text-primary-400">
-                    <Bot className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white text-center mb-2">6. Generate</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 text-center">LLM answers ONLY using provided context. Temperature = 0</p>
-                </div>
-
-                {/* Step 7 */}
-                <div data-reveal className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700 relative z-10" style={{ transitionDelay: '0.6s' }}>
-                  <div className="w-12 h-12 bg-green-100 dark:bg-green-900/50 rounded-lg flex items-center justify-center mx-auto mb-4 text-green-600 dark:text-green-400">
-                    <CheckCircle2 className="w-6 h-6" />
-                  </div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white text-center mb-2">7. Verify</h3>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 text-center">Answer returned with source citations, or a clear &ldquo;I don&rsquo;t know&rdquo;.</p>
-                </div>
-              </div>
-
-              {/* Technical Specifications */}
-              <h3 data-reveal className="mt-16 mb-6 text-center text-lg font-semibold text-slate-900 dark:text-white">
-                Full product specifications
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                <div data-reveal className="bg-slate-900 dark:bg-black rounded-xl p-6 text-white" style={{ transitionDelay: '0.7s' }}>
-                  <h4 className="font-bold mb-3 text-lg">Graph RAG System</h4>
-                  <ul className="space-y-2 text-sm text-slate-300">
-                    <li>✓ Microsoft GraphRAG Architecture</li>
-                    <li>✓ Knowledge graph extraction</li>
-                    <li>✓ Cross document relationship reasoning</li>
-                    <li>✓ Hierarchical community detection</li>
-                  </ul>
-                </div>
-
-                <div data-reveal className="bg-slate-900 dark:bg-black rounded-xl p-6 text-white" style={{ transitionDelay: '0.8s' }}>
-                  <h4 className="font-bold mb-3 text-lg">LLM Pipeline</h4>
-                  <ul className="space-y-2 text-sm text-slate-300">
-                    <li>✓ GPT-4o Mini</li>
-                    <li>✓ Temperature = 0.0</li>
-                    <li>✓ System prompt boundary enforcement</li>
-                    <li>✓ Global search + local search</li>
-                  </ul>
-                </div>
-
-                <div data-reveal className="bg-slate-900 dark:bg-black rounded-xl p-6 text-white" style={{ transitionDelay: '0.9s' }}>
-                  <h4 className="font-bold mb-3 text-lg">Built for Trust</h4>
-                  <ul className="space-y-2 text-sm text-slate-300">
-                    <li>✓ Answers cite official sources</li>
-                    <li>✓ Declines questions outside city services</li>
-                    <li>✓ No account or sign-in required</li>
-                    <li>✓ Voice is opt-in, off until you turn it on</li>
-                  </ul>
-                </div>
-              </div>
+              ))}
             </div>
+
+            <h3 data-reveal className="text-xl font-semibold text-slate-900 dark:text-white text-center mb-6">
+              Searching markham.ca vs. asking Hey Markham
+            </h3>
+            <div data-reveal className="max-w-4xl mx-auto overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
+              <table className="w-full text-xs sm:text-sm text-left">
+                <thead className="bg-slate-100 dark:bg-slate-900/60 text-slate-900 dark:text-white">
+                  <tr>
+                    <th scope="col" className="p-3 sm:p-4 w-1/4"><span className="sr-only">Topic</span></th>
+                    <th scope="col" className="p-3 sm:p-4 font-semibold">Searching markham.ca</th>
+                    <th scope="col" className="p-3 sm:p-4 font-semibold text-primary-700 dark:text-primary-300">Asking Hey Markham</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-200 dark:divide-slate-700">
+                  {searchComparison.map((row) => (
+                    <tr key={row.topic} className="align-top">
+                      <th scope="row" className="p-3 sm:p-4 font-medium text-slate-900 dark:text-white">{row.topic}</th>
+                      <td className="p-3 sm:p-4 text-slate-600 dark:text-slate-400">{row.website}</td>
+                      <td className="p-3 sm:p-4 text-slate-700 dark:text-slate-300">{row.heyMarkham}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p data-reveal className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
+              Same official information either way. Hey Markham does the digging.
+            </p>
           </div>
         </section>
 
