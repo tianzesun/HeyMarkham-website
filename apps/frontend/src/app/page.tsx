@@ -3,14 +3,18 @@ import {
   AlertCircle, FileSearch, MessageSquare, Calendar, Users,
   MousePointer, Bot, Link2, Home, Baby, Heart, Zap, Smartphone,
   Volume2, Headphones, CreditCard, BookOpen, Car, Lightbulb,
-  Leaf, Waves, Trees, CalendarDays
+  Leaf, Waves, Trees, CalendarDays, Camera, Navigation, Languages, LayoutGrid,
+  ArrowRight
 } from 'lucide-react';
 import Image from 'next/image';
-import { HeroTryLive } from '../components/HeroTryLive';
+import Link from 'next/link';
+import { HeroTryLive, StoreButton } from '../components/HeroTryLive';
 import { ContactForm } from '../components/ContactForm';
 import { FAQSection } from '../components/FAQSection';
 import { RevealOnScroll } from '../components/RevealOnScroll';
 import { faqDatabase } from '../lib/faq-data';
+import { APP_STORE_URL, GOOGLE_PLAY_URL } from '../lib/links';
+import { latestRelease } from '../lib/releases';
 import { AnswerSource } from '../components/AnswerSource';
 
 // Server-rendered; only FAQSection and ContactForm hydrate in the browser
@@ -50,6 +54,40 @@ export default function HomePage() {
       icon: <ShieldCheck className="w-6 h-6" />,
       title: "No Guessing",
       description: "If HeyMarkham doesn't know, it says so and points you to the City's Contact Centre at 905-477-5530.",
+    },
+  ];
+
+  // What the app does beyond answering questions; keep in step with lib/releases.ts
+  const appFeatures = [
+    {
+      icon: <Camera className="w-6 h-6" />,
+      title: "Report a Problem",
+      description: "Snap a pothole, graffiti or a missed pickup. Hey Markham suggests the type of problem and drafts the details; you check them and send the report to the City from your own email.",
+    },
+    {
+      icon: <Navigation className="w-6 h-6" />,
+      title: "Directions to Nearby Places",
+      description: "Find the nearest park, library, community centre or recycling depot and get directions in Apple Maps or Google Maps.",
+    },
+    {
+      icon: <Trees className="w-6 h-6" />,
+      title: "Parks & Trails",
+      description: "Splash pads, trails, park sizes and how to book a park, close to where you are.",
+    },
+    {
+      icon: <CalendarDays className="w-6 h-6" />,
+      title: "City Events",
+      description: "See what's coming up around Markham, from markham.ca's event listings.",
+    },
+    {
+      icon: <Languages className="w-6 h-6" />,
+      title: "Four Languages",
+      description: "English, French, Mandarin or Cantonese, for menus, answers, listening and reading aloud.",
+    },
+    {
+      icon: <LayoutGrid className="w-6 h-6" />,
+      title: "Widget & Shortcuts",
+      description: "Ask from an Android home-screen widget or an app icon shortcut, and pick which notifications reach your inbox.",
     },
   ];
 
@@ -238,6 +276,48 @@ export default function HomePage() {
                 <ShieldCheck size={18} className="text-green-400" />
                 <span>Available 24/7</span>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* In the App: what the mobile app adds */}
+        <section id="app" className="py-16 px-6 bg-white dark:bg-slate-950 scroll-mt-16">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+                More Than Answers, in the App
+              </h2>
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
+                The Hey Markham app for iPhone and Android helps you get things done around the city.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {appFeatures.map((feature, i) => (
+                <div data-reveal key={feature.title} className="hover:-translate-y-1.5 hover:shadow-xl p-6 rounded-xl bg-primary-50 dark:bg-slate-900 border border-primary-100 dark:border-slate-800" style={{ transitionDelay: `${(i % 3) * 0.1}s` }}>
+                  <div className="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/50 flex items-center justify-center text-primary-600 dark:text-primary-400 mb-4">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">{feature.title}</h3>
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{feature.description}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Dark panel: the store buttons are styled for the hero's dark background */}
+            <div className="mt-12 max-w-3xl mx-auto flex flex-col items-center gap-4 text-center rounded-2xl bg-slate-900 border border-slate-800 px-6 py-8">
+              <h3 className="text-xl font-semibold text-white">Get the Hey Markham app</h3>
+              <div className="flex flex-wrap justify-center gap-3">
+                <StoreButton href={GOOGLE_PLAY_URL} store="Google Play" lead="Get it on" />
+                <StoreButton href={APP_STORE_URL} store="the App Store" lead="Download on" />
+              </div>
+              <p className="text-sm text-slate-400">
+                Use it as a guest, or sign in with Apple, Google or email to keep your questions and settings.
+              </p>
+              <Link href="/app/releases" className="inline-flex items-center gap-1 text-sm font-medium text-primary-300 hover:underline">
+                What&rsquo;s new in version {latestRelease.version}
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </section>

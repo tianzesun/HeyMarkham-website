@@ -70,7 +70,8 @@ export function HeroTryLive() {
   )
 }
 
-function StoreButton({ href, store, lead }: { href: string; store: string; lead: string }) {
+// Also used by the homepage's app section
+export function StoreButton({ href, store, lead }: { href: string; store: string; lead: string }) {
   const body = (
     <>
       <span className="block text-[11px] uppercase tracking-wide text-slate-400">{href ? lead : 'Coming soon to'}</span>

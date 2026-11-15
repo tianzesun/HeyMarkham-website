@@ -20,6 +20,7 @@ export const Header: React.FC = () => {
 
   const navigation = [
     // Root-relative so the links also work from other pages such as /privacy
+    { name: 'The App', href: '/#app' },
     { name: 'Features', href: '/#features' },
     { name: 'How It Works', href: '/#solution' },
     { name: 'FAQ', href: '/#faq' },
