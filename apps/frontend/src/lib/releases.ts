@@ -24,6 +24,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.4.0',
+    date: '2026-11-15',
+    delivery: 'store',
+    title: 'What goes where from a photo, and property tax reminders',
+    new: [
+      'Not sure what something is called? Take or choose a photo in What goes where, and Hey Markham names the item and shows where it goes in the City of Markham’s sorting guide. Your photo isn’t kept.',
+      'Property tax reminders: the Property tax topic shows the due dates the City has published, and can remind you a week or a day before. Reminders are set on your phone, and new dates are picked up as soon as the City publishes them.',
+    ],
+  },
+  {
     version: '1.3.0',
     date: '2026-11-15',
     delivery: 'store',

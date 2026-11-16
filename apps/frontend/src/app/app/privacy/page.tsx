@@ -108,11 +108,18 @@ export default function AppPrivacyPage() {
         <p>
           <b>What goes where.</b> When you look up how to dispose of an item, the words you search for and the item
           you open go to the Hey Markham service, which looks them up in the City of Markham&rsquo;s sorting guide.
-          The search isn&rsquo;t linked to your account or location.
+          The search isn&rsquo;t linked to your account or location. If you search with a photo, it is made smaller
+          and its location data removed before it leaves your phone, then read on our own server to name the item.
+          It isn&rsquo;t sent to any other company, and isn&rsquo;t stored or logged.
+        </p>
+        <p>
+          <b>Property tax reminders (only if you turn them on).</b> The app gets the City&rsquo;s published due dates
+          from the Hey Markham service and schedules the reminders on your phone. Nothing about you or your property
+          is sent for this.
         </p>
         <p>
           <b>What we don&rsquo;t collect.</b> No location unless you allow it, and never in the background; no
-          contacts or files, no photos except one you add to a problem report, no advertising identifiers, no tracking across other apps or websites, and no ads. Please don&rsquo;t include personal
+          contacts or files, no photos except one you add to a problem report or search with in What goes where, no advertising identifiers, no tracking across other apps or websites, and no ads. Please don&rsquo;t include personal
           details such as your SIN, health information or account numbers in a question.
         </p>
       </Section>
