@@ -4,7 +4,7 @@ import {
   MousePointer, Link2, Home, Baby, Heart, Zap, Smartphone,
   Volume2, Headphones, CreditCard, BookOpen, Car, Droplets,
   Leaf, Waves, Trees, CalendarDays, Camera, Navigation, Languages, LayoutGrid, Bell,
-  ArrowRight
+  ArrowRight, ArrowUpRight
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -270,6 +270,14 @@ export default function HomePage() {
       description: "Follow the link to apply, pay or book, or call the right department. In the app, get directions or report a problem too.",
     },
   ];
+
+  // A real worked example for the three steps; every fact is on the pet licence page or Animal Services page
+  const PET_LICENCE_URL = 'https://www.markham.ca/permits-licences-taxes/animal-services/pet-licence';
+  const workedExample = {
+    question: "Does my cat need a licence if it's microchipped?",
+    answer: "Yes. Dogs and cats in Markham need a licence, even if they have a microchip. You can register online, and licences renew each year on January 1.",
+    action: "Register your pet online",
+  };
 
   const searchComparison = [
     {
@@ -729,16 +737,61 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-16">
-              {howItWorksSteps.map((step, i) => (
-                <div data-reveal key={step.title} className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700" style={{ transitionDelay: `${i * 0.1}s` }}>
-                  <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/50 rounded-lg flex items-center justify-center mb-4 text-primary-600 dark:text-primary-400">
-                    {step.icon}
-                  </div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white mb-2">{i + 1}. {step.title}</h3>
-                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{step.description}</p>
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-20">
+              {/* The steps, joined by a line */}
+              <ol className="lg:col-span-5 relative space-y-8">
+                {howItWorksSteps.map((step, i) => (
+                  <li data-reveal key={step.title} className="relative flex gap-5" style={{ transitionDelay: `${i * 0.1}s` }}>
+                    {i < howItWorksSteps.length - 1 && (
+                      <span className="absolute left-6 top-12 -bottom-8 w-0.5 -translate-x-1/2 bg-primary-200 dark:bg-primary-800" aria-hidden="true" />
+                    )}
+                    <span className={`relative z-10 w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 ring-8 ring-slate-50 dark:ring-slate-900 ${i === howItWorksSteps.length - 1 ? 'bg-green-500 text-white' : 'bg-primary-600 text-white'}`}>
+                      {step.icon}
+                    </span>
+                    <div className="pt-1">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400">Step {i + 1}</p>
+                      <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-1">{step.title}</h3>
+                      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{step.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+
+              {/* The same three steps on a real question */}
+              <div data-reveal className="lg:col-span-7 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-xl p-5 sm:p-8" style={{ transitionDelay: '0.15s' }}>
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-5">A real example</p>
+
+                <div className="flex justify-end items-start gap-3 mb-5">
+                  <p className="max-w-[85%] rounded-2xl rounded-tr-sm bg-primary-700 text-white px-4 py-3 text-sm sm:text-base">
+                    {workedExample.question}
+                  </p>
+                  <StepBadge n={1} />
                 </div>
-              ))}
+
+                <div className="flex items-start gap-3 mb-5">
+                  <StepBadge n={2} />
+                  <div className="flex-1 rounded-2xl rounded-tl-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 px-4 py-3">
+                    <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">Hey Markham</p>
+                    <p className="text-sm sm:text-base text-slate-800 dark:text-slate-200 leading-relaxed">{workedExample.answer}</p>
+                    <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
+                      <AnswerSource source={PET_LICENCE_URL} linkClassName="hover:text-primary-600 dark:hover:text-primary-300" />
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <StepBadge n={3} done />
+                  <a
+                    href={PET_LICENCE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full bg-green-600 hover:bg-green-700 text-white text-sm font-semibold px-5 py-2.5 transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-green-300"
+                  >
+                    {workedExample.action}
+                    <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
             </div>
 
             <h3 data-reveal className="text-xl font-semibold text-slate-900 dark:text-white text-center mb-6">
@@ -750,7 +803,7 @@ export default function HomePage() {
                   <tr>
                     <th scope="col" className="p-3 sm:p-4 w-1/4"><span className="sr-only">Topic</span></th>
                     <th scope="col" className="p-3 sm:p-4 font-semibold">Searching markham.ca</th>
-                    <th scope="col" className="p-3 sm:p-4 font-semibold text-primary-700 dark:text-primary-300">Asking Hey Markham</th>
+                    <th scope="col" className="p-3 sm:p-4 font-semibold text-primary-700 dark:text-primary-300 bg-primary-50 dark:bg-primary-900/40">Asking Hey Markham</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-200 dark:divide-slate-700">
@@ -758,7 +811,12 @@ export default function HomePage() {
                     <tr key={row.topic} className="align-top">
                       <th scope="row" className="p-3 sm:p-4 font-medium text-slate-900 dark:text-white">{row.topic}</th>
                       <td className="p-3 sm:p-4 text-slate-600 dark:text-slate-400">{row.website}</td>
-                      <td className="p-3 sm:p-4 text-slate-700 dark:text-slate-300">{row.heyMarkham}</td>
+                      <td className="p-3 sm:p-4 text-slate-800 dark:text-slate-200 bg-primary-50/60 dark:bg-primary-900/20">
+                        <span className="flex gap-2">
+                          <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0 text-green-600 dark:text-green-400" aria-hidden="true" />
+                          {row.heyMarkham}
+                        </span>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -771,7 +829,7 @@ export default function HomePage() {
         </section>
 
         {/* Win Stories */}
-        <section className="py-16 px-6 bg-slate-50 dark:bg-slate-900">
+        <section className="py-16 px-6 bg-white dark:bg-slate-950">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
@@ -1012,5 +1070,19 @@ function SpotlightTile({ feature, tone, chip, className = '', body = '', peek, p
         </div>
       </div>
     </div>
+  )
+}
+
+// Ties a part of the worked example to its numbered step
+function StepBadge({ n, done = false }: { n: number; done?: boolean }) {
+  return (
+    <span
+      className={`w-7 h-7 rounded-full flex items-center justify-center flex-shrink-0 text-xs font-bold ${
+        done ? 'bg-green-500 text-white' : 'bg-primary-600 text-white'
+      }`}
+      aria-label={`Step ${n}`}
+    >
+      {n}
+    </span>
   )
 }
