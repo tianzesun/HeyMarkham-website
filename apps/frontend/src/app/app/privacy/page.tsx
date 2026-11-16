@@ -85,6 +85,12 @@ export default function AppPrivacyPage() {
           in, a sign-in token is kept in your phone&rsquo;s secure storage (Keychain or Keystore).
         </p>
         <p>
+          <b>Pickup day (only if you set one).</b> The collection day and week you choose are stored only on your
+          phone. To show your pickup dates, the app asks the Hey Markham service for that collection zone&rsquo;s
+          calendar, such as &ldquo;Thursday A&rdquo;. Your address is never sent for this, and the request isn&rsquo;t
+          linked to your account.
+        </p>
+        <p>
           <b>What we don&rsquo;t collect.</b> No location unless you allow it, and never in the background; no
           contacts, photos or files, no advertising identifiers, no tracking across other apps or websites, and no ads. Please don&rsquo;t include personal
           details such as your SIN, health information or account numbers in a question.

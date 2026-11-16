@@ -24,6 +24,18 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.2.0',
+    date: '2026-11-15',
+    delivery: 'store',
+    title: 'Your pickup day, with the next pickup on the home screen',
+    new: [
+      'Set your pickup day once and see your next curbside pickup and what goes out: garbage, green bin, blue box, yard material and bulky items. Choose your collection day, then the date your next garbage goes out.',
+      'Your next pickup shows on the home screen, and the Pickup day screen lists the coming weeks, with holiday changes. It comes from the City of Markham’s collection calendar.',
+      'Your pickup day stays on your phone. Your address isn’t sent, and markham.ca’s address lookup is one tap away if you’re not sure of your day.',
+    ],
+    fixed: ['Send feedback now says what’s missing, instead of seeming to do nothing.'],
+  },
+  {
     version: '1.1.0',
     date: '2026-11-15',
     delivery: 'store',
