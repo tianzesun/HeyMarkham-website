@@ -42,7 +42,7 @@ export const Header: React.FC = () => {
             </div>
             <Link href="/" className="flex items-center">
               <span className="text-lg font-bold text-white">
-                HeyMarkham
+                Hey Markham
               </span>
             </Link>
           </div>

@@ -1,4 +1,4 @@
-// HeyMarkham UI Package
+// Hey Markham UI Package
 export { Button } from './components/Button';
 
 // Re-export commonly used types

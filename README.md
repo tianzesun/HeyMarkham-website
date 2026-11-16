@@ -1,8 +1,8 @@
-# HeyMarkham Website ✅
+# Hey Markham Website ✅
 
 > ✅ **WEBSITE IS NOW READY AND COMPLETED**
 
-Official marketing website for HeyMarkham - the AI-powered voice assistant for City of Markham residents. Production ready website with full voice assistant integration.
+Official marketing website for Hey Markham - the AI-powered voice assistant for City of Markham residents. Production ready website with full voice assistant integration.
 
 ## ✨ Live Features (Now Implemented)
 
@@ -81,9 +81,9 @@ HeyMarkham-website/
 | Mobile Responsiveness | ✅ Fully Responsive |
 | Production Build | ✅ Ready |
 
-## 🎯 About HeyMarkham
+## 🎯 About Hey Markham
 
-HeyMarkham is a voice-enabled AI assistant designed exclusively for the City of Markham, Ontario. It provides residents with instant, accurate answers 24/7 for common city services including:
+Hey Markham is a voice-enabled AI assistant designed exclusively for the City of Markham, Ontario. It provides residents with instant, accurate answers 24/7 for common city services including:
 
 - 🗑️ Garbage & recycling collection schedules
 - 🏞️ Parks, recreation facilities & program information

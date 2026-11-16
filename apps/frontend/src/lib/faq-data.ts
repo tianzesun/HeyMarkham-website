@@ -401,7 +401,7 @@ const coverage = (query: string, keywords: string[]): number => {
 // Below this share the question is probably about something else that merely shares a word
 const MIN_COVERAGE = 0.4;
 
-const FALLBACK_ANSWER = "I'm HeyMarkham, and I can only help with questions about Markham municipal services. I don't have specific information about that question. For further assistance you can call City of Markham customer service at 905-477-5530 or email customerservice@markham.ca during business hours.";
+const FALLBACK_ANSWER = "I'm Hey Markham, and I can only help with questions about Markham municipal services. I don't have specific information about that question. For further assistance you can call City of Markham customer service at 905-477-5530 or email customerservice@markham.ca during business hours.";
 
 /**
  * Find best matching answer for user query, with the markham.ca page it came from if checked

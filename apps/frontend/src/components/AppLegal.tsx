@@ -39,7 +39,7 @@ export function AppLegalPage({
           <Link href="/app/releases" className={link}>What&rsquo;s new</Link>
         </p>
         <p className="mt-6">
-          <Link href="/" className="text-primary-600 dark:text-primary-400 font-medium hover:underline">&larr; Back to HeyMarkham</Link>
+          <Link href="/" className="text-primary-600 dark:text-primary-400 font-medium hover:underline">&larr; Back to Hey Markham</Link>
         </p>
       </article>
     </div>
