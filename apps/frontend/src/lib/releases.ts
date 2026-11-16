@@ -27,11 +27,12 @@ export const releases: Release[] = [
     version: '1.4.0',
     date: '2026-11-15',
     delivery: 'store',
-    title: 'What goes where from a photo, property tax reminders, and holiday pickup changes',
+    title: 'What goes where from a photo, reminders for tax and holiday pickups, and City messages in your language',
     new: [
       'Not sure what something is called? Take or choose a photo in What goes where, and Hey Markham names the item and shows where it goes in the City of Markham’s sorting guide. Your photo isn’t kept.',
       'Property tax reminders: the Property tax topic shows the due dates the City has published, and can remind you a week or a day before. Reminders are set on your phone, and new dates are picked up as soon as the City publishes them.',
       'Holiday pickup changes: when a holiday moves your pickup, like Christmas Day to Saturday, the app shows it on your Pickup day and home screen. With pickup reminders on, you also get a heads-up the day before your usual pickup, so you know not to put your bins out.',
+      'City messages in your language: if you use Hey Markham in French, Mandarin or Cantonese, news, events and alerts in your inbox are translated for you. Read the full message translated in the app, or tap Learn more for the City’s original.',
     ],
   },
   {
