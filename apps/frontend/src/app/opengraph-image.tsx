@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'HeyMarkham - Voice Assistant for Markham Residents'
+export const alt = 'Hey Markham - Voice Assistant for Markham Residents'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -39,7 +39,7 @@ export default function OpengraphImage() {
               <line x1="12" x2="12" y1="19" y2="22" />
             </svg>
           </div>
-          <div style={{ fontSize: '56px', fontWeight: 700 }}>HeyMarkham</div>
+          <div style={{ fontSize: '56px', fontWeight: 700 }}>Hey Markham</div>
         </div>
         <div style={{ fontSize: '64px', fontWeight: 700, lineHeight: 1.1, marginBottom: '28px' }}>
           Just say &ldquo;Hey Markham&rdquo;

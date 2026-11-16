@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'How HeyMarkham handles your information: what we collect, why, and your choices.',
+  description: 'How Hey Markham handles your information: what we collect, why, and your choices.',
   alternates: { canonical: '/privacy' },
 }
 
@@ -25,7 +25,7 @@ export default function PrivacyPage() {
 
         <Section title="Who we are">
           <p>
-            HeyMarkham is operated by Aydenait Solutions. It is an independent service and is not
+            Hey Markham is operated by Aydenait Solutions. It is an independent service and is not
             affiliated with or endorsed by the City of Markham. Questions about this policy can be emailed
             to <a href={`mailto:${EMAIL}`} className="text-primary-600 dark:text-primary-400 underline">{EMAIL}</a> or
             asked by phone at <a href="tel:+12898599523" className="text-primary-600 dark:text-primary-400 underline">{PHONE}</a>.
@@ -105,7 +105,7 @@ export default function PrivacyPage() {
         </Section>
 
         <p className="mt-12">
-          <Link href="/" className="text-primary-600 dark:text-primary-400 font-medium hover:underline">&larr; Back to HeyMarkham</Link>
+          <Link href="/" className="text-primary-600 dark:text-primary-400 font-medium hover:underline">&larr; Back to Hey Markham</Link>
         </p>
       </article>
     </div>

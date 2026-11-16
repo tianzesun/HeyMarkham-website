@@ -53,7 +53,7 @@ export default function HomePage() {
     {
       icon: <ShieldCheck className="w-6 h-6" />,
       title: "No Guessing",
-      description: "If HeyMarkham doesn't know, it says so and points you to the City's Contact Centre at 905-477-5530.",
+      description: "If Hey Markham doesn't know, it says so and points you to the City's Contact Centre at 905-477-5530.",
     },
   ];
 
@@ -116,7 +116,7 @@ export default function HomePage() {
     { value: "7", label: "Steps", description: "To find one yard waste date in the example above" },
     { value: "Several", label: "Separate Systems", description: "Waste, recreation, libraries and transit each have their own" },
     { value: "Office hours", label: "Phone Support", description: "Questions don't stop when lines close" },
-    { value: "1", label: "Question", description: "All HeyMarkham needs" },
+    { value: "1", label: "Question", description: "All Hey Markham needs" },
   ];
 
   // Each story matches a checked answer in lib/faq-data.ts; keep the claims to what that answer says
@@ -166,7 +166,7 @@ export default function HomePage() {
     {
       icon: <ShieldCheck className="w-6 h-6" />,
       title: "Says When It Doesn't Know",
-      description: "Answers come from official city information. If the answer isn't there, HeyMarkham says so and points you to the right contact instead of guessing."
+      description: "Answers come from official city information. If the answer isn't there, Hey Markham says so and points you to the right contact instead of guessing."
     },
   ];
 
@@ -229,7 +229,7 @@ export default function HomePage() {
               Quick Answers You Can Trust
             </h2>
             <p data-reveal className="text-slate-300 text-center max-w-2xl mx-auto mb-10" style={{ transitionDelay: '0.1s' }}>
-              Speed is only useful if the answer is right. HeyMarkham is built for both.
+              Speed is only useful if the answer is right. Hey Markham is built for both.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {answerQualities.map((quality, i) => (
@@ -545,7 +545,7 @@ export default function HomePage() {
                       <div className="text-2xl">↓</div>
                     </div>
                     <div className="bg-green-50 dark:bg-green-900/20 rounded p-3">
-                      <p className="text-sm text-slate-600 dark:text-slate-400">HeyMarkham response:</p>
+                      <p className="text-sm text-slate-600 dark:text-slate-400">Hey Markham response:</p>
                       <p className="text-sm text-green-700 dark:text-green-300">&ldquo;Street parking isn&rsquo;t allowed from 2:30 AM to 6 AM unless signs say otherwise, but you can request an overnight exemption online for $6 a night, up to 10 a year per licence plate.&rdquo;</p>
                       <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
                         <AnswerSource source="https://www.markham.ca/permits-licences-taxes/parking/overnight-street-parking-request" linkClassName="hover:text-primary-600 dark:hover:text-primary-300" />
@@ -680,7 +680,7 @@ export default function HomePage() {
                       <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-4">
                         <div className="flex items-center gap-2 mb-2">
                           <Zap className="w-4 h-4 text-green-600 dark:text-green-400" />
-                          <span className="text-sm font-medium text-green-700 dark:text-green-300">With HeyMarkham</span>
+                          <span className="text-sm font-medium text-green-700 dark:text-green-300">With Hey Markham</span>
                         </div>
                         <p className="text-sm text-slate-600 dark:text-slate-400">{story.heymarkhamPath}</p>
                       </div>
@@ -859,7 +859,7 @@ export default function HomePage() {
                  For the City of Markham and other municipalities
                </p>
                <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">
-                 Bring HeyMarkham to Your Residents
+                 Bring Hey Markham to Your Residents
                </h2>
                <p data-reveal className="text-primary-100" style={{ transitionDelay: '0.1s' }}>
                  Start with a pilot. See the results. Then decide.
@@ -873,7 +873,7 @@ export default function HomePage() {
                {/* Contact Info */}
                <div data-reveal className="space-y-8">
                  <div className="text-left">
-                   <h3 className="text-xl font-bold text-white mb-4">Why Choose HeyMarkham?</h3>
+                   <h3 className="text-xl font-bold text-white mb-4">Why Choose Hey Markham?</h3>
                    <div className="space-y-4">
                      <div className="flex gap-4">
                        <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center flex-shrink-0">

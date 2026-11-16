@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
               <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
                 <Mic className="text-white" size={16} />
               </div>
-              <span className="font-bold text-slate-900 dark:text-white">HeyMarkham</span>
+              <span className="font-bold text-slate-900 dark:text-white">Hey Markham</span>
             </div>
             <p className="text-sm text-slate-500 dark:text-slate-400">
               Quick answers about City of Markham services, by voice or text.
@@ -67,7 +67,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <p className="mt-6 text-xs text-slate-500 dark:text-slate-400 text-center md:text-left">
-          HeyMarkham is an independent service by Aydenait Solutions and is not affiliated with or endorsed by the City of Markham.
+          Hey Markham is an independent service by Aydenait Solutions and is not affiliated with or endorsed by the City of Markham.
           FAQ answers were checked against official sources in October 2026; always confirm current details on the source page.
         </p>
       </div>
