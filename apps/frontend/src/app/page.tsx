@@ -3,7 +3,7 @@ import {
   AlertCircle, MessageSquare, Calendar, Users,
   MousePointer, Link2, Home, Baby, Heart, Zap, Smartphone,
   Volume2, Headphones, CreditCard, BookOpen, Car, Lightbulb,
-  Leaf, Waves, Trees, CalendarDays, Camera, Navigation, Languages, LayoutGrid,
+  Leaf, Waves, Trees, CalendarDays, Camera, Navigation, Languages, LayoutGrid, Bell,
   ArrowRight
 } from 'lucide-react';
 import Image from 'next/image';
@@ -57,61 +57,58 @@ export default function HomePage() {
     },
   ];
 
-  // Screenshots for the app section, each paired with what it shows
-  const appGallery = [
-    {
+  // App section: each spotlight pairs a screenshot with the feature it shows; keep in step with lib/releases.ts
+  const appSpotlights = {
+    answer: {
+      icon: <CheckCircle2 className="w-5 h-5" />,
+      title: "Answers you can check",
+      description: "Ask by voice or text and get a short answer, with every official markham.ca page it came from. Tap Listen to hear it read aloud.",
       src: '/screenshots/app-answer.png',
-      caption: 'Answers with their official sources',
       alt: 'Hey Markham answering "When is yard waste picked up?", with five official markham.ca sources and a Listen button',
     },
-    {
+    report: {
+      icon: <Camera className="w-5 h-5" />,
+      title: "Report a problem with a photo",
+      description: "Snap a pothole, graffiti or a missed pickup. Hey Markham suggests the type of problem and drafts the details; you check them and send the report to the City from your own email.",
       src: '/screenshots/app-report.png',
-      caption: 'Report a problem with a photo',
       alt: 'Hey Markham Report a problem screen with Take a photo, a problem type, details and Use where I am',
     },
-    {
+    events: {
+      icon: <CalendarDays className="w-5 h-5" />,
+      title: "What's on around the city",
+      description: "Upcoming City events from markham.ca, with dates, times and places.",
       src: '/screenshots/app-events.png',
-      caption: "What's on around the city",
       alt: 'Hey Markham Events screen listing upcoming City events with dates, times and places',
     },
-    {
+    inbox: {
+      icon: <Bell className="w-5 h-5" />,
+      title: "Service updates in your inbox",
+      description: "Closures, road work and City news, and you choose which notifications you get.",
       src: '/screenshots/app-inbox.png',
-      caption: 'Service updates in your inbox',
       alt: 'Hey Markham Inbox with service updates such as a facility closure and road work, and City news',
     },
-  ];
+  };
 
-  // What the app does beyond answering questions; keep in step with lib/releases.ts
-  const appFeatures = [
+  const appExtras = [
     {
-      icon: <Camera className="w-6 h-6" />,
-      title: "Report a Problem",
-      description: "Snap a pothole, graffiti or a missed pickup. Hey Markham suggests the type of problem and drafts the details; you check them and send the report to the City from your own email.",
+      icon: <Navigation className="w-5 h-5" />,
+      title: "Directions to nearby places",
+      description: "Parks, libraries, community centres and recycling depots, in Apple Maps or Google Maps.",
     },
     {
-      icon: <Navigation className="w-6 h-6" />,
-      title: "Directions to Nearby Places",
-      description: "Find the nearest park, library, community centre or recycling depot and get directions in Apple Maps or Google Maps.",
+      icon: <Trees className="w-5 h-5" />,
+      title: "Parks & trails",
+      description: "Splash pads, trails, park sizes and how to book a park.",
     },
     {
-      icon: <Trees className="w-6 h-6" />,
-      title: "Parks & Trails",
-      description: "Splash pads, trails, park sizes and how to book a park, close to where you are.",
-    },
-    {
-      icon: <CalendarDays className="w-6 h-6" />,
-      title: "City Events",
-      description: "See what's coming up around Markham, from markham.ca's event listings.",
-    },
-    {
-      icon: <Languages className="w-6 h-6" />,
-      title: "Four Languages",
+      icon: <Languages className="w-5 h-5" />,
+      title: "Four languages",
       description: "English, French, Mandarin or Cantonese, for menus, answers, listening and reading aloud.",
     },
     {
-      icon: <LayoutGrid className="w-6 h-6" />,
-      title: "Widget & Shortcuts",
-      description: "Ask from an Android home-screen widget or an app icon shortcut, and pick which notifications reach your inbox.",
+      icon: <LayoutGrid className="w-5 h-5" />,
+      title: "Widget & shortcuts",
+      description: "Ask from an Android home-screen widget or an app icon shortcut.",
     },
   ];
 
@@ -351,62 +348,85 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* In the App: what the mobile app adds */}
-        <section id="app" className="py-16 px-6 bg-white dark:bg-slate-950 scroll-mt-16">
+        {/* In the App: a bento grid, each screenshot in the tile for its feature */}
+        <section id="app" className="py-16 md:py-20 px-6 bg-gradient-to-b from-white to-primary-50 dark:from-slate-950 dark:to-slate-900 scroll-mt-16">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-12">
+              <p data-reveal className="text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-3">
+                The Hey Markham app
+              </p>
               <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
                 More Than Answers, in the App
               </h2>
               <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
-                The Hey Markham app for iPhone and Android helps you get things done around the city.
+                For iPhone and Android. Ask a question, then get it done.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
-              {appGallery.map((shot, i) => (
-                <figure data-reveal key={shot.src} className="flex flex-col items-center" style={{ transitionDelay: `${i * 0.1}s` }}>
-                  <div className="w-full max-w-[13rem] bg-slate-900 rounded-[1.75rem] sm:rounded-[2.25rem] p-1.5 sm:p-2 shadow-xl border-4 border-slate-700">
-                    <Image
-                      src={shot.src}
-                      alt={shot.alt}
-                      width={1080}
-                      height={2424}
-                      sizes="(min-width: 1024px) 208px, (min-width: 640px) 40vw, 45vw"
-                      className="w-full h-auto rounded-[1.25rem] sm:rounded-[1.75rem]"
-                    />
-                  </div>
-                  <figcaption className="mt-4 text-sm font-medium text-center text-slate-700 dark:text-slate-300">{shot.caption}</figcaption>
-                </figure>
-              ))}
-            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {/* Answers: the tall tile */}
+              <SpotlightTile
+                feature={appSpotlights.answer}
+                tone="bg-primary-100/70 dark:bg-primary-900/40 border-primary-200 dark:border-primary-800"
+                chip="bg-white text-primary-700 dark:bg-primary-800 dark:text-primary-200"
+                className="sm:col-span-2 lg:row-span-2"
+                peek="min-h-[22rem] lg:min-h-0 flex-1"
+                phone="w-56 sm:w-64"
+              />
+              {/* Report: wide tile, phone beside the text on larger screens */}
+              <SpotlightTile
+                feature={appSpotlights.report}
+                tone="bg-sky-50 dark:bg-sky-950/40 border-sky-100 dark:border-sky-900"
+                chip="bg-white text-sky-700 dark:bg-sky-900 dark:text-sky-200"
+                className="sm:col-span-2 sm:flex-row"
+                body="sm:w-1/2 sm:pr-0"
+                peek="h-64 sm:h-auto sm:w-1/2"
+                phone="w-44 sm:top-8"
+              />
+              <SpotlightTile
+                feature={appSpotlights.events}
+                tone="bg-rose-50 dark:bg-rose-950/40 border-rose-100 dark:border-rose-900"
+                chip="bg-white text-rose-700 dark:bg-rose-900 dark:text-rose-200"
+                peek="h-52"
+                phone="w-44"
+              />
+              <SpotlightTile
+                feature={appSpotlights.inbox}
+                tone="bg-emerald-50 dark:bg-emerald-950/40 border-emerald-100 dark:border-emerald-900"
+                chip="bg-white text-emerald-700 dark:bg-emerald-900 dark:text-emerald-200"
+                peek="h-52"
+                phone="w-44"
+              />
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {appFeatures.map((feature, i) => (
-                <div data-reveal key={feature.title} className="hover:-translate-y-1.5 hover:shadow-xl p-6 rounded-xl bg-primary-50 dark:bg-slate-900 border border-primary-100 dark:border-slate-800" style={{ transitionDelay: `${(i % 3) * 0.1}s` }}>
-                  <div className="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/50 flex items-center justify-center text-primary-600 dark:text-primary-400 mb-4">
-                    {feature.icon}
+              {appExtras.map((extra, i) => (
+                <div data-reveal key={extra.title} className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800" style={{ transitionDelay: `${i * 0.08}s` }}>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="w-9 h-9 rounded-lg bg-primary-50 dark:bg-primary-900/50 flex items-center justify-center text-primary-600 dark:text-primary-400 flex-shrink-0">
+                      {extra.icon}
+                    </span>
+                    <h3 className="font-semibold text-slate-900 dark:text-white">{extra.title}</h3>
                   </div>
-                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">{feature.title}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{feature.description}</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{extra.description}</p>
                 </div>
               ))}
             </div>
 
-            {/* Dark panel: the store buttons are styled for the hero's dark background */}
-            <div className="mt-12 max-w-3xl mx-auto flex flex-col items-center gap-4 text-center rounded-2xl bg-slate-900 border border-slate-800 px-6 py-8">
-              <h3 className="text-xl font-semibold text-white">Get the Hey Markham app</h3>
-              <div className="flex flex-wrap justify-center gap-3">
+            {/* Download band, dark because the store buttons are styled for the hero's dark background */}
+            <div data-reveal className="mt-8 rounded-2xl bg-slate-900 border border-slate-800 px-6 py-8 md:px-10 flex flex-col lg:flex-row items-center justify-between gap-6 text-center lg:text-left">
+              <div>
+                <h3 className="text-xl font-semibold text-white mb-1">Get the Hey Markham app</h3>
+                <p className="text-sm text-slate-400">
+                  Use it as a guest, or sign in with Apple, Google or email to keep your questions and settings.
+                </p>
+                <Link href="/app/releases" className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-primary-300 hover:underline">
+                  What&rsquo;s new in version {latestRelease.version}
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Link>
+              </div>
+              <div className="flex flex-wrap justify-center gap-3 flex-shrink-0">
                 <StoreButton href={GOOGLE_PLAY_URL} store="Google Play" lead="Get it on" />
                 <StoreButton href={APP_STORE_URL} store="the App Store" lead="Download on" />
               </div>
-              <p className="text-sm text-slate-400">
-                Use it as a guest, or sign in with Apple, Google or email to keep your questions and settings.
-              </p>
-              <Link href="/app/releases" className="inline-flex items-center gap-1 text-sm font-medium text-primary-300 hover:underline">
-                What&rsquo;s new in version {latestRelease.version}
-                <ArrowRight className="w-4 h-4" aria-hidden="true" />
-              </Link>
             </div>
           </div>
         </section>
@@ -893,4 +913,47 @@ export default function HomePage() {
       </div>
     </div>
   );
+}
+
+interface SpotlightFeature {
+  icon: React.ReactNode
+  title: string
+  description: string
+  src: string
+  alt: string
+}
+
+// An app feature with its screenshot rising from the bottom edge of the tile
+function SpotlightTile({ feature, tone, chip, className = '', body = '', peek, phone }: {
+  feature: SpotlightFeature
+  tone: string
+  chip: string
+  className?: string
+  body?: string
+  peek: string
+  phone: string
+}) {
+  return (
+    <div data-reveal className={`flex flex-col overflow-hidden rounded-2xl border ${tone} ${className}`}>
+      <div className={`p-6 md:p-8 ${body}`}>
+        <span className={`inline-flex w-10 h-10 rounded-xl items-center justify-center shadow-sm mb-4 ${chip}`}>
+          {feature.icon}
+        </span>
+        <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">{feature.title}</h3>
+        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{feature.description}</p>
+      </div>
+      <div className={`relative ${peek}`}>
+        <div className={`absolute left-1/2 top-0 -translate-x-1/2 ${phone} bg-slate-900 rounded-t-[2rem] p-2 pb-0 border-4 border-b-0 border-slate-700 shadow-2xl`}>
+          <Image
+            src={feature.src}
+            alt={feature.alt}
+            width={1080}
+            height={2424}
+            sizes="256px"
+            className="w-full h-auto rounded-t-[1.5rem]"
+          />
+        </div>
+      </div>
+    </div>
+  )
 }
