@@ -55,17 +55,31 @@ export default function AppPrivacyPage() {
           500 questions), your saved questions (up to 50) and your optional profile.
         </p>
         <p>
-          <b>Your optional profile (signed in only).</b> First name, home address, postal code and preferred language.
-          Every field is optional. We use your address only to give answers about your home, such as services for your
-          street.
+          <b>Your optional profile (signed in only).</b> First and last name, email, phone number, home address, postal
+          code and preferred language. Every field is optional. We use your address to give answers about your home,
+          such as services for your street. Your name, email, phone and address fill in a problem report only if you
+          turn on &ldquo;Fill in from my profile&rdquo;.
         </p>
         <p>
           <b>Location (only if you allow it).</b> The app asks for location only when you tap &ldquo;Use my
-          location&rdquo; under an answer, such as one about your ward or the nearest library. Your phone then asks for
+          location&rdquo; under an answer, such as one about your ward or the nearest library, or &ldquo;Use where I
+          am&rdquo; in a problem report. Your phone then asks for
           your permission, for use only while you use the app, never in the background. Once you allow it, your
           phone&rsquo;s position, rounded to about 100 metres, is sent with each question. It is used only to answer questions about where you are, such as your
           ward and councillor or the nearest library, community centre or park. It is not stored or logged, and
-          answers don&rsquo;t repeat it. You can stop it at any time in your phone&rsquo;s settings.
+          answers don&rsquo;t repeat it. When you tap &ldquo;Use where I am&rdquo; in a problem report, your phone finds
+          your exact position and its street address, and they go only into the report you send to the City, not to
+          the Hey Markham service. You can stop location at any time in your phone&rsquo;s settings.
+        </p>
+        <p>
+          <b>Problem reports (only if you send one).</b> A report is an email that you send from your own email app to
+          the City of Markham (customerservice@markham.ca). It holds what you put in it: the type of problem, the
+          details, the location, your contact details if you add them, and a photo if you take or choose one. Hey
+          Markham doesn&rsquo;t receive the email. Photos are made smaller, and their location data removed, before
+          they leave your phone. If you add a photo, the app may send it, with your note, to the Hey Markham service
+          to suggest the type of problem and draft the details. The photo is read on our own server, isn&rsquo;t sent to
+          any other company, and isn&rsquo;t stored or logged. Once you send a report, the City handles it under its own
+          privacy policy.
         </p>
         <p>
           <b>Notifications (only if you allow them).</b> The app asks once whether it may send notifications. If you
@@ -92,7 +106,7 @@ export default function AppPrivacyPage() {
         </p>
         <p>
           <b>What we don&rsquo;t collect.</b> No location unless you allow it, and never in the background; no
-          contacts, photos or files, no advertising identifiers, no tracking across other apps or websites, and no ads. Please don&rsquo;t include personal
+          contacts or files, no photos except one you add to a problem report, no advertising identifiers, no tracking across other apps or websites, and no ads. Please don&rsquo;t include personal
           details such as your SIN, health information or account numbers in a question.
         </p>
       </Section>
