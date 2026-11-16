@@ -1,8 +1,8 @@
 import { 
   Mic, Search, Brain, ShieldCheck, Mail, Phone, CheckCircle2, Clock,
-  AlertCircle, MessageSquare, Calendar, Users,
+  AlertCircle, MessageSquare, Users,
   MousePointer, Link2, Home, Baby, Heart, Zap, Smartphone,
-  Volume2, Headphones, CreditCard, BookOpen, Car, Lightbulb,
+  Volume2, Headphones, CreditCard, BookOpen, Car, Droplets,
   Leaf, Waves, Trees, CalendarDays, Camera, Navigation, Languages, LayoutGrid, Bell,
   ArrowRight
 } from 'lucide-react';
@@ -130,6 +130,70 @@ export default function HomePage() {
     "City events, directions to nearby places and a service updates inbox",
     "Report a problem with a photo that drafts the details for you",
   ];
+
+  // Roadmap stages, from what works today to what's planned; Now must match what the app and site really do
+  const roadmapStages = [
+    {
+      key: 'now',
+      label: 'Now',
+      theme: 'Ask & report',
+      description: 'Answers from official City information, and a few things you can already do in the app.',
+      icon: <CheckCircle2 className="w-5 h-5" />,
+      items: [
+        { icon: <Leaf className="w-4 h-4" />, title: 'Garbage & Recycling', description: 'Collection schedules, zones, what goes where' },
+        { icon: <Trees className="w-4 h-4" />, title: 'Parks & Recreation', description: 'Park locations, facilities, programs' },
+        { icon: <CalendarDays className="w-4 h-4" />, title: 'Events & Activities', description: 'Community events, workshops' },
+        { icon: <Camera className="w-4 h-4" />, title: 'Report a Problem', description: 'Potholes, graffiti, missed pickups, with a photo' },
+        { icon: <Navigation className="w-4 h-4" />, title: 'Directions', description: 'To parks, libraries, community centres, depots' },
+      ],
+    },
+    {
+      key: 'next',
+      label: 'Next',
+      theme: 'Book & apply',
+      description: 'Connecting to City systems, so you can act without leaving the conversation.',
+      icon: <Clock className="w-5 h-5" />,
+      items: [
+        { icon: <BookOpen className="w-4 h-4" />, title: 'Library System', description: 'Check books, renew items' },
+        { icon: <Waves className="w-4 h-4" />, title: 'Recreation Booking', description: 'Book pools, courts' },
+        { icon: <Car className="w-4 h-4" />, title: 'Permit Applications', description: 'Parking, building permits' },
+      ],
+    },
+    {
+      key: 'later',
+      label: 'Later',
+      theme: 'Pay',
+      description: 'Bills and payments in the same place you ask your questions.',
+      icon: <CreditCard className="w-5 h-5" />,
+      items: [
+        { icon: <Home className="w-4 h-4" />, title: 'Property Tax', description: 'View, pay, payment plans' },
+        { icon: <Droplets className="w-4 h-4" />, title: 'Water Bills', description: 'View and pay water bills' },
+        { icon: <CreditCard className="w-4 h-4" />, title: 'Fines & Fees', description: 'Parking tickets' },
+      ],
+    },
+  ];
+
+  // Per-stage colours: Now is live (green), Next is in progress (amber), Later is planned (slate)
+  const roadmapTones: Record<string, { node: string; badge: string; card: string; icon: string }> = {
+    now: {
+      node: 'bg-green-500 text-white ring-green-100 dark:ring-green-900/60',
+      badge: 'bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300',
+      card: 'border-green-300 dark:border-green-700 shadow-lg shadow-green-900/5',
+      icon: 'bg-green-50 text-green-700 dark:bg-green-900/40 dark:text-green-300',
+    },
+    next: {
+      node: 'bg-amber-400 text-white ring-amber-100 dark:ring-amber-900/60',
+      badge: 'bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300',
+      card: 'border-slate-200 dark:border-slate-700',
+      icon: 'bg-amber-50 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300',
+    },
+    later: {
+      node: 'bg-white text-slate-500 ring-slate-200 border-2 border-slate-300 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-600 dark:ring-slate-800',
+      badge: 'bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300',
+      card: 'border-slate-200 dark:border-slate-700 border-dashed',
+      icon: 'bg-slate-100 text-slate-600 dark:bg-slate-700/60 dark:text-slate-300',
+    },
+  };
 
   const clickProblemStats = [
     { value: "4", label: "Clicks", description: "From the homepage to the fence rules in the example above" },
@@ -760,155 +824,71 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Complete Solution Section - Project Management Board */}
-        <section className="py-16 px-6 bg-slate-100 dark:bg-slate-900">
+        {/* Roadmap: a journey from Now to Later; a rail across the top on desktop, down the left on phones */}
+        <section className="py-16 md:py-20 px-6 bg-slate-100 dark:bg-slate-900">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+            <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+              <p data-reveal className="text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-3">
+                Roadmap
+              </p>
+              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
                 All Your City Services in One Place
               </h2>
-              <p className="text-lg text-slate-600 dark:text-slate-400">
-                Project Roadmap — From information to transactions
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
+                From answers today, to booking and applying, to paying your bills.
               </p>
             </div>
 
-            {/* Kanban Board */}
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Column: Completed */}
-              <div className="flex flex-col">
-                <div className="flex items-center gap-2 mb-4 px-2">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white">Available Now</h3>
-                  <span className="ml-auto text-xs text-slate-600 dark:text-slate-300 bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded-full">5 items</span>
-                </div>
-                <div className="bg-green-50 dark:bg-green-900/20 rounded-t-xl p-4 border-b-2 border-green-400 flex-shrink-0">
-                  <div className="flex items-center justify-between">
-                    <span className="text-green-700 dark:text-green-300 text-sm font-medium">Information &amp; Reporting</span>
-                    <CheckCircle2 className="w-4 h-4 text-green-600" />
-                  </div>
-                </div>
-                <div className="bg-white dark:bg-slate-800 rounded-b-xl p-4 shadow-sm border border-slate-200 dark:border-slate-700 flex-1">
-                  <div className="space-y-3">
-                    <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-3 border-green-500">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Leaf className="w-4 h-4 text-green-600" />
-                        <span className="font-medium text-slate-900 dark:text-white text-sm">Garbage & Recycling</span>
-                      </div>
-                      <p className="text-xs text-slate-500">Collection schedules, zones, what goes where</p>
-                    </div>
-                    <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-3 border-green-500">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Trees className="w-4 h-4 text-green-600" />
-                        <span className="font-medium text-slate-900 dark:text-white text-sm">Parks & Recreation</span>
-                      </div>
-                      <p className="text-xs text-slate-500">Park locations, facilities, programs</p>
-                    </div>
-                    <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-3 border-green-500">
-                      <div className="flex items-center gap-2 mb-1">
-                        <CalendarDays className="w-4 h-4 text-green-600" />
-                        <span className="font-medium text-slate-900 dark:text-white text-sm">Events & Activities</span>
-                      </div>
-                      <p className="text-xs text-slate-500">Community events, workshops</p>
-                    </div>
-                    <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-3 border-green-500">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Camera className="w-4 h-4 text-green-600" />
-                        <span className="font-medium text-slate-900 dark:text-white text-sm">Report a Problem</span>
-                      </div>
-                      <p className="text-xs text-slate-500">Potholes, graffiti, missed pickups, with a photo</p>
-                    </div>
-                    <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-3 border-green-500">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Navigation className="w-4 h-4 text-green-600" />
-                        <span className="font-medium text-slate-900 dark:text-white text-sm">Directions</span>
-                      </div>
-                      <p className="text-xs text-slate-500">To parks, libraries, community centres, depots</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="relative">
+              {/* Desktop rail through the stage nodes: live, then in progress, then planned */}
+              <div className="hidden lg:block absolute top-6 left-[16.66%] right-[16.66%] h-1 rounded-full bg-gradient-to-r from-green-500 via-amber-400 to-slate-300 dark:to-slate-600" aria-hidden="true" />
 
-              {/* Column: In Progress */}
-              <div className="flex flex-col">
-                <div className="flex items-center gap-2 mb-4 px-2">
-                  <div className="w-3 h-3 bg-amber-500 rounded-full"></div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white">Up Next</h3>
-                  <span className="ml-auto text-xs text-slate-600 dark:text-slate-300 bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded-full">3 items</span>
-                </div>
-                <div className="bg-amber-50 dark:bg-amber-900/20 rounded-t-xl p-4 border-b-2 border-amber-400 flex-shrink-0">
-                  <div className="flex items-center justify-between">
-                    <span className="text-amber-700 dark:text-amber-300 text-sm font-medium">Integration Phase</span>
-                    <Clock className="w-4 h-4 text-amber-600" />
-                  </div>
-                </div>
-                <div className="bg-white dark:bg-slate-800 rounded-b-xl p-4 shadow-sm border border-slate-200 dark:border-slate-700 flex-1">
-                  <div className="space-y-3">
-                    <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-3 border-amber-500">
-                      <div className="flex items-center gap-2 mb-1">
-                        <BookOpen className="w-4 h-4 text-amber-600" />
-                        <span className="font-medium text-slate-900 dark:text-white text-sm">Library System</span>
-                      </div>
-                      <p className="text-xs text-slate-500">Check books, renew items</p>
-                    </div>
-                    <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-3 border-amber-500">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Waves className="w-4 h-4 text-amber-600" />
-                        <span className="font-medium text-slate-900 dark:text-white text-sm">Recreation Booking</span>
-                      </div>
-                      <p className="text-xs text-slate-500">Book pools, courts</p>
-                    </div>
-                    <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-3 border-amber-500">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Car className="w-4 h-4 text-amber-600" />
-                        <span className="font-medium text-slate-900 dark:text-white text-sm">Permit Applications</span>
-                      </div>
-                      <p className="text-xs text-slate-500">Parking, building permits</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ol className="relative grid lg:grid-cols-3 lg:items-start gap-8 lg:gap-6">
+                {roadmapStages.map((stage, i) => {
+                  const tone = roadmapTones[stage.key];
+                  const last = i === roadmapStages.length - 1;
+                  return (
+                    <li data-reveal key={stage.key} className="relative pl-16 lg:pl-0" style={{ transitionDelay: `${i * 0.12}s` }}>
+                      {/* Phone rail down to the next stage */}
+                      {!last && <div className="lg:hidden absolute left-6 top-12 -bottom-8 w-1 -translate-x-1/2 rounded-full bg-slate-300 dark:bg-slate-700" aria-hidden="true" />}
 
-              {/* Column: Planned */}
-              <div className="flex flex-col">
-                <div className="flex items-center gap-2 mb-4 px-2">
-                  <div className="w-3 h-3 bg-slate-400 rounded-full"></div>
-                  <h3 className="font-semibold text-slate-900 dark:text-white">Later</h3>
-                  <span className="ml-auto text-xs text-slate-600 dark:text-slate-300 bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded-full">3 items</span>
-                </div>
-                <div className="bg-slate-100 dark:bg-slate-800 rounded-t-xl p-4 border-b-2 border-slate-300 flex-shrink-0">
-                  <div className="flex items-center justify-between">
-                    <span className="text-slate-600 dark:text-slate-400 text-sm font-medium">Payment Center</span>
-                    <Calendar className="w-4 h-4 text-slate-500" />
-                  </div>
-                </div>
-                <div className="bg-white dark:bg-slate-800 rounded-b-xl p-4 shadow-sm border border-slate-200 dark:border-slate-700 flex-1">
-                  <div className="space-y-3">
-                    <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-3 border-slate-400">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Home className="w-4 h-4 text-slate-500" />
-                        <span className="font-medium text-slate-900 dark:text-white text-sm">Property Tax</span>
+                      <div className="absolute left-0 top-0 lg:static lg:flex lg:justify-center lg:mb-6">
+                        <span className={`relative z-10 w-12 h-12 rounded-full ring-8 flex items-center justify-center ${tone.node}`}>
+                          {stage.icon}
+                        </span>
                       </div>
-                      <p className="text-xs text-slate-500">View, pay, payment plans</p>
-                    </div>
-                    <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-3 border-slate-400">
-                      <div className="flex items-center gap-2 mb-1">
-                        <Lightbulb className="w-4 h-4 text-slate-500" />
-                        <span className="font-medium text-slate-900 dark:text-white text-sm">Water Bills</span>
+
+                      <div className={`rounded-2xl bg-white dark:bg-slate-800 border p-6 ${tone.card}`}>
+                        <div className="flex items-center justify-between gap-3 mb-1">
+                          <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{stage.theme}</h3>
+                          <span className={`text-xs font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full ${tone.badge}`}>
+                            {stage.key === 'now' ? 'Live now' : stage.label}
+                          </span>
+                        </div>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 mb-5">{stage.description}</p>
+                        <ul className="space-y-3">
+                          {stage.items.map((item) => (
+                            <li key={item.title} className="flex gap-3">
+                              <span className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 ${tone.icon}`}>
+                                {item.icon}
+                              </span>
+                              <div>
+                                <p className="text-sm font-medium text-slate-900 dark:text-white">{item.title}</p>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">{item.description}</p>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <p className="text-xs text-slate-500">View and pay water bills</p>
-                    </div>
-                    <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-3 border-slate-400">
-                      <div className="flex items-center gap-2 mb-1">
-                        <CreditCard className="w-4 h-4 text-slate-500" />
-                        <span className="font-medium text-slate-900 dark:text-white text-sm">Fines & Fees</span>
-                      </div>
-                      <p className="text-xs text-slate-500">Parking tickets</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </li>
+                  );
+                })}
+              </ol>
             </div>
 
+            <p className="mt-10 text-center text-sm text-slate-500 dark:text-slate-400">
+              Next and Later are plans, and may change.
+            </p>
           </div>
         </section>
 
