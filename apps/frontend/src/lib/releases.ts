@@ -24,6 +24,21 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.3.0',
+    date: '2026-11-15',
+    delivery: 'store',
+    title: 'What goes where, and pickup reminders',
+    new: [
+      'What goes where: search for any item, like a pizza box, batteries or an old TV, and see whether it goes in the blue box, green bin or garbage, out as a bulky item, or to a drop-off. It comes from the City of Markham’s sorting guide, with the City’s instructions and directions to depots.',
+      'If an item goes out at the curb, you’ll see when it next goes out on your pickup day.',
+      'Pickup reminders: get a reminder the night before at 7 PM, or the morning of at 6 AM. Turn it on from the Pickup day screen. Reminders are set on your phone and follow holiday changes.',
+    ],
+    improved: [
+      'Settings is tidier: About Hey Markham, What’s new, the privacy policy and terms are now together under About, with Help & support and Send feedback on the main Settings page.',
+    ],
+    fixed: ['“Tap the mic to ask” and other centred text no longer lose their last word on some Android phones.'],
+  },
+  {
     version: '1.2.0',
     date: '2026-11-15',
     delivery: 'store',

@@ -102,7 +102,13 @@ export default function AppPrivacyPage() {
           <b>Pickup day (only if you set one).</b> The collection day and week you choose are stored only on your
           phone. To show your pickup dates, the app asks the Hey Markham service for that collection zone&rsquo;s
           calendar, such as &ldquo;Thursday A&rdquo;. Your address is never sent for this, and the request isn&rsquo;t
-          linked to your account.
+          linked to your account. Pickup reminders, if you turn them on, are scheduled on your phone; nothing about
+          them is sent to us.
+        </p>
+        <p>
+          <b>What goes where.</b> When you look up how to dispose of an item, the words you search for and the item
+          you open go to the Hey Markham service, which looks them up in the City of Markham&rsquo;s sorting guide.
+          The search isn&rsquo;t linked to your account or location.
         </p>
         <p>
           <b>What we don&rsquo;t collect.</b> No location unless you allow it, and never in the background; no
@@ -142,6 +148,11 @@ export default function AppPrivacyPage() {
           <li>
             <b>Microsoft</b> (Azure AI Speech, in Canada) reads answers aloud. It receives the text of the answer, not
             your question or account.
+          </li>
+          <li>
+            <b>ReCollect</b> (Recollect Systems Inc.) runs the City of Markham&rsquo;s collection calendar and sorting
+            guide. The Hey Markham service asks it for a collection zone&rsquo;s dates and for the items you look up in
+            What goes where; it doesn&rsquo;t receive your address, account or location.
           </li>
           <li>
             <b>Expo</b> (650 Industries, Inc.) and your phone&rsquo;s notification service (Apple Push Notification
