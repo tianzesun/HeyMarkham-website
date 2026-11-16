@@ -716,11 +716,11 @@ export default function HomePage() {
                 <div className="flex items-center gap-2 mb-4 px-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                   <h3 className="font-semibold text-slate-900 dark:text-white">Available Now</h3>
-                  <span className="ml-auto text-xs text-slate-600 dark:text-slate-300 bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded-full">3 items</span>
+                  <span className="ml-auto text-xs text-slate-600 dark:text-slate-300 bg-slate-200 dark:bg-slate-700 px-2 py-1 rounded-full">5 items</span>
                 </div>
                 <div className="bg-green-50 dark:bg-green-900/20 rounded-t-xl p-4 border-b-2 border-green-400 flex-shrink-0">
                   <div className="flex items-center justify-between">
-                    <span className="text-green-700 dark:text-green-300 text-sm font-medium">Information Access</span>
+                    <span className="text-green-700 dark:text-green-300 text-sm font-medium">Information &amp; Reporting</span>
                     <CheckCircle2 className="w-4 h-4 text-green-600" />
                   </div>
                 </div>
@@ -746,6 +746,20 @@ export default function HomePage() {
                         <span className="font-medium text-slate-900 dark:text-white text-sm">Events & Activities</span>
                       </div>
                       <p className="text-xs text-slate-500">Community events, workshops</p>
+                    </div>
+                    <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-3 border-green-500">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Camera className="w-4 h-4 text-green-600" />
+                        <span className="font-medium text-slate-900 dark:text-white text-sm">Report a Problem</span>
+                      </div>
+                      <p className="text-xs text-slate-500">Potholes, graffiti, missed pickups, with a photo</p>
+                    </div>
+                    <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg border-l-3 border-green-500">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Navigation className="w-4 h-4 text-green-600" />
+                        <span className="font-medium text-slate-900 dark:text-white text-sm">Directions</span>
+                      </div>
+                      <p className="text-xs text-slate-500">To parks, libraries, community centres, depots</p>
                     </div>
                   </div>
                 </div>
