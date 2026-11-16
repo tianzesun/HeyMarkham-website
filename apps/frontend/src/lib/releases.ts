@@ -33,10 +33,14 @@ export const releases: Release[] = [
       'Property tax reminders: the Property tax topic shows the due dates the City has published, and can remind you a week or a day before. Reminders are set on your phone, and new dates are picked up as soon as the City publishes them.',
       'Holiday pickup changes: when a holiday moves your pickup, like Christmas Day to Saturday, the app shows it on your Pickup day and home screen. With pickup reminders on, you also get a heads-up the day before your usual pickup, so you know not to put your bins out.',
       'City messages in your language: if you use Hey Markham in French, Mandarin or Cantonese, news, events and alerts in your inbox are translated for you. Tap a message to read it in full, or Learn more for the City’s original.',
+      'Find your pickup day by address: type your Markham address, or use the one in your profile, and Hey Markham looks up your exact collection schedule with the City, so garbage weeks are never mixed up. Your address isn’t kept.',
+      'A pickup calendar: see the coming months at a glance, with each pickup day’s bins shown in the City’s colours. Tap a day to see what goes out.',
+      'Make Services your own: touch and hold a card to drag it where you want it, or hide services you don’t use. Contact the City and Report a problem are always at the top.',
     ],
     improved: [
       'Tidy your inbox: touch and hold a message to delete it, or delete the messages you’ve read, or all of them, at once.',
       'Search your inbox to find a message quickly.',
+      'Pickup day now has its own place in Services, and if you chose your day by hand, the app offers to check it with your address.',
     ],
   },
   {
