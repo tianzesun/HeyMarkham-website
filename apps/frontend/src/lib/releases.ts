@@ -35,7 +35,8 @@ export const releases: Release[] = [
       'City messages in your language: if you use Hey Markham in French, Mandarin or Cantonese, news, events and alerts in your inbox are translated for you. Tap a message to read it in full, or Learn more for the City’s original.',
     ],
     improved: [
-      'Tidy your inbox: touch and hold a message to delete it, or delete all the messages you’ve read at once.',
+      'Tidy your inbox: touch and hold a message to delete it, or delete the messages you’ve read, or all of them, at once.',
+      'Search your inbox to find a message quickly.',
     ],
   },
   {
