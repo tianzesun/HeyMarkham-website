@@ -112,8 +112,9 @@ export default function HomePage() {
     },
   ];
 
+  // Examples in this section were checked on markham.ca on November 15, 2026; recheck before changing them
   const clickProblemStats = [
-    { value: "7", label: "Steps", description: "To find one yard waste date in the example above" },
+    { value: "4", label: "Clicks", description: "From the homepage to the fence rules in the example above" },
     { value: "Several", label: "Separate Systems", description: "Waste, recreation, libraries and transit each have their own" },
     { value: "Office hours", label: "Phone Support", description: "Questions don't stop when lines close" },
     { value: "1", label: "Question", description: "All Hey Markham needs" },
@@ -125,7 +126,7 @@ export default function HomePage() {
       icon: <Home className="w-6 h-6" />,
       persona: "The New Homeowner",
       question: '"I just moved to Unionville. Can I park on the street overnight?"',
-      traditionalPath: "Search for parking → Sort through permits, lots and park pages → Find the overnight rules → Look for the exemption request",
+      traditionalPath: "Know to look under Permits, Licences & Taxes → Parking → Overnight Street Parking Request → Read the rules, fees and limits",
       heymarkhamPath: "Ask the question → Hear the overnight rules and that you can request an exemption online → Follow the link to apply",
       outcome: "From question to the application page in one step"
     },
@@ -133,7 +134,7 @@ export default function HomePage() {
       icon: <Baby className="w-6 h-6" />,
       persona: "The Busy Parent",
       question: '"Where can my kids go swimming this weekend?"',
-      traditionalPath: "Find Recreation → Swimming → Open the program system → Search for drop-in swims",
+      traditionalPath: "Sports, Recreation & Fitness → Sports & Recreation Programs → Swimming → Public Swims & Aquafit → Open the booking system for drop-in times",
       heymarkhamPath: "Ask naturally → Hear which public swims Markham offers → Follow the link to drop-in times",
       outcome: "Straight to the schedule, without the menus"
     },
@@ -443,7 +444,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* The "12-Click" Problem */}
+            {/* The click path: real menus on markham.ca */}
             <div className="mb-12">
               <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-200 dark:border-slate-700">
                 <div className="flex items-center gap-3 mb-6">
@@ -458,23 +459,22 @@ export default function HomePage() {
 
                 <div className="bg-slate-50 dark:bg-slate-900 rounded-lg p-6 mb-6">
                   <p className="text-slate-700 dark:text-slate-300 mb-4">
-                    <strong>Example:</strong> &ldquo;When is the next yard waste pickup?&rdquo;
+                    <strong>Example:</strong> &ldquo;How tall can my backyard fence be?&rdquo;
                   </p>
                   <div className="flex flex-wrap items-center gap-2 text-sm">
                     <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">Home</span>
                     <span className="text-slate-400">→</span>
-                    <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">Services</span>
+                    <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">About the City of Markham</span>
                     <span className="text-slate-400">→</span>
-                    <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">Waste Management</span>
+                    <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">City Hall</span>
                     <span className="text-slate-400">→</span>
-                    <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">Collections</span>
+                    <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">By-Laws</span>
                     <span className="text-slate-400">→</span>
-                    <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">Yard Waste</span>
-                    <span className="text-slate-400">→</span>
-                    <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">Schedule</span>
-                    <span className="text-slate-400">→</span>
-                    <span className="px-3 py-1 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded-full font-medium">Find your zone...</span>
+                    <span className="px-3 py-1 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded-full font-medium">Fences &amp; Swimming Pools</span>
                   </div>
+                  <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
+                    Fence rules sit under &ldquo;About the City&rdquo;, and the link is about 100 links down the By-Laws page, after a long list of by-law PDFs. Searching markham.ca for the question finds nothing.
+                  </p>
 
                 </div>
 
@@ -512,7 +512,7 @@ export default function HomePage() {
                 <div className="border border-red-200 dark:border-red-800 rounded-lg p-6">
                   <div className="flex items-center gap-2 mb-4">
                     <span className="px-3 py-1 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded-full text-sm font-medium">
-                      A typical search box
+                      markham.ca search
                     </span>
                   </div>
                   <div className="space-y-3">
@@ -525,8 +525,11 @@ export default function HomePage() {
                     </div>
                     <div className="bg-red-50 dark:bg-red-900/20 rounded p-3">
                       <p className="text-sm text-slate-600 dark:text-slate-400">Search results:</p>
-                      <p className="text-sm text-red-700 dark:text-red-300">15 results for &lsquo;park&rsquo;: parks, park permits, parking lots&hellip;</p>
+                      <p className="text-sm text-red-700 dark:text-red-300">No results found.</p>
                     </div>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      Search just &ldquo;park&rdquo; instead and you get 1,976 results, from Parks to Parking. Checked November 15, 2026.
+                    </p>
                   </div>
                 </div>
 
