@@ -271,11 +271,11 @@ export default function HomePage() {
     },
   ];
 
-  // A real worked example for the three steps; every fact is on the pet licence page or Animal Services page
+  // A real worked example for the three steps; every fact is on the City's pet licence page
   const PET_LICENCE_URL = 'https://www.markham.ca/permits-licences-taxes/animal-services/pet-licence';
   const workedExample = {
     question: "Does my cat need a licence if it's microchipped?",
-    answer: "Yes. Dogs and cats in Markham need a licence, even if they have a microchip. You can register online, and licences renew each year on January 1.",
+    answer: "Yes. Dogs and cats in Markham need a licence, even if they have a microchip. You can register online, and licences expire on December 31 each year.",
     action: "Register your pet online",
   };
 
