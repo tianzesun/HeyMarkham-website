@@ -279,33 +279,6 @@ export default function HomePage() {
     action: "Register your pet online",
   };
 
-  const searchComparison = [
-    {
-      topic: "Where you start",
-      website: "Guess the right menu or search words",
-      heyMarkham: "Ask in your own words",
-    },
-    {
-      topic: "What you get",
-      website: "A list of pages to read through",
-      heyMarkham: "A short answer, with the page it came from",
-    },
-    {
-      topic: "Finding the detail",
-      website: "Scan pages and PDFs for the line that applies to you",
-      heyMarkham: "The detail you asked for is in the answer",
-    },
-    {
-      topic: "After hours",
-      website: "Keep searching, or wait for the Contact Centre to open",
-      heyMarkham: "Ask any time, day or night",
-    },
-    {
-      topic: "On the go",
-      website: "Pinch and scroll through full web pages",
-      heyMarkham: "Ask by voice and, in the app, hear the answer read aloud",
-    },
-  ];
 
   return (
     <div className="min-h-screen w-full flex flex-col bg-white dark:bg-slate-950">
@@ -725,7 +698,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* How It Works, for residents: three steps, then searching markham.ca side by side */}
+        {/* How It Works, for residents: three steps beside a real worked example */}
         <section id="solution" className="py-16 px-6 bg-slate-50 dark:bg-slate-900">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-12">
@@ -737,7 +710,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-20">
+            <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
               {/* The steps, joined by a line */}
               <ol className="lg:col-span-5 relative space-y-8">
                 {howItWorksSteps.map((step, i) => (
@@ -794,37 +767,6 @@ export default function HomePage() {
               </div>
             </div>
 
-            <h3 data-reveal className="text-xl font-semibold text-slate-900 dark:text-white text-center mb-6">
-              Searching markham.ca vs. asking Hey Markham
-            </h3>
-            <div data-reveal className="max-w-4xl mx-auto overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
-              <table className="w-full text-xs sm:text-sm text-left">
-                <thead className="bg-slate-100 dark:bg-slate-900/60 text-slate-900 dark:text-white">
-                  <tr>
-                    <th scope="col" className="p-3 sm:p-4 w-1/4"><span className="sr-only">Topic</span></th>
-                    <th scope="col" className="p-3 sm:p-4 font-semibold">Searching markham.ca</th>
-                    <th scope="col" className="p-3 sm:p-4 font-semibold text-primary-700 dark:text-primary-300 bg-primary-50 dark:bg-primary-900/40">Asking Hey Markham</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-200 dark:divide-slate-700">
-                  {searchComparison.map((row) => (
-                    <tr key={row.topic} className="align-top">
-                      <th scope="row" className="p-3 sm:p-4 font-medium text-slate-900 dark:text-white">{row.topic}</th>
-                      <td className="p-3 sm:p-4 text-slate-600 dark:text-slate-400">{row.website}</td>
-                      <td className="p-3 sm:p-4 text-slate-800 dark:text-slate-200 bg-primary-50/60 dark:bg-primary-900/20">
-                        <span className="flex gap-2">
-                          <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0 text-green-600 dark:text-green-400" aria-hidden="true" />
-                          {row.heyMarkham}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <p data-reveal className="mt-4 text-center text-sm text-slate-500 dark:text-slate-400">
-              Same official information either way. Hey Markham does the digging.
-            </p>
           </div>
         </section>
 
