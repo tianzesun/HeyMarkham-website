@@ -1,4 +1,5 @@
-// Every entry was checked against its official source page in October 2026
+// Every entry was checked against its official source page in October 2026, and every number, time,
+// date, fee and contact in the answers was re-checked against the source page on November 15, 2026
 export const faqDatabase: Array<{ question: string, keywords: string[], answer: string, source: string }> = [
   {
     question: "When is my garbage collected?",
@@ -9,7 +10,7 @@ export const faqDatabase: Array<{ question: string, keywords: string[], answer: 
   {
     question: "Where can I go swimming?",
     keywords: ['pool', 'swim', 'swimming', 'hour', 'facility', 'public swim', 'lane', 'aquafit', 'drop-in'],
-    answer: "Markham pools offer public swims, including recreational, lane and endurance lane swims, plus Aquafit classes. Find drop-in times through the City's online program system (View Drop In Programs on markham.ca), or call the Contact Centre at 905.477.5530.",
+    answer: "Markham pools offer public swims, including recreational, lane and endurance lane swims, plus Aquafit classes. Find swim times through the City's online program system (View Programs on markham.ca's swimming page), or call the Contact Centre at 905.477.5530.",
     source: "https://www.markham.ca/sports-recreation-fitness/sports-recreation-programs/swimming"
   },
   {
@@ -57,8 +58,8 @@ export const faqDatabase: Array<{ question: string, keywords: string[], answer: 
   {
     question: "How do I license my dog or cat?",
     keywords: ['dog', 'cat', 'pet', 'license', 'tag', 'cost', 'animal', 'licence', 'renew'],
-    answer: "Dogs and cats in Markham need a licence, including if they're microchipped. Apply online at markham.ca; tags are mailed within 7 to 10 business days. Licences renew each calendar year on January 1. Animal Services: 905.415.7531 or customerservice@markham.ca, every day from 8 AM to 9 PM.",
-    source: "https://www.markham.ca/permits-licences-taxes/animal-services"
+    answer: "Dogs and cats in Markham need a licence, even if they're microchipped, and you need to apply within 30 days of getting your pet. Register or renew online through markham.ca. A new licence is $40 for a dog or $30 for a cat, and licences expire on December 31 each year. Animal Services: 905.415.7531 or customerservice@markham.ca, every day from 8 AM to 9 PM.",
+    source: "https://www.markham.ca/permits-licences-taxes/animal-services/pet-licence"
   },
   {
     question: "When is my property tax due?",
@@ -93,7 +94,7 @@ export const faqDatabase: Array<{ question: string, keywords: string[], answer: 
   {
     question: "When are municipal elections held?",
     keywords: ['election', 'vote', 'poll', 'station', 'day', 'results', 'voting', 'online'],
-    answer: "Markham's 2026 municipal election ran from October 16 to 26, 2026, with online voting. Results are posted at markham.ca/elections. Ontario municipal elections are held every four years.",
+    answer: "Markham's 2026 municipal election ran from October 16 to 26, 2026, with online voting. Results are posted at markham.ca/elections.",
     source: "https://www.markham.ca/elections"
   },
   {
@@ -105,13 +106,13 @@ export const faqDatabase: Array<{ question: string, keywords: string[], answer: 
   {
     question: "How high can my fence be?",
     keywords: ['fence', 'height', 'property', 'line', 'bylaw', 'pool', 'enclosure', 'neighbour', 'shared'],
-    answer: "Front-yard fences can be up to 1.2 m (4 ft) high, and fences along rear and interior side property lines up to 1.8 m (6 ft). On corner lots, the side facing the street is limited to 1.2 m. Pools deeper than 0.6 m need a 1.2 m fence and a pool enclosure permit before filling. For a shared fence on the property line, give your neighbour 14 days' written notice by registered mail. Questions: 905.479.7782.",
+    answer: "Front-yard fences can be up to 1.2 m (4 ft) high, and fences along rear and interior side property lines up to 1.8 m (6 ft). On corner lots, the side facing the street is limited to 1.2 m. Pools deeper than 0.6 m need a 1.2 m fence and a pool enclosure permit before filling. To share the cost of a boundary fence with your neighbour, send them notice by registered mail at least 14 days before you start. Questions: 905.479.7782.",
     source: "https://www.markham.ca/about-city-markham/city-hall/bylaw/fences-swimming-pools"
   },
   {
     question: "What are the allowed construction hours?",
     keywords: ['construction', 'construction hours', 'equipment', 'hours', 'weekend', 'saturday', 'sunday', 'holiday'],
-    answer: "Construction equipment may be used on Saturdays from 9 AM to 5 PM and is prohibited at all times on Sundays and statutory holidays. Work outside the permitted times needs a noise exemption. See Markham's Noise By-law for weekday hours, or call 905.479.7782.",
+    answer: "Construction equipment may be used on Saturdays from 9 AM to 5 PM and is prohibited at all times on Sundays and statutory holidays. On other days, construction equipment can't be used after 7 PM. Work outside the permitted times needs a noise exemption. Questions: 905.479.7782.",
     source: "https://www.markham.ca/about-city-markham/city-hall/bylaw/noise"
   },
   {
@@ -171,7 +172,7 @@ export const faqDatabase: Array<{ question: string, keywords: string[], answer: 
   {
     question: "When does summer camp registration open?",
     keywords: ['camp', 'summer', 'child', 'program', 'register', 'march break', 'winter camp', 'kids'],
-    answer: "Markham runs summer, winter break and March Break camps with sports, music and arts, plus camps at the Markham Museum, Varley Art Gallery, Flato Markham Theatre and Markham Public Library. Ages, dates and fees are listed with each camp in the City's online program system. Questions: 905.477.5530.",
+    answer: "Markham runs summer, winter break and March Break camps with sports, music and arts, plus camps at the Markham Museum, Varley Art Gallery, Flato Markham Theatre and Markham Public Library. See the camps and register through View Programs on markham.ca's camps page. Questions: 905.477.5530.",
     source: "https://www.markham.ca/sports-recreation-fitness/sports-recreation-programs/camps"
   },
   {
