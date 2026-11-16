@@ -113,6 +113,24 @@ export default function HomePage() {
   ];
 
   // Examples in this section were checked on markham.ca on November 15, 2026; recheck before changing them
+  // The City's own app, as its markham.ca page describes it (checked November 15, 2026). Only list
+  // what that page says, and keep it fair: the two apps do different jobs
+  const ACCESS_MARKHAM_URL = 'https://www.markham.ca/about-city-markham/access-markham-mobile-app';
+  const accessMarkhamFeatures = [
+    "Recycling and garbage collection schedule with personalized notifications",
+    "What Goes Where search for disposing of items",
+    "Winter maintenance",
+    "Bikeways, parks and paths",
+    "Report a problem",
+  ];
+  const heyMarkhamDifferences = [
+    "Ask any City question in your own words, by voice or text",
+    "Short answers with the markham.ca pages they come from",
+    "English, French, Mandarin or Cantonese, with answers read aloud",
+    "City events, directions to nearby places and a service updates inbox",
+    "Report a problem with a photo that drafts the details for you",
+  ];
+
   const clickProblemStats = [
     { value: "4", label: "Clicks", description: "From the homepage to the fence rules in the example above" },
     { value: "Several", label: "Separate Systems", description: "Waste, recreation, libraries and transit each have their own" },
@@ -410,6 +428,48 @@ export default function HomePage() {
                   <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{extra.description}</p>
                 </div>
               ))}
+            </div>
+
+            {/* How Hey Markham differs from the City's Access Markham app */}
+            <div data-reveal className="mt-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 md:p-8">
+              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">Already use Access Markham?</h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 max-w-3xl">
+                Access Markham is the City of Markham&rsquo;s official app, organized by feature. Hey Markham starts with your question. They do different jobs, so many residents will want both.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="rounded-xl bg-slate-50 dark:bg-slate-800/60 p-5">
+                  <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Access Markham, from the City</h4>
+                  <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                    {accessMarkhamFeatures.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0 text-slate-400" aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">
+                    Best for your own collection calendar and pickup notifications.
+                  </p>
+                </div>
+                <div className="rounded-xl bg-primary-50 dark:bg-primary-900/30 border border-primary-100 dark:border-primary-800 p-5">
+                  <h4 className="font-semibold text-slate-900 dark:text-white mb-3">Hey Markham</h4>
+                  <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-200">
+                    {heyMarkhamDifferences.map((item) => (
+                      <li key={item} className="flex gap-2">
+                        <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary-600 dark:text-primary-400" aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">
+                    Best when you have a question and don&rsquo;t know where on markham.ca the answer is.
+                  </p>
+                </div>
+              </div>
+              <p className="mt-5 text-xs text-slate-500 dark:text-slate-400">
+                Hey Markham is independent and isn&rsquo;t affiliated with the City of Markham. Access Markham features as listed on{' '}
+                <a href={ACCESS_MARKHAM_URL} target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">the City&rsquo;s Access Markham page</a>, November 2026.
+              </p>
             </div>
 
             {/* Download band, dark because the store buttons are styled for the hero's dark background */}
