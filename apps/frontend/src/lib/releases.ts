@@ -24,6 +24,23 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.5.0',
+    date: '2026-11-16',
+    delivery: 'store',
+    title: 'Pickup days in your calendar and on your home screen, and your reports in one place',
+    new: [
+      'Add your pickup days to your calendar: tap Add to my calendar on the Pickup day screen, and each coming pickup goes into the calendar your phone uses, like Google, iCloud or Outlook. Tap it again later to add new dates.',
+      'A Pickup day widget for Android: see your next pickup and what goes out right on your home screen. Tap it to open your pickup calendar.',
+      'My reports: problems you report to the City are kept on your phone, with your photo, so you can see what you sent and when. Follow up by email, track it on markham.ca, or call the City in one tap.',
+      'School buses: find bus delays and cancellations, look up your bus stop, and sign up for email alerts, with Student Transportation Services of York Region, who run school buses for the school boards.',
+    ],
+    improved: [
+      'Deleting inbox messages is easier: swipe a message left, or tap Select to choose several and delete them at once.',
+      'A tidier Pickup day screen: the calendar’s icons are named in a legend below it.',
+      'Services is simpler: Pickup day is in Waste & recycling, and Contact the City and Report a problem are just one tap.',
+    ],
+  },
+  {
     version: '1.4.0',
     date: '2026-11-15',
     delivery: 'store',

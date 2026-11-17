@@ -79,7 +79,9 @@ export default function AppPrivacyPage() {
           they leave your phone. If you add a photo, the app may send it, with your note, to the Hey Markham service
           to suggest the type of problem and draft the details. The photo is read on our own server, isn&rsquo;t sent to
           any other company, and isn&rsquo;t stored or logged. Once you send a report, the City handles it under its own
-          privacy policy.
+          privacy policy. A copy of each report you send (the type of problem, the location, the details, the date and
+          a smaller copy of the photo, but not your contact details) is kept on your phone under My reports, so you can
+          follow up on it. It isn&rsquo;t sent to us, and you can delete it at any time.
         </p>
         <p>
           <b>Notifications (only if you allow them).</b> The app asks once whether it may send notifications. If you
@@ -107,6 +109,14 @@ export default function AppPrivacyPage() {
           to find your collection zone. The address isn&rsquo;t stored or logged; only the zone is kept, on your
           phone. Pickup reminders, if you turn them on, are scheduled on your phone; nothing about them is sent to
           us.
+        </p>
+        <p>
+          <b>Calendar (only if you add your pickups to it).</b> If you tap &ldquo;Add to my calendar&rdquo;, the app
+          asks for permission to add events to your phone&rsquo;s calendar, and adds your coming pickup days to it. On
+          iPhone it asks only to add events. On Android, the permission also covers reading, but the app only looks
+          up which calendars your phone has, to add to the main one, and only removes events it added itself. It
+          doesn&rsquo;t read your other events, and nothing from your calendar is sent to us. If your calendar
+          syncs with an account such as Google or iCloud, the added events sync with it like any others.
         </p>
         <p>
           <b>What goes where.</b> When you look up how to dispose of an item, the words you search for and the item
