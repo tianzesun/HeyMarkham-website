@@ -24,6 +24,22 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.6.1',
+    date: '2026-11-18',
+    delivery: 'store',
+    title: 'A calmer sign-in that’s easy to read in dark mode, and simpler screens',
+    improved: [
+      'A calmer sign-in screen: only the Hey Markham logo moves.',
+      'Your profile is simpler: just your name, email, phone and address, in one list.',
+      'Report a problem has fewer headings and notes. The safety warning, where your report goes and the link to the City’s own form are still there.',
+      'In Settings, About and My reports show just their names.',
+      'Your question history stays quick to scroll, even after you show many older questions.',
+    ],
+    fixed: [
+      'In dark mode, Continue with Google and the Sign in / Create account switch were hard to read. They’re now white with blue text.',
+    ],
+  },
+  {
     version: '1.6.0',
     date: '2026-11-18',
     delivery: 'store',
