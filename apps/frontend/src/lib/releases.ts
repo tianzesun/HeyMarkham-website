@@ -24,6 +24,17 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.6.2',
+    date: '2026-11-18',
+    delivery: 'automatic',
+    title: 'Your questions and reports, where you’d look for them',
+    improved: [
+      'Your questions: tap the clock at the top of the home screen to see what you’ve asked and ask again. It’s there when you’re signed in.',
+      'My reports: find the problems you’ve reported in Services, right under Report a problem.',
+      'Settings is just settings now.',
+    ],
+  },
+  {
     version: '1.6.1',
     date: '2026-11-18',
     delivery: 'store',
