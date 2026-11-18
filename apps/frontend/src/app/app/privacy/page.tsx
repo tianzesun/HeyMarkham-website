@@ -26,7 +26,7 @@ export default function AppPrivacyPage() {
             leave.
           </li>
           <li>
-            <b>Signed in.</b> You choose to create an account (with Google, Apple, or an email and password) so the app
+            <b>Signed in.</b> You choose to create an account (with Google, Apple, Microsoft, or an email and password) so the app
             can keep your question history, saved questions, settings and optional profile.
           </li>
         </ul>
@@ -35,10 +35,10 @@ export default function AppPrivacyPage() {
       <Section title="What we collect">
         <p>
           <b>Your questions.</b> When you ask a question, typed or spoken, its text is sent to the Hey Markham service so
-          it can be answered. If you are signed in, the question and its answer are added to your history.{' '}
-          {/* CONFIRM: retention for questions not linked to an account (12 months assumed). */}
-          Questions that aren&rsquo;t linked to an account may be reviewed, without your name, to improve answers, and
-          are kept for up to 12 months.
+          it can be answered. If you are signed in, the question and its answer are added to your history. Every
+          question and answer is also kept in the service&rsquo;s records, without your name, so we can review them to
+          improve answers; after 12 months their text is removed. If you are signed in, those copies are deleted when
+          you delete the question, clear your history or delete your account.
         </p>
         <p>
           <b>Voice.</b> When you speak, your phone&rsquo;s own speech service (Apple on iPhone, Google on Android) turns
@@ -62,14 +62,17 @@ export default function AppPrivacyPage() {
         </p>
         <p>
           <b>Location (only if you allow it).</b> The app asks for location only when you tap &ldquo;Use my
-          location&rdquo; under an answer, such as one about your ward or the nearest library, or &ldquo;Use where I
-          am&rdquo; in a problem report. Your phone then asks for
+          location&rdquo; under an answer, such as one about your ward or the nearest library, &ldquo;Use where I
+          am&rdquo; in a problem report, or &ldquo;Use my current location&rdquo; when finding your pickup day. Your
+          phone then asks for
           your permission, for use only while you use the app, never in the background. Once you allow it, your
           phone&rsquo;s position, rounded to about 100 metres, is sent with each question. It is used only to answer questions about where you are, such as your
           ward and councillor or the nearest library, community centre or park. It is not stored or logged, and
           answers don&rsquo;t repeat it. When you tap &ldquo;Use where I am&rdquo; in a problem report, your phone finds
           your exact position and its street address, and they go only into the report you send to the City, not to
-          the Hey Markham service. You can stop location at any time in your phone&rsquo;s settings.
+          the Hey Markham service. When you tap &ldquo;Use my current location&rdquo; for your pickup day, your phone
+          turns its position into a street address, and only that address is sent, as if you had typed it (see Pickup
+          day). You can stop location at any time in your phone&rsquo;s settings.
         </p>
         <p>
           <b>Problem reports (only if you send one).</b> A report is an email that you send from your own email app to
@@ -81,7 +84,8 @@ export default function AppPrivacyPage() {
           any other company, and isn&rsquo;t stored or logged. Once you send a report, the City handles it under its own
           privacy policy. A copy of each report you send (the type of problem, the location, the details, the date and
           a smaller copy of the photo, but not your contact details) is kept on your phone under My reports, so you can
-          follow up on it. It isn&rsquo;t sent to us, and you can delete it at any time.
+          follow up on it. It isn&rsquo;t sent to us. You can delete it at any time, and My reports is cleared when you
+          sign out or delete your account.
         </p>
         <p>
           <b>Notifications (only if you allow them).</b> The app asks once whether it may send notifications. If you
@@ -93,8 +97,28 @@ export default function AppPrivacyPage() {
           or turn notifications off in your phone&rsquo;s settings.
         </p>
         <p>
-          <b>Feedback.</b> If you rate an answer as helpful or not, we receive the rating with the question and answer,
+          <b>Ratings.</b> If you rate an answer as helpful or not, we receive the rating with the question and answer,
           not linked to your account.
+        </p>
+        <p>
+          <b>App feedback (only if you send it).</b> If you send feedback from Settings, we receive your message, the
+          app&rsquo;s version, platform and language, and your email address only if you give it for a reply. We use
+          it to look into what you tell us and, if you asked, to reply.
+        </p>
+        <p>
+          <b>Crash reports (only if you turn them on).</b> Off unless you turn on &ldquo;Send crash reports&rdquo; in
+          Settings. Then, when the app crashes or hits an error, it sends Sentry the error and where in the app it
+          happened, the app and system versions, the phone model, the screens opened before it and the addresses of
+          requests that failed, without their contents or identifiers. Reports don&rsquo;t include your questions,
+          answers, account, what you typed or screenshots, and aren&rsquo;t linked to your account.{' '}
+          {/* CONFIRM: "Prevent storing of IP addresses" is on in the Sentry project. */}
+          Sentry doesn&rsquo;t store your IP address. You can turn reports off at any time.
+        </p>
+        <p>
+          <b>Server logs.</b> Like most online services, our servers record when each request arrives and the network
+          (IP) address it comes from, to keep the service secure and working.{' '}
+          {/* CONFIRM: server and proxy log retention (30 days assumed). */}
+          These logs are kept for up to 30 days and don&rsquo;t include your questions.
         </p>
         <p>
           <b>On your phone.</b> Your language, appearance and similar settings are stored on your phone. When you sign
@@ -104,7 +128,7 @@ export default function AppPrivacyPage() {
           <b>Pickup day (only if you set one).</b> The collection day and week you choose are stored only on your
           phone. To show your pickup dates, the app asks the Hey Markham service for that collection zone&rsquo;s
           calendar, such as &ldquo;Thursday A&rdquo;; the request isn&rsquo;t linked to your account. If you choose
-          to find your pickup day by address (typed, or from your profile), the address goes to the Hey Markham
+          to find your pickup day by address (typed, from your profile, or found from your location), the address goes to the Hey Markham
           service, which looks it up in the City&rsquo;s collection calendar, as the City&rsquo;s own website does,
           to find your collection zone. The address isn&rsquo;t stored or logged; only the zone is kept, on your
           phone. Pickup reminders, if you turn them on, are scheduled on your phone; nothing about them is sent to
@@ -179,13 +203,17 @@ export default function AppPrivacyPage() {
             zone. It doesn&rsquo;t receive your account or location.
           </li>
           <li>
+            <b>Sentry</b> (Functional Software, Inc.) receives crash reports, only if you turn them on. They don&rsquo;t
+            include your questions, answers or account.
+          </li>
+          <li>
             <b>Expo</b> (650 Industries, Inc.) and your phone&rsquo;s notification service (Apple Push Notification
             service or Google Firebase Cloud Messaging) deliver notifications, if you allow them. They receive the push
             token and the message, not your questions or account.
           </li>
         </ul>
         <p>
-          Google, Apple and Expo may process information outside Canada, including in the United States, where it is subject
+          Google, Apple, Microsoft (for sign-in), Expo and Sentry may process information outside Canada, including in the United States, where it is subject
           to local laws. We may also disclose personal information where required by law. Links in answers open City
           of Markham web pages, which have their own privacy policies.
         </p>
@@ -203,7 +231,11 @@ export default function AppPrivacyPage() {
       <Section title="How long we keep it">
         <p>
           Account information is kept until you delete it or your account. You can remove single questions or clear
-          your history at any time. {/* CONFIRM: backup retention (30 days assumed). */}
+          your history at any time, which also deletes the service&rsquo;s copies of them. The text of questions and
+          answers in the service&rsquo;s records is removed after 12 months, and conversations kept for follow-up
+          questions are deleted after 12 months. {/* CONFIRM: feedback retention (12 months after it's handled assumed). */}
+          Ratings and app feedback are kept for up to 12 months after we&rsquo;ve dealt with them.{' '}
+          {/* CONFIRM: backup retention (30 days assumed). */}
           Deleted data can remain in backups for up to 30 days before it is removed.
         </p>
       </Section>
@@ -213,6 +245,7 @@ export default function AppPrivacyPage() {
           <li>Use the app as a guest, without an account</li>
           <li>Allow or stop location in your phone&rsquo;s settings</li>
           <li>Allow or turn off notifications, and choose which kinds you get, in the inbox or your phone&rsquo;s settings</li>
+          <li>Turn crash reports on or off in Settings</li>
           <li>View and change your profile in Settings, Your profile</li>
           <li>Delete single questions or your whole history in Your questions</li>
           <li>
@@ -230,7 +263,7 @@ export default function AppPrivacyPage() {
       </Section>
 
       <Section title="Children">
-        <p>Hey Markham is meant for adults and is not directed at children under 13.</p>
+        <p>Hey Markham is meant for adults 18 and over and is not directed at children.</p>
       </Section>
 
       <Section title="About the City of Markham">
