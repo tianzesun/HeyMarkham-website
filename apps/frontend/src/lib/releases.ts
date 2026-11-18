@@ -24,6 +24,25 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.6.0',
+    date: '2026-11-18',
+    delivery: 'store',
+    title: 'A simpler sign-in, widgets you can see, and an easier way to set your pickup day',
+    new: [
+      'Share Hey Markham: tap Share Hey Markham in Settings to send the app to friends and family, by text, email or any app on your phone.',
+      'Traffic alerts on their own: road closures and road work in Markham now come under Traffic in your notification settings, so you can turn them off and still get other service updates.',
+    ],
+    improved: [
+      'A cleaner sign-in screen: choose Google, Apple or email, and the email form only appears when you need it.',
+      'Set your pickup day faster: tap Use my current location to find your address, or pick your day on a simple week strip.',
+      'Scrolling your inbox no longer opens a message’s Delete button by accident. Swipe clearly to the left when you want to delete one.',
+      'Less clutter: official City links in Services show just their names, and Send feedback no longer asks for a rating. You can rate the app in the App Store or Google Play.',
+    ],
+    fixed: [
+      'Hey Markham’s home-screen widgets on Android now show up. Before, they could be invisible after you added them.',
+    ],
+  },
+  {
     version: '1.5.0',
     date: '2026-11-16',
     delivery: 'store',
