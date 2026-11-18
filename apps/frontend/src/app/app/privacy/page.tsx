@@ -50,7 +50,7 @@ export default function AppPrivacyPage() {
         </p>
         <p>
           <b>Your account (signed in only).</b> Your sign-in is managed by Google Identity Platform, which holds your
-          email address and how you sign in (Google, Apple, or email and password). We never see or store your
+          email address and how you sign in (Google, Apple, Microsoft, or email and password). We never see or store your
           password. Our service stores only a random account identifier, your question history (up to the most recent
           500 questions), your saved questions (up to 50) and your optional profile.
         </p>
@@ -161,6 +161,9 @@ export default function AppPrivacyPage() {
           </li>
           <li>
             <b>Apple</b>, if you choose Sign in with Apple. We ask Apple for no name or email.
+          </li>
+          <li>
+            <b>Microsoft</b>, if you choose Continue with Microsoft. We ask Microsoft only for your email address.
           </li>
           <li>
             <b>Apple or Google speech services</b> on your phone, when you speak a question.

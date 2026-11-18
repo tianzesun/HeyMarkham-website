@@ -47,7 +47,7 @@ export default function AppDeleteAccountPage() {
           deleted by account.
         </p>
         <p>
-          Deleting your Hey Markham account doesn&rsquo;t delete your Google or Apple account itself. To also stop
+          Deleting your Hey Markham account doesn&rsquo;t delete your Google, Apple or Microsoft account itself. To also stop
           sharing your Apple ID with Hey Markham, go to your iPhone&rsquo;s Settings, your name, Sign in with Apple.
         </p>
       </Section>
