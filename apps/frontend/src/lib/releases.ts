@@ -33,6 +33,9 @@ export const releases: Release[] = [
       'My reports: find the problems you’ve reported in Services, right under Report a problem.',
       'Settings is just settings now.',
     ],
+    fixed: [
+      'Boxes you type in, like your profile or a report, have outlines that are easier to see, in light and dark mode.',
+    ],
   },
   {
     version: '1.6.1',
