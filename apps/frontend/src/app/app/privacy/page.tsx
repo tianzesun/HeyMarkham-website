@@ -176,7 +176,8 @@ export default function AppPrivacyPage() {
       <Section title="Who processes it">
         <ul>
           <li>
-            <b>The Hey Markham service</b> runs on servers in Ontario, Canada.{' '}
+            <b>The Hey Markham service</b> runs on Google Cloud servers in Toronto, Ontario, Canada, which Google
+            operates for us as our hosting provider.{' '}
             {/* CONFIRM: if any question can be sent to an external AI service such as Google Gemini, name it here. */}
             Answers are generated on those servers; questions are not sent to outside AI companies.
           </li>
