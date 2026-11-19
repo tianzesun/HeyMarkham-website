@@ -233,8 +233,8 @@ export default function AppPrivacyPage() {
           Account information is kept until you delete it or your account. You can remove single questions or clear
           your history at any time, which also deletes the service&rsquo;s copies of them. The text of questions and
           answers in the service&rsquo;s records is removed after 12 months, and conversations kept for follow-up
-          questions are deleted after 12 months. {/* CONFIRM: feedback retention (12 months after it's handled assumed). */}
-          Ratings and app feedback are kept for up to 12 months after we&rsquo;ve dealt with them.{' '}
+          questions are deleted after 12 months. Ratings are kept for up to 12 months, and app feedback for up to 12
+          months once we&rsquo;ve dealt with it; after that their text and any email address are removed.{' '}
           {/* CONFIRM: backup retention (30 days assumed). */}
           Deleted data can remain in backups for up to 30 days before it is removed.
         </p>
