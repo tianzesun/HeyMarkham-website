@@ -24,6 +24,30 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.8.0',
+    date: '2026-11-20',
+    delivery: 'store',
+    title: 'Markham’s weather on your home screen, and chats you can pick up where you left off',
+    new: [
+      'Markham’s weather on the home screen: the temperature and a sun, cloud, rain or snow icon, from Environment Canada. Tap it for the forecast, or in snow or freezing rain, to ask when your street will be plowed.',
+      'A quiet weather scene behind the home screen, like falling snow or a glow of sun. Turn it off in Settings, under Preferences.',
+      'Pick up a past chat: in Your questions, tap a chat to reopen it and keep asking, and Hey Markham remembers what you talked about. Swipe a chat to the left to delete it.',
+      'An Account screen: tap your name in Settings to find your profile, your questions, Sign out and Delete account.',
+      'As a guest, you can ask 10 questions a day. Sign in to keep asking.',
+    ],
+    improved: [
+      'Trending questions are behind the fire icon at the top right of the home screen.',
+      'Your profile shows your initials and fills in as you type, and Save is always at the bottom. If you signed in with Google or Apple, your email comes from there. To remove something, clear it and tap Save.',
+      'Report a problem and What goes where: tap the camera to take a photo. On Report a problem and Pickup day, the location button is inside the address box.',
+      'Send feedback: if you signed in with Google or Apple, turn on Reply to me instead of typing your email.',
+      'Boxes you type in look and work the same everywhere, with an outline that stands out while you type and a message right under them if something’s wrong.',
+      'Signing out removes your reports from this phone, with their photos and locations. Your pickup day, theme and language stay.',
+    ],
+    fixed: [
+      'Deleting your account now deletes all of it, including your sign-in. If you signed in a while ago, you’re asked to sign in again first.',
+    ],
+  },
+  {
     version: '1.6.2',
     date: '2026-11-18',
     delivery: 'automatic',
