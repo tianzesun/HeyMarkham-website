@@ -22,6 +22,7 @@ export default function AppDeleteAccountPage() {
           <li>Tap the gear icon at the top right to open Settings</li>
           <li>At the bottom of Settings, tap Manage account</li>
           <li>Type DELETE and tap Delete my account</li>
+          <li>If you signed in more than a few minutes ago, sign in again when asked, the same way as before</li>
         </ol>
       </Section>
 
@@ -36,15 +37,19 @@ export default function AppDeleteAccountPage() {
 
       <Section title="What is deleted">
         <ul>
-          <li>Your profile: first name, home address, postal code and preferred language</li>
+          <li>
+            Your profile: first and last name, email, phone number, home address, postal code and preferred language
+          </li>
           <li>Your question history and saved questions</li>
+          <li>The service&rsquo;s copies of your questions and answers, kept to improve answers</li>
           <li>Your sign-in (your Hey Markham account in Google Identity Platform)</li>
+          <li>My reports, on the phone you delete from (they&rsquo;re never sent to us)</li>
         </ul>
         <p>
           {/* CONFIRM: backup retention (30 days assumed). */}
-          These are deleted right away from the live service. Copies in backups are removed within 30 days. Feedback
-          ratings and questions asked as a guest aren&rsquo;t linked to any account, so they can&rsquo;t be found or
-          deleted by account.
+          These are deleted right away from the live service. Copies in backups are removed within 30 days. Ratings,
+          app feedback and questions asked as a guest aren&rsquo;t linked to any account, so they can&rsquo;t be found
+          or deleted by account; their text is removed after 12 months.
         </p>
         <p>
           Deleting your Hey Markham account doesn&rsquo;t delete your Google, Apple or Microsoft account itself. To also stop
