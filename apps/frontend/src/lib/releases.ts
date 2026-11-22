@@ -24,6 +24,33 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.10.0',
+    date: '2026-11-22',
+    delivery: 'store',
+    title: 'What’s happening near home, chats you choose to keep, and your Community Journey',
+    new: [
+      'My Markham, in Services: add your home address once and see your ward and councillor, your pickup day, and the closest community centre, library, parks and recycling depot. Your address stays on your phone.',
+      'Winter in Markham: from November 1 to April 15, My Markham starts with the winter parking rules, the plow tracker and windrow clearing for seniors. When snow is coming, you get a heads-up with the parking rules.',
+      'Happening near you, in My Markham: closures at nearby facilities, road work near you, and City events in the next two weeks. Tap one to see the City’s page.',
+      'Today near you: under your next pickup on the home screen, the one thing near home most worth knowing today.',
+      'Choose whether Hey Markham remembers your earlier chats. You can change it any time in Settings, under Account, then Memory.',
+      'Private chats: tap Private before you ask, and that chat isn’t saved or remembered.',
+      'Your Community Journey, in Settings: your level, your badges, and a “which bin?” question each day.',
+      'Choose your language right on the sign-in screen.',
+    ],
+    improved: [
+      'Answers start being read aloud while they’re still being written, and voice questions get a quick “let me check that for you” while Hey Markham looks.',
+      'Brian is the new male voice, in place of Derek. If you chose Derek, you’ll hear Brian.',
+      'Tap a place to get directions in Google Maps. Tap the (i) to ask Hey Markham about it.',
+      'Weather icons are in colour.',
+      'Answers that don’t come from the City’s pages show a small information icon instead of a long notice.',
+      'Photos and your inbox load faster, and the app opens more smoothly.',
+    ],
+    fixed: [
+      'Signing in or out with Report a problem open no longer closes the app.',
+    ],
+  },
+  {
     version: '1.8.0',
     date: '2026-11-20',
     delivery: 'store',
