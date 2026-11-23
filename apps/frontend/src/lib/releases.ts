@@ -24,6 +24,20 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.13.5',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'Touch and hold a chat for more',
+    new: [
+      'Touch and hold a chat, in your chats or in Settings under Your questions, to open it, ask again, save the question, share it or delete it. Touch and hold a saved question to ask it again, share it or remove it. Swiping to delete still works.',
+    ],
+    improved: [
+      'With large text turned on in your phone’s settings, Settings choices and the home menu no longer cut words off.',
+      'The Home link at the top of your chats is gone, so the list starts right away. The app still opens on the home screen, with the weather and Today.',
+    ],
+    fixed: ['With large text, the numbers in an answer’s numbered list could be cut off.'],
+  },
+  {
     version: '1.13.4',
     date: '2026-11-23',
     delivery: 'automatic',
