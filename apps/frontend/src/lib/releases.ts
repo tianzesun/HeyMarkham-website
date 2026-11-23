@@ -24,6 +24,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.13.2',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'New chat opens a fresh chat',
+    improved: [
+      'New chat opens an empty chat, ready for your question, instead of the home screen. Find it at the bottom right of your chats, or at the top right during a chat.',
+      'At the bottom of your chats: Settings on the left, search in the middle, New chat on the right. To get back to the home screen with the weather and Today, tap Home at the top of your chats.',
+    ],
+  },
+  {
     version: '1.13.1',
     date: '2026-11-23',
     delivery: 'automatic',
