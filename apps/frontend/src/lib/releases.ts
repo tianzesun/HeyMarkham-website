@@ -24,6 +24,31 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.13.1',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'Today on your home screen, your chats a swipe away, and a calmer header',
+    new: [
+      'Today, on the home screen: the few things worth knowing today, like a weather warning, your next pickup, property tax due this week, a closure or road work near home, and events today or this weekend. Tap one for the details.',
+      'Your chats in a drawer: tap the clock icon at the top left and the home screen slides aside to show them. Search your chats and open Settings from the bottom of the drawer.',
+      'A menu at the top right (the … button) has Notifications, your Community Journey and Temporary chat. A red dot means you have unread notifications.',
+      'Community Journey lists every level, what each one brings, and where you are now.',
+      'Anonymous usage counts, so we can tell which features help: once a day, that the app was opened, and which Today rows get tapped. Nothing you type, and nothing that identifies you. Turn it off in Settings.',
+    ],
+    improved: [
+      'A temporary chat starts on a quiet screen of its own, so it’s clear that it won’t be saved or remembered.',
+      'The temperature on the home screen is the one weather.gc.ca shows for Markham.',
+      'Weather on the home screen is larger, shows the wind when it’s 20 km/h or more, and the background follows the sky: rain, snow, fog, storms and windy days, and darker at night.',
+      'Your picture is your Community Journey level’s badge.',
+      'As a guest, you can ask 3 questions a day by voice, on top of your 10 typed questions. Sign in to keep asking.',
+      'Crash reports are on unless you turn them off in Settings. They don’t include your account or your photos.',
+    ],
+    fixed: [
+      'The app no longer closes right after opening for some signed-in residents.',
+      'Answers are no longer read aloud after you leave the chat.',
+    ],
+  },
+  {
     version: '1.10.0',
     date: '2026-11-22',
     delivery: 'store',
