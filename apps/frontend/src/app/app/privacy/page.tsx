@@ -106,13 +106,22 @@ export default function AppPrivacyPage() {
           it to look into what you tell us and, if you asked, to reply.
         </p>
         <p>
-          <b>Crash reports (only if you turn them on).</b> Off unless you turn on &ldquo;Send crash reports&rdquo; in
-          Settings. Then, when the app crashes or hits an error, it sends Sentry the error and where in the app it
+          <b>Crash reports (on unless you turn them off).</b> &ldquo;Send crash reports&rdquo; in Settings is on
+          unless you turn it off. When the app crashes or hits an error, it sends Sentry the error and where in the app it
           happened, the app and system versions, the phone model, the screens opened before it and the addresses of
           requests that failed, without their contents or identifiers. Reports don&rsquo;t include your questions,
           answers, account, what you typed or screenshots, and aren&rsquo;t linked to your account.{' '}
           {/* CONFIRM: "Prevent storing of IP addresses" is on in the Sentry project. */}
           Sentry doesn&rsquo;t store your IP address. You can turn reports off at any time.
+        </p>
+        <p>
+          <b>Anonymous usage counts (on unless you turn them off).</b> So we can tell which features help, the app
+          adds one to daily totals on our service: once a day, that the app was opened and on how many of the last 7
+          days (your phone works this out and keeps those dates itself), and which row of the home screen&rsquo;s Today
+          card was tapped. Each count carries only the platform (iOS or Android) and the app&rsquo;s version. There is
+          no device identifier, no account, nothing you typed, and the network address isn&rsquo;t stored with it, so a
+          count can&rsquo;t be traced to you. Turn off &ldquo;Share anonymous usage counts&rdquo; in Settings to stop
+          them.
         </p>
         <p>
           <b>Server logs.</b> Like most online services, our servers record when each request arrives and the network
@@ -237,7 +246,8 @@ export default function AppPrivacyPage() {
           questions are deleted after 12 months. Ratings are kept for up to 12 months, and app feedback for up to 12
           months once we&rsquo;ve dealt with it; after that their text and any email address are removed.{' '}
           {/* CONFIRM: backup retention (30 days assumed). */}
-          Deleted data can remain in backups for up to 30 days before it is removed.
+          Deleted data can remain in backups for up to 30 days before it is removed. Anonymous usage counts are daily
+          totals with nothing about any one person, and are kept for two years.
         </p>
       </Section>
 
@@ -246,7 +256,7 @@ export default function AppPrivacyPage() {
           <li>Use the app as a guest, without an account</li>
           <li>Allow or stop location in your phone&rsquo;s settings</li>
           <li>Allow or turn off notifications, and choose which kinds you get, in the inbox or your phone&rsquo;s settings</li>
-          <li>Turn crash reports on or off in Settings</li>
+          <li>Turn crash reports and anonymous usage counts off (or back on) in Settings</li>
           <li>View and change your profile in Settings, Your profile</li>
           <li>Delete single questions or your whole history in Your questions</li>
           <li>
