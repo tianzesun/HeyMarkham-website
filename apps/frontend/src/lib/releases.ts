@@ -24,6 +24,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.13.3',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'Every chat starts under Markham’s sky',
+    improved: [
+      'A new chat and a temporary chat start on the same screen as home, with the weather background and the big mic, instead of a blank page.',
+      'In Settings, Send crash reports and Share anonymous usage counts are now under More. They and Weather background are on/off switches.',
+    ],
+  },
+  {
     version: '1.13.2',
     date: '2026-11-23',
     delivery: 'automatic',
