@@ -111,7 +111,7 @@ export default function AppPrivacyPage() {
           happened, the app and system versions, the phone model, the screens opened before it and the addresses of
           requests that failed, without their contents or identifiers. Reports don&rsquo;t include your questions,
           answers, account, what you typed or screenshots, and aren&rsquo;t linked to your account.{' '}
-          {/* CONFIRM: "Prevent storing of IP addresses" is on in the Sentry project. */}
+          {/* Confirmed 2026-11-22: "Prevent Storing of IP Addresses" is on in Sentry project aydenait/heymarkham. */}
           Sentry doesn&rsquo;t store your IP address. You can turn reports off at any time.
         </p>
         <p>
