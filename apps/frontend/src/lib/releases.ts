@@ -24,6 +24,21 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.13.4',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'Your account and Settings, one tap from home',
+    new: [
+      'The menu at the top right of the home screen starts with your account: your picture, name and email. Tap it to edit your profile. Guests see Sign in there.',
+      'Settings and Send feedback are in that menu too.',
+    ],
+    fixed: [
+      'Settings could open as a blank screen when chosen from your chats.',
+      'On Android, the back button could stop working after leaving the home screen with your chats open.',
+      'If a page ever fails to open, you now see Try again and Go to the home screen instead of a blank page.',
+    ],
+  },
+  {
     version: '1.13.3',
     date: '2026-11-23',
     delivery: 'automatic',
