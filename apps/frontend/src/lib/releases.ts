@@ -24,6 +24,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.5',
+    date: '2026-11-24',
+    delivery: 'automatic',
+    title: 'A clearer Settings page',
+    improved: [
+      'Settings is grouped so things are easier to find: General, Read aloud, Privacy, and Help & about.',
+      'Everything about answers read aloud is together: when to read aloud, the voice, and your minutes left.',
+    ],
+  },
+  {
     version: '1.14.4',
     date: '2026-11-24',
     delivery: 'automatic',
