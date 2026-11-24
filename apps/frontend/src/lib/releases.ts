@@ -24,6 +24,37 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.6',
+    date: '2026-11-24',
+    delivery: 'automatic',
+    title: 'One invite code, one neighbour',
+    improved: [
+      'Each invite code is for one neighbour. Once it’s used, you get a new code to share with the next one, so your invites always count.',
+      'If a code was already used, Hey Markham says so: ask your neighbour for their new code.',
+    ],
+  },
+  {
+    version: '1.14.5',
+    date: '2026-11-24',
+    delivery: 'automatic',
+    title: 'A clearer Settings page',
+    improved: [
+      'Settings is grouped so things are easier to find: General, Read aloud, Privacy, and Help & about.',
+      'Everything about answers read aloud is together: when to read aloud, the voice, and your minutes left.',
+    ],
+  },
+  {
+    version: '1.14.4',
+    date: '2026-11-24',
+    delivery: 'automatic',
+    title: 'Invite a neighbour, on its own page',
+    improved: [
+      'Invite a neighbour has a page of its own: your code, a Share button, how many neighbours joined, and a place to enter a code you were given.',
+      'Read-aloud minutes now shows just your minutes, with a link to invite a neighbour for more.',
+      'Send feedback is shorter and quicker to fill in.',
+    ],
+  },
+  {
     version: '1.14.3',
     date: '2026-11-23',
     delivery: 'automatic',
