@@ -24,6 +24,19 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.13.7',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'What’s trending, one tap from the top left',
+    new: [
+      'Swipe in from the right edge of the home screen to open your Community Journey.',
+      'Your chats is in the menu at the top right, as well as a swipe in from the left edge.',
+    ],
+    improved: [
+      'What’s trending (the flame) is now at the top left of the home screen. In a chat, the button for your chats is still there.',
+    ],
+  },
+  {
     version: '1.13.6',
     date: '2026-11-23',
     delivery: 'automatic',
