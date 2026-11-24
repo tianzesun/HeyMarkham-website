@@ -24,6 +24,26 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.13.11',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'A simpler Services',
+    improved: [
+      'Services no longer has a search box: every topic is right there to tap. To ask about anything else, use the question bar on the home screen.',
+    ],
+  },
+  {
+    version: '1.13.10',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'About in the menu, and your address in one place',
+    improved: [
+      'About is in the menu at the top right of the home screen, and at the bottom of Settings.',
+      'The menu is in a clearer order: Temporary chat is right under Your chats, and your Community Journey is under Settings.',
+      'In My Markham, tap your address to change it or remove it. Remove address is no longer at the bottom of the page.',
+    ],
+  },
+  {
     version: '1.13.9',
     date: '2026-11-23',
     delivery: 'automatic',
