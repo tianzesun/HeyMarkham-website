@@ -24,6 +24,29 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.1',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'Invite a neighbour from the menu, and Home a tap away',
+    improved: [
+      'Invite a neighbour is in the menu at the top right of the home screen: one tap to share your invite link.',
+      'In a chat, tap Home at the top left to go back to the home screen. Your chat stays in Your chats.',
+      'Pages in Services, like Recreation, My Markham and garbage pickup, have Home at the top right, straight back to the home screen.',
+    ],
+  },
+  {
+    version: '1.14.0',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'Read-aloud minutes, and more for inviting a neighbour',
+    new: [
+      'Hey Markham reads answers aloud in a natural voice for a number of minutes every day. See what’s left in Settings, under Read-aloud minutes. When they run out, your phone’s own voice reads instead, until midnight.',
+      'Invite a neighbour: share your link from Read-aloud minutes. When a neighbour signs up with it, you both get bonus read-aloud minutes, and bonus minutes don’t expire.',
+      'Got an invite? Open the link, sign in, and your bonus minutes are added. You can also type the code in Settings, under Read-aloud minutes.',
+      'Share the app in Settings now sends your own invite link.',
+    ],
+  },
+  {
     version: '1.13.11',
     date: '2026-11-23',
     delivery: 'automatic',
