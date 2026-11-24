@@ -24,6 +24,18 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.13.9',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'Notifications at a glance, and Services full screen',
+    improved: [
+      'Notifications has its own bell at the top right of the home screen, with the number of unread ones on it.',
+      'Swipe in from the right edge and Services fills the screen. Tap the back arrow, or swipe to the right, to return home. Services is in the menu too.',
+      'What’s trending now slides in from the side. Swipe to the right or tap ✕ to close it.',
+      'The menu is narrower: the Community Journey shows just its name.',
+    ],
+  },
+  {
     version: '1.13.8',
     date: '2026-11-23',
     delivery: 'automatic',
