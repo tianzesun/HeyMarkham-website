@@ -49,6 +49,22 @@ export default function AppPrivacyPage() {
           If that isn&rsquo;t available, your phone speaks the answer instead.
         </p>
         <p>
+          <b>Read-aloud minutes.</b> Read-aloud has a number of minutes a day. To count them, the service records how
+          many seconds of answers it read aloud for you each day: with your account if you are signed in, kept until
+          you delete your account. For a guest it counts against a random ID made on your phone or, without one, your
+          internet address, both scrambled (hashed) so they can&rsquo;t be read back, and the count is removed after a
+          day. When the day&rsquo;s minutes are used, your phone can still read answers aloud in its own voice.
+        </p>
+        <p>
+          <b>Invites (signed in only).</b> Your account has a random invite code that says nothing about you. When
+          someone new signs in with your code, we record that their account joined from yours, so that you both get
+          bonus read-aloud minutes. To keep invites fair, it counts only for a new account that signed in with Google,
+          Apple, Microsoft or a confirmed email, and only once per person: we check how they signed in at that moment
+          and keep a one-way scrambled (hashed) copy of their sign-in identifier, never their email or name. You see
+          only how many people joined from your invite, never who. Our staff can see invites by account identifier
+          only, to take back bonus minutes from an invite that is abused.
+        </p>
+        <p>
           <b>Your account (signed in only).</b> Your sign-in is managed by Google Identity Platform, which holds your
           email address and how you sign in (Google, Apple, Microsoft, or email and password). We never see or store your
           password. Our service stores only a random account identifier, your question history (up to the most recent
@@ -248,6 +264,10 @@ export default function AppPrivacyPage() {
           {/* CONFIRM: backup retention (30 days assumed). */}
           Deleted data can remain in backups for up to 30 days before it is removed. Anonymous usage counts are daily
           totals with nothing about any one person, and are kept for two years.
+          Deleting your account deletes your read-aloud minutes, bonus minutes and invite code, and removes your account
+          from any invite, so no record links you to the person who invited you or the people you invited. The
+          scrambled copy of your sign-in identifier from an invite is kept, so the same person can&rsquo;t earn an
+          invite bonus twice.
         </p>
       </Section>
 
