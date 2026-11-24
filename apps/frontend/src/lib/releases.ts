@@ -24,6 +24,18 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.13.6',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'Your Community Journey, now a trail with a sky at every level',
+    new: [
+      'Your Community Journey is now a trail: one stop for each level, with yours glowing and the dots filling in as you go. Tap any stop to see what that level brings.',
+      'Every level unlocks a sky: new colours for your home screen, buttons and questions, from Rouge Valley to Markham Gold. Choose any you’ve unlocked under Your skies.',
+      'The daily “which bin?” question is back on your journey. Answer it, right or wrong, and it counts.',
+    ],
+    improved: ['When you reach a new level, you can put its new sky on straight away.'],
+  },
+  {
     version: '1.13.5',
     date: '2026-11-23',
     delivery: 'automatic',
