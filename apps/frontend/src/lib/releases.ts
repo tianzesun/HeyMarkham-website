@@ -24,6 +24,17 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.4',
+    date: '2026-11-24',
+    delivery: 'automatic',
+    title: 'Invite a neighbour, on its own page',
+    improved: [
+      'Invite a neighbour has a page of its own: your code, a Share button, how many neighbours joined, and a place to enter a code you were given.',
+      'Read-aloud minutes now shows just your minutes, with a link to invite a neighbour for more.',
+      'Send feedback is shorter and quicker to fill in.',
+    ],
+  },
+  {
     version: '1.14.3',
     date: '2026-11-23',
     delivery: 'automatic',
