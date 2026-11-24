@@ -56,7 +56,7 @@ export default async function InvitePage({ params }: { params: Promise<{ code: s
                 {code}
               </p>
               <p className="mb-4">
-                Have the app already? Sign in and enter this code within 14 days of first signing in.
+                Have the app already? Sign in and enter this code soon after you first sign in.
               </p>
               <CopyCode code={code} />
             </section>
