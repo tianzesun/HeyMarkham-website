@@ -24,6 +24,17 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.1',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'Invite a neighbour from the menu, and Home a tap away',
+    improved: [
+      'Invite a neighbour is in the menu at the top right of the home screen: one tap to share your invite link.',
+      'In a chat, tap Home at the top left to go back to the home screen. Your chat stays in Your chats.',
+      'Pages in Services, like Recreation, My Markham and garbage pickup, have Home at the top right, straight back to the home screen.',
+    ],
+  },
+  {
     version: '1.14.0',
     date: '2026-11-23',
     delivery: 'automatic',
