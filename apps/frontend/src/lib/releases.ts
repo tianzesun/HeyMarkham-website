@@ -24,6 +24,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.6',
+    date: '2026-11-24',
+    delivery: 'automatic',
+    title: 'One invite code, one neighbour',
+    improved: [
+      'Each invite code is for one neighbour. Once it’s used, you get a new code to share with the next one, so your invites always count.',
+      'If a code was already used, Hey Markham says so: ask your neighbour for their new code.',
+    ],
+  },
+  {
     version: '1.14.5',
     date: '2026-11-24',
     delivery: 'automatic',
