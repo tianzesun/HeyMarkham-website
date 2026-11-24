@@ -24,6 +24,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.3',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'Your account, in one place',
+    improved: [
+      'Settings, then Account, is grouped: your profile and memory first, then your activity (your questions, reminders, what you follow and your Community Journey level), then read aloud.',
+      'See how many read-aloud minutes you have left, and invite a neighbour for more, right from your account.',
+    ],
+  },
+  {
     version: '1.14.2',
     date: '2026-11-23',
     delivery: 'automatic',
