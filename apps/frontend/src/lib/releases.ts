@@ -24,6 +24,17 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.13.8',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'Services, a swipe away',
+    improved: [
+      'Swipe in from the right edge of the home screen and it slides aside to show Services, just as your chats are a swipe in from the left. The Services button at the top right opens it too.',
+      'Everything from the Services page is there: search, Contact the City, Report a problem, My Markham and every topic. To arrange your topics, tap Customize services.',
+      'Your Community Journey is in the menu at the top right.',
+    ],
+  },
+  {
     version: '1.13.7',
     date: '2026-11-23',
     delivery: 'automatic',
