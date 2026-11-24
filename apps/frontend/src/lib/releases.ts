@@ -24,6 +24,17 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.2',
+    date: '2026-11-23',
+    delivery: 'automatic',
+    title: 'A clearer menu',
+    improved: [
+      'The menu at the top right of the home screen is grouped: your account first, then Your chats, Temporary chat and Services, then Invite a neighbour, then Settings and help.',
+      'Invite a neighbour now says what it earns: bonus read-aloud minutes.',
+      'With large text, the menu scrolls so nothing is cut off, and screen readers read it as a menu.',
+    ],
+  },
+  {
     version: '1.14.1',
     date: '2026-11-23',
     delivery: 'automatic',
