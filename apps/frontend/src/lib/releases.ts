@@ -24,6 +24,15 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.8',
+    date: '2026-11-24',
+    delivery: 'automatic',
+    title: 'Smoother pages from Services',
+    fixed: [
+      'Pages you open from Services open right away, without a flash of the home screen, and going back takes you to Services just as you left it.',
+    ],
+  },
+  {
     version: '1.14.7',
     date: '2026-11-24',
     delivery: 'automatic',
