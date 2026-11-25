@@ -24,6 +24,21 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.11',
+    date: '2026-11-25',
+    delivery: 'automatic',
+    title: 'Business & licences, and who to contact when it isn’t the City',
+    new: [
+      'Business & licences in Services: business licences and renewals, home businesses, and lottery, bingo and raffle licences, with questions like what a licence costs and what a restaurant needs.',
+      '“Not run by the City” on a Services page tells you who handles part of a service instead, with their page and a number to tap and call: Miller Waste for missed blue box pickups and new blue boxes (since January 1, 2026), MPAC for property assessments, York Region for its roads and YRT for buses, the Ontario SPCA and Shades of Hope Wildlife Refuge for animals, the Province for tobacco permits, York Region Public Health for health inspections, and Markham Public Library.',
+    ],
+    improved: [
+      'Questions about business licence fees get the City’s latest published fees, from 2025, and a reminder to confirm with Business Licensing.',
+      'Clearer answers on reporting potholes, damaged signs, blocked sidewalks and water leaks, on construction noise hours, and on overgrown yards and broken-down cars.',
+      'School buses’ contact is in the same “Not run by the City” section.',
+    ],
+  },
+  {
     version: '1.14.10',
     date: '2026-11-25',
     delivery: 'automatic',
