@@ -24,30 +24,41 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.9',
+    date: '2026-11-24',
+    delivery: 'automatic',
+    title: 'Celsius or Fahrenheit, and a livelier Trending',
+    new: [
+      'The temperature on the home screen shows °C or °F. Tap it to switch; Hey Markham remembers your choice.',
+      'The Trending flame flares up when a question has become hot since you last looked.',
+    ],
+    improved: [
+      'Tap the weather icon to open Environment Canada’s forecast for Markham.',
+      'Trending has a brighter, two-tone flame.',
+      'Invite a neighbour stands out in the menu, with the bonus minutes you earn for each neighbour who joins.',
+    ],
+  },
+  {
     version: '1.14.8',
     date: '2026-11-24',
     delivery: 'automatic',
     title: 'Smoother pages from Services',
     fixed: [
-      'Pages you open from Services open right away, without a flash of the home screen, and going back takes you to Services just as you left it.',
+      'Pages opened from Services on the home screen open straight away, and Back returns you to Services as you left it.',
     ],
   },
   {
     version: '1.14.7',
     date: '2026-11-24',
     delivery: 'automatic',
-    title: 'Services cards that tell you what’s happening now',
+    title: 'What’s happening, right on Services',
     new: [
-      'Some Services cards show what’s true today: your next pickup, when property tax is next due, road work near home, and how many events are on this week.',
-      'My Markham shows the mayor and regional councillors under your ward councillor.',
+      'Services cards show what’s coming up: your next pickup, the next property tax due date, road work near home and events this week.',
+      'My Markham shows your mayor and regional councillors.',
     ],
     improved: [
-      'Building & permits is easier to find, right after waste and tax, with answers on decks, basement second suites and the documents a permit needs.',
-      'Account shows what’s in each row, like how many chats or reminders you have, and tapping your card opens your profile.',
-      'Shorter, easier-to-scan rows in My Markham.',
-    ],
-    fixed: [
-      'Going back from a page you opened in Services takes you back to Services.',
+      'Building & permits is easier to find in Services, with questions on deck permits, basement second suites and the documents a permit needs.',
+      'Your account page shows what each section holds, like how many chats you have.',
     ],
   },
   {
