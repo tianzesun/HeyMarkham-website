@@ -41,6 +41,13 @@ export default function AppPrivacyPage() {
           you delete the question, clear your history or delete your account.
         </p>
         <p>
+          <b>Trending.</b> The app&rsquo;s Trending list shows questions residents are asking often this week, so
+          others can ask them too. A question is shown only if it was asked in at least three separate accounts or app
+          sessions, Hey Markham answered it well, and it holds nothing that could identify anyone: no numbers (such as
+          an address, phone or account number), email addresses or links. Trending shows only the question&rsquo;s
+          words, never who asked it.
+        </p>
+        <p>
           <b>Voice.</b> When you speak, your phone&rsquo;s own speech service (Apple on iPhone, Google on Android) turns
           your voice into text. Hey Markham receives only the text, never the recording. Read-aloud answers are spoken,
           in the voice you choose, by Microsoft Azure AI Speech in Canada: the Hey Markham service sends it the
@@ -203,7 +210,7 @@ export default function AppPrivacyPage() {
           <li>
             <b>The Hey Markham service</b> runs on Google Cloud servers in Toronto, Ontario, Canada, which Google
             operates for us as our hosting provider.{' '}
-            {/* CONFIRM: if any question can be sent to an external AI service such as Google Gemini, name it here. */}
+            {/* Confirmed 2026-11-24: answers come from the local model; no Gemini or OpenAI client is used (HeyMarkham#311). */}
             Answers are generated on those servers; questions are not sent to outside AI companies.
           </li>
           <li>
