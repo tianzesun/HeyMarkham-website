@@ -24,6 +24,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.10',
+    date: '2026-11-25',
+    delivery: 'automatic',
+    title: 'Contact the City, like every other page',
+    improved: [
+      'Contact the City opens like the other pages in Services, with the same Back and Home buttons.',
+      'The temperature on the home screen is a more comfortable size, next to the weather icon.',
+    ],
+  },
+  {
     version: '1.14.9',
     date: '2026-11-24',
     delivery: 'automatic',
