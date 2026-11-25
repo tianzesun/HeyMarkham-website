@@ -24,6 +24,24 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.7',
+    date: '2026-11-24',
+    delivery: 'automatic',
+    title: 'Services cards that tell you what’s happening now',
+    new: [
+      'Some Services cards show what’s true today: your next pickup, when property tax is next due, road work near home, and how many events are on this week.',
+      'My Markham shows the mayor and regional councillors under your ward councillor.',
+    ],
+    improved: [
+      'Building & permits is easier to find, right after waste and tax, with answers on decks, basement second suites and the documents a permit needs.',
+      'Account shows what’s in each row, like how many chats or reminders you have, and tapping your card opens your profile.',
+      'Shorter, easier-to-scan rows in My Markham.',
+    ],
+    fixed: [
+      'Going back from a page you opened in Services takes you back to Services.',
+    ],
+  },
+  {
     version: '1.14.6',
     date: '2026-11-24',
     delivery: 'automatic',
