@@ -201,8 +201,8 @@ export const faqDatabase: Array<{ question: string, keywords: string[], answer: 
   },
   {
     question: "How wide are sidewalks?",
-    keywords: ['sidewalk', 'width', 'wide', 'meter', 'foot', 'multiuse', 'pathway', 'mup', 'atmp', 'active', 'transportation'],
-    answer: "Sidewalks are generally 1.5 meters (approximately five feet) wide but could be wider depending on its placement relative to the road curb and on the level of anticipated pedestrian traffic. A sidewalk could also be upgraded to a multiuse pathway (MUP) to accommodate both walking and cycling. The decision is typically determined through recommendations in Markham Active Transportation Master Plan (ATMP), feasibility studies and detailed design, prior to construction.",
+    keywords: ['sidewalk', 'width', 'wide', 'meter', 'metre', 'foot', 'multiuse', 'multi-use', 'pathway', 'mup', 'atmp', 'active', 'transportation'],
+    answer: "Sidewalks are generally 1.5 metres (about 5 feet) wide, and can be wider depending on where they sit relative to the curb and how much foot traffic is expected. A sidewalk can also be upgraded to a multi-use path (MUP) for both walking and cycling. That's usually decided before construction, through Markham's Active Transportation Master Plan (ATMP), feasibility studies and detailed design.",
     source: "https://www.markham.ca/neighbourhood-services/roads-sidewalks/sidewalk-completion-program/faqs-contact"
   },
   {
@@ -214,13 +214,13 @@ export const faqDatabase: Array<{ question: string, keywords: string[], answer: 
   {
     question: "Will I lose driveway access during sidewalk construction?",
     keywords: ['driveway', 'access', 'construction', 'property', 'parking', 'restricted', 'closed', 'temporary', 'alternate'],
-    answer: "For at least a week or more, your driveway will not be accessible during construction of the sidewalk. The construction contractor and/or the City will confirm with each property owner/tenant the days when driveway access will be restricted. The City will provide alternate overnight parking arrangements during the construction period.",
+    answer: "Your driveway won't be accessible for at least a week while the sidewalk is built. The contractor or the City will confirm the days with each property owner or tenant, and the City provides other overnight parking during construction.",
     source: "https://www.markham.ca/neighbourhood-services/roads-sidewalks/sidewalk-completion-program/faqs-contact"
   },
   {
     question: "Will I be notified about construction on my street?",
     keywords: ['notification', 'notify', 'notice', 'construction', 'scheduled', 'my', 'street', 'when', 'advance'],
-    answer: "The City will send out construction notices to residents/businesses at least one week in advance of construction.",
+    answer: "The City sends construction notices to residents and businesses at least one week before construction starts.",
     source: "https://www.markham.ca/neighbourhood-services/roads-sidewalks/sidewalk-completion-program/faqs-contact"
   },
   {
@@ -238,13 +238,13 @@ export const faqDatabase: Array<{ question: string, keywords: string[], answer: 
   {
     question: "When will construction happen on my street?",
     keywords: ['timing', 'when', 'schedule', 'construction', 'on', 'my', 'street', 'program', 'status'],
-    answer: "Please check the Construction Program and Project Status section. Residents directly impacted by a sidewalk project will be informed in advance of any construction proceeding.",
+    answer: "See the construction program and project status on the City's Sidewalk Completion Program page. Residents directly affected by a sidewalk project are told before construction starts.",
     source: "https://www.markham.ca/neighbourhood-services/roads-sidewalks/sidewalk-completion-program/faqs-contact"
   },
   {
     question: "What is the City right-of-way?",
     keywords: ['right', 'of', 'way', 'property', 'boundary', 'curb', 'how', 'far', 'city', 'land'],
-    answer: "Approximately 5.0 meters / 16.4 feet from the curb is City right-of-way. This land allows the City to lay cables, pipes, streetlights and sidewalks to provide services for everyone.",
+    answer: "About 5 metres (16.4 feet) from the curb is City right-of-way. The City uses this land for the cables, pipes, streetlights and sidewalks that serve everyone.",
     source: "https://www.markham.ca/neighbourhood-services/roads-sidewalks/sidewalk-completion-program/faqs-contact"
   }
 ];
