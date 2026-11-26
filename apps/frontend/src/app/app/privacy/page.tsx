@@ -172,7 +172,10 @@ export default function AppPrivacyPage() {
           service, which looks it up in the City&rsquo;s collection calendar, as the City&rsquo;s own website does,
           to find your collection zone. The address isn&rsquo;t stored or logged; only the zone is kept, on your
           phone. Pickup reminders, if you turn them on, are scheduled on your phone; nothing about them is sent to
-          us.
+          us. The zone is also sent with each question you ask, so questions such as &ldquo;when is my next garbage
+          day?&rdquo; can be answered with the date. It is used only for those answers and isn&rsquo;t stored with
+          your account, but an answer that gives your pickup dates names the zone, and like any answer it is kept in
+          your history if you are signed in.
         </p>
         <p>
           <b>Calendar (only if you add your pickups to it).</b> If you tap &ldquo;Add to my calendar&rdquo;, the app
