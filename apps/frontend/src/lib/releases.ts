@@ -25,6 +25,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.13',
+    date: '2026-11-26',
+    delivery: 'automatic',
+    title: 'Ask when your next pickup is, and see what Hey Markham remembers',
+    new: [
+      'Ask “When is my next garbage day?” or “Is garbage tomorrow?” and get the date and what goes out, from the City’s calendar for the pickup zone you chose on the Pickup screen. With memory on, Hey Markham remembers your zone; otherwise it’s used only for that answer.',
+      'Settings › Account › Memory shows what Hey Markham remembers about you (pickup day, ward, area, language), with a button to forget each one.',
+    ],
+  },
+  {
     version: '1.14.12',
     date: '2026-11-25',
     delivery: 'automatic',
