@@ -157,6 +157,14 @@ export default function AppPrivacyPage() {
           in, a sign-in token is kept in your phone&rsquo;s secure storage (Keychain or Keystore).
         </p>
         <p>
+          <b>Home address in My Markham (only if you add one).</b> It is stored only on your phone, in its secure
+          storage, not in your account. It is sent to the Hey Markham service when you open My Markham, to find your
+          ward, councillor and places near home, and with each question you ask, so questions such as &ldquo;nearest
+          park&rdquo; or &ldquo;who is my councillor&rdquo; can be answered for your home. It is used only for those
+          answers: it is not stored or logged, it is not sent to the AI model, and answers don&rsquo;t repeat it. You
+          can remove it in My Markham at any time.
+        </p>
+        <p>
           <b>Pickup day (only if you set one).</b> The collection day and week you choose are stored only on your
           phone. To show your pickup dates, the app asks the Hey Markham service for that collection zone&rsquo;s
           calendar, such as &ldquo;Thursday A&rdquo;; the request isn&rsquo;t linked to your account. If you choose

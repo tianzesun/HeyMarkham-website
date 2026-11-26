@@ -24,6 +24,18 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.12',
+    date: '2026-11-25',
+    delivery: 'automatic',
+    title: 'Answers about places near you use your saved home address',
+    improved: [
+      'With a home address saved in My Markham, questions like “nearest park” or “who is my councillor” are answered for your home, without turning on location. It’s used only for those answers and isn’t stored.',
+      'Ask about a part of Markham by name: “parks in Cornell”, “libraries near Markham Centre” or “which ward is Unionville in?”.',
+      'Voice: when an answer takes a moment, you hear “Still checking, one moment”, and Chinese answers start being read sooner.',
+      'Answers read aloud sound more natural: no more reading out decorative symbols, and phone numbers, lists and Chinese punctuation read properly.',
+    ],
+  },
+  {
     version: '1.14.11',
     date: '2026-11-25',
     delivery: 'automatic',
