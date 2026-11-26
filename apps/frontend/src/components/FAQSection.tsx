@@ -48,7 +48,7 @@ export const FAQSection = () => {
     <section id="faq" className="py-20 px-6 bg-slate-50 dark:bg-slate-900 scroll-mt-16">
       <div className="max-w-4xl mx-auto">
         <div data-reveal className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-serif font-bold mb-4 text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+          <h2 className="text-2xl md:text-3xl font-serif font-bold mb-4 text-slate-900 dark:text-white text-balance">Frequently Asked Questions</h2>
           <p className="text-slate-600 dark:text-slate-400 text-lg mb-8">Answers about City of Markham services, each checked against an official source and linked to it. Details can change, so always confirm on the source page.</p>
 
           {/* Search Input */}

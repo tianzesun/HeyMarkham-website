@@ -108,7 +108,7 @@ export default function HomePage() {
   const moreLife = [
     { icon: <Receipt className="w-5 h-5" />, title: 'Property tax', description: 'The due dates the City has published, with a reminder a week or a day before.' },
     { icon: <Snowflake className="w-5 h-5" />, title: 'Winter', description: 'Winter parking rules, the plow tracker and windrow clearing for seniors, with a heads-up when snow is coming.' },
-    { icon: <Trees className="w-5 h-5" />, title: 'Parks & places', description: 'The nearest park, splash pads and trails, and directions to libraries and community centres.' },
+    { icon: <Trees className="w-5 h-5" />, title: 'Parks & places', description: 'The nearest park, splash pads and trails, and directions to libraries and community centres. Or ask by neighbourhood: “parks in Cornell”.' },
     { icon: <CalendarDays className="w-5 h-5" />, title: 'Events', description: 'What’s on at the City this week, with dates, times and places.' },
     { icon: <Landmark className="w-5 h-5" />, title: 'Your ward', description: 'Your ward, your councillor, the mayor and your regional councillors.' },
     { icon: <Bus className="w-5 h-5" />, title: 'School buses', description: 'Bus delays and cancellations, and your bus stop, with the team that runs them.' },
@@ -132,7 +132,7 @@ export default function HomePage() {
     },
     events: {
       icon: <CalendarDays className="w-5 h-5" />,
-      title: "What's on around the city",
+      title: "What’s on around the city",
       description: "Upcoming City events from markham.ca, with dates, times and places.",
       src: '/screenshots/app-events.png',
       alt: 'Hey Markham Events screen listing upcoming City events with dates, times and places',
@@ -155,7 +155,7 @@ export default function HomePage() {
     {
       icon: <MapPin className="w-5 h-5" />,
       title: "My Markham",
-      description: "Add your home address once for your ward, councillor, pickup day and the closest places. It stays on your phone.",
+      description: "Add your home address once, and “nearest park” or “who is my councillor” is answered for your home. It’s saved on your phone, not in your account.",
     },
     {
       icon: <Mic className="w-5 h-5" />,
@@ -175,7 +175,7 @@ export default function HomePage() {
     {
       icon: <Lock className="w-5 h-5" />,
       title: "You choose what it remembers",
-      description: "Turn memory of earlier chats on or off, or use a temporary chat that isn't saved to your chats or remembered.",
+      description: "Turn memory of earlier chats on or off, or use a temporary chat that isn’t saved to your chats or remembered.",
     },
     {
       icon: <LayoutGrid className="w-5 h-5" />,
@@ -203,7 +203,7 @@ export default function HomePage() {
   const heyMarkhamDifferences = [
     "Ask any City question in your own words, by voice or text",
     "Short answers with the markham.ca pages they come from",
-    "Tells you who to contact when it isn't the City",
+    "Tells you who to contact when it isn’t the City",
     "English, French, Mandarin or Cantonese, with answers read aloud",
     "Report a problem with a photo that drafts the details for you",
   ];
@@ -276,7 +276,7 @@ export default function HomePage() {
   const clickProblemStats = [
     { value: "4", label: "Clicks", description: "From the homepage to the fence rules in the example above" },
     { value: "Several", label: "Separate Systems", description: "Waste, recreation, libraries and transit each have their own" },
-    { value: "Office hours", label: "Phone Support", description: "Questions don't stop when lines close" },
+    { value: "Office hours", label: "Phone Support", description: "Questions don’t stop when lines close" },
     { value: "1", label: "Question", description: "All Hey Markham needs" },
   ];
 
@@ -309,7 +309,7 @@ export default function HomePage() {
   // A real worked example for the three steps; every fact is on the City's pet licence page
   const PET_LICENCE_URL = 'https://www.markham.ca/permits-licences-taxes/animal-services/pet-licence';
   const workedExample = {
-    question: "Does my cat need a licence if it's microchipped?",
+    question: "Does my cat need a licence if it’s microchipped?",
     answer: "Yes. Dogs and cats in Markham need a licence, even if they have a microchip. You can register online, and licences expire on December 31 each year.",
     action: "Register your pet online",
   };
@@ -331,7 +331,7 @@ export default function HomePage() {
               <h2 data-reveal className="text-2xl md:text-4xl font-serif font-bold text-white mb-4 text-balance">
                 You say what you&rsquo;re trying to do. Hey Markham does the rest.
               </h2>
-              <p data-reveal className="text-lg text-slate-300" style={{ transitionDelay: '0.1s' }}>
+              <p data-reveal className="text-lg text-slate-300 text-pretty" style={{ transitionDelay: '0.1s' }}>
                 A search box hands you pages to read. Hey Markham starts with what you need and does three jobs for you.
               </p>
             </div>
@@ -370,10 +370,10 @@ export default function HomePage() {
               <p data-reveal className="text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-3">
                 What it does
               </p>
-              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4 text-balance">
                 Built for the Things You Do Every Week
               </h2>
-              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
                 Bins, repairs and permits are where residents need the City most. So that&rsquo;s where Hey Markham goes
                 furthest.
               </p>
@@ -453,10 +453,10 @@ export default function HomePage() {
               <p data-reveal className="text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-3">
                 The Hey Markham app
               </p>
-              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4 text-balance">
                 Your Markham, in Your Pocket
               </h2>
-              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
                 For iPhone and Android. Set your address once, and Hey Markham knows your pickup day, your ward and
                 what&rsquo;s happening near home.
               </p>
@@ -584,7 +584,7 @@ export default function HomePage() {
               <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4 text-balance">
                 It Knows Where to Look, and Says When It Doesn&rsquo;t Know
               </h2>
-              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
                 A city assistant is only useful if it&rsquo;s right. Hey Markham is built not to make answers up.
               </p>
             </div>
@@ -666,10 +666,10 @@ export default function HomePage() {
         <section className="py-16 px-6 bg-slate-50 dark:bg-slate-900">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4 text-balance">
                 Why Not Just Search markham.ca?
               </h2>
-              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
                 The answers are on markham.ca. Finding them is the hard part.
               </p>
             </div>
@@ -798,10 +798,10 @@ export default function HomePage() {
               <p data-reveal className="text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-3">
                 Roadmap
               </p>
-              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4 text-balance">
                 A City Assistant for Every Resident
               </h2>
-              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
                 Our goal: every Markham resident has an assistant they can ask any time, that understands what they need
                 and helps them get it done. We get there by doing the everyday jobs well first, then adding more.
               </p>
@@ -869,7 +869,7 @@ export default function HomePage() {
                <p className="text-sm font-semibold uppercase tracking-wider text-primary-200 mb-3">
                  For the City of Markham and other municipalities
                </p>
-               <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">
+               <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 text-balance">
                  Bring Hey Markham to Your Residents
                </h2>
                <p data-reveal className="text-primary-100" style={{ transitionDelay: '0.1s' }}>

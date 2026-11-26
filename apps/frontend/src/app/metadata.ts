@@ -33,7 +33,6 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Hey Markham: Your City Life Assistant for Markham',
     description: 'Say what you need. Hey Markham finds out from official City pages, points you the right way, and helps you get it done. On the web or in the app.',
-    creator: '@heymarkham',
   },
   robots: {
     index: true,

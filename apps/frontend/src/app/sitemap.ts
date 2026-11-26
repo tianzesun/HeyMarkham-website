@@ -41,6 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
     {
+      url: 'https://heymarkham.vercel.app/app/journey',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
       url: 'https://heymarkham.vercel.app/app/releases',
       lastModified: new Date(`${latestRelease.date}T12:00:00Z`),
       changeFrequency: 'monthly',

@@ -4,10 +4,10 @@ import { randomUUID } from 'crypto';
 import { z } from 'zod';
 
 const contactSchema = z.object({
-  name: z.string().trim().min(2, 'Name must be at least 2 characters').max(100),
-  email: z.string().trim().email('Invalid email address').max(254),
-  subject: z.string().trim().min(3, 'Subject must be at least 3 characters').max(200),
-  message: z.string().trim().min(10, 'Message must be at least 10 characters').max(5000),
+  name: z.string().trim().min(2, 'Name must be at least 2 characters').max(100, 'Name must be 100 characters or fewer'),
+  email: z.string().trim().email('Please enter a valid email address').max(254, 'Please enter a valid email address'),
+  subject: z.string().trim().min(3, 'Subject must be at least 3 characters').max(200, 'Subject must be 200 characters or fewer'),
+  message: z.string().trim().min(10, 'Message must be at least 10 characters').max(5000, 'Message must be 5,000 characters or fewer'),
 });
 
 export async function submitContactForm(
@@ -31,9 +31,10 @@ export async function submitContactForm(
   });
 
   if (!validatedFields.success) {
+    // Say which field to fix: the schema's messages name it ("Message must be at least 10 characters")
     return {
       success: false,
-      error: 'Please fix the errors in the form',
+      error: validatedFields.error.issues[0]?.message ?? 'Please check the form and try again',
     };
   }
 

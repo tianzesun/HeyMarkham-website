@@ -39,9 +39,8 @@ export function HeroTryLive() {
         </div>
 
         <h1 className="animate-rise text-4xl md:text-6xl font-bold text-white mb-6 leading-tight text-balance">
-          Say what you need.
-          <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-300">
+          Say what you need.{' '}
+          <span className="block text-balance text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-300">
             Hey Markham handles the city part.
           </span>
         </h1>

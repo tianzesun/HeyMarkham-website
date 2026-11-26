@@ -55,6 +55,8 @@ export const ContactForm = () => {
             className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-primary-200 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
             placeholder="Your name"
             required
+            minLength={2}
+            maxLength={100}
           />
         </div>
         <div>
@@ -69,6 +71,7 @@ export const ContactForm = () => {
             className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-primary-200 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
             placeholder="your@email.com"
             required
+            maxLength={254}
           />
         </div>
         
@@ -83,6 +86,8 @@ export const ContactForm = () => {
             className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-primary-200 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all"
             placeholder="How can we help?"
             required
+            minLength={3}
+            maxLength={200}
           />
         </div>
         
@@ -97,6 +102,8 @@ export const ContactForm = () => {
              className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-primary-200 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all resize-none"
              placeholder="Tell us more about your needs..."
              required
+             minLength={10}
+             maxLength={5000}
            />
         </div>
         
