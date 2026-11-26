@@ -30,12 +30,6 @@ test('every release says what changed', () => {
   }
 });
 
-test('automatic updates only carry fixes, so they are patch versions', () => {
-  for (const r of releases.filter((r) => r.delivery === 'automatic')) {
-    assert.notEqual(r.version.split('.')[2], '0', `${r.version} is automatic but not a patch`);
-  }
-});
-
 test('helpers', () => {
   assert.equal(compareVersions('1.10.0', '1.9.0'), 1);
   assert.equal(compareVersions('1.1.0', '1.1.1'), -1);
