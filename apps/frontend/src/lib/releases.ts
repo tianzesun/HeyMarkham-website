@@ -25,6 +25,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.14',
+    date: '2026-11-26',
+    delivery: 'automatic',
+    title: 'Say English names in any language, and the app hears them',
+    improved: [
+      'Voice questions catch City names and terms better: Building Permit, Property Tax, Zoning By-law, Markham Civic Centre, neighbourhoods like Unionville and Cornell, and main roads like Highway 7 and Yonge Street.',
+      'With the app in Chinese, you can still say English names, as in “我想申请 Building Permit”. The app listens for them, and the answer still comes back in Chinese.',
+    ],
+  },
+  {
     version: '1.14.13',
     date: '2026-11-26',
     delivery: 'automatic',
