@@ -172,7 +172,17 @@ export default function AppPrivacyPage() {
           service, which looks it up in the City&rsquo;s collection calendar, as the City&rsquo;s own website does,
           to find your collection zone. The address isn&rsquo;t stored or logged; only the zone is kept, on your
           phone. Pickup reminders, if you turn them on, are scheduled on your phone; nothing about them is sent to
-          us.
+          us. The zone is also sent with each question you ask, so questions such as &ldquo;when is my next garbage
+          day?&rdquo; can be answered with the date. It is used only for those answers and isn&rsquo;t stored with
+          your account, but an answer that gives your pickup dates names the zone, and like any answer it is kept in
+          your history if you are signed in.
+        </p>
+        <p>
+          <b>Remembered facts (signed in, only if you turn memory on).</b> With memory on, the service can keep a few
+          facts so answers fit you: your pickup zone (from the app when you ask a question), and your ward, area and
+          preferred language if you set them. They are encrypted (AES-256-GCM), used only to answer your questions, never
+          sent to the AI model, and never read or saved in a private chat. Turning memory off or deleting your account
+          deletes them, and a fact not updated for 12 months is deleted.
         </p>
         <p>
           <b>Calendar (only if you add your pickups to it).</b> If you tap &ldquo;Add to my calendar&rdquo;, the app
@@ -271,8 +281,9 @@ export default function AppPrivacyPage() {
 
       <Section title="How long we keep it">
         <p>
-          Account information is kept until you delete it or your account. You can remove single questions or clear
-          your history at any time, which also deletes the service&rsquo;s copies of them. The text of questions and
+          Account information is kept until you delete it or your account, except your question history: questions
+          and answers older than 12 months are deleted. You can remove single questions or clear your history at any
+          time, which also deletes the service&rsquo;s copies of them. The text of questions and
           answers in the service&rsquo;s records is removed after 12 months, and conversations kept for follow-up
           questions are deleted after 12 months. Ratings are kept for up to 12 months, and app feedback for up to 12
           months once we&rsquo;ve dealt with it; after that their text and any email address are removed.{' '}
