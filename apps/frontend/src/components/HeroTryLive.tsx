@@ -2,6 +2,15 @@ import { ArrowUpRight, Smartphone, Sparkles } from 'lucide-react'
 
 import { APP_STORE_URL, GOOGLE_PLAY_URL, LIVE_URL } from '../lib/links'
 
+// One from each everyday job: pickup, a repair, a permit, a referral, your own ward
+const heroExamples = [
+  'When is my next garbage pickup?',
+  'There’s a pothole on my street',
+  'Do I need a permit for a deck?',
+  'Who do I call about a missed blue box?',
+  'Who is my councillor?',
+]
+
 // Server-rendered hero: no client JavaScript. Visitors try the real assistant, which searches
 // official City of Markham information, instead of an in-browser demo.
 export function HeroTryLive() {
@@ -29,18 +38,28 @@ export function HeroTryLive() {
           </div>
         </div>
 
-        <h1 className="animate-rise text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-          Ask Markham.
+        <h1 className="animate-rise text-4xl md:text-6xl font-bold text-white mb-6 leading-tight text-balance">
+          Say what you need.
           <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-300">
-            Get Answers Instantly.
+            Hey Markham handles the city part.
           </span>
         </h1>
 
-        <p className="animate-rise text-xl md:text-2xl text-slate-300 mb-10 max-w-2xl mx-auto [animation-delay:100ms]">
-          Quick, accurate answers to your city questions, 24/7, drawn from official City of Markham information with a
-          link to the source. No hold times, no clicking through pages.
+        <p className="animate-rise text-xl md:text-2xl text-slate-300 mb-6 max-w-2xl mx-auto [animation-delay:100ms]">
+          Your city life assistant for Markham. Ask in your own words, by voice or text. It finds the answer in official
+          City information, points you to whoever handles it, and helps you get it done. If it doesn&rsquo;t know, it
+          says so.
         </p>
+
+        {/* The kinds of things residents ask, so the range shows before the first scroll */}
+        <ul className="animate-rise [animation-delay:150ms] flex flex-wrap justify-center gap-2 mb-10 max-w-2xl mx-auto" aria-label="Things you can ask">
+          {heroExamples.map(example => (
+            <li key={example} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">
+              &ldquo;{example}&rdquo;
+            </li>
+          ))}
+        </ul>
 
         <div className="animate-fade-up [animation-delay:200ms] flex flex-col items-center gap-6">
           <a
