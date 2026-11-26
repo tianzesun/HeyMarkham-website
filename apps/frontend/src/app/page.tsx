@@ -331,7 +331,7 @@ export default function HomePage() {
               <h2 data-reveal className="text-2xl md:text-4xl font-serif font-bold text-white mb-4 text-balance">
                 You say what you&rsquo;re trying to do. Hey Markham does the rest.
               </h2>
-              <p data-reveal className="text-lg text-slate-300" style={{ transitionDelay: '0.1s' }}>
+              <p data-reveal className="text-lg text-slate-300 text-pretty" style={{ transitionDelay: '0.1s' }}>
                 A search box hands you pages to read. Hey Markham starts with what you need and does three jobs for you.
               </p>
             </div>
@@ -370,10 +370,10 @@ export default function HomePage() {
               <p data-reveal className="text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-3">
                 What it does
               </p>
-              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4 text-balance">
                 Built for the Things You Do Every Week
               </h2>
-              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
                 Bins, repairs and permits are where residents need the City most. So that&rsquo;s where Hey Markham goes
                 furthest.
               </p>
@@ -453,10 +453,10 @@ export default function HomePage() {
               <p data-reveal className="text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-3">
                 The Hey Markham app
               </p>
-              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4 text-balance">
                 Your Markham, in Your Pocket
               </h2>
-              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
                 For iPhone and Android. Set your address once, and Hey Markham knows your pickup day, your ward and
                 what&rsquo;s happening near home.
               </p>
@@ -584,7 +584,7 @@ export default function HomePage() {
               <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4 text-balance">
                 It Knows Where to Look, and Says When It Doesn&rsquo;t Know
               </h2>
-              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
                 A city assistant is only useful if it&rsquo;s right. Hey Markham is built not to make answers up.
               </p>
             </div>
@@ -666,10 +666,10 @@ export default function HomePage() {
         <section className="py-16 px-6 bg-slate-50 dark:bg-slate-900">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4 text-balance">
                 Why Not Just Search markham.ca?
               </h2>
-              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
                 The answers are on markham.ca. Finding them is the hard part.
               </p>
             </div>
@@ -798,10 +798,10 @@ export default function HomePage() {
               <p data-reveal className="text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-3">
                 Roadmap
               </p>
-              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4 text-balance">
                 A City Assistant for Every Resident
               </h2>
-              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400" style={{ transitionDelay: '0.1s' }}>
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
                 Our goal: every Markham resident has an assistant they can ask any time, that understands what they need
                 and helps them get it done. We get there by doing the everyday jobs well first, then adding more.
               </p>
@@ -869,7 +869,7 @@ export default function HomePage() {
                <p className="text-sm font-semibold uppercase tracking-wider text-primary-200 mb-3">
                  For the City of Markham and other municipalities
                </p>
-               <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">
+               <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-white mb-4 text-balance">
                  Bring Hey Markham to Your Residents
                </h2>
                <p data-reveal className="text-primary-100" style={{ transitionDelay: '0.1s' }}>
