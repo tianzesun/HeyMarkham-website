@@ -5,8 +5,9 @@
 // same version as app.json in HeyMarkham-mobile and its CHANGELOG.md. Write for residents: what
 // they can do now or what works better, not how it was built.
 //
-// Versions: a new feature is a minor version (1.1.0 -> 1.2.0) and comes as a store update;
-// a fix is a patch (1.1.0 -> 1.1.1) and may come as an automatic update, with no store visit.
+// Versions follow HeyMarkham-mobile's numbering, which isn't tied to how a release arrives.
+// Delivery is 'automatic' when it came as an `eas update` (no store visit, even if it adds
+// features), and 'store' when residents needed a new build from the App Store or Google Play.
 
 export type Delivery = 'store' | 'automatic'
 
