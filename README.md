@@ -1,96 +1,91 @@
-# Hey Markham Website ✅
+# Hey Markham Website
 
-> ✅ **WEBSITE IS NOW READY AND COMPLETED**
+The website for Hey Markham, a city life assistant for Markham residents: https://heymarkham.vercel.app
 
-Official marketing website for Hey Markham - the AI-powered voice assistant for City of Markham residents. Production ready website with full voice assistant integration.
+Residents say what they need, by voice or text. Hey Markham finds the answer in official City of Markham
+information and shows its sources, points them to whoever handles it (including agencies that aren't the
+City), and helps them get it done. When it doesn't know, it says so. It works in English, French, Mandarin
+and Cantonese, in the web browser and in the iPhone and Android app.
 
-## ✨ Live Features (Now Implemented)
+The site explains what Hey Markham does, links to the live assistant, and hosts the app's support pages.
 
-- 🎤 **Wake Word Detection** - Fully functional voice activation: just say "Hey Markham"
-- 🎯 **Voice Assistant Simulator** - Interactive demo with natural voice responses
-- 📱 **Fully Responsive Design** - Works perfectly on mobile, tablet, and desktop
-- ✨ **Premium Animations** - Smooth scroll animations, magnetic cursor effects
-- 📝 **Working Contact Form** - Functional form submission with server actions
-- 🧠 **FAQ Section** - Complete interactive FAQ with accordion interface
-- 🚀 **Optimized Performance** - Next.js optimized, fast loading, production ready
-- 🌍 **Multilingual Ready** - Support for English, French, Mandarin, Cantonese, Tamil, Urdu
-- 24/7 **Availability** - Always online, always ready to help residents
+## What's on the site
 
-## 🛠️ Tech Stack
+- **Home** (`/`): what Hey Markham does, the app, how answers are checked, the roadmap, a searchable FAQ
+  of answers checked against official sources, and a contact form for municipalities and residents
+- **App pages** (`/app/*`): What's new (release notes, opened from the app's Settings), support, privacy
+  policy, terms of use, account deletion and the Community Journey
+- **Invites** (`/i/<code>`): the page a shared invite code opens
+- **Website privacy policy** (`/privacy`)
+
+## Tech stack
 
 | Layer | Technology |
-|-------|------------|
-| Framework | Next.js 15 (App Router) |
-| Styling | Tailwind CSS 4 |
-| Animations | Framer Motion |
+| --- | --- |
+| Framework | Next.js 16 (App Router), React 19 |
+| Styling | Tailwind CSS 3 |
 | Icons | Lucide React |
+| Validation | Zod (contact form) |
 | Language | TypeScript |
-| Monorepo | Turborepo + pnpm workspaces |
-| Voice | Web Speech API |
+| Monorepo | pnpm workspaces + Turborepo |
+| Hosting | Vercel, with Vercel Analytics |
 
-## 🚀 Getting Started
+## Getting started
+
+Needs Node 24 and pnpm (version set in `packageManager` in `package.json`).
 
 ```bash
-# Install all dependencies
-pnpm install
-
-# Run development server
-pnpm dev
-
-# Build for production
-pnpm build
-
-# Start production server
-pnpm start
+pnpm install          # at the repo root
+cd apps/frontend
+pnpm dev              # http://localhost:3000
 ```
 
-✅ Website will be running at: **http://localhost:3000**
+Checks, run in `apps/frontend` (CI runs type-check, test and build on every push and pull request):
 
-## 📁 Project Structure
+```bash
+pnpm type-check       # TypeScript
+pnpm lint             # ESLint
+pnpm test             # FAQ matching, release notes and invite codes
+pnpm build            # production build
+pnpm check-sources    # every FAQ source page on markham.ca still loads (also runs weekly in GitHub Actions)
+```
+
+The contact form sends to the webhook in `CONTACT_WEBHOOK_URL`, set in Vercel's environment settings. It
+is never committed; without it the form shows an error with a reference ID.
+
+## Project structure
 
 ```
 HeyMarkham-website/
 ├── apps/
-│   └── frontend/                 # Next.js Frontend Application
+│   └── frontend/             # The Next.js site
 │       ├── src/
-│       │   ├── app/              # App Router pages & layouts
-│       │   ├── components/       # React components (Header, Footer, Features, etc.)
-│       │   ├── hooks/            # Custom React hooks
-│       │   ├── lib/              # Utilities & data
-│       │   └── styles/           # Global CSS styles
-│       └── public/               # Static assets & resources
+│       │   ├── app/          # Pages, metadata, sitemap, icons and the contact form action
+│       │   ├── components/   # Header, footer, FAQ, contact form and other parts of the pages
+│       │   ├── lib/          # FAQ answers, release notes, invite codes and links
+│       │   └── styles/       # Global CSS
+│       ├── public/           # App screenshots and static files
+│       └── scripts/          # check-sources.ts
 ├── packages/
-│   └── ui/                       # Shared UI component library
-├── website/                      # Legacy static website version
-└── package.json                  # Root workspace configuration
+│   └── ui/                   # Shared UI components
+└── website/                  # Legacy static version of the site, not deployed
 ```
 
-## 🏗️ Completed Implementation Status
+## Keeping it accurate
 
-| Task | Status |
-|------|--------|
-| Website Design & Layout | ✅ Completed |
-| Voice Wake Word Detection | ✅ Implemented |
-| Custom Cursor Effects | ✅ Implemented |
-| Scroll Animations | ✅ Implemented |
-| Hero Section | ✅ Completed |
-| Features Section | ✅ Completed |
-| FAQ Section | ✅ Completed |
-| Contact Form | ✅ Working |
-| Footer | ✅ Completed |
-| Mobile Responsiveness | ✅ Fully Responsive |
-| Production Build | ✅ Ready |
+- **Release notes**: add each app version at the top of `apps/frontend/src/lib/releases.ts` when it
+  reaches residents, matching `CHANGELOG.md` in HeyMarkham-mobile.
+- **Feature claims** on the home page must match a release note or the app and API code.
+- **FAQ answers** in `apps/frontend/src/lib/faq-data.ts` each cite the official page they were checked
+  against. When `check-sources` reports a moved page, re-check the answer against the new one.
+- **Store links and the live assistant URL** are in `apps/frontend/src/lib/links.ts`. Store buttons show
+  "Coming soon" until their URLs are filled in.
 
-## 🎯 About Hey Markham
+## Deployment
 
-Hey Markham is a voice-enabled AI assistant designed exclusively for the City of Markham, Ontario. It provides residents with instant, accurate answers 24/7 for common city services including:
-
-- 🗑️ Garbage & recycling collection schedules
-- 🏞️ Parks, recreation facilities & program information
-- 🎪 City events, workshops & community activities
-- 📋 Municipal services, permits & contact information
-- ❓ General city information and frequently asked questions
+Vercel deploys every push to `main`. Production only goes live after the GitHub CI job passes.
 
 ---
 
-Built with ❤️ for the City of Markham | Website completed April 2026
+Hey Markham is independent and isn't affiliated with the City of Markham. Built by
+[Aydenait Solutions](https://aydenait.com).
