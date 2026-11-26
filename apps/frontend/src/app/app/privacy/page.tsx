@@ -178,6 +178,13 @@ export default function AppPrivacyPage() {
           your history if you are signed in.
         </p>
         <p>
+          <b>Remembered facts (signed in, only if you turn memory on).</b> With memory on, the service can keep a few
+          facts so answers fit you: your pickup zone (from the app when you ask a question), and your ward, area and
+          preferred language if you set them. They are encrypted (AES-256-GCM), used only to answer your questions, never
+          sent to the AI model, and never read or saved in a private chat. Turning memory off or deleting your account
+          deletes them, and a fact not updated for 12 months is deleted.
+        </p>
+        <p>
           <b>Calendar (only if you add your pickups to it).</b> If you tap &ldquo;Add to my calendar&rdquo;, the app
           asks for permission to add events to your phone&rsquo;s calendar, and adds your coming pickup days to it. On
           iPhone it asks only to add events. On Android, the permission also covers reading, but the app only looks
@@ -274,8 +281,9 @@ export default function AppPrivacyPage() {
 
       <Section title="How long we keep it">
         <p>
-          Account information is kept until you delete it or your account. You can remove single questions or clear
-          your history at any time, which also deletes the service&rsquo;s copies of them. The text of questions and
+          Account information is kept until you delete it or your account, except your question history: questions
+          and answers older than 12 months are deleted. You can remove single questions or clear your history at any
+          time, which also deletes the service&rsquo;s copies of them. The text of questions and
           answers in the service&rsquo;s records is removed after 12 months, and conversations kept for follow-up
           questions are deleted after 12 months. Ratings are kept for up to 12 months, and app feedback for up to 12
           months once we&rsquo;ve dealt with it; after that their text and any email address are removed.{' '}
