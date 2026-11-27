@@ -13,7 +13,7 @@ export default function AppPrivacyPage() {
   return (
     <AppLegalPage title="Privacy Policy">
       <p className="mb-8 text-lg">
-        This policy explains how AydenAIT Solution Inc. (&ldquo;AydenAIT&rdquo;, &ldquo;we&rdquo;) handles personal
+        This policy explains how Aydenait Solutions (AydenAIT Solution Inc., &ldquo;we&rdquo;) handles personal
         information in the Hey Markham app for iPhone and Android. We handle personal information in accordance with
         Canada&rsquo;s <i>Personal Information Protection and Electronic Documents Act</i> (PIPEDA). The{' '}
         <A href="/privacy">website privacy policy</A> covers this website.
@@ -338,7 +338,7 @@ export default function AppPrivacyPage() {
         <p>
           For privacy questions or requests, email <Mail />.
           <br />
-          AydenAIT Solution Inc., Toronto, Ontario, Canada
+          Aydenait Solutions (AydenAIT Solution Inc.), Toronto, Ontario, Canada
         </p>
       </Section>
     </AppLegalPage>

@@ -12,7 +12,7 @@
 // then TypeScript lists every `copy` object that needs the new strings. Update lang-init.js too.
 //
 // Translation notes for UI copy:
-// - Proper nouns: "Hey Markham", "markham.ca", "Aydenait" and app or product names stay in English;
+// - Proper nouns: "Hey Markham", "markham.ca", "Aydenait Solutions" and app or product names stay in English;
 //   neighbourhood and street names (Unionville, Cornell, Highway 7) stay as they are.
 // - Chinese: the City of Markham is 万锦市; address the reader as 您. Full-width punctuation
 //   ，。：；？！and “ ” 《》. No em dashes (——) in UI copy.

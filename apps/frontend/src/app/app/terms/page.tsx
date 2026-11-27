@@ -13,7 +13,7 @@ export default function AppTermsPage() {
   return (
     <AppLegalPage title="Terms of Use">
       <p className="mb-8 text-lg">
-        These terms apply to the Hey Markham app, made by AydenAIT Solution Inc. (&ldquo;AydenAIT&rdquo;,
+        These terms apply to the Hey Markham app, made by Aydenait Solutions (AydenAIT Solution Inc.,
         &ldquo;we&rdquo;). By using the app you agree to them.
       </p>
 
@@ -56,7 +56,7 @@ export default function AppTermsPage() {
       <Section title="The app">
         <p>
           The app is provided &ldquo;as is&rdquo;. We work to keep it available and accurate but don&rsquo;t guarantee
-          it will always be available, error-free or up to date. To the extent the law allows, AydenAIT is not liable
+          it will always be available, error-free or up to date. To the extent the law allows, Aydenait Solutions is not liable
           for losses arising from use of, or reliance on, the app or its answers.
         </p>
       </Section>
@@ -79,7 +79,7 @@ export default function AppTermsPage() {
         <p>
           Email <Mail />.
           <br />
-          AydenAIT Solution Inc., Toronto, Ontario, Canada
+          Aydenait Solutions (AydenAIT Solution Inc.), Toronto, Ontario, Canada
         </p>
       </Section>
     </AppLegalPage>
