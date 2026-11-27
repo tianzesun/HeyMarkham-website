@@ -22,7 +22,6 @@ const copy: Record<Locale, {
   appHelp: string;
   contact: string;
   rights: string;
-  builtFor: string;
   disclaimer: string;
 }> = {
   en: {
@@ -41,7 +40,6 @@ const copy: Record<Locale, {
     appHelp: 'Mobile app help & privacy',
     contact: 'Contact',
     rights: 'All rights reserved.',
-    builtFor: 'Built for Markham residents',
     disclaimer: 'Hey Markham is an independent service by Aydenait Solutions and is not affiliated with or endorsed by the City of Markham.',
   },
   zh: {
@@ -60,7 +58,6 @@ const copy: Record<Locale, {
     appHelp: '应用帮助与隐私',
     contact: '联系我们',
     rights: '版权所有。',
-    builtFor: '为万锦市居民打造',
     disclaimer: 'Hey Markham 是 Aydenait Solutions 提供的独立服务，与万锦市没有隶属关系，也未获得万锦市的背书。',
   },
   fr: {
@@ -79,7 +76,6 @@ const copy: Record<Locale, {
     appHelp: 'Aide et confidentialité de l’application mobile',
     contact: 'Nous joindre',
     rights: 'Tous droits réservés.',
-    builtFor: 'Conçu pour les résidents de Markham',
     disclaimer: 'Hey Markham est un service indépendant d’Aydenait Solutions, qui n’est ni affilié à la Ville de Markham ni approuvé par celle-ci.',
   },
 };
@@ -145,10 +141,7 @@ export const Footer: React.FC = () => {
 
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-slate-500 dark:text-slate-400">
-            © {currentYear} <a href="https://aydenait.com" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 underline hover:no-underline">Aydenait Solutions</a>. {t.rights}
-          </p>
-          <p className="text-sm text-slate-500 dark:text-slate-400">
-            {t.builtFor}
+            © {currentYear} <a href="https://aydenait-website.vercel.app" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 underline hover:no-underline">Aydenait Solutions</a>. {t.rights}
           </p>
         </div>
 
