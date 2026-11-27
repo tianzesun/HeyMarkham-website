@@ -25,6 +25,15 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.18',
+    date: '2026-11-27',
+    delivery: 'automatic',
+    title: 'My Markham no longer repeats the weather',
+    improved: [
+      'My Markham shows a weather warning, watch or advisory only when Environment Canada has one in effect for Markham. The weather itself, snow included, is on the home screen.',
+    ],
+  },
+  {
     version: '1.14.17',
     date: '2026-11-27',
     delivery: 'automatic',
