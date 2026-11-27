@@ -42,7 +42,7 @@ const copy: Record<Locale, {
     whatsNew: 'What’s new',
     back: '← Back to Hey Markham',
     notice:
-      'Hey Markham is an independent app made by AydenAIT Solution Inc. It is not affiliated with, endorsed by or operated by the City of Markham. Answers are based on publicly available City of Markham information. For official decisions or anything about your own City account, contact the City of Markham directly.',
+      'Hey Markham is an independent app made by Aydenait Solutions. It is not affiliated with, endorsed by or operated by the City of Markham. Answers are based on publicly available City of Markham information. For official decisions or anything about your own City account, contact the City of Markham directly.',
   },
   zh: {
     eyebrow: 'Hey Markham 应用',
@@ -54,7 +54,7 @@ const copy: Record<Locale, {
     whatsNew: '更新日志',
     back: '← 返回 Hey Markham',
     notice:
-      'Hey Markham 是 AydenAIT Solution Inc. 开发的独立应用，与万锦市没有隶属关系，未获得其背书，也不由万锦市运营。回答基于万锦市公开发布的信息。如需官方决定，或涉及您本人的市政府账户，请直接联系万锦市。',
+      'Hey Markham 是 Aydenait Solutions 开发的独立应用，与万锦市没有隶属关系，未获得其背书，也不由万锦市运营。回答基于万锦市公开发布的信息。如需官方决定，或涉及您本人的市政府账户，请直接联系万锦市。',
   },
   fr: {
     eyebrow: 'Application Hey Markham',
@@ -66,7 +66,7 @@ const copy: Record<Locale, {
     whatsNew: 'Nouveautés',
     back: '← Retour à Hey Markham',
     notice:
-      'Hey Markham est une application indépendante conçue par AydenAIT Solution Inc. Elle n’est ni affiliée à la Ville de Markham, ni approuvée ou exploitée par celle-ci. Les réponses sont fondées sur l’information publique de la Ville de Markham. Pour une décision officielle ou toute question sur votre propre compte municipal, communiquez directement avec la Ville de Markham.',
+      'Hey Markham est une application indépendante conçue par Aydenait Solutions. Elle n’est ni affiliée à la Ville de Markham, ni approuvée ou exploitée par celle-ci. Les réponses sont fondées sur l’information publique de la Ville de Markham. Pour une décision officielle ou toute question sur votre propre compte municipal, communiquez directement avec la Ville de Markham.',
   },
 }
 

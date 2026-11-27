@@ -90,7 +90,7 @@ export default async function InvitePage({ params }: { params: Promise<{ code: s
         </div>
 
         <p className="mt-10 text-sm">
-          Hey Markham is an independent app by AydenAIT, not affiliated with the City of Markham. See the{' '}
+          Hey Markham is an independent app by Aydenait Solutions, not affiliated with the City of Markham. See the{' '}
           <Link href="/app/privacy" className={link}>app privacy policy</Link> for how invites work.
         </p>
         <p className="mt-6">
