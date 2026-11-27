@@ -1,6 +1,6 @@
 import {
   ArrowRight, Briefcase, CalendarDays, CheckCircle2, Clock, Target, Handshake, MapPin, Megaphone, MessageSquare,
-  ShieldCheck, Sparkles, Users, BrainCircuit, Code, Lock
+  ShieldCheck, BrainCircuit, Code, Lock
 } from 'lucide-react';
 import { RevealOnScroll } from '../RevealOnScroll';
 import { ApplicationForm } from '../ApplicationForm';
@@ -10,10 +10,11 @@ import type { Locale } from '../../lib/i18n';
 // /careers, /zh/careers and /fr/careers. One structure, every language: strings live in `en` / `zh` /
 // `fr`, and the roles line up by position with ROLES below, so keep the order the same everywhere.
 //
-// Facts confirmed with the team (November 2026): hybrid in Markham/GTA, full-time except the internship
-// and the contract advisor, apply through the form (emailed to the hiring inbox, see app/actions/apply.ts),
-// applications kept 12 months, no pay shown (fewer than 25 employees).
-// Per-role facts still to confirm with the team: the BD travel estimate (about 20%), the internship term
+// Facts confirmed with the team (November 2026): hybrid in Markham/GTA, full-time except the two internships
+// (data quality, several positions; community and growth) and the contract advisor, apply through the
+// form (emailed to the hiring inbox, see app/actions/apply.ts), applications kept 12 months, no pay shown
+// (fewer than 25 employees).
+// Per-role facts still to confirm with the team: the BD travel estimate (about 20%), the internship terms
 // (4 months, extendable to 8), and the advisor's contract (1 to 2 days a week, 6 months, renewable).
 // Experience levels ("3+ years" and so on) are hiring choices; keep them as asks, never "Canadian experience"
 // (not allowed in Ontario job postings).
@@ -27,9 +28,9 @@ import type { Locale } from '../../lib/i18n';
 // which the form and the server action use.
 type RoleKind = 'fullTime' | 'internship' | 'contract';
 const ROLES: { id: (typeof CAREER_ROLES)[number]['id']; Icon: typeof Handshake; kind: RoleKind }[] = [
-  { id: 'business-development', Icon: Handshake, kind: 'fullTime' },
   { id: 'data-quality-intern', Icon: ShieldCheck, kind: 'internship' },
-  { id: 'community-growth', Icon: Megaphone, kind: 'fullTime' },
+  { id: 'community-growth', Icon: Megaphone, kind: 'internship' },
+  { id: 'business-development', Icon: Handshake, kind: 'fullTime' },
   { id: 'ai-rag-engineer', Icon: BrainCircuit, kind: 'fullTime' },
   { id: 'full-stack-engineer', Icon: Code, kind: 'fullTime' },
   { id: 'privacy-security-accessibility', Icon: Lock, kind: 'contract' },
@@ -39,8 +40,7 @@ const en = {
   eyebrow: 'Careers',
   title: 'Help Every Resident Get Answers From Their City',
   subtitle:
-    'Hey Markham is a small team building a city assistant for Markham residents. We’re hiring for six roles to bring it to more residents and more cities.',
-  facts: ['Hybrid: Markham and the GTA', 'Small team, real ownership', 'Work residents use every day'],
+    'Hey Markham is a small team building a city assistant for Markham residents. We’re hiring several data quality interns and a community and growth intern, and filling four more roles, to bring it to more residents and more cities.',
   jumpLabel: 'Open roles',
 
   howTitle: 'How We Work',
@@ -61,6 +61,115 @@ const en = {
   successTitle: 'What success looks like',
   apply: 'Apply now',
   roles: [
+    {
+      team: 'Data quality',
+      title: 'Data Quality Intern, Answer Verification',
+      summary:
+        'Hey Markham is only useful if its answers are right. When a resident asks when yard waste is picked up or what a deck permit costs, the answer has to match what the City has published, down to the date and the dollar. As our data quality intern, you’ll check answers against official sources, correct what’s wrong and help decide what Hey Markham should learn next.',
+      about:
+        'You’ll work with our engineers and use the same review tool they do. Your corrections go into the answers residents see, and into the test sets we run before every release. It’s a good fit if you like research and getting details exactly right, and want to see how an AI product is built and tested from the inside.',
+      details: ['Several positions', '4-month term, with the option to extend to 8 months', 'Co-op placements welcome'],
+      do: [
+        {
+          heading: 'Verify answers',
+          items: [
+            'Review answers to real resident questions and check each fact against markham.ca and other official sources: fees, dates, eligibility, phone numbers and links',
+            'Flag answers that are wrong, out of date or missing a condition, such as a fee that changed in the new budget or a rule that only applies to some properties',
+            'Write corrected answers in plain language, with the source each one comes from',
+            'Recheck answers when the City updates a page, a bylaw or its fees',
+          ],
+        },
+        {
+          heading: 'Grow what Hey Markham can answer',
+          items: [
+            'Sort the questions residents ask by topic, and group ones that ask the same thing in different words',
+            'Find questions Hey Markham can’t answer well yet, and research the official source for each',
+            'Spot questions that belong to another organization, such as York Region or a provincial ministry, and record who handles them',
+          ],
+        },
+        {
+          heading: 'Test and document',
+          items: [
+            'Test answers in English, and in Mandarin, Cantonese or French if you speak them',
+            'Add reviewed questions and answers to the test sets engineering runs before each release',
+            'Keep clear notes on what you checked, what you changed and why',
+          ],
+        },
+      ],
+      bring: [
+        'Enrolled in a college or university program, or graduated in the last 12 months, in any field',
+        'Close attention to detail: you notice when a date, fee or condition doesn’t match the source',
+        'Excellent reading and writing in English, and the ability to explain complicated rules simply',
+        'Comfort reading bylaws, policies and government websites',
+        'Good judgement about when something is unclear and needs a second opinion',
+        'Comfort with spreadsheets and picking up new tools',
+      ],
+      nice: [
+        'Mandarin, Cantonese or French',
+        'Studies in public policy, political science, information science, linguistics or journalism',
+        'Familiarity with Markham and the City services residents use most',
+        'Curiosity about how AI language models work',
+      ],
+      success: [
+        'You’ve reviewed several hundred answers across waste, parking, permits, taxes and recreation',
+        'The topics you covered have fewer errors, and every correction is documented with its source',
+        'You’ve added new questions to our test sets, so the gaps you found stay fixed',
+      ],
+    },
+    {
+      team: 'Community and growth',
+      title: 'Community and Growth Intern',
+      summary:
+        'Help get Hey Markham into the hands of the residents who need it, in the places they already go and the languages they speak. You’ll help plan and run outreach, create content, and measure which efforts bring residents who keep using the app.',
+      about:
+        'Markham is one of the most diverse cities in Canada, and most residents don’t find City information by browsing markham.ca. They hear about it from neighbours, community groups, WeChat groups and local media. You’ll work on earning trust in those places, alongside the product team, so what residents tell you shapes the app. You’ll leave with campaigns and results you can point to.',
+      details: ['4-month term, with the option to extend to 8 months', 'Co-op placements welcome', 'Some evenings and weekends for community events'],
+      do: [
+        {
+          heading: 'Community outreach',
+          items: [
+            'Reach out to ratepayer and community associations, libraries, seniors’ centres, cultural organizations and school councils, and keep track of each conversation',
+            'Help run demos and information sessions, including sessions for seniors and newcomers',
+            'Staff the Hey Markham table at community events and festivals',
+          ],
+        },
+        {
+          heading: 'Content and campaigns',
+          items: [
+            'Create posts, short videos and flyers for social media, WeChat, Xiaohongshu (RedNote) and local multicultural media',
+            'Help adapt content for different communities, working with translators where needed',
+            'Help time campaigns to moments residents care about, such as property tax due dates, the start of yard waste season or winter parking rules',
+          ],
+        },
+        {
+          heading: 'Measurement and feedback',
+          items: [
+            'Track installs, active users and retention by channel in a simple weekly report',
+            'Collect residents’ feedback and questions at events and online, and share patterns with the product team',
+            'Research local organizations and events worth partnering with next',
+          ],
+        },
+      ],
+      bring: [
+        'Enrolled in a college or university program, or graduated in the last 12 months, in marketing, communications, business, public policy or a related field',
+        'Comfort talking with people you don’t know, in person and in groups, including people who aren’t confident with technology',
+        'Clear writing in English, and an eye for content that people actually read and share',
+        'Organization and follow-through: you keep track of contacts, dates and next steps',
+        'Comfort with spreadsheets and basic numbers',
+        'Availability for some evening and weekend events',
+      ],
+      nice: [
+        'Mandarin or Cantonese; Tamil, Urdu, Farsi, Gujarati and other languages spoken in Markham are also valued',
+        'Experience volunteering or organizing in a Markham community group, club or student association',
+        'Experience running social media accounts, including WeChat or Xiaohongshu',
+        'Basic photo or video editing',
+      ],
+      success: [
+        'You’ve helped run outreach with several community organizations, and kept clear notes for whoever follows up',
+        'You’ve run at least one campaign from start to finish, and reported what it brought in',
+        'We know more about which channels bring residents who keep using the app',
+      ],
+    },
     {
       team: 'Business development',
       title: 'Business Development Manager, Municipal Partnerships',
@@ -121,115 +230,6 @@ const en = {
         'You’ve met decision-makers at a dozen or more Ontario municipalities, and know which ones to pursue first',
         'At least one pilot is under way or agreed, with its success measures in writing',
         'We have a proposal template, pricing and a library of RFP answers we can reuse',
-      ],
-    },
-    {
-      team: 'Data quality',
-      title: 'Data Quality Intern, Answer Verification',
-      summary:
-        'Hey Markham is only useful if its answers are right. When a resident asks when yard waste is picked up or what a deck permit costs, the answer has to match what the City has published, down to the date and the dollar. As our data quality intern, you’ll check answers against official sources, correct what’s wrong and help decide what Hey Markham should learn next.',
-      about:
-        'You’ll work with our engineers and use the same review tool they do. Your corrections go into the answers residents see, and into the test sets we run before every release. It’s a good fit if you like research and getting details exactly right, and want to see how an AI product is built and tested from the inside.',
-      details: ['4-month term, with the option to extend to 8 months', 'Co-op placements welcome'],
-      do: [
-        {
-          heading: 'Verify answers',
-          items: [
-            'Review answers to real resident questions and check each fact against markham.ca and other official sources: fees, dates, eligibility, phone numbers and links',
-            'Flag answers that are wrong, out of date or missing a condition, such as a fee that changed in the new budget or a rule that only applies to some properties',
-            'Write corrected answers in plain language, with the source each one comes from',
-            'Recheck answers when the City updates a page, a bylaw or its fees',
-          ],
-        },
-        {
-          heading: 'Grow what Hey Markham can answer',
-          items: [
-            'Sort the questions residents ask by topic, and group ones that ask the same thing in different words',
-            'Find questions Hey Markham can’t answer well yet, and research the official source for each',
-            'Spot questions that belong to another organization, such as York Region or a provincial ministry, and record who handles them',
-          ],
-        },
-        {
-          heading: 'Test and document',
-          items: [
-            'Test answers in English, and in Mandarin, Cantonese or French if you speak them',
-            'Add reviewed questions and answers to the test sets engineering runs before each release',
-            'Keep clear notes on what you checked, what you changed and why',
-          ],
-        },
-      ],
-      bring: [
-        'Enrolled in a college or university program, or graduated in the last 12 months, in any field',
-        'Close attention to detail: you notice when a date, fee or condition doesn’t match the source',
-        'Excellent reading and writing in English, and the ability to explain complicated rules simply',
-        'Comfort reading bylaws, policies and government websites',
-        'Good judgement about when something is unclear and needs a second opinion',
-        'Comfort with spreadsheets and picking up new tools',
-      ],
-      nice: [
-        'Mandarin, Cantonese or French',
-        'Studies in public policy, political science, information science, linguistics or journalism',
-        'Familiarity with Markham and the City services residents use most',
-        'Curiosity about how AI language models work',
-      ],
-      success: [
-        'You’ve reviewed several hundred answers across waste, parking, permits, taxes and recreation',
-        'The topics you covered have fewer errors, and every correction is documented with its source',
-        'You’ve added new questions to our test sets, so the gaps you found stay fixed',
-      ],
-    },
-    {
-      team: 'Community and growth',
-      title: 'Community and Growth Specialist',
-      summary:
-        'Get Hey Markham into the hands of the residents who need it, in the places they already go and the languages they speak. You’ll plan and run outreach, measure what works, and build the base of regular users that shows other cities Hey Markham is worth adopting.',
-      about:
-        'Markham is one of the most diverse cities in Canada, and most residents don’t find City information by browsing markham.ca. They hear about it from neighbours, community groups, WeChat groups and local media. This role is about earning trust in those places. You’ll work closely with the product team, so what residents tell you shapes the app.',
-      details: ['Some evenings and weekends for community events'],
-      do: [
-        {
-          heading: 'Community outreach',
-          items: [
-            'Build relationships with ratepayer and community associations, libraries, seniors’ centres, cultural organizations, places of worship and school councils',
-            'Run demos and information sessions, including sessions for seniors and newcomers',
-            'Represent Hey Markham at community events and festivals',
-          ],
-        },
-        {
-          heading: 'Campaigns and content',
-          items: [
-            'Plan and run campaigns on social media, WeChat, Xiaohongshu (RedNote) and local Chinese-language and multicultural media',
-            'Write and adapt posts, short videos, flyers and app store text, working with translators where needed',
-            'Time campaigns to moments residents care about, such as property tax due dates, the start of yard waste season or winter parking rules',
-          ],
-        },
-        {
-          heading: 'Measurement and feedback',
-          items: [
-            'Track installs, active users and retention by channel, and stop what doesn’t work',
-            'Collect residents’ feedback and questions, and bring patterns back to the product team',
-            'Later, help start partnerships with local businesses, including the app’s opt-in Offers & ads',
-          ],
-        },
-      ],
-      bring: [
-        '2+ years in community outreach, marketing, communications or growth',
-        'Experience planning campaigns and reporting on them with real numbers',
-        'Comfort presenting to groups and talking with residents one on one, including people who aren’t confident with technology',
-        'Clear writing in English for different audiences',
-        'Strong organization: you can run several events and campaigns at once',
-        'Availability for some evening and weekend events',
-      ],
-      nice: [
-        'Mandarin or Cantonese; Tamil, Urdu, Farsi, Gujarati and other languages spoken in Markham are also valued',
-        'Existing connections with Markham community organizations',
-        'Experience growing a mobile app or digital service',
-        'Experience with WeChat, Xiaohongshu or local multicultural media',
-      ],
-      success: [
-        'You’ve run outreach with at least ten community organizations, and several are ongoing partners',
-        'We know which channels bring residents who keep using the app, and what each one costs',
-        'There’s a year-long calendar of campaigns tied to the City dates residents care about',
       ],
     },
     {
@@ -412,8 +412,7 @@ type CareersCopy = typeof en;
 const zh: CareersCopy = {
   eyebrow: '加入我们',
   title: '让每位居民都能从市政府得到答案',
-  subtitle: 'Hey Markham 是一支小团队，正在为万锦市居民打造城市助手。我们正在招聘六个职位，把它带给更多居民和更多城市。',
-  facts: ['混合办公：万锦市及大多伦多地区', '小团队，真正的主人翁', '您的工作，居民每天都在用'],
+  subtitle: 'Hey Markham 是一支小团队，正在为万锦市居民打造城市助手。我们正在招聘多名数据质量实习生和一名社区与增长实习生，以及另外四个职位，把它带给更多居民和更多城市。',
   jumpLabel: '招聘职位',
 
   howTitle: '我们的工作方式',
@@ -434,6 +433,115 @@ const zh: CareersCopy = {
   successTitle: '我们期待的成果',
   apply: '立即申请',
   roles: [
+    {
+      team: '数据质量',
+      title: '数据质量实习生（答案核实）',
+      summary:
+        'Hey Markham 的价值在于答案准确。当居民问庭院垃圾哪天收、建一个露台要交多少许可费时，答案必须与市政府公布的信息一致，日期和金额都不能错。作为数据质量实习生，您将对照官方来源核实答案，修正错误，并帮助决定 Hey Markham 接下来该学会回答什么。',
+      about:
+        '您将与我们的工程师一起工作，使用和他们相同的审核工具。您的修正会直接体现在居民看到的答案里，也会加入我们每次发布前运行的测试集。如果您喜欢做研究、追求细节准确，又想从内部了解一款 AI 产品是如何开发和测试的，这个职位很适合您。',
+      details: ['招聘多名', '为期 4 个月，可延长至 8 个月', '欢迎 co-op 实习'],
+      do: [
+        {
+          heading: '核实答案',
+          items: [
+            '审核居民真实问题的答案，对照 markham.ca 及其他官方来源逐项核实：费用、日期、申请条件、电话号码和链接',
+            '标记错误、过时或遗漏条件的答案，例如新预算中已调整的费用，或只适用于部分房产的规定',
+            '用通俗易懂的语言重写答案，并注明每条信息的来源',
+            '市政府更新网页、条例或收费标准时，重新核实相关答案',
+          ],
+        },
+        {
+          heading: '扩大可回答的范围',
+          items: [
+            '按主题整理居民提出的问题，把措辞不同但意思相同的问题归为一组',
+            '找出 Hey Markham 目前还答不好的问题，并为每个问题查找官方来源',
+            '识别属于其他机构的问题，例如约克区或省政府部门，并记录由谁负责',
+          ],
+        },
+        {
+          heading: '测试与记录',
+          items: [
+            '测试英文答案；如果您会说普通话、粤语或法语，也测试这些语言的答案',
+            '把审核过的问题和答案加入工程团队每次发布前运行的测试集',
+            '清楚记录您核实了什么、改了什么、为什么改',
+          ],
+        },
+      ],
+      bring: [
+        '目前就读于大专或大学，或在过去 12 个月内毕业，专业不限',
+        '非常细心：日期、费用或条件与来源不符时，您能注意到',
+        '出色的英文阅读和写作能力，能把复杂的规定讲得简单明白',
+        '能够熟练阅读条例、政策和政府网站',
+        '判断力好，知道什么时候信息不明确、需要请别人复核',
+        '熟悉电子表格，能快速上手新工具',
+      ],
+      nice: [
+        '会说普通话、粤语或法语',
+        '主修公共政策、政治学、信息科学、语言学或新闻学',
+        '熟悉万锦市以及居民最常用的市政服务',
+        '对 AI 语言模型的工作原理感兴趣',
+      ],
+      success: [
+        '您已审核数百条答案，涵盖垃圾收集、停车、许可、税务和康乐等主题',
+        '您负责的主题错误明显减少，每一处修正都有记录和来源',
+        '您已把新问题加入测试集，让发现的漏洞不再出现',
+      ],
+    },
+    {
+      team: '社区与增长',
+      title: '社区与增长实习生',
+      summary:
+        '在居民日常所在的地方、用他们熟悉的语言，协助把 Hey Markham 送到真正需要它的居民手中。您将协助策划并开展推广、制作内容，并衡量哪些做法带来的居民会持续使用应用。',
+      about:
+        '万锦市是加拿大最多元化的城市之一，大多数居民并不是通过浏览 markham.ca 来获取市政信息的，而是从邻居、社区团体、微信群和本地媒体那里听说。您将与产品团队一起，在这些地方赢得居民的信任，居民告诉您的意见会直接影响应用的发展。实习结束时，您会有可以展示的推广项目和成果。',
+      details: ['为期 4 个月，可延长至 8 个月', '欢迎 co-op 实习', '需在部分晚上和周末参加社区活动'],
+      do: [
+        {
+          heading: '社区外展',
+          items: [
+            '联系业主协会和社区协会、图书馆、长者中心、文化团体和学校家长会，并记录每次沟通',
+            '协助举办产品演示和信息讲座，包括面向长者和新移民的专场',
+            '在社区活动和节庆中负责 Hey Markham 展位',
+          ],
+        },
+        {
+          heading: '内容与推广',
+          items: [
+            '为社交媒体、微信、小红书和本地多元文化媒体制作帖子、短视频和传单',
+            '协助针对不同社区改编内容，必要时与翻译人员合作',
+            '协助结合居民关心的时间节点安排推广，例如地税缴纳截止日、庭院垃圾收集季开始或冬季停车规定',
+          ],
+        },
+        {
+          heading: '数据衡量与反馈',
+          items: [
+            '在每周简报中按渠道追踪下载量、活跃用户和留存率',
+            '在活动现场和网上收集居民的意见和问题，把共性问题分享给产品团队',
+            '调研下一步值得合作的本地组织和活动',
+          ],
+        },
+      ],
+      bring: [
+        '目前就读于大专或大学，或在过去 12 个月内毕业，专业为市场营销、传播、商科、公共政策或相关领域',
+        '能够自如地与陌生人当面交流、面向团体讲话，包括不太熟悉科技产品的居民',
+        '英文书面表达清晰，懂得什么样的内容大家愿意看、愿意转发',
+        '做事有条理、有始有终：能记好联系人、日期和后续安排',
+        '熟悉电子表格和基本的数据分析',
+        '能在部分晚上和周末参加活动',
+      ],
+      nice: [
+        '会说普通话或粤语；泰米尔语、乌尔都语、波斯语、古吉拉特语等万锦市常用语言也很有帮助',
+        '曾在万锦市社区团体、社团或学生会做过志愿者或组织活动',
+        '运营过社交媒体账号，包括微信或小红书',
+        '会基本的图片或视频剪辑',
+      ],
+      success: [
+        '您已协助与多个社区组织开展外展，并为后续跟进留下清晰的记录',
+        '您已从头到尾完成至少一次推广活动，并汇报了带来的成果',
+        '我们对哪些渠道带来的居民会持续使用应用有了更多了解',
+      ],
+    },
     {
       team: '业务拓展',
       title: '业务拓展经理（市政合作）',
@@ -494,115 +602,6 @@ const zh: CareersCopy = {
         '您已与安省十几个或更多市政机构的决策者会面，并清楚应优先跟进哪些',
         '至少有一个试点正在进行或已经商定，成功标准已书面确定',
         '我们有了可重复使用的提案模板、定价方案和 RFP 答复库',
-      ],
-    },
-    {
-      team: '数据质量',
-      title: '数据质量实习生（答案核实）',
-      summary:
-        'Hey Markham 的价值在于答案准确。当居民问庭院垃圾哪天收、建一个露台要交多少许可费时，答案必须与市政府公布的信息一致，日期和金额都不能错。作为数据质量实习生，您将对照官方来源核实答案，修正错误，并帮助决定 Hey Markham 接下来该学会回答什么。',
-      about:
-        '您将与我们的工程师一起工作，使用和他们相同的审核工具。您的修正会直接体现在居民看到的答案里，也会加入我们每次发布前运行的测试集。如果您喜欢做研究、追求细节准确，又想从内部了解一款 AI 产品是如何开发和测试的，这个职位很适合您。',
-      details: ['为期 4 个月，可延长至 8 个月', '欢迎 co-op 实习'],
-      do: [
-        {
-          heading: '核实答案',
-          items: [
-            '审核居民真实问题的答案，对照 markham.ca 及其他官方来源逐项核实：费用、日期、申请条件、电话号码和链接',
-            '标记错误、过时或遗漏条件的答案，例如新预算中已调整的费用，或只适用于部分房产的规定',
-            '用通俗易懂的语言重写答案，并注明每条信息的来源',
-            '市政府更新网页、条例或收费标准时，重新核实相关答案',
-          ],
-        },
-        {
-          heading: '扩大可回答的范围',
-          items: [
-            '按主题整理居民提出的问题，把措辞不同但意思相同的问题归为一组',
-            '找出 Hey Markham 目前还答不好的问题，并为每个问题查找官方来源',
-            '识别属于其他机构的问题，例如约克区或省政府部门，并记录由谁负责',
-          ],
-        },
-        {
-          heading: '测试与记录',
-          items: [
-            '测试英文答案；如果您会说普通话、粤语或法语，也测试这些语言的答案',
-            '把审核过的问题和答案加入工程团队每次发布前运行的测试集',
-            '清楚记录您核实了什么、改了什么、为什么改',
-          ],
-        },
-      ],
-      bring: [
-        '目前就读于大专或大学，或在过去 12 个月内毕业，专业不限',
-        '非常细心：日期、费用或条件与来源不符时，您能注意到',
-        '出色的英文阅读和写作能力，能把复杂的规定讲得简单明白',
-        '能够熟练阅读条例、政策和政府网站',
-        '判断力好，知道什么时候信息不明确、需要请别人复核',
-        '熟悉电子表格，能快速上手新工具',
-      ],
-      nice: [
-        '会说普通话、粤语或法语',
-        '主修公共政策、政治学、信息科学、语言学或新闻学',
-        '熟悉万锦市以及居民最常用的市政服务',
-        '对 AI 语言模型的工作原理感兴趣',
-      ],
-      success: [
-        '您已审核数百条答案，涵盖垃圾收集、停车、许可、税务和康乐等主题',
-        '您负责的主题错误明显减少，每一处修正都有记录和来源',
-        '您已把新问题加入测试集，让发现的漏洞不再出现',
-      ],
-    },
-    {
-      team: '社区与增长',
-      title: '社区与增长专员',
-      summary:
-        '在居民日常所在的地方、用他们熟悉的语言，把 Hey Markham 送到真正需要它的居民手中。您将策划并开展推广，衡量哪些方法有效，并建立稳定的用户群，向其他城市证明 Hey Markham 值得采用。',
-      about:
-        '万锦市是加拿大最多元化的城市之一，大多数居民并不是通过浏览 markham.ca 来获取市政信息的，而是从邻居、社区团体、微信群和本地媒体那里听说。这个职位的核心是在这些地方赢得信任。您将与产品团队紧密合作，居民告诉您的意见会直接影响应用的发展。',
-      details: ['需在部分晚上和周末参加社区活动'],
-      do: [
-        {
-          heading: '社区外展',
-          items: [
-            '与业主协会和社区协会、图书馆、长者中心、文化团体、宗教场所和学校家长会建立关系',
-            '举办产品演示和信息讲座，包括面向长者和新移民的专场',
-            '代表 Hey Markham 参加社区活动和节庆',
-          ],
-        },
-        {
-          heading: '推广活动与内容',
-          items: [
-            '在社交媒体、微信、小红书以及本地中文和多元文化媒体上策划并开展推广活动',
-            '撰写和改编帖子、短视频、传单和应用商店文案，必要时与翻译人员合作',
-            '结合居民关心的时间节点安排推广，例如地税缴纳截止日、庭院垃圾收集季开始或冬季停车规定',
-          ],
-        },
-        {
-          heading: '数据衡量与反馈',
-          items: [
-            '按渠道追踪下载量、活跃用户和留存率，停掉效果不好的做法',
-            '收集居民的意见和问题，把共性问题反馈给产品团队',
-            '之后协助开展本地商家合作，包括应用中由用户自行开启的“优惠与广告”',
-          ],
-        },
-      ],
-      bring: [
-        '2 年以上社区外展、市场营销、传讯或用户增长经验',
-        '有策划推广活动、并用真实数据汇报效果的经验',
-        '能够自如地面向团体演讲，也能与居民一对一交流，包括不太熟悉科技产品的居民',
-        '能针对不同受众撰写清晰的英文内容',
-        '条理清晰，能同时推进多个活动和推广项目',
-        '能在部分晚上和周末参加活动',
-      ],
-      nice: [
-        '会说普通话或粤语；泰米尔语、乌尔都语、波斯语、古吉拉特语等万锦市常用语言也很有帮助',
-        '与万锦市社区组织已有联系',
-        '有推广移动应用或数字服务的经验',
-        '有微信、小红书或本地多元文化媒体的运营经验',
-      ],
-      success: [
-        '您已与至少十个社区组织开展外展合作，其中几个成为长期伙伴',
-        '我们清楚哪些渠道带来的居民会持续使用应用，以及每个渠道的成本',
-        '已制定一份全年推广日历，与居民关心的市政时间节点相结合',
       ],
     },
     {
@@ -783,8 +782,7 @@ const fr: CareersCopy = {
   eyebrow: 'Carrières',
   title: 'Aidez chaque résident à obtenir des réponses de sa ville',
   subtitle:
-    'Hey Markham est une petite équipe qui bâtit un assistant municipal pour les résidents de Markham. Nous recrutons pour six postes afin de l’offrir à plus de résidents et plus de villes.',
-  facts: ['Mode hybride : Markham et la RGT', 'Petite équipe, vraies responsabilités', 'Un travail que les résidents utilisent chaque jour'],
+    'Hey Markham est une petite équipe qui bâtit un assistant municipal pour les résidents de Markham. Nous recrutons plusieurs stagiaires en qualité des données et un ou une stagiaire en communauté et croissance, ainsi que pour quatre autres postes, afin de l’offrir à plus de résidents et plus de villes.',
   jumpLabel: 'Postes ouverts',
 
   howTitle: 'Notre façon de travailler',
@@ -805,6 +803,115 @@ const fr: CareersCopy = {
   successTitle: 'À quoi ressemble la réussite',
   apply: 'Postuler',
   roles: [
+    {
+      team: 'Qualité des données',
+      title: 'Stagiaire en qualité des données, vérification des réponses',
+      summary:
+        'Hey Markham n’est utile que si ses réponses sont exactes. Quand un résident demande quand les résidus de jardin sont ramassés ou combien coûte un permis pour une terrasse, la réponse doit correspondre à ce que la Ville a publié, à la date et au dollar près. Comme stagiaire en qualité des données, vous vérifierez les réponses à partir des sources officielles, corrigerez ce qui ne va pas et aiderez à décider de ce que Hey Markham doit apprendre ensuite.',
+      about:
+        'Vous travaillerez avec nos ingénieurs et utiliserez le même outil de révision qu’eux. Vos corrections se retrouvent dans les réponses que voient les résidents, et dans les jeux de tests que nous exécutons avant chaque version. Ce poste vous convient si vous aimez la recherche et l’exactitude, et voulez voir de l’intérieur comment un produit d’IA est bâti et testé.',
+      details: ['Plusieurs postes', 'Stage de 4 mois, prolongeable à 8 mois', 'Stages coopératifs bienvenus'],
+      do: [
+        {
+          heading: 'Vérifier les réponses',
+          items: [
+            'Réviser les réponses à de vraies questions de résidents et vérifier chaque fait sur markham.ca et d’autres sources officielles : tarifs, dates, admissibilité, numéros de téléphone et liens',
+            'Signaler les réponses inexactes, périmées ou qui omettent une condition, comme un tarif modifié dans le nouveau budget ou une règle qui ne s’applique qu’à certaines propriétés',
+            'Réécrire les réponses en langage clair, en indiquant la source de chacune',
+            'Revérifier les réponses quand la Ville met à jour une page, un règlement ou ses tarifs',
+          ],
+        },
+        {
+          heading: 'Élargir ce que Hey Markham peut répondre',
+          items: [
+            'Classer les questions des résidents par sujet, et regrouper celles qui demandent la même chose en d’autres mots',
+            'Trouver les questions auxquelles Hey Markham répond encore mal, et chercher la source officielle de chacune',
+            'Repérer les questions qui relèvent d’un autre organisme, comme la Région de York ou un ministère provincial, et noter qui s’en occupe',
+          ],
+        },
+        {
+          heading: 'Tester et documenter',
+          items: [
+            'Tester les réponses en anglais, et en mandarin, en cantonais ou en français si vous les parlez',
+            'Ajouter les questions et réponses révisées aux jeux de tests que l’ingénierie exécute avant chaque version',
+            'Prendre des notes claires sur ce que vous avez vérifié, ce que vous avez changé et pourquoi',
+          ],
+        },
+      ],
+      bring: [
+        'Être inscrit à un programme collégial ou universitaire, ou diplômé depuis moins de 12 mois, dans n’importe quel domaine',
+        'Un grand souci du détail : vous remarquez quand une date, un tarif ou une condition ne correspond pas à la source',
+        'D’excellentes compétences en lecture et en rédaction en anglais, et la capacité d’expliquer simplement des règles complexes',
+        'L’aisance à lire des règlements, des politiques et des sites gouvernementaux',
+        'Un bon jugement pour reconnaître ce qui est incertain et demande un deuxième avis',
+        'L’aisance avec les tableurs et l’apprentissage de nouveaux outils',
+      ],
+      nice: [
+        'Le mandarin, le cantonais ou le français',
+        'Des études en politiques publiques, science politique, sciences de l’information, linguistique ou journalisme',
+        'Une bonne connaissance de Markham et des services municipaux que les résidents utilisent le plus',
+        'De la curiosité pour le fonctionnement des modèles de langage',
+      ],
+      success: [
+        'Vous avez révisé plusieurs centaines de réponses sur les déchets, le stationnement, les permis, les taxes et les loisirs',
+        'Les sujets que vous avez couverts comptent moins d’erreurs, et chaque correction est documentée avec sa source',
+        'Vous avez ajouté de nouvelles questions à nos jeux de tests, pour que les lacunes trouvées restent corrigées',
+      ],
+    },
+    {
+      team: 'Communauté et croissance',
+      title: 'Stagiaire en communauté et croissance',
+      summary:
+        'Aidez à mettre Hey Markham entre les mains des résidents qui en ont besoin, là où ils se trouvent déjà et dans les langues qu’ils parlent. Vous aiderez à planifier et à mener des activités de sensibilisation, créerez du contenu et mesurerez quels efforts amènent des résidents qui continuent d’utiliser l’application.',
+      about:
+        'Markham est l’une des villes les plus diversifiées au Canada, et la plupart des résidents ne trouvent pas l’information municipale en parcourant markham.ca. Ils l’apprennent de leurs voisins, des groupes communautaires, des groupes WeChat et des médias locaux. Vous travaillerez à gagner la confiance dans ces milieux, avec l’équipe produit, si bien que ce que vous disent les résidents façonnera l’application. Vous repartirez avec des campagnes et des résultats concrets à montrer.',
+      details: ['Stage de 4 mois, prolongeable à 8 mois', 'Stages coopératifs bienvenus', 'Certains soirs et fins de semaine pour des événements communautaires'],
+      do: [
+        {
+          heading: 'Action communautaire',
+          items: [
+            'Communiquer avec les associations de contribuables et communautaires, les bibliothèques, les centres pour aînés, les organismes culturels et les conseils d’école, et faire le suivi de chaque échange',
+            'Aider à animer des démonstrations et des séances d’information, y compris pour les aînés et les nouveaux arrivants',
+            'Tenir le kiosque de Hey Markham lors d’événements et de festivals communautaires',
+          ],
+        },
+        {
+          heading: 'Contenu et campagnes',
+          items: [
+            'Créer des publications, de courtes vidéos et des dépliants pour les médias sociaux, WeChat, Xiaohongshu (RedNote) et les médias multiculturels locaux',
+            'Aider à adapter le contenu à différentes communautés, avec des traducteurs au besoin',
+            'Aider à faire coïncider les campagnes avec les moments qui comptent pour les résidents, comme l’échéance de l’impôt foncier, le début de la collecte des résidus de jardin ou les règles de stationnement d’hiver',
+          ],
+        },
+        {
+          heading: 'Mesure et rétroaction',
+          items: [
+            'Suivre les installations, les utilisateurs actifs et la rétention par canal dans un court rapport hebdomadaire',
+            'Recueillir les commentaires et les questions des résidents, en personne et en ligne, et transmettre les tendances à l’équipe produit',
+            'Repérer les organismes et les événements locaux avec lesquels collaborer ensuite',
+          ],
+        },
+      ],
+      bring: [
+        'Être inscrit à un programme collégial ou universitaire, ou diplômé depuis moins de 12 mois, en marketing, communications, administration, politiques publiques ou dans un domaine connexe',
+        'L’aisance à parler avec des inconnus, en personne et en groupe, y compris avec des personnes moins à l’aise avec la technologie',
+        'Une rédaction claire en anglais, et le sens du contenu que les gens lisent et partagent vraiment',
+        'De l’organisation et du suivi : vous gardez la trace des contacts, des dates et des prochaines étapes',
+        'L’aisance avec les tableurs et les chiffres de base',
+        'Des disponibilités pour certains événements en soirée et la fin de semaine',
+      ],
+      nice: [
+        'Le mandarin ou le cantonais; le tamoul, l’ourdou, le farsi, le gujarati et les autres langues parlées à Markham sont aussi appréciés',
+        'Une expérience de bénévolat ou d’organisation dans un groupe communautaire, un club ou une association étudiante de Markham',
+        'Une expérience de gestion de comptes de médias sociaux, y compris WeChat ou Xiaohongshu',
+        'Des notions de retouche photo ou de montage vidéo',
+      ],
+      success: [
+        'Vous avez aidé à mener des activités avec plusieurs organismes communautaires, et laissé des notes claires pour la suite',
+        'Vous avez mené au moins une campagne du début à la fin, et présenté ce qu’elle a apporté',
+        'Nous en savons plus sur les canaux qui amènent des résidents qui continuent d’utiliser l’application',
+      ],
+    },
     {
       team: 'Développement des affaires',
       title: 'Directeur ou directrice du développement des affaires, partenariats municipaux',
@@ -865,115 +972,6 @@ const fr: CareersCopy = {
         'Vous avez rencontré des décideurs dans une douzaine de municipalités ontariennes ou plus, et savez lesquelles cibler en premier',
         'Au moins un projet pilote est en cours ou convenu, avec ses critères de réussite par écrit',
         'Nous disposons d’un modèle de proposition, d’une grille tarifaire et d’une banque de réponses aux appels d’offres réutilisables',
-      ],
-    },
-    {
-      team: 'Qualité des données',
-      title: 'Stagiaire en qualité des données, vérification des réponses',
-      summary:
-        'Hey Markham n’est utile que si ses réponses sont exactes. Quand un résident demande quand les résidus de jardin sont ramassés ou combien coûte un permis pour une terrasse, la réponse doit correspondre à ce que la Ville a publié, à la date et au dollar près. Comme stagiaire en qualité des données, vous vérifierez les réponses à partir des sources officielles, corrigerez ce qui ne va pas et aiderez à décider de ce que Hey Markham doit apprendre ensuite.',
-      about:
-        'Vous travaillerez avec nos ingénieurs et utiliserez le même outil de révision qu’eux. Vos corrections se retrouvent dans les réponses que voient les résidents, et dans les jeux de tests que nous exécutons avant chaque version. Ce poste vous convient si vous aimez la recherche et l’exactitude, et voulez voir de l’intérieur comment un produit d’IA est bâti et testé.',
-      details: ['Stage de 4 mois, prolongeable à 8 mois', 'Stages coopératifs bienvenus'],
-      do: [
-        {
-          heading: 'Vérifier les réponses',
-          items: [
-            'Réviser les réponses à de vraies questions de résidents et vérifier chaque fait sur markham.ca et d’autres sources officielles : tarifs, dates, admissibilité, numéros de téléphone et liens',
-            'Signaler les réponses inexactes, périmées ou qui omettent une condition, comme un tarif modifié dans le nouveau budget ou une règle qui ne s’applique qu’à certaines propriétés',
-            'Réécrire les réponses en langage clair, en indiquant la source de chacune',
-            'Revérifier les réponses quand la Ville met à jour une page, un règlement ou ses tarifs',
-          ],
-        },
-        {
-          heading: 'Élargir ce que Hey Markham peut répondre',
-          items: [
-            'Classer les questions des résidents par sujet, et regrouper celles qui demandent la même chose en d’autres mots',
-            'Trouver les questions auxquelles Hey Markham répond encore mal, et chercher la source officielle de chacune',
-            'Repérer les questions qui relèvent d’un autre organisme, comme la Région de York ou un ministère provincial, et noter qui s’en occupe',
-          ],
-        },
-        {
-          heading: 'Tester et documenter',
-          items: [
-            'Tester les réponses en anglais, et en mandarin, en cantonais ou en français si vous les parlez',
-            'Ajouter les questions et réponses révisées aux jeux de tests que l’ingénierie exécute avant chaque version',
-            'Prendre des notes claires sur ce que vous avez vérifié, ce que vous avez changé et pourquoi',
-          ],
-        },
-      ],
-      bring: [
-        'Être inscrit à un programme collégial ou universitaire, ou diplômé depuis moins de 12 mois, dans n’importe quel domaine',
-        'Un grand souci du détail : vous remarquez quand une date, un tarif ou une condition ne correspond pas à la source',
-        'D’excellentes compétences en lecture et en rédaction en anglais, et la capacité d’expliquer simplement des règles complexes',
-        'L’aisance à lire des règlements, des politiques et des sites gouvernementaux',
-        'Un bon jugement pour reconnaître ce qui est incertain et demande un deuxième avis',
-        'L’aisance avec les tableurs et l’apprentissage de nouveaux outils',
-      ],
-      nice: [
-        'Le mandarin, le cantonais ou le français',
-        'Des études en politiques publiques, science politique, sciences de l’information, linguistique ou journalisme',
-        'Une bonne connaissance de Markham et des services municipaux que les résidents utilisent le plus',
-        'De la curiosité pour le fonctionnement des modèles de langage',
-      ],
-      success: [
-        'Vous avez révisé plusieurs centaines de réponses sur les déchets, le stationnement, les permis, les taxes et les loisirs',
-        'Les sujets que vous avez couverts comptent moins d’erreurs, et chaque correction est documentée avec sa source',
-        'Vous avez ajouté de nouvelles questions à nos jeux de tests, pour que les lacunes trouvées restent corrigées',
-      ],
-    },
-    {
-      team: 'Communauté et croissance',
-      title: 'Spécialiste de la communauté et de la croissance',
-      summary:
-        'Mettez Hey Markham entre les mains des résidents qui en ont besoin, là où ils se trouvent déjà et dans les langues qu’ils parlent. Vous planifierez et mènerez des activités de sensibilisation, mesurerez ce qui fonctionne et bâtirez une base d’utilisateurs réguliers qui montrera aux autres villes que Hey Markham vaut la peine d’être adopté.',
-      about:
-        'Markham est l’une des villes les plus diversifiées au Canada, et la plupart des résidents ne trouvent pas l’information municipale en parcourant markham.ca. Ils l’apprennent de leurs voisins, des groupes communautaires, des groupes WeChat et des médias locaux. Ce poste consiste à gagner la confiance dans ces milieux. Vous travaillerez de près avec l’équipe produit, si bien que ce que vous disent les résidents façonnera l’application.',
-      details: ['Certains soirs et fins de semaine pour des événements communautaires'],
-      do: [
-        {
-          heading: 'Action communautaire',
-          items: [
-            'Bâtir des relations avec les associations de contribuables et communautaires, les bibliothèques, les centres pour aînés, les organismes culturels, les lieux de culte et les conseils d’école',
-            'Animer des démonstrations et des séances d’information, y compris pour les aînés et les nouveaux arrivants',
-            'Représenter Hey Markham lors d’événements et de festivals communautaires',
-          ],
-        },
-        {
-          heading: 'Campagnes et contenu',
-          items: [
-            'Planifier et mener des campagnes sur les médias sociaux, WeChat, Xiaohongshu (RedNote) et dans les médias locaux sinophones et multiculturels',
-            'Rédiger et adapter des publications, de courtes vidéos, des dépliants et les textes des magasins d’applications, avec des traducteurs au besoin',
-            'Faire coïncider les campagnes avec les moments qui comptent pour les résidents, comme l’échéance de l’impôt foncier, le début de la collecte des résidus de jardin ou les règles de stationnement d’hiver',
-          ],
-        },
-        {
-          heading: 'Mesure et rétroaction',
-          items: [
-            'Suivre les installations, les utilisateurs actifs et la rétention par canal, et abandonner ce qui ne fonctionne pas',
-            'Recueillir les commentaires et les questions des résidents, et transmettre les tendances à l’équipe produit',
-            'Plus tard, aider à lancer des partenariats avec les entreprises locales, y compris Offres et publicités, que les résidents activent s’ils le souhaitent',
-          ],
-        },
-      ],
-      bring: [
-        'Au moins 2 ans d’expérience en action communautaire, marketing, communications ou croissance',
-        'Une expérience de la planification de campagnes et de la présentation de leurs résultats avec de vrais chiffres',
-        'L’aisance à présenter devant des groupes et à parler en personne avec des résidents, y compris ceux qui sont moins à l’aise avec la technologie',
-        'Une rédaction claire en anglais pour différents publics',
-        'Un excellent sens de l’organisation : vous pouvez mener plusieurs événements et campagnes à la fois',
-        'Des disponibilités pour certains événements en soirée et la fin de semaine',
-      ],
-      nice: [
-        'Le mandarin ou le cantonais; le tamoul, l’ourdou, le farsi, le gujarati et les autres langues parlées à Markham sont aussi appréciés',
-        'Des liens existants avec des organismes communautaires de Markham',
-        'Une expérience de croissance d’une application mobile ou d’un service numérique',
-        'Une expérience de WeChat, de Xiaohongshu ou des médias multiculturels locaux',
-      ],
-      success: [
-        'Vous avez mené des activités avec au moins dix organismes communautaires, dont plusieurs sont devenus des partenaires',
-        'Nous savons quels canaux amènent des résidents qui continuent d’utiliser l’application, et ce que chacun coûte',
-        'Un calendrier de campagnes sur un an est en place, lié aux dates municipales qui comptent pour les résidents',
       ],
     },
     {
@@ -1153,7 +1151,6 @@ const fr: CareersCopy = {
 
 const copy: Record<Locale, CareersCopy> = { en, zh, fr };
 
-const factIcons = [MapPin, Users, Sparkles];
 const howIcons = [ShieldCheck, MessageSquare, MapPin];
 
 
@@ -1171,18 +1168,6 @@ export function CareersPage({ locale }: { locale: Locale }) {
           <p className="animate-fade-up text-sm font-semibold uppercase tracking-wider text-primary-300 mb-3">{t.eyebrow}</p>
           <h1 className="animate-rise text-3xl md:text-5xl font-serif font-bold text-white mb-5 text-balance">{t.title}</h1>
           <p className="animate-rise [animation-delay:100ms] text-lg md:text-xl text-slate-300 max-w-3xl mx-auto text-pretty">{t.subtitle}</p>
-
-          <ul className="animate-fade-up [animation-delay:150ms] mt-8 flex flex-wrap justify-center gap-3">
-            {t.facts.map((fact, i) => {
-              const Icon = factIcons[i];
-              return (
-                <li key={fact} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-slate-200">
-                  <Icon className="w-4 h-4 text-primary-300" aria-hidden="true" />
-                  {fact}
-                </li>
-              );
-            })}
-          </ul>
 
           <nav aria-label={t.jumpLabel} className="animate-fade-up [animation-delay:200ms] mt-10">
             <p className="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">{t.jumpLabel}</p>

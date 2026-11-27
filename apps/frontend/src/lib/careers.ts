@@ -3,9 +3,9 @@
 
 /** Open roles, in the order the careers page lists them. `subject` is the English title used in emails. */
 export const CAREER_ROLES = [
-  { id: 'business-development', subject: 'Business Development Manager, Municipal Partnerships' },
   { id: 'data-quality-intern', subject: 'Data Quality Intern, Answer Verification' },
-  { id: 'community-growth', subject: 'Community and Growth Specialist' },
+  { id: 'community-growth', subject: 'Community and Growth Intern' },
+  { id: 'business-development', subject: 'Business Development Manager, Municipal Partnerships' },
   { id: 'ai-rag-engineer', subject: 'AI/RAG Engineer' },
   { id: 'full-stack-engineer', subject: 'Full-Stack Engineer, Mobile and Web' },
   { id: 'privacy-security-accessibility', subject: 'Privacy, Security and Accessibility Advisor' },
