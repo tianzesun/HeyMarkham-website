@@ -1,11 +1,71 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Mic } from 'lucide-react';
 import { LIVE_URL } from '../lib/links';
+import { localeOf, localisePath, type Locale } from '../lib/i18n';
+
+const copy: Record<Locale, {
+  tagline: string;
+  product: string;
+  features: string;
+  tryItLive: string;
+  getApp: string;
+  whatsNew: string;
+  forMunicipalities: string;
+  resources: string;
+  citySite: string;
+  privacy: string;
+  appHelp: string;
+  contact: string;
+  rights: string;
+  builtFor: string;
+  disclaimer: string;
+}> = {
+  en: {
+    tagline: 'Quick answers about City of Markham services, by voice or text.',
+    product: 'Product',
+    features: 'Features',
+    tryItLive: 'Try it live',
+    getApp: 'Get the app',
+    whatsNew: 'What’s new in the app',
+    forMunicipalities: 'For Municipalities',
+    resources: 'Resources',
+    citySite: 'City of Markham (official site)',
+    privacy: 'Privacy Policy',
+    appHelp: 'Mobile app help & privacy',
+    contact: 'Contact',
+    rights: 'All rights reserved.',
+    builtFor: 'Built for Markham residents',
+    disclaimer: 'Hey Markham is an independent service by Aydenait Solutions and is not affiliated with or endorsed by the City of Markham.',
+  },
+  zh: {
+    tagline: '用语音或文字，快速获取万锦市服务信息。',
+    product: '产品',
+    features: '功能介绍',
+    tryItLive: '在线体验',
+    getApp: '下载应用',
+    whatsNew: '应用更新日志',
+    forMunicipalities: '面向市政机构',
+    resources: '相关资源',
+    citySite: '万锦市官网',
+    privacy: '隐私政策',
+    appHelp: '应用帮助与隐私',
+    contact: '联系我们',
+    rights: '版权所有。',
+    builtFor: '为万锦市居民打造',
+    disclaimer: 'Hey Markham 是 Aydenait Solutions 提供的独立服务，与万锦市没有隶属关系，也未获得万锦市的背书。',
+  },
+};
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const locale = localeOf(usePathname());
+  const t = copy[locale];
+
+  // Internal links follow the locale; external ones never change
+  const internal = (path: string) => localisePath(path, locale);
 
   return (
     <footer className="pt-12 pb-24 px-6 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
@@ -20,36 +80,35 @@ export const Footer: React.FC = () => {
               <span className="font-bold text-slate-900 dark:text-white">Hey Markham</span>
             </div>
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              Quick answers about City of Markham services, by voice or text.
+              {t.tagline}
             </p>
           </div>
 
           {/* Product */}
           <div>
-            <h4 className="font-semibold text-slate-900 dark:text-white mb-4">Product</h4>
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-4">{t.product}</h4>
             <ul className="space-y-2">
-              <li><Link href="/#features" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Features</Link></li>
-              <li><a href={LIVE_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Try it live</a></li>
-              <li><Link href="/#app" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Get the app</Link></li>
-              <li><Link href="/app/releases" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">What&rsquo;s new in the app</Link></li>
-              <li><Link href="/#contact" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">For Municipalities</Link></li>
+              <li><Link href={internal('/#features')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.features}</Link></li>
+              <li><a href={LIVE_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.tryItLive}</a></li>
+              <li><Link href={internal('/#app')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.getApp}</Link></li>
+              <li><Link href={internal('/app/releases')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.whatsNew}</Link></li>
+              <li><Link href={internal('/#contact')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.forMunicipalities}</Link></li>
             </ul>
           </div>
 
           {/* Resources */}
           <div>
-            <h4 className="font-semibold text-slate-900 dark:text-white mb-4">Resources</h4>
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-4">{t.resources}</h4>
             <ul className="space-y-2">
-              <li><a href="https://www.markham.ca" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">City of Markham (official site)</a></li>
-              <li><Link href="/#faq" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">FAQ</Link></li>
-              <li><Link href="/privacy" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/app/support" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Mobile app help &amp; privacy</Link></li>
+              <li><a href="https://www.markham.ca" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.citySite}</a></li>
+              <li><Link href={internal('/privacy')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.privacy}</Link></li>
+              <li><Link href={internal('/app/support')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.appHelp}</Link></li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="font-semibold text-slate-900 dark:text-white mb-4">Contact</h4>
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-4">{t.contact}</h4>
             <ul className="space-y-2">
               <li><a href="mailto:contact@aydenait.com" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">contact@aydenait.com</a></li>
               <li><a href="tel:+12898599523" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">289-859-9523</a></li>
@@ -59,16 +118,15 @@ export const Footer: React.FC = () => {
 
         <div className="pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-slate-500 dark:text-slate-400">
-            © {currentYear} <a href="https://aydenait.com" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 underline hover:no-underline">Aydenait Solutions</a>. All rights reserved.
+            © {currentYear} <a href="https://aydenait.com" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 underline hover:no-underline">Aydenait Solutions</a>. {t.rights}
           </p>
           <p className="text-sm text-slate-500 dark:text-slate-400">
-            Built for Markham residents
+            {t.builtFor}
           </p>
         </div>
 
         <p className="mt-6 text-xs text-slate-500 dark:text-slate-400 text-center md:text-left">
-          Hey Markham is an independent service by Aydenait Solutions and is not affiliated with or endorsed by the City of Markham.
-          FAQ answers were checked against official sources in October 2026; always confirm current details on the source page.
+          {t.disclaimer}
         </p>
       </div>
     </footer>

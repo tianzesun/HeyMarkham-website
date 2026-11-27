@@ -1,29 +1,154 @@
 import {
   Mic, Search, ShieldCheck, Mail, Phone, CheckCircle2, Clock, AlertCircle,
-  MessageSquare, Users, MousePointer, Link2, Home, Zap, CreditCard, BookOpen,
+  MessageSquare, Users, Link2, Home, Zap, CreditCard, BookOpen,
   Car, Droplets, Leaf, Waves, Trees, CalendarDays, Camera, Navigation,
   Languages, LayoutGrid, Bell, ArrowRight, ArrowUpRight, Signpost, ClipboardCheck, Recycle,
   Wrench, FileText, Receipt, Snowflake, Landmark, Bus, Sun, MapPin,
-  Lock, Compass, ListChecks
+  Lock, Compass, ListChecks, Briefcase
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HeroTryLive, StoreButton } from '../components/HeroTryLive';
 import { ContactForm } from '../components/ContactForm';
-import { FAQSection } from '../components/FAQSection';
 import { RevealOnScroll } from '../components/RevealOnScroll';
-import { faqDatabase } from '../lib/faq-data';
 import { APP_STORE_URL, GOOGLE_PLAY_URL, LIVE_URL } from '../lib/links';
 import { latestRelease } from '../lib/releases';
 import { AnswerSource } from '../components/AnswerSource';
+import type { Locale } from '../lib/i18n';
 
-// Server-rendered; only FAQSection and ContactForm hydrate in the browser
-export default function HomePage() {
-  // Counted from the data, so it stays true as more answers are checked
-  const checkedAnswerCount = faqDatabase.filter(item => item.source).length;
-
-  // The three jobs Hey Markham does. Every example must be something the app or live assistant
-  // really does today (see lib/releases.ts); keep them in step when features change
+// Translation copy for home page in both languages
+const copy: Record<Locale, {
+  heroTitle: string;
+  heroSubtitle: string;
+  getAppStore: string;
+  getGooglePlay: string;
+  pillar1Verb: string;
+  pillar1TitleEn: string;
+  pillar1TitleZh: string;
+  pillar1Description: string;
+  pillar2Verb: string;
+  pillar2TitleEn: string;
+  pillar2TitleZh: string;
+  pillar2Description: string;
+  pillar3Verb: string;
+  pillar3TitleEn: string;
+  pillar3TitleZh: string;
+  pillar3Description: string;
+  askTitle: string;
+  askSubtitle: string;
+  recycleTitle: string;
+  recycleDescription: string;
+  reportTitle: string;
+  reportDescription: string;
+  permitsTitle: string;
+  permitsDescription: string;
+  propertyTaxTitle: string;
+  propertyTaxDescription: string;
+  parksTitle: string;
+  parksDescription: string;
+  eventsTitle: string;
+  eventsDescription: string;
+  wardTitle: string;
+  wardDescription: string;
+  schoolBusesTitle: string;
+  schoolBusesDescription: string;
+  builtTitle: string;
+  builtSubtitle: string;
+  binsRepairsPermitsSubtitle: string;
+  garbageTitle: string;
+  garbageAsk: string;
+  garbageDoes1: string;
+  garbageDoes2: string;
+  garbageDoes3: string;
+  garbageDoes4: string;
+  reportTitleScenario: string;
+  reportAsk: string;
+  reportDoes1: string;
+  reportDoes2: string;
+  reportDoes3: string;
+  reportDoes4: string;
+  permitsTitleScenario: string;
+  permitsAsk: string;
+  permitsDoes1: string;
+  permitsDoes2: string;
+  permitsDoes3: string;
+  permitsDoes4: string;
+  restOfLifeTitle: string;
+  propertyTaxRest: string;
+  winterRest: string;
+  parksPlacesRest: string;
+  eventsRest: string;
+  wardRest: string;
+  schoolBusesRest: string;
+  trustTitle: string;
+  understandTitle: string;
+  understandDescription: string;
+  knowsTitle: string;
+  knowsDescription: string;
+  checksTitle: string;
+  checksDescription: string;
+  saysTitle: string;
+  saysDescription: string;
+  collectTitle: string;
+  organizeTitle: string;
+  researchTitle: string;
+  prepareTitle: string;
+  reviewTitle: string;
+  addTitle: string;
+  nowLabel: string;
+  nextLabel: string;
+  laterLabel: string;
+  fenceQuestion: string;
+  fenceAnswer: string;
+  appTitle: string;
+  appSubtitle: string;
+  answerFeatureTitle: string;
+  answerFeatureDescription: string;
+  reportFeatureTitle: string;
+  reportFeatureDescription: string;
+  eventsFeatureTitle: string;
+  eventsFeatureDescription: string;
+  inboxFeatureTitle: string;
+  inboxFeatureDescription: string;
+  getAppTitle: string;
+  appDescription: string;
+  accessMarkhamTitle: string;
+  accessMarkhamSubtitle: string;
+  heyMarkhamTitle: string;
+  heyMarkhamSubtitle: string;
+  heyMarkhamDifference1: string;
+  heyMarkhamDifference2: string;
+  heyMarkhamDifference3: string;
+  heyMarkhamDifference4: string;
+  heyMarkhamDifference5: string;
+  hardPartTitle: string;
+  searchTitle: string;
+  menuPath1: string;
+  menuPath2: string;
+  menuPath3: string;
+  menuPath4: string;
+  menuPath5: string;
+  answerFromCity: string;
+  answerFromHeyMarkham: string;
+  justSearchTitle: string;
+} = {
+  en: {
+    heroTitle: 'You say what you&rsquo;re trying to do. Hey Markham does the rest.',
+    heroSubtitle: 'Finding municipal information shouldn&rsquo;t be difficult. City websites contain thousands of pages, documents, policies and service details, and finding the exact information you need can take time. Hey Markham makes it easier: simply ask a question in your own words, with no need to know which department to contact or which webpage to visit first.',
+    getAppStore: 'Get it on the App Store',
+    getGooglePlay: 'Get it on Google Play',
+    pillar2Verb: 'Points you the right way',
+    pillar2TitleEn: 'Who actually handles it',
+    pillar2TitleZh: 'Who actually handles it',
+    pillar2Description: 'Not everything in Markham is run by the City. Hey Markham tells you who handles it',
+    pillar3Verb: 'Helps you get it done',
+    pillar3TitleEn: 'From question to done',
+    pillar3TitleZh: 'From question to done',
+    pillar3Description: 'Not just a link to read. The next step, ready to take.',
+    askTitle: 'What Can You Ask?',
+    askSubtitle: 'The everyday things residents need from the City. Ask in your own words, by voice or text',
+  },
+  },
   const pillars = [
     {
       icon: <Search className="w-6 h-6" />,
@@ -112,6 +237,16 @@ export default function HomePage() {
     { icon: <CalendarDays className="w-5 h-5" />, title: 'Events', description: 'What’s on at the City this week, with dates, times and places.' },
     { icon: <Landmark className="w-5 h-5" />, title: 'Your ward', description: 'Your ward, your councillor, the mayor and your regional councillors.' },
     { icon: <Bus className="w-5 h-5" />, title: 'School buses', description: 'Bus delays and cancellations, and your bus stop, with the team that runs them.' },
+  ];
+
+  // The topics residents ask about, as a short index; the scenarios below go deep on three of them
+  const askTopics = [
+    { icon: <Recycle className="w-5 h-5" />, title: 'Garbage & recycling', description: 'Collection schedules, missed pickups, recycling and waste disposal.' },
+    { icon: <Car className="w-5 h-5" />, title: 'Parking & traffic', description: 'Parking regulations, permits, tickets and road restrictions.' },
+    { icon: <FileText className="w-5 h-5" />, title: 'Building permits', description: 'Renovations, decks, basement finishing and zoning requirements.' },
+    { icon: <Receipt className="w-5 h-5" />, title: 'Property & taxes', description: 'Property taxes, property-related services and municipal responsibilities.' },
+    { icon: <Trees className="w-5 h-5" />, title: 'Parks & recreation', description: 'Facilities, programs, registrations and community activities.' },
+    { icon: <Briefcase className="w-5 h-5" />, title: 'Business services', description: 'Business licensing, zoning and operating requirements.' },
   ];
 
   // App section: each spotlight pairs a screenshot with the feature it shows; keep in step with lib/releases.ts
@@ -273,12 +408,13 @@ export default function HomePage() {
     },
   };
 
-  const clickProblemStats = [
-    { value: "4", label: "Clicks", description: "From the homepage to the fence rules in the example above" },
-    { value: "Several", label: "Separate Systems", description: "Waste, recreation, libraries and transit each have their own" },
-    { value: "Office hours", label: "Phone Support", description: "Questions don’t stop when lines close" },
-    { value: "1", label: "Question", description: "All Hey Markham needs" },
-  ];
+  // "Why not just search markham.ca?" runs one real question through three paths.
+  // The menu path and the search results were checked on markham.ca on November 15, 2026; the
+  // answer and its source come from lib/faq-data.ts, which cites the City's page for it
+  const FENCE_URL = 'https://www.markham.ca/about-city-markham/city-hall/bylaw/fences-swimming-pools';
+  const clickPath = ['Home', 'About the City of Markham', 'City Hall', 'By-Laws', 'Fences & Swimming Pools'];
+  const fenceAnswer =
+    'Front-yard fences can be up to 1.2 m (4 ft) high, and fences along rear and interior side property lines up to 1.8 m (6 ft). On corner lots, the side facing the street is limited to 1.2 m. Pools deeper than 0.6 m need a 1.2 m fence and a pool enclosure permit before filling.';
 
   // How an answer is made, in residents' words. Each step mirrors the answer layers in the
   // HeyMarkham API (docs/ANSWER_LAYERS.md, app/rag/fact_support.py, app/services/referrals.py);
@@ -287,23 +423,33 @@ export default function HomePage() {
     {
       icon: <MessageSquare className="w-6 h-6" />,
       title: "Understands what you mean",
-      description: "Your own words, by voice or text, in four languages. Follow-ups work too: “and on weekends?”",
+      description: "Ask the same question in different words: Hey Markham understands the meaning behind your question rather than exact keyword matches. Your own words, by voice or text, in four languages, with follow-ups like “and on weekends?”",
     },
     {
       icon: <Compass className="w-6 h-6" />,
       title: "Knows where to look",
-      description: "Common questions get answers people have checked. Your ward, pickup day and nearby places come from your address. Events, closures and road work come from the City’s own listings. Everything else, from markham.ca.",
+      description: "Official information first: answers come from City of Markham pages and other official sources, with the pages they used. Common questions get answers people have checked; your ward, pickup day and nearby places come from your address; events, closures and road work come from the City’s own listings.",
     },
     {
       icon: <ShieldCheck className="w-6 h-6" />,
       title: "Checks before it answers",
-      description: "Fees, times, phone numbers and links must appear in the official pages it read. Any it can’t find there are left out: a wrong fee is worse than none.",
+      description: "New knowledge is researched and reviewed before it’s added: AI assists with research and organization, and human review keeps answer quality up. At answer time, fees, times, phone numbers and links must appear in the pages it read, or they’re left out: a wrong fee is worse than none.",
     },
     {
       icon: <AlertCircle className="w-6 h-6" />,
       title: "Says so when it can’t",
       description: "If the answer isn’t there, Hey Markham says so and tells you who can help: the City’s Contact Centre at 905-477-5530, or the agency that handles it.",
     },
+  ];
+
+  // How a new question becomes a verified answer, in the order the team does it
+  const improvementSteps = [
+    { title: 'Collect new questions', description: 'Every question we can’t answer well is collected, and the gaps in what we know are identified.' },
+    { title: 'Organize and group', description: 'Similar questions are grouped together, so one round of research covers them all.' },
+    { title: 'Research official sources', description: 'Relevant official municipal sources are found and read for the real requirements.' },
+    { title: 'Prepare answers with AI', description: 'AI assists with research and organization, drafting the answer from those sources.' },
+    { title: 'Review and verify', description: 'New information is reviewed and verified before it’s approved.' },
+    { title: 'Add to the knowledge base', description: 'Approved answers join a growing, structured collection of municipal questions, verified answers and the different ways residents ask them.' },
   ];
 
   // A real worked example for the three steps; every fact is on the City's pet licence page
@@ -332,7 +478,10 @@ export default function HomePage() {
                 You say what you&rsquo;re trying to do. Hey Markham does the rest.
               </h2>
               <p data-reveal className="text-lg text-slate-300 text-pretty" style={{ transitionDelay: '0.1s' }}>
-                A search box hands you pages to read. Hey Markham starts with what you need and does three jobs for you.
+                Finding municipal information shouldn&rsquo;t be difficult. City websites contain thousands of pages,
+                documents, policies and service details, and finding the exact information you need can take time.
+                Hey Markham makes it easier: simply ask a question in your own words, with no need to know which
+                department to contact or which webpage to visit first.
               </p>
             </div>
 
@@ -360,6 +509,38 @@ export default function HomePage() {
                 </li>
               ))}
             </ol>
+          </div>
+        </section>
+
+        {/* The topics residents ask about, an index before the three deep scenarios below */}
+        <section className="py-16 md:py-20 px-6 bg-slate-50 dark:bg-slate-900">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <p data-reveal className="text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-3">
+                The topics
+              </p>
+              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4 text-balance">
+                What Can You Ask?
+              </h2>
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
+                The everyday things residents need from the City. Ask in your own words, by voice or text, and get the
+                answer with the page it came from.
+              </p>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {askTopics.map((topic, i) => (
+                <div data-reveal key={topic.title} className="flex gap-4 p-5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700" style={{ transitionDelay: `${i * 0.06}s` }}>
+                  <span className="w-10 h-10 rounded-lg bg-primary-50 dark:bg-primary-900/50 flex items-center justify-center text-primary-600 dark:text-primary-400 flex-shrink-0">
+                    {topic.icon}
+                  </span>
+                  <div>
+                    <p className="font-semibold text-slate-900 dark:text-white">{topic.title}</p>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{topic.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -585,7 +766,9 @@ export default function HomePage() {
                 It Knows Where to Look, and Says When It Doesn&rsquo;t Know
               </h2>
               <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
-                A city assistant is only useful if it&rsquo;s right. Hey Markham is built not to make answers up.
+                A useful answer must be more than a confident-sounding response. Hey Markham prioritizes official and
+                traceable information, in clear everyday language, and would rather tell you it can&rsquo;t confirm
+                something than guess.
               </p>
             </div>
 
@@ -652,9 +835,9 @@ export default function HomePage() {
                     <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary-600 dark:text-primary-400" aria-hidden="true" />
                     Answers not from City pages are marked
                   </li>
-                  <li className="flex gap-2 sm:col-span-2">
-                    <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary-600 dark:text-primary-400" aria-hidden="true" />
-                    {checkedAnswerCount} answers in the FAQ below checked against official sources
+                  <li className="flex gap-2">
+                    <ListChecks className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary-600 dark:text-primary-400" aria-hidden="true" />
+                    The conditions and exceptions that apply
                   </li>
                 </ul>
               </div>
@@ -662,132 +845,183 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Section 1: Why not just search markham.ca? */}
+        {/* Section 1: Why not just search markham.ca? One real question, then the three ways residents try to answer it */}
         <section className="py-16 px-6 bg-slate-50 dark:bg-slate-900">
           <div className="max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-12">
+              <p data-reveal className="text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-3">
+                The hard part
+              </p>
               <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4 text-balance">
                 Why Not Just Search markham.ca?
               </h2>
               <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
-                The answers are on markham.ca. Finding them is the hard part.
+                The answers are on markham.ca. Reaching them is the hard part: long menus, separate systems,
+                and a search box that matches words rather than what you mean.
               </p>
             </div>
 
-            {/* The click path: real menus on markham.ca */}
-            <div className="mb-12">
-              <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-200 dark:border-slate-700">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
-                    <MousePointer className="w-6 h-6 text-red-600 dark:text-red-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white">The &ldquo;Multiple-Click&rdquo; Problem</h3>
-                    <p className="text-slate-500 dark:text-slate-400 text-sm">Finding simple info shouldn&rsquo;t be this hard</p>
-                  </div>
+            {/* The one question every path below starts from */}
+            <div data-reveal className="max-w-3xl mx-auto mb-8 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 px-6 py-6 md:px-8 text-center shadow-sm">
+              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">
+                A real question
+              </p>
+              <p className="text-xl md:text-2xl font-medium text-slate-900 dark:text-white text-balance">
+                &ldquo;How tall can my backyard fence be?&rdquo;
+              </p>
+            </div>
+
+            {/* Three ways to answer it, in the order most residents try them */}
+            <ol className="grid lg:grid-cols-3 gap-6">
+              {/* Path 1: the menus on markham.ca */}
+              <li data-reveal className="flex flex-col rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm font-semibold flex items-center justify-center flex-shrink-0">
+                    1
+                  </span>
+                  <h3 className="font-semibold text-slate-900 dark:text-white">Click through the menus</h3>
                 </div>
 
-                <div className="bg-slate-50 dark:bg-slate-900 rounded-lg p-6 mb-6">
-                  <p className="text-slate-700 dark:text-slate-300 mb-4">
-                    <strong>Example:</strong> &ldquo;How tall can my backyard fence be?&rdquo;
-                  </p>
-                  <div className="flex flex-wrap items-center gap-2 text-sm">
-                    <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">Home</span>
-                    <span className="text-slate-400">→</span>
-                    <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">About the City of Markham</span>
-                    <span className="text-slate-400">→</span>
-                    <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">City Hall</span>
-                    <span className="text-slate-400">→</span>
-                    <span className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">By-Laws</span>
-                    <span className="text-slate-400">→</span>
-                    <span className="px-3 py-1 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded-full font-medium">Fences &amp; Swimming Pools</span>
-                  </div>
-                  <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">
-                    Fence rules sit under &ldquo;About the City&rdquo;, and the link is about 100 links down the By-Laws page, after a long list of by-law PDFs. Searching markham.ca for the question finds nothing.
-                  </p>
-
-                </div>
-
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  {clickProblemStats.map((stat, i) => (
-                    <div key={i} className="text-center">
-                      <div className="text-2xl md:text-3xl font-bold text-red-600 dark:text-red-400 mb-1">
-                        {stat.value}
-                      </div>
-                      <div className="text-sm font-semibold text-slate-900 dark:text-white mb-1">
-                        {stat.label}
-                      </div>
-                      <div className="text-xs text-slate-500 dark:text-slate-400">
-                        {stat.description}
-                      </div>
-                    </div>
+                <ul className="space-y-1.5 text-sm mb-4">
+                  {clickPath.map((step, i) => (
+                    <li key={step} className="flex gap-2">
+                      <span className="w-4 flex-shrink-0 text-slate-400 dark:text-slate-500" aria-hidden="true">{i > 0 ? '→' : ''}</span>
+                      <span className={i === clickPath.length - 1 ? 'font-medium text-slate-900 dark:text-white' : 'text-slate-600 dark:text-slate-300'}>
+                        {step}
+                      </span>
+                    </li>
                   ))}
+                </ul>
+
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Fence rules sit under &ldquo;About the City&rdquo;, and the link is about 100 links down the By-Laws page, after a long list of by-law PDFs.
+                </p>
+
+                <p className="mt-auto pt-4 text-xs font-semibold text-red-600 dark:text-red-400">
+                  4 clicks, then a long scroll
+                </p>
+              </li>
+
+              {/* Path 2: the site's search box */}
+              <li data-reveal className="flex flex-col rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6" style={{ transitionDelay: '0.1s' }}>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm font-semibold flex items-center justify-center flex-shrink-0">
+                    2
+                  </span>
+                  <h3 className="font-semibold text-slate-900 dark:text-white">Search the site</h3>
                 </div>
+
+                <div className="space-y-3 mb-4 text-sm">
+                  <div className="rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 px-3 py-2.5">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">You search for</p>
+                    <p className="text-slate-900 dark:text-white">&ldquo;How tall can my backyard fence be?&rdquo;</p>
+                  </div>
+                  <div className="rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-900/40 px-3 py-2.5">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">markham.ca returns</p>
+                    <p className="text-red-700 dark:text-red-300 font-medium">No results found.</p>
+                  </div>
+                </div>
+
+                <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                  Search one word instead and you get everything it can mean: &ldquo;park&rdquo; alone returns 1,976 results, from Parks to Parking.
+                </p>
+
+                <p className="mt-auto pt-4 text-xs font-semibold text-red-600 dark:text-red-400">
+                  Nothing for the question you actually asked
+                </p>
+              </li>
+
+              {/* Path 3: the answer, with the page it came from */}
+              <li data-reveal className="flex flex-col rounded-2xl border-2 border-primary-600 dark:border-primary-500 bg-white dark:bg-slate-800 p-6 shadow-xl" style={{ transitionDelay: '0.2s' }}>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-8 h-8 rounded-full bg-primary-600 text-white text-sm font-semibold flex items-center justify-center flex-shrink-0">
+                    3
+                  </span>
+                  <h3 className="font-semibold text-slate-900 dark:text-white">Ask Hey Markham</h3>
+                </div>
+
+                <div className="rounded-lg bg-primary-50 dark:bg-primary-900/30 border border-primary-100 dark:border-primary-800 px-3 py-2.5 text-sm text-slate-800 dark:text-slate-100 leading-relaxed">
+                  {fenceAnswer}
+                </div>
+
+                <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
+                  <AnswerSource source={FENCE_URL} linkClassName="hover:text-primary-600 dark:hover:text-primary-300" />
+                </p>
+
+                <p className="mt-auto pt-4 text-xs font-semibold text-green-700 dark:text-green-400">
+                  One question, answered with the page it came from
+                </p>
+              </li>
+            </ol>
+
+            <p className="mt-6 text-center text-xs text-slate-500 dark:text-slate-400">
+              The menu path and the search results above were checked on markham.ca on November 15, 2026.
+            </p>
+
+            {/* The payoff: the section's own question, answered */}
+            <div data-reveal className="mt-8 rounded-2xl bg-slate-900 dark:bg-slate-800 border border-slate-800 dark:border-slate-700 px-6 py-8 md:px-10 text-center">
+              <h3 className="text-xl md:text-2xl font-serif font-bold text-white mb-2 text-balance">
+                Don&rsquo;t search for it. Ask for it.
+              </h3>
+              <p className="text-slate-300 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                Hey Markham reads the page, gives you the answer, and links the page it came from.
+                Four clicks and a long scroll become one question.
+              </p>
+              <div className="mt-6 flex flex-wrap justify-center gap-3">
+                <a
+                  href={LIVE_URL}
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-sm transition-all shadow-sm hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-300"
+                >
+                  Try it live
+                  <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                </a>
+                <Link
+                  href="/#trust"
+                  className="inline-flex items-center gap-2 px-6 py-3 border border-slate-700 hover:border-slate-500 text-slate-200 rounded-lg font-medium text-sm transition-colors"
+                >
+                  See how it checks its answers
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
+                </Link>
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Search box vs. Hey Markham */}
-            <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-200 dark:border-slate-700">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center">
-                  <Search className="w-6 h-6 text-amber-600 dark:text-amber-400" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-white">The Search Box Problem</h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-sm">Search matches words, not what you mean</p>
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="border border-red-200 dark:border-red-800 rounded-lg p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="px-3 py-1 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded-full text-sm font-medium">
-                      markham.ca search
-                    </span>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="bg-slate-50 dark:bg-slate-900 rounded p-3">
-                      <p className="text-sm text-slate-600 dark:text-slate-400">User asks:</p>
-                      <p className="text-sm font-medium text-slate-900 dark:text-white">&ldquo;Can my visitor park on the street tonight?&rdquo;</p>
-                    </div>
-                    <div className="flex justify-center">
-                      <div className="text-2xl">↓</div>
-                    </div>
-                    <div className="bg-red-50 dark:bg-red-900/20 rounded p-3">
-                      <p className="text-sm text-slate-600 dark:text-slate-400">Search results:</p>
-                      <p className="text-sm text-red-700 dark:text-red-300">No results found.</p>
-                    </div>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">
-                      Search just &ldquo;park&rdquo; instead and you get 1,976 results, from Parks to Parking. Checked November 15, 2026.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="border border-green-200 dark:border-green-800 rounded-lg p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="px-3 py-1 bg-green-100 dark:bg-green-900/50 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
-                      Hey Markham
-                    </span>
-                  </div>
-                  <div className="space-y-3">
-                    <div className="bg-slate-50 dark:bg-slate-900 rounded p-3">
-                      <p className="text-sm text-slate-600 dark:text-slate-400">User asks:</p>
-                      <p className="text-sm font-medium text-slate-900 dark:text-white">&ldquo;Can my visitor park on the street tonight?&rdquo;</p>
-                    </div>
-                    <div className="flex justify-center">
-                      <div className="text-2xl">↓</div>
-                    </div>
-                    <div className="bg-green-50 dark:bg-green-900/20 rounded p-3">
-                      <p className="text-sm text-slate-600 dark:text-slate-400">Hey Markham response:</p>
-                      <p className="text-sm text-green-700 dark:text-green-300">&ldquo;Street parking isn&rsquo;t allowed from 2:30 AM to 6 AM unless signs say otherwise, but you can request an overnight exemption online for $6 a night, up to 10 a year per licence plate.&rdquo;</p>
-                      <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
-                        <AnswerSource source="https://www.markham.ca/permits-licences-taxes/parking/overnight-street-parking-request" linkClassName="hover:text-primary-600 dark:hover:text-primary-300" />
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+        {/* How the answer collection grows: every new question becomes verified knowledge */}
+        <section className="py-16 md:py-20 px-6 bg-white dark:bg-slate-950">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <p data-reveal className="text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-3">
+                Always improving
+              </p>
+              <h2 data-reveal className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-4 text-balance">
+                Answers That Keep Getting Better
+              </h2>
+              <p data-reveal className="text-lg text-slate-600 dark:text-slate-400 text-pretty" style={{ transitionDelay: '0.1s' }}>
+                Every question helps us understand what Markham residents need, and how they ask it. When a question
+                our knowledge base doesn&rsquo;t adequately cover comes in, it becomes an opportunity to improve the
+                system.
+              </p>
             </div>
+
+            <ol className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {improvementSteps.map((step, i) => (
+                <li data-reveal key={step.title} className="flex gap-4 p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800" style={{ transitionDelay: `${i * 0.06}s` }}>
+                  <span className="w-8 h-8 rounded-full bg-primary-600 text-white text-sm font-semibold flex items-center justify-center flex-shrink-0">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-slate-900 dark:text-white mb-1">{step.title}</h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{step.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <p data-reveal className="mt-8 text-center text-lg text-slate-600 dark:text-slate-300 text-balance">
+              The result is a knowledge system that evolves with the needs of the community.
+            </p>
           </div>
         </section>
 
@@ -860,7 +1094,41 @@ export default function HomePage() {
           </div>
         </section>
 
-        <FAQSection />
+        {/* Closing pitch for residents, before the municipal contact form */}
+        <section className="py-16 px-6 bg-slate-900 dark:bg-slate-950 border-t border-slate-800">
+          <div className="max-w-3xl mx-auto text-center">
+            <p data-reveal className="text-sm font-semibold uppercase tracking-wider text-primary-300 mb-3">
+              For every resident
+            </p>
+            <h2 data-reveal className="text-2xl md:text-4xl font-serif font-bold text-white mb-4 text-balance">
+              Better Access to City Information. Less Time Searching.
+            </h2>
+            <p data-reveal className="text-lg text-slate-300 text-pretty" style={{ transitionDelay: '0.1s' }}>
+              Whether you are a homeowner, tenant, business owner or simply exploring community services, Hey Markham
+              is here to help you navigate municipal information more easily.
+            </p>
+            <p data-reveal className="mt-4 text-lg font-medium text-primary-300" style={{ transitionDelay: '0.2s' }}>
+              Ask Hey Markham. Get to know your city.
+            </p>
+            <div data-reveal className="mt-7 flex flex-wrap justify-center gap-3" style={{ transitionDelay: '0.3s' }}>
+              <a
+                href={LIVE_URL}
+                target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-sm transition-all shadow-sm hover:-translate-y-0.5 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-300"
+              >
+                Ask Hey Markham
+                <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+              </a>
+              <Link
+                href="/#contact"
+                className="inline-flex items-center gap-2 px-6 py-3 border border-slate-700 hover:border-slate-500 text-slate-200 rounded-lg font-medium text-sm transition-colors"
+              >
+                Get in touch
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </section>
 
          {/* Contact Section */}
          <section id="contact" className="py-16 md:py-20 px-6 bg-primary-700 dark:bg-primary-900">

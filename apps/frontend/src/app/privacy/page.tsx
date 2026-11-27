@@ -64,7 +64,7 @@ export default function PrivacyPage() {
             page address, the site that linked you here, your approximate location (country, region
             and city), your device type, and your browser and operating system. Visitors are told apart
             only by a hash of the request, which is discarded after 24 hours, and we see the results only
-            as totals. It does not record what you type into the FAQ search or the contact form. See{' '}
+            as totals. It does not record what you type into the contact form. See{' '}
             <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-primary-600 dark:text-primary-400 underline">Vercel&rsquo;s Web Analytics privacy information</a>{' '}
             for details.
           </p>

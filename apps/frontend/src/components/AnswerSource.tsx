@@ -1,9 +1,23 @@
+import type { Locale } from '../lib/i18n';
+
 // Names the official site an answer was checked against and links to the exact page
-export const AnswerSource = ({ source, linkClassName = '' }: { source: string; linkClassName?: string }) => (
+export const AnswerSource = ({
+  source,
+  linkClassName = '',
+  locale = 'en',
+}: {
+  source: string;
+  linkClassName?: string;
+  locale?: Locale;
+}) => (
   <>
-    Checked against {new URL(source).hostname.replace(/^www\./, '')}.{' '}
+    {locale === 'zh' ? (
+      <>已对照 {new URL(source).hostname.replace(/^www\./, '')} 核对。</>
+    ) : (
+      <>Checked against {new URL(source).hostname.replace(/^www\./, '')}.</>
+    )}{' '}
     <a href={source} target="_blank" rel="noopener noreferrer" className={`underline ${linkClassName}`}>
-      View source
+      {locale === 'zh' ? '查看来源' : 'View source'}
     </a>
   </>
 );

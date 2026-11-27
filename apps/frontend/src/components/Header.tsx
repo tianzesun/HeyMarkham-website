@@ -1,14 +1,56 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { Mic, Menu, X, ArrowUpRight } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { LIVE_URL } from '../lib/links';
+import { localeHome, localeName, localeOf, localisePath, otherLocale, type Locale } from '../lib/i18n';
+
+const copy: Record<Locale, {
+  nav: { name: string; href: string }[];
+  tryItLive: string;
+  openMenu: string;
+  closeMenu: string;
+  switchAria: string;
+}> = {
+  en: {
+    nav: [
+      { name: 'What It Does', href: '#features' },
+      { name: 'The App', href: '#app' },
+      { name: 'Why Trust It', href: '#trust' },
+      { name: 'For Municipalities', href: '#contact' },
+    ],
+    tryItLive: 'Try it live',
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    switchAria: '切换到中文',
+  },
+  zh: {
+    nav: [
+      { name: '功能介绍', href: '#features' },
+      { name: '手机应用', href: '#app' },
+      { name: '为何可信', href: '#trust' },
+      { name: '面向市政机构', href: '#contact' },
+    ],
+    tryItLive: '在线体验',
+    openMenu: '打开菜单',
+    closeMenu: '关闭菜单',
+    switchAria: 'Switch to English',
+  },
+};
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  // The root layout renders the Header without knowing the route, so locale comes from the pathname
+  const pathname = usePathname();
+  const locale = localeOf(pathname);
+  const t = copy[locale];
+  const home = localeHome(locale);
+  const navigation = t.nav.map((item) => ({ name: item.name, href: `${home}${item.href}` }));
 
   // Shadow and border appear once the page scrolls under the header
   useEffect(() => {
@@ -18,14 +60,13 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navigation = [
-    // Root-relative so the links also work from other pages such as /privacy
-    { name: 'What It Does', href: '/#features' },
-    { name: 'The App', href: '/#app' },
-    { name: 'Why Trust It', href: '/#trust' },
-    { name: 'FAQ', href: '/#faq' },
-    { name: 'For Municipalities', href: '/#contact' }
-  ];
+  // The other language's URL for this page (keeps the section when one is in the URL bar)
+  const switchHref = localisePath(pathname, otherLocale(locale));
+  const followHash = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (!window.location.hash) return;
+    e.preventDefault();
+    window.location.href = switchHref + window.location.hash;
+  };
 
   return (
     <header
@@ -40,7 +81,7 @@ export const Header: React.FC = () => {
             <div className="w-9 h-9 bg-primary-600 rounded-lg flex items-center justify-center">
               <Mic className="text-white" size={18} />
             </div>
-            <Link href="/" className="flex items-center">
+            <Link href={home} className="flex items-center">
               <span className="text-lg font-bold text-white">
                 Hey Markham
               </span>
@@ -63,23 +104,43 @@ export const Header: React.FC = () => {
 
           {/* CTA Button */}
           <div className="animate-fade-up hidden md:flex items-center gap-3 [animation-delay:300ms]">
-            <ThemeToggle />
+            <ThemeToggle locale={locale} />
+            <a
+              href={switchHref}
+              onClick={followHash}
+              lang={locale === 'en' ? 'zh-Hans' : 'en-CA'}
+              title={locale === 'en' ? '切换到中文' : 'Switch to English'}
+              aria-label={t.switchAria}
+              className="inline-flex items-center justify-center px-3 py-2 rounded-lg border border-white/20 text-sm font-medium text-white hover:bg-white/10 transition-colors"
+            >
+              {localeName[otherLocale(locale)]}
+            </a>
             <a
               href={LIVE_URL}
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-sm transition-all shadow-sm hover:-translate-y-0.5"
             >
-              Try it live
+              {t.tryItLive}
               <ArrowUpRight size={16} />
             </a>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle />
+            <ThemeToggle locale={locale} />
+            <a
+              href={switchHref}
+              onClick={followHash}
+              lang={locale === 'en' ? 'zh-Hans' : 'en-CA'}
+              title={locale === 'en' ? '切换到中文' : 'Switch to English'}
+              aria-label={t.switchAria}
+              className="px-3 py-1.5 rounded-lg border border-white/20 text-sm font-medium text-white"
+            >
+              {localeName[otherLocale(locale)]}
+            </a>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-label={isMenuOpen ? t.closeMenu : t.openMenu}
               aria-expanded={isMenuOpen}
               className="p-2 text-slate-300 hover:text-white transition-colors"
             >
@@ -114,7 +175,7 @@ export const Header: React.FC = () => {
                   className="block mx-4 bg-primary-600 hover:bg-primary-700 text-white px-5 py-2.5 rounded-lg font-medium text-sm text-center transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Try it live
+                  {t.tryItLive}
                 </a>
               </div>
             </div>

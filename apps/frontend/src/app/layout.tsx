@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/next'
 import '../styles/globals.css'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
+import { SkipLink } from '../components/SkipLink'
 
 export { metadata, viewport } from './metadata'
 
@@ -32,15 +33,13 @@ export default function RootLayout({
         {/* Must run before first paint to avoid a light flash in dark mode; it's tiny and same-origin (CSP 'self') */}
         {/* eslint-disable-next-line @next/next/no-sync-scripts */}
         <script src="/theme-init.js" />
+        {/* Sets lang="zh-Hans" on /zh pages before first paint (the layout always renders en-CA) */}
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script src="/lang-init.js" />
       </head>
       <body className="font-sans relative overflow-x-hidden">
         {/* Skip Navigation Link for Accessibility */}
-        <a 
-          href="#main-content" 
-          className="fixed top-0 left-0 z-[10000] bg-primary-600 text-white px-4 py-3 -translate-y-full focus:translate-y-0 transition-transform"
-        >
-          Skip to main content
-        </a>
+        <SkipLink />
 
 
         <Header />

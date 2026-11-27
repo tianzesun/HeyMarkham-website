@@ -2,6 +2,7 @@
 
 import { useEffect, useSyncExternalStore } from 'react';
 import { Sun, Moon } from 'lucide-react';
+import type { Locale } from '../lib/i18n';
 
 type Theme = 'light' | 'dark';
 
@@ -15,7 +16,12 @@ const subscribe = (onChange: () => void) => {
 const currentTheme = (): Theme => (document.documentElement.classList.contains('dark') ? 'dark' : 'light');
 const serverTheme = (): Theme => 'light';
 
-export const ThemeToggle = () => {
+const ariaLabel: Record<Locale, (to: Theme) => string> = {
+  en: (to) => `Switch to ${to} mode`,
+  zh: (to) => (to === 'dark' ? '切换到深色模式' : '切换到浅色模式'),
+};
+
+export const ThemeToggle = ({ locale }: { locale: Locale }) => {
   const theme = useSyncExternalStore(subscribe, currentTheme, serverTheme);
 
   // Follow the system setting until the visitor picks a theme
@@ -38,7 +44,7 @@ export const ThemeToggle = () => {
     <button
       onClick={toggleTheme}
       className="p-2 rounded-lg bg-white/10 text-slate-200 transition-all hover:bg-white/20 hover:text-white hover:scale-105 active:scale-95"
-      aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+      aria-label={ariaLabel[locale](theme === 'light' ? 'dark' : 'light')}
     >
       {theme === 'light' ? (
         <Moon className="w-5 h-5" />

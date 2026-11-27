@@ -11,8 +11,8 @@ The site explains what Hey Markham does, links to the live assistant, and hosts 
 
 ## What's on the site
 
-- **Home** (`/`): what Hey Markham does, the app, how answers are checked, the roadmap, a searchable FAQ
-  of answers checked against official sources, and a contact form for municipalities and residents
+- **Home** (`/`): what Hey Markham does, the app, how answers are checked, the roadmap and a contact
+  form for municipalities and residents
 - **App pages** (`/app/*`): What's new (release notes, opened from the app's Settings), support, privacy
   policy, terms of use, account deletion and the Community Journey
 - **Invites** (`/i/<code>`): the page a shared invite code opens
@@ -61,7 +61,7 @@ HeyMarkham-website/
 │   └── frontend/             # The Next.js site
 │       ├── src/
 │       │   ├── app/          # Pages, metadata, sitemap, icons and the contact form action
-│       │   ├── components/   # Header, footer, FAQ, contact form and other parts of the pages
+│       │   ├── components/   # Header, footer, contact form and other parts of the pages
 │       │   ├── lib/          # FAQ answers, release notes, invite codes and links
 │       │   └── styles/       # Global CSS
 │       ├── public/           # App screenshots and static files
