@@ -25,6 +25,38 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.19',
+    date: '2026-11-27',
+    delivery: 'automatic',
+    title: 'A tidier About page',
+    improved: [
+      'About now shows the app’s version as its own row. Press and hold the number to copy it, for example when you write to us. The note that Hey Markham is independent of the City and YRT is now at the bottom of the page.',
+    ],
+  },
+  {
+    version: '1.14.18',
+    date: '2026-11-27',
+    delivery: 'automatic',
+    title: 'My Markham no longer repeats the weather',
+    improved: [
+      'My Markham shows a weather warning, watch or advisory only when Environment Canada has one in effect for Markham. The weather itself, snow included, is on the home screen.',
+    ],
+  },
+  {
+    version: '1.14.17',
+    date: '2026-11-27',
+    delivery: 'automatic',
+    title: 'One home address everywhere in the app',
+    fixed: [
+      'The home address in your profile and the one in My Markham are now the same. Change it in either place and the app uses the new one everywhere: My Markham, the home screen, your questions and garbage day lookup. If you sign out, it’s removed from your phone.',
+    ],
+    improved: [
+      'About is shorter. Where the app’s information comes from is now under About › Data sources.',
+      'The Trending button on the home screen now looks like the notifications and menu buttons next to it.',
+      'Garbage day lookup offers your home address in one tap.',
+    ],
+  },
+  {
     version: '1.14.16',
     date: '2026-11-27',
     delivery: 'automatic',
