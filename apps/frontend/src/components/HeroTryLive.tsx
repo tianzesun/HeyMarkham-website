@@ -2,18 +2,72 @@ import { ArrowUpRight, Smartphone, Sparkles } from 'lucide-react'
 
 import { APP_STORE_URL, GOOGLE_PLAY_URL, LIVE_URL } from '../lib/links'
 
-// One from each everyday job: pickup, a repair, a permit, a referral, your own ward
-const heroExamples = [
-  'When is my next garbage pickup?',
-  'There’s a pothole on my street',
-  'Do I need a permit for a deck?',
-  'Who do I call about a missed blue box?',
-  'Who is my councillor?',
-]
+import type { Locale } from '../lib/i18n'
 
-// Server-rendered hero: no client JavaScript. Visitors try the real assistant, which searches
-// official City of Markham information, instead of an in-browser demo.
-export function HeroTryLive() {
+const copy: Record<Locale, {
+  badge: string
+  titleLead: string
+  titleRest: string
+  intro: string
+  examplesLabel: string
+  examples: string[]
+  tryLive: string
+  tryLiveNote: string
+  getApp: string
+  googlePlayLead: string
+  appStoreLead: string
+  appStore: string
+  comingSoon: string
+}> = {
+  en: {
+    badge: 'Now live for Markham residents',
+    titleLead: 'Say what you need.',
+    titleRest: 'Hey Markham handles the city part.',
+    intro:
+      'Your city life assistant for Markham. Ask in your own words, by voice or text. It finds the answer in official City information, points you to whoever handles it, and helps you get it done. If it doesn’t know, it says so.',
+    examplesLabel: 'Things you can ask',
+    // One from each everyday job: pickup, a repair, a permit, a referral, your own ward
+    examples: [
+      'When is my next garbage pickup?',
+      'There’s a pothole on my street',
+      'Do I need a permit for a deck?',
+      'Who do I call about a missed blue box?',
+      'Who is my councillor?',
+    ],
+    tryLive: 'Try Hey Markham live',
+    tryLiveNote: 'Opens the assistant in a new tab. No account needed.',
+    getApp: 'Get the app: ask by voice, in English, French, Mandarin or Cantonese',
+    googlePlayLead: 'Get it on',
+    appStoreLead: 'Download on',
+    appStore: 'the App Store',
+    comingSoon: 'Coming soon to',
+  },
+  zh: {
+    badge: '现已面向万锦市居民开放',
+    titleLead: '说出您的需要。',
+    titleRest: '市政的事，交给 Hey Markham。',
+    intro:
+      '您的万锦市城市生活助手。用您自己的话提问，语音或文字都可以。它从万锦市官方信息中找到答案，告诉您该找哪个部门或机构，并帮您把事情办好。不知道的，它会直接告诉您。',
+    examplesLabel: '您可以这样问',
+    examples: [
+      '下次收垃圾是哪天？',
+      '我家街上有个坑洼',
+      '建露台需要许可证吗？',
+      '蓝色回收箱漏收了，该打给谁？',
+      '我的市议员是谁？',
+    ],
+    tryLive: '在线体验 Hey Markham',
+    tryLiveNote: '在新标签页中打开助手，无需注册账户。',
+    getApp: '下载应用：支持语音提问，可使用英语、法语、普通话或粤语',
+    googlePlayLead: '立即下载',
+    appStoreLead: '前往下载',
+    appStore: 'App Store',
+    comingSoon: '即将登陆',
+  },
+}
+
+export function HeroTryLive({ locale = 'en' }: { locale?: Locale }) {
+  const t = copy[locale]
   return (
     <section
       id="try"
@@ -34,28 +88,26 @@ export function HeroTryLive() {
         <div className="animate-fade-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-600/20 rounded-full text-primary-300 text-sm font-medium mb-6 border border-primary-500/30">
             <Sparkles className="w-4 h-4" />
-            Now live for Markham residents
+            {t.badge}
           </div>
         </div>
 
         <h1 className="animate-rise text-4xl md:text-6xl font-bold text-white mb-6 leading-tight text-balance">
-          Say what you need.{' '}
+          {t.titleLead}{' '}
           <span className="block text-balance text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-300">
-            Hey Markham handles the city part.
+            {t.titleRest}
           </span>
         </h1>
 
         <p className="animate-rise text-xl md:text-2xl text-slate-300 mb-6 max-w-2xl mx-auto [animation-delay:100ms]">
-          Your city life assistant for Markham. Ask in your own words, by voice or text. It finds the answer in official
-          City information, points you to whoever handles it, and helps you get it done. If it doesn&rsquo;t know, it
-          says so.
+          {t.intro}
         </p>
 
         {/* The kinds of things residents ask, so the range shows before the first scroll */}
-        <ul className="animate-rise [animation-delay:150ms] flex flex-wrap justify-center gap-2 mb-10 max-w-2xl mx-auto" aria-label="Things you can ask">
-          {heroExamples.map(example => (
+        <ul className="animate-rise [animation-delay:150ms] flex flex-wrap justify-center gap-2 mb-10 max-w-2xl mx-auto" aria-label={t.examplesLabel}>
+          {t.examples.map(example => (
             <li key={example} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">
-              &ldquo;{example}&rdquo;
+              {locale === 'zh' ? `“${example}”` : <>&ldquo;{example}&rdquo;</>}
             </li>
           ))}
         </ul>
@@ -67,19 +119,19 @@ export function HeroTryLive() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-primary-600 hover:bg-primary-700 text-white text-lg font-semibold shadow-lg shadow-primary-900/40 transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-300"
           >
-            Try Hey Markham live
+            {t.tryLive}
             <ArrowUpRight className="w-5 h-5" aria-hidden="true" />
           </a>
-          <p className="text-sm text-slate-400 -mt-3">Opens the assistant in a new tab. No account needed.</p>
+          <p className="text-sm text-slate-400 -mt-3">{t.tryLiveNote}</p>
 
           <div className="flex flex-col items-center gap-3">
             <p className="flex items-center gap-2 text-sm font-medium text-slate-300">
               <Smartphone className="w-4 h-4" aria-hidden="true" />
-              Get the app: ask by voice, in English, French, Mandarin or Cantonese
+              {t.getApp}
             </p>
             <div className="flex flex-wrap justify-center gap-3">
-              <StoreButton href={GOOGLE_PLAY_URL} store="Google Play" lead="Get it on" />
-              <StoreButton href={APP_STORE_URL} store="the App Store" lead="Download on" />
+              <StoreButton href={GOOGLE_PLAY_URL} store="Google Play" lead={t.googlePlayLead} soon={t.comingSoon} />
+              <StoreButton href={APP_STORE_URL} store={t.appStore} lead={t.appStoreLead} soon={t.comingSoon} />
             </div>
           </div>
         </div>
@@ -89,10 +141,10 @@ export function HeroTryLive() {
 }
 
 // Also used by the homepage's app section
-export function StoreButton({ href, store, lead }: { href: string; store: string; lead: string }) {
+export function StoreButton({ href, store, lead, soon = 'Coming soon to' }: { href: string; store: string; lead: string; soon?: string }) {
   const body = (
     <>
-      <span className="block text-[11px] uppercase tracking-wide text-slate-400">{href ? lead : 'Coming soon to'}</span>
+      <span className="block text-[11px] uppercase tracking-wide text-slate-400">{href ? lead : soon}</span>
       <span className="block text-base font-semibold text-white">{store}</span>
     </>
   )

@@ -58,12 +58,12 @@ const copy: Record<Locale, {
 }
 
 export function AppLegalPage({
-  locale,
+  locale = 'en',
   title,
   updated,
   children,
 }: {
-  locale: Locale
+  locale?: Locale
   title: string
   updated?: string
   children: React.ReactNode
@@ -106,7 +106,7 @@ export function Mail() {
 }
 
 // Internal hrefs follow the locale ('/app/privacy' -> '/zh/app/privacy'); external ones don't
-export function A({ href, locale, children }: { href: string; locale: Locale; children: React.ReactNode }) {
+export function A({ href, locale = 'en', children }: { href: string; locale?: Locale; children: React.ReactNode }) {
   const external = href.startsWith('http')
   return external ? (
     <a href={href} target="_blank" rel="noopener noreferrer" className={link}>{children}</a>
@@ -115,6 +115,6 @@ export function A({ href, locale, children }: { href: string; locale: Locale; ch
   )
 }
 
-export function Notice({ locale }: { locale: Locale }) {
+export function Notice({ locale = 'en' }: { locale?: Locale }) {
   return <p>{copy[locale].notice}</p>
 }

@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import { Mic, Menu, X, ArrowUpRight } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { LIVE_URL } from '../lib/links';
-import { localeHome, localeName, localeOf, localisePath, otherLocale, type Locale } from '../lib/i18n';
+import { hasTranslation, localeHome, localeName, localeOf, localisePath, otherLocale, type Locale } from '../lib/i18n';
 
 const copy: Record<Locale, {
   nav: { name: string; href: string }[];
@@ -60,7 +60,9 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // The other language's URL for this page (keeps the section when one is in the URL bar)
+  // The other language's URL for this page (keeps the section when one is in the URL bar).
+  // Pages with no Chinese version don't show the switch, so it never leads to a 404
+  const canSwitch = hasTranslation(pathname);
   const switchHref = localisePath(pathname, otherLocale(locale));
   const followHash = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (!window.location.hash) return;
@@ -105,16 +107,18 @@ export const Header: React.FC = () => {
           {/* CTA Button */}
           <div className="animate-fade-up hidden md:flex items-center gap-3 [animation-delay:300ms]">
             <ThemeToggle locale={locale} />
-            <a
-              href={switchHref}
-              onClick={followHash}
-              lang={locale === 'en' ? 'zh-Hans' : 'en-CA'}
-              title={locale === 'en' ? '切换到中文' : 'Switch to English'}
-              aria-label={t.switchAria}
-              className="inline-flex items-center justify-center px-3 py-2 rounded-lg border border-white/20 text-sm font-medium text-white hover:bg-white/10 transition-colors"
-            >
-              {localeName[otherLocale(locale)]}
-            </a>
+            {canSwitch && (
+              <a
+                href={switchHref}
+                onClick={followHash}
+                lang={locale === 'en' ? 'zh-Hans' : 'en-CA'}
+                title={locale === 'en' ? '切换到中文' : 'Switch to English'}
+                aria-label={t.switchAria}
+                className="inline-flex items-center justify-center px-3 py-2 rounded-lg border border-white/20 text-sm font-medium text-white hover:bg-white/10 transition-colors"
+              >
+                {localeName[otherLocale(locale)]}
+              </a>
+            )}
             <a
               href={LIVE_URL}
               target="_blank" rel="noopener noreferrer"
@@ -128,16 +132,18 @@ export const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle locale={locale} />
-            <a
-              href={switchHref}
-              onClick={followHash}
-              lang={locale === 'en' ? 'zh-Hans' : 'en-CA'}
-              title={locale === 'en' ? '切换到中文' : 'Switch to English'}
-              aria-label={t.switchAria}
-              className="px-3 py-1.5 rounded-lg border border-white/20 text-sm font-medium text-white"
-            >
-              {localeName[otherLocale(locale)]}
-            </a>
+            {canSwitch && (
+              <a
+                href={switchHref}
+                onClick={followHash}
+                lang={locale === 'en' ? 'zh-Hans' : 'en-CA'}
+                title={locale === 'en' ? '切换到中文' : 'Switch to English'}
+                aria-label={t.switchAria}
+                className="px-3 py-1.5 rounded-lg border border-white/20 text-sm font-medium text-white"
+              >
+                {localeName[otherLocale(locale)]}
+              </a>
+            )}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label={isMenuOpen ? t.closeMenu : t.openMenu}

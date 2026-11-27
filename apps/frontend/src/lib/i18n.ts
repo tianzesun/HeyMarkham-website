@@ -43,18 +43,37 @@ export function localeOf(pathname: string): Locale {
 }
 
 /**
+ * Pages that exist in Chinese, as their English path. Add a path here when its /zh route ships;
+ * links to any other page stay on the English version instead of a /zh 404.
+ */
+export const TRANSLATED_PATHS: readonly string[] = ['/', '/app/support', '/app/journey']
+
+/** The English path of any URL, without /zh, query string, hash or trailing slash */
+function barePath(pathname: string): string {
+  const path = pathname.split(/[?#]/)[0] || '/'
+  const english = path === '/zh' ? '/' : path.startsWith('/zh/') ? path.slice(3) : path
+  return english.length > 1 ? english.replace(/\/+$/, '') : english
+}
+
+/** Whether this page has a Chinese version (accepts English or /zh paths, with or without a hash) */
+export function hasTranslation(pathname: string): boolean {
+  return TRANSLATED_PATHS.includes(barePath(pathname))
+}
+
+/**
  * The same page in another locale:
- *   '/privacy' -> '/zh/privacy', '/zh/privacy' -> '/privacy'
+ *   '/app/support' -> '/zh/app/support', '/zh/app/support' -> '/app/support'
  *   '/#features' -> '/zh#features', '/zh#features' -> '/#features'
- * Anchors and query strings are preserved.
+ * Anchors and query strings are preserved. A page with no Chinese version stays English:
+ *   '/privacy' -> '/privacy'
  */
 export function localisePath(pathname: string, locale: Locale): string {
-  const hashAt = pathname.indexOf('#')
-  const path = hashAt === -1 ? pathname : pathname.slice(0, hashAt)
-  const hash = hashAt === -1 ? '' : pathname.slice(hashAt)
+  const cut = pathname.search(/[?#]/)
+  const path = cut === -1 ? pathname : pathname.slice(0, cut)
+  const suffix = cut === -1 ? '' : pathname.slice(cut)
   const bare = path === '/zh' ? '/' : path.startsWith('/zh/') ? path.slice(3) : path
-  if (locale === 'en') return bare + hash
-  return (bare === '/' || bare === '' ? '/zh' : `/zh${bare}`) + hash
+  if (locale === 'en' || !hasTranslation(bare)) return bare + suffix
+  return (bare === '/' || bare === '' ? '/zh' : `/zh${bare}`) + suffix
 }
 
 /** Prefix a root-relative path (no hash needed) with the locale: '/privacy' -> '/zh/privacy' */
