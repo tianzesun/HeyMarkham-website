@@ -25,6 +25,19 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.16',
+    date: '2026-11-27',
+    delivery: 'automatic',
+    title: 'My Markham, rebuilt: your season, your councillor, what’s happening and alerts',
+    new: [
+      'My Winter Markham shows weather alerts from Environment Canada, snow in the forecast, the City’s plow map and its latest snow announcement with its date, parking rules, sidewalk clearing and road conditions. In summer it becomes My Summer Markham, with heat, splash pads and pools.',
+      'My Councillor is found from your address: your ward councillor’s photo, email, phone and website, and Council’s latest and next meetings with the agenda and video.',
+      'What’s Happening has City News, Community Events and Local Updates near your home. Each item shows where it’s from, its date and a link to the official page, and old items are taken down.',
+      'Nearby Facilities adds sports facilities, a park with walking paths, the City’s pools, and nearby schools with their school board.',
+      'My Neighbourhood Alerts lets you choose, right there, the alerts you get: road work, snow and facility closures, City news and events, urgent alerts, and garbage day reminders.',
+    ],
+  },
+  {
     version: '1.14.15',
     date: '2026-11-27',
     delivery: 'automatic',
