@@ -19,6 +19,7 @@ const serverTheme = (): Theme => 'light';
 const ariaLabel: Record<Locale, (to: Theme) => string> = {
   en: (to) => `Switch to ${to} mode`,
   zh: (to) => (to === 'dark' ? '切换到深色模式' : '切换到浅色模式'),
+  fr: (to) => (to === 'dark' ? 'Passer au mode sombre' : 'Passer au mode clair'),
 };
 
 export const ThemeToggle = ({ locale }: { locale: Locale }) => {

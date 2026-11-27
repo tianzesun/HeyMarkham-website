@@ -2,7 +2,7 @@
 
 import { randomUUID } from 'crypto';
 import { z } from 'zod';
-import type { Locale } from '@/lib/i18n';
+import { isLocale, type Locale } from '@/lib/i18n';
 
 // Validation and delivery messages, in the language of the page the form is on
 const copy: Record<Locale, {
@@ -41,6 +41,18 @@ const copy: Record<Locale, {
     webhookMissing: (ref) => `我们无法发送您的留言。请改发邮件至 contact@aydenait.com。（编号：${ref}）`,
     webhookFailed: (ref) => `我们无法发送您的留言。请稍后重试。（编号：${ref}）`,
   },
+  fr: {
+    nameMin: 'Le nom doit compter au moins 2 caractères',
+    nameMax: 'Le nom doit compter 100 caractères ou moins',
+    emailInvalid: 'Veuillez entrer une adresse courriel valide',
+    subjectMin: 'L’objet doit compter au moins 3 caractères',
+    subjectMax: 'L’objet doit compter 200 caractères ou moins',
+    messageMin: 'Le message doit compter au moins 10 caractères',
+    messageMax: 'Le message doit compter 5\u00a0000 caractères ou moins',
+    fallback: 'Veuillez vérifier le formulaire et réessayer',
+    webhookMissing: (ref) => `Nous n’avons pas pu envoyer votre message. Écrivez-nous plutôt à contact@aydenait.com. (Réf.\u00a0: ${ref})`,
+    webhookFailed: (ref) => `Nous n’avons pas pu envoyer votre message. Veuillez réessayer plus tard. (Réf.\u00a0: ${ref})`,
+  },
 };
 
 function contactSchema(locale: Locale) {
@@ -55,8 +67,10 @@ function contactSchema(locale: Locale) {
 
 export async function submitContactForm(
   formData: FormData,
-  locale: Locale = 'en'
+  requestedLocale: Locale = 'en'
 ) {
+  // The locale comes from the browser, so don't trust it to be one we have copy for
+  const locale: Locale = isLocale(requestedLocale) ? requestedLocale : 'en';
   const t = copy[locale];
 
   // Spam trap: real visitors never see the "contact_hp" field, so anything in it is a bot.

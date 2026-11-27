@@ -1,23 +1,22 @@
 import type { MetadataRoute } from 'next'
 
-import { languageAlternates, localisePath } from '@/lib/i18n'
+import { availableLocales, languageAlternates, localisePath } from '@/lib/i18n'
 import { latestRelease } from '@/lib/releases'
 
 const SITE = 'https://heymarkham.vercel.app'
 
-// hreflang links for a page that exists in both languages
+// hreflang links for a page, one per language it exists in
 const languages = (path: string) => ({
   languages: Object.fromEntries(
     Object.entries(languageAlternates(path)).map(([lang, href]) => [lang, `${SITE}${href === '/' ? '' : href}`]),
   ),
 })
 
-// The Chinese version of a translated page, with the same hreflang links
-const zh = (path: string, entry: MetadataRoute.Sitemap[number]): MetadataRoute.Sitemap[number] => ({
-  ...entry,
-  url: `${SITE}${localisePath(path, 'zh')}`,
-  alternates: languages(path),
-})
+// The translated versions of a page, each with the same hreflang links
+const translations = (path: string, entry: Omit<MetadataRoute.Sitemap[number], 'url'>): MetadataRoute.Sitemap =>
+  availableLocales(path)
+    .filter(locale => locale !== 'en')
+    .map(locale => ({ ...entry, url: `${SITE}${localisePath(path, locale)}`, alternates: languages(path) }))
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -28,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
       alternates: languages('/'),
     },
-    zh('/', { url: '', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 }),
+    ...translations('/', { lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 }),
     {
       url: 'https://heymarkham.vercel.app/privacy',
       lastModified: new Date(),
@@ -60,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
       alternates: languages('/app/support'),
     },
-    zh('/app/support', { url: '', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 }),
+    ...translations('/app/support', { lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 }),
     {
       url: 'https://heymarkham.vercel.app/app/journey',
       lastModified: new Date(),
@@ -68,7 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
       alternates: languages('/app/journey'),
     },
-    zh('/app/journey', { url: '', lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 }),
+    ...translations('/app/journey', { lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 }),
     {
       url: 'https://heymarkham.vercel.app/app/releases',
       lastModified: new Date(`${latestRelease.date}T12:00:00Z`),

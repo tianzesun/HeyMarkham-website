@@ -16,9 +16,9 @@ import { APP_STORE_URL, GOOGLE_PLAY_URL, LIVE_URL } from '../../lib/links';
 import { latestRelease } from '../../lib/releases';
 import { localeHome, type Locale } from '../../lib/i18n';
 
-// / and /zh. One structure, both languages: every string lives in `en` / `zh` below, and icons,
+// /, /zh and /fr. One structure, every language: every string lives in `en` / `zh` below, and icons,
 // links and layout stay in the JSX. List items line up by position with the icon lists in the
-// component, so keep the order the same in both languages.
+// component, so keep the order the same in every language.
 //
 // Claims must match what the app and live assistant really do today (see lib/releases.ts), and
 // the answer steps mirror the HeyMarkham API's answer layers (docs/ANSWER_LAYERS.md,
@@ -334,7 +334,6 @@ const en = {
   closingTagline: 'Ask Hey Markham. Get to know your city.',
   closingAsk: 'Ask Hey Markham',
   closingContact: 'Get in touch',
-
   contactEyebrow: 'For the City of Markham and other municipalities',
   contactTitle: 'Bring Hey Markham to Your Residents',
   contactSubtitle: 'Start with a pilot. See the results. Then decide.',
@@ -643,7 +642,6 @@ const zh: HomeCopy = {
   closingTagline: '问问 Hey Markham，更了解您的城市。',
   closingAsk: '问 Hey Markham',
   closingContact: '联系我们',
-
   contactEyebrow: '面向万锦市及其他市政机构',
   contactTitle: '为您的居民引入 Hey Markham',
   contactSubtitle: '从试点开始。看到成效，再做决定。',
@@ -659,7 +657,320 @@ const zh: HomeCopy = {
   getInTouchTitle: '联系方式',
 };
 
-const copy: Record<Locale, HomeCopy> = { en, zh };
+// French (Canada): see the translation notes in lib/i18n.ts. Feature names match the app's own French
+// labels (HeyMarkham-mobile src/i18n): Mon Markham, Signaler un problème, Utiliser ma position, Écouter.
+// Menu names and search text on markham.ca stay in English, because that's what residents see there.
+const fr: HomeCopy = {
+  pillarsEyebrow: 'Pas un moteur de recherche. Un assistant.',
+  pillarsTitle: 'Dites ce que vous voulez faire. Hey Markham s’occupe du reste.',
+  pillarsSubtitle:
+    'Trouver de l’information municipale ne devrait pas être compliqué. Les sites des villes comptent des milliers de pages, de documents, de politiques et de descriptions de services, et trouver exactement ce qu’il vous faut peut prendre du temps. Hey Markham vous simplifie la tâche : posez simplement votre question dans vos propres mots, sans avoir à savoir d’abord quel service joindre ni quelle page consulter.',
+  pillars: [
+    {
+      verb: 'Il trouve',
+      title: 'La réponse, et d’où elle vient',
+      description: 'Les réponses proviennent de l’information officielle de la Ville de Markham, avec chaque page utilisée. Il connaît aussi votre coin de Markham.',
+      examples: [
+        'Votre jour de collecte, d’après votre adresse',
+        'Votre quartier, votre conseiller municipal et le maire',
+        'La bibliothèque, le parc, le centre communautaire ou le dépôt le plus proche',
+      ],
+    },
+    {
+      verb: 'Il vous oriente',
+      title: 'Qui s’en occupe vraiment',
+      description: 'Tout ne relève pas de la Ville à Markham. Hey Markham vous dit qui s’en charge, avec sa page et un numéro à composer d’un simple toucher.',
+      examples: [
+        'Bac bleu oublié? Miller Waste',
+        'Évaluation foncière? La SEFM (MPAC)',
+        'Routes et autobus régionaux? La Région de York et YRT',
+      ],
+    },
+    {
+      verb: 'Il vous aide à passer à l’action',
+      title: 'De la question à la solution',
+      description: 'Pas seulement un lien à lire. La prochaine étape, prête à franchir.',
+      examples: [
+        'Signaler un nid-de-poule avec une photo',
+        'Des rappels pour la collecte et l’impôt foncier',
+        'L’itinéraire, ou directement la page pour faire une demande',
+      ],
+    },
+  ],
+
+  topicsEyebrow: 'Les sujets',
+  topicsTitle: 'Que pouvez-vous demander?',
+  topicsSubtitle:
+    'Les choses de tous les jours dont les résidents ont besoin de la Ville. Posez votre question dans vos propres mots, à voix haute ou par écrit, et obtenez la réponse avec la page d’où elle vient.',
+  askTopics: [
+    { title: 'Ordures et recyclage', description: 'Calendriers de collecte, collectes oubliées, recyclage et élimination des déchets.' },
+    { title: 'Stationnement et circulation', description: 'Règles de stationnement, permis, contraventions et restrictions routières.' },
+    { title: 'Permis de construire', description: 'Rénovations, terrasses, finition de sous-sol et exigences de zonage.' },
+    { title: 'Propriété et impôts', description: 'Impôt foncier, services liés à la propriété et responsabilités municipales.' },
+    { title: 'Parcs et loisirs', description: 'Installations, programmes, inscriptions et activités communautaires.' },
+    { title: 'Services aux entreprises', description: 'Permis d’entreprise, zonage et exigences d’exploitation.' },
+  ],
+
+  featuresEyebrow: 'Ce qu’il fait',
+  featuresTitle: 'Conçu pour ce que vous faites chaque semaine',
+  featuresSubtitle:
+    'Les bacs, les réparations et les permis, c’est là que les résidents ont le plus besoin de la Ville. C’est donc là que Hey Markham va le plus loin.',
+  scenarios: [
+    {
+      title: 'Ordures et recyclage',
+      ask: '« Est-ce que ça va dans le bac bleu? Et quand a lieu ma prochaine collecte? »',
+      does: [
+        'Trouve votre jour de collecte exact d’après votre adresse, avec un calendrier des prochains mois',
+        'Vous le rappelle la veille au soir ou le matin même, et vous prévient quand un jour férié déplace votre collecte',
+        'Reconnaît un article sur une photo et vous dit où il va, d’après le guide de tri de la Ville',
+        'Bac bleu oublié? Vous dit que c’est maintenant Miller Waste qui s’en occupe, et comment les joindre',
+      ],
+    },
+    {
+      title: 'Signalements et réparations',
+      ask: '« Il y a un nid-de-poule dans ma rue. »',
+      does: [
+        'Prenez une photo : Hey Markham propose le type de problème et rédige les détails',
+        'Utiliser ma position ajoute l’endroit exact et l’adresse; dictez les détails au lieu de les taper',
+        'Vous vérifiez et l’envoyez à la Ville depuis votre propre courriel; les données de localisation de la photo sont d’abord retirées',
+        'Mes signalements garde ce que vous avez envoyé, pour faire un suivi ou appeler d’un simple toucher',
+      ],
+    },
+    {
+      title: 'Permis et licences',
+      ask: '« Me faut-il un permis pour construire une terrasse? »',
+      does: [
+        'Permis de construire : terrasses, logements accessoires au sous-sol et documents à fournir',
+        'Permis d’entreprise et renouvellements, entreprises à domicile, et licences de loterie et de tirage',
+        'Licences pour animaux de compagnie et exemptions de stationnement de nuit dans la rue',
+        'Puis directement la page de la Ville pour faire la demande',
+      ],
+    },
+  ],
+  moreLifeTitle: 'Et le reste de la vie à Markham',
+  moreLife: [
+    { title: 'Impôt foncier', description: 'Les échéances publiées par la Ville, avec un rappel une semaine ou un jour avant.' },
+    { title: 'Hiver', description: 'Règles de stationnement en hiver, suivi des chasse-neige et déneigement des entrées pour les aînés, avec un avertissement quand la neige arrive.' },
+    { title: 'Parcs et lieux', description: 'Le parc le plus proche, les jeux d’eau et les sentiers, et l’itinéraire vers les bibliothèques et centres communautaires. Ou demandez par quartier : « parcs à Cornell ».' },
+    { title: 'Événements', description: 'Ce qui se passe à la Ville cette semaine, avec les dates, heures et lieux.' },
+    { title: 'Votre quartier', description: 'Votre quartier, votre conseiller municipal, le maire et vos conseillers régionaux.' },
+    { title: 'Autobus scolaires', description: 'Retards et annulations, et votre arrêt d’autobus, avec l’équipe qui les gère.' },
+  ],
+  appOnlyStart: 'Les rappels, les photos, Mon Markham et les signalements sont dans l’application. Tout le monde peut poser des questions ',
+  appOnlyLink: 'dans un navigateur Web',
+  appOnlyEnd: '.',
+
+  trustBar: ['Aucun compte requis', 'Réponses liées aux sources officielles', 'Fondé sur les données publiques de la Ville', 'Offert 24 heures sur 24, 7 jours sur 7'],
+
+  appEyebrow: 'L’application Hey Markham',
+  appTitle: 'Votre Markham, dans votre poche',
+  appSubtitle:
+    'Pour iPhone et Android. Entrez votre adresse une fois, et Hey Markham connaît votre jour de collecte, votre quartier et ce qui se passe près de chez vous.',
+  spotlights: {
+    answer: {
+      title: 'Des réponses vérifiables',
+      description: 'Posez votre question à voix haute ou par écrit et obtenez une réponse courte, avec chaque page officielle de markham.ca utilisée. Touchez Écouter pour l’entendre lue à voix haute.',
+      alt: 'Hey Markham répondant à « When is yard waste picked up? », avec cinq sources officielles de markham.ca et un bouton Écouter',
+    },
+    report: {
+      title: 'Signaler un problème avec une photo',
+      description: 'Photographiez un nid-de-poule, un graffiti ou une collecte oubliée. Hey Markham propose le type de problème et rédige les détails; vous les vérifiez et envoyez le signalement à la Ville depuis votre propre courriel.',
+      alt: 'Écran Signaler un problème de Hey Markham, avec Prendre une photo, un type de problème, des détails et Utiliser ma position',
+    },
+    events: {
+      title: 'Ce qui se passe en ville',
+      description: 'Les prochains événements de la Ville, tirés de markham.ca, avec les dates, heures et lieux.',
+      alt: 'Écran Événements de Hey Markham listant les prochains événements de la Ville avec dates, heures et lieux',
+    },
+    inbox: {
+      title: 'Les avis de service dans votre boîte de réception',
+      description: 'Fermetures, travaux routiers et nouvelles de la Ville, et vous choisissez les notifications que vous recevez.',
+      alt: 'Boîte de réception de Hey Markham avec des avis de service, comme une fermeture d’installation et des travaux routiers, et des nouvelles de la Ville',
+    },
+  },
+  appExtras: [
+    { title: 'Aujourd’hui, sur votre écran d’accueil', description: 'Les quelques choses à savoir aujourd’hui : un avertissement météo, votre prochaine collecte, l’impôt à payer, des travaux près de chez vous.' },
+    { title: 'Mon Markham', description: 'Ajoutez votre adresse une fois, et « le parc le plus proche » ou « qui est mon conseiller » obtient une réponse pour chez vous. Elle est enregistrée sur votre téléphone, pas dans votre compte.' },
+    { title: 'Demandez à voix haute, écoutez la réponse', description: 'Dites votre question et écoutez la réponse lue dans une voix naturelle de votre choix.' },
+    { title: 'Quatre langues', description: 'Anglais, français, mandarin ou cantonais, pour les menus, les réponses et la lecture à voix haute. Les messages de la Ville sont traduits aussi.' },
+    { title: 'Itinéraires vers les lieux proches', description: 'Parcs, bibliothèques, centres communautaires et dépôts de recyclage, dans Apple Plans ou Google Maps.' },
+    { title: 'Vous choisissez ce qu’il retient', description: 'Activez ou désactivez la mémoire des conversations précédentes, ou utilisez une conversation temporaire, qui n’est ni enregistrée ni retenue.' },
+    { title: 'Widgets et raccourcis', description: 'Votre prochaine collecte dans un widget d’écran d’accueil Android, et des raccourcis sur l’icône de l’application.' },
+    { title: 'Utilisez-la en tant qu’invité', description: 'Posez vos questions sans compte, ou connectez-vous avec Apple, Google ou un courriel pour garder vos conversations et vos paramètres.' },
+  ],
+
+  accessTitle: 'Vous utilisez déjà Access Markham?',
+  accessIntro:
+    'Access Markham est l’application officielle de la Ville de Markham, organisée par fonction. Hey Markham part de votre question. Elles ne font pas le même travail, et bien des résidents voudront les deux.',
+  accessHeading: 'Access Markham, de la Ville',
+  accessFeatures: [
+    'Calendrier de collecte du recyclage et des ordures, avec notifications personnalisées',
+    'Recherche What Goes Where pour savoir comment jeter un article',
+    'Entretien hivernal',
+    'Pistes cyclables, parcs et sentiers',
+    'Signaler un problème',
+  ],
+  accessNote: 'L’application de la Ville, organisée par fonction.',
+  heyHeading: 'Hey Markham',
+  heyDifferences: [
+    'Posez n’importe quelle question sur la Ville dans vos propres mots, à voix haute ou par écrit',
+    'Des réponses courtes avec les pages de markham.ca d’où elles viennent',
+    'Vous dit qui joindre quand ce n’est pas la Ville',
+    'Anglais, français, mandarin ou cantonais, avec lecture des réponses à voix haute',
+    'Signalez un problème avec une photo qui rédige les détails pour vous',
+  ],
+  heyNote: 'Idéal quand vous avez une question et ne savez pas où se trouve la réponse sur markham.ca.',
+  accessDisclaimerStart: 'Hey Markham est indépendant et n’est pas affilié à la Ville de Markham. Fonctions d’Access Markham telles qu’indiquées sur ',
+  accessDisclaimerLink: 'la page Access Markham de la Ville',
+  accessDisclaimerEnd: ', novembre 2026.',
+
+  downloadTitle: 'Téléchargez l’application Hey Markham',
+  downloadText: 'Utilisez-la en tant qu’invité, ou connectez-vous avec Apple, Google ou un courriel pour garder vos questions et vos paramètres.',
+  whatsNew: 'Nouveautés de la version {version} (en anglais)',
+  googlePlayLead: 'Disponible sur',
+  appStoreLead: 'Télécharger dans',
+  appStore: 'l’App Store',
+  comingSoon: 'Bientôt sur',
+
+  trustEyebrow: 'Pourquoi vous pouvez vous y fier',
+  trustTitle: 'Il sait où chercher, et dit quand il ne sait pas',
+  trustSubtitle:
+    'Une réponse utile doit être plus qu’une réponse qui a l’air sûre d’elle. Hey Markham privilégie l’information officielle et traçable, dans un langage clair de tous les jours, et préfère vous dire qu’il ne peut pas confirmer quelque chose plutôt que de deviner.',
+  answerSteps: [
+    {
+      title: 'Il comprend ce que vous voulez dire',
+      description: 'Posez la même question autrement : Hey Markham comprend le sens de votre question plutôt que de chercher des mots-clés exacts. Dans vos propres mots, à voix haute ou par écrit, en quatre langues, avec des questions de suivi comme « et la fin de semaine? »',
+    },
+    {
+      title: 'Il sait où chercher',
+      description: 'L’information officielle d’abord : les réponses proviennent des pages de la Ville de Markham et d’autres sources officielles, avec les pages utilisées. Les questions courantes ont des réponses vérifiées par des personnes; votre quartier, votre jour de collecte et les lieux proches viennent de votre adresse; les événements, fermetures et travaux viennent des propres listes de la Ville.',
+    },
+    {
+      title: 'Il vérifie avant de répondre',
+      description: 'Les nouvelles connaissances sont recherchées et révisées avant d’être ajoutées : l’IA aide à la recherche et à l’organisation, et une révision humaine maintient la qualité des réponses. Au moment de répondre, les frais, heures, numéros de téléphone et liens doivent figurer dans les pages consultées, sinon ils sont omis : un mauvais tarif est pire que pas de tarif du tout.',
+    },
+    {
+      title: 'Il le dit quand il ne peut pas',
+      description: 'Si la réponse n’y est pas, Hey Markham le dit et vous indique qui peut vous aider : le Centre de contact de la Ville au 905-477-5530, ou l’organisme qui s’en occupe.',
+    },
+  ],
+  exampleLabel: 'Un exemple réel',
+  workedExample: {
+    question: 'Mon chat a-t-il besoin d’une licence s’il a une micropuce?',
+    answer: 'Oui. À Markham, les chiens et les chats doivent avoir une licence, même s’ils ont une micropuce. Vous pouvez faire l’inscription en ligne, et les licences expirent le 31 décembre de chaque année.',
+    action: 'Inscrire votre animal en ligne',
+  },
+  trustPoints: [
+    'Chaque page utilisée pour une réponse, à un toucher',
+    'Les réponses qui ne viennent pas des pages de la Ville sont signalées',
+    'Les conditions et exceptions qui s’appliquent',
+  ],
+  step: 'Étape {n}',
+
+  hardEyebrow: 'Le plus difficile',
+  hardTitle: 'Pourquoi ne pas simplement chercher sur markham.ca?',
+  hardSubtitle:
+    'Les réponses sont sur markham.ca. Les atteindre, c’est là que ça se complique : de longs menus, des systèmes distincts, et une barre de recherche qui repère des mots plutôt que ce que vous voulez dire.',
+  realQuestionLabel: 'Une vraie question',
+  realQuestion: '« Quelle hauteur peut avoir la clôture de ma cour arrière? »',
+  menusTitle: 'Cliquer dans les menus',
+  menusNote: 'Les règles sur les clôtures se trouvent sous « About the City », et le lien est à une centaine de liens plus bas sur la page By-Laws, après une longue liste de règlements en PDF.',
+  menusResult: '4 clics, puis un long défilement',
+  searchTitle: 'Chercher sur le site',
+  searchYouSearch: 'Vous cherchez',
+  searchReturns: 'markham.ca répond',
+  searchNoResults: 'No results found. (Aucun résultat)',
+  searchNote: 'Cherchez un seul mot et vous obtenez tout ce qu’il peut vouloir dire : « park » seul donne 1 976 résultats, des parcs (Parks) au stationnement (Parking).',
+  searchResult: 'Rien pour la question que vous avez vraiment posée',
+  askTitle: 'Demander à Hey Markham',
+  fenceAnswer:
+    'Les clôtures de cour avant peuvent mesurer jusqu’à 1,2 m (4 pi), et celles le long des limites arrière et latérales intérieures, jusqu’à 1,8 m (6 pi). Sur un terrain d’angle, le côté donnant sur la rue est limité à 1,2 m. Une piscine de plus de 0,6 m de profondeur exige une clôture de 1,2 m et un permis d’enceinte de piscine avant le remplissage.',
+  askResult: 'Une question, une réponse avec la page d’où elle vient',
+  hardChecked: 'Le parcours des menus et les résultats de recherche ci-dessus ont été vérifiés sur markham.ca le 15 novembre 2026.',
+  payoffTitle: 'Ne cherchez pas. Demandez.',
+  payoffText:
+    'Hey Markham lit la page, vous donne la réponse et met en lien la page d’où elle vient. Quatre clics et un long défilement deviennent une seule question.',
+  tryLive: 'Essayer en ligne',
+  seeHowItChecks: 'Voir comment il vérifie ses réponses',
+
+  improveEyebrow: 'Toujours en amélioration',
+  improveTitle: 'Des réponses qui s’améliorent sans cesse',
+  improveSubtitle:
+    'Chaque question nous aide à comprendre ce dont les résidents de Markham ont besoin, et comment ils le demandent. Quand arrive une question que notre base de connaissances ne couvre pas bien, c’est une occasion d’améliorer le système.',
+  improvementSteps: [
+    { title: 'Recueillir les nouvelles questions', description: 'Chaque question à laquelle nous répondons mal est recueillie, et les lacunes dans nos connaissances sont repérées.' },
+    { title: 'Organiser et regrouper', description: 'Les questions semblables sont regroupées, pour qu’une seule recherche les couvre toutes.' },
+    { title: 'Consulter les sources officielles', description: 'Les sources municipales officielles pertinentes sont trouvées et lues pour connaître les vraies exigences.' },
+    { title: 'Préparer les réponses avec l’IA', description: 'L’IA aide à la recherche et à l’organisation, et rédige la réponse à partir de ces sources.' },
+    { title: 'Réviser et vérifier', description: 'La nouvelle information est révisée et vérifiée avant d’être approuvée.' },
+    { title: 'Ajouter à la base de connaissances', description: 'Les réponses approuvées rejoignent une collection structurée et grandissante de questions municipales, de réponses vérifiées et des différentes façons dont les résidents les formulent.' },
+  ],
+  improveClosing: 'Le résultat : un système de connaissances qui évolue avec les besoins de la collectivité.',
+
+  roadmapEyebrow: 'Feuille de route',
+  roadmapTitle: 'Un assistant municipal pour chaque résident',
+  roadmapSubtitle:
+    'Notre objectif : que chaque résident de Markham ait un assistant à qui poser ses questions en tout temps, qui comprend ce dont il a besoin et l’aide à passer à l’action. Nous y arriverons en faisant d’abord bien les tâches de tous les jours, puis en ajoutant davantage.',
+  roadmapStages: [
+    {
+      label: 'Offert maintenant',
+      theme: 'S’informer, s’orienter et signaler',
+      description: 'Des réponses tirées de l’information officielle de la Ville, la bonne personne-ressource quand ce n’est pas la Ville, et les tâches de tous les jours faites dans l’application.',
+      items: [
+        { title: 'Ordures et recyclage', description: 'Votre jour de collecte, des rappels, où va un article d’après une photo' },
+        { title: 'Signaler un problème', description: 'Nids-de-poule, graffitis, collectes oubliées, avec une photo' },
+        { title: 'Permis et licences', description: 'Ce qu’il vous faut, ce que ça coûte, où faire la demande' },
+        { title: 'Mon Markham', description: 'Votre quartier, votre conseiller, votre jour de collecte et les lieux les plus proches' },
+        { title: 'Qui s’en occupe', description: 'Le bon organisme quand ce n’est pas la Ville' },
+      ],
+    },
+    {
+      label: 'Ensuite',
+      theme: 'Étape par étape, puis réserver et faire une demande',
+      description: 'Chaque service de la Ville associé au service municipal qui le gère, avec les étapes et ce qu’il vous faut, puis relié aux systèmes de la Ville pour agir sans quitter la conversation.',
+      items: [
+        { title: 'Guides des services', description: 'Qui s’en occupe, les étapes, quoi apporter' },
+        { title: 'Bibliothèque', description: 'Chercher des livres, renouveler des prêts' },
+        { title: 'Réservations de loisirs', description: 'Réserver piscines et terrains' },
+        { title: 'Demandes de permis', description: 'Stationnement, permis de construire' },
+      ],
+    },
+    {
+      label: 'Plus tard',
+      theme: 'Payer',
+      description: 'Les factures et les paiements au même endroit que vos questions.',
+      items: [
+        { title: 'Impôt foncier', description: 'Consulter, payer, plans de paiement' },
+        { title: 'Factures d’eau', description: 'Consulter et payer les factures d’eau' },
+        { title: 'Amendes et frais', description: 'Contraventions de stationnement' },
+      ],
+    },
+  ],
+  roadmapNote: 'Les étapes Ensuite et Plus tard sont des projets et peuvent changer.',
+
+  closingEyebrow: 'Pour chaque résident',
+  closingTitle: 'Un meilleur accès à l’information municipale. Moins de temps à chercher.',
+  closingText:
+    'Que vous soyez propriétaire, locataire, propriétaire d’entreprise ou simplement curieux des services offerts dans votre collectivité, Hey Markham est là pour vous aider à vous y retrouver dans l’information municipale.',
+  closingTagline: 'Demandez à Hey Markham. Apprenez à connaître votre ville.',
+  closingAsk: 'Demander à Hey Markham',
+  closingContact: 'Nous joindre',
+  contactEyebrow: 'Pour la Ville de Markham et les autres municipalités',
+  contactTitle: 'Offrez Hey Markham à vos résidents',
+  contactSubtitle: 'Commencez par un projet pilote. Constatez les résultats. Puis décidez.',
+  contactResidents: 'Résidents : vous avez un commentaire ou une question sur Hey Markham? Utilisez le même formulaire.',
+  whyTitle: 'Pourquoi choisir Hey Markham?',
+  why: [
+    { title: 'Mise en place rapide', description: 'Part de l’information déjà publiée sur votre site Web. Aucun système à remplacer.' },
+    { title: 'Moins d’appels au mauvais endroit', description: 'Dirige les résidents vers le service ou l’organisme qui traite leur demande, y compris ceux qui ne relèvent pas de la Ville.' },
+    { title: 'Des réponses vérifiables', description: 'Chaque réponse renvoie aux pages d’où elle vient, et le personnel révise les réponses aux questions les plus courantes.' },
+    { title: 'Moins de pression sur le personnel', description: 'Répond aux questions courantes jour et nuit, pour que le personnel puisse se concentrer sur les cas complexes.' },
+    { title: 'Confidentialité et accessibilité d’abord', description: 'Conçu en fonction des lois canadiennes sur la protection de la vie privée et des normes d’accessibilité. Nous présenterons notre approche à votre équipe pendant le projet pilote.' },
+  ],
+  getInTouchTitle: 'Nous joindre',
+};
+
+const copy: Record<Locale, HomeCopy> = { en, zh, fr };
 
 // Icons line up by position with the lists in `copy`
 const pillarIcons = [<Search key="s" className="w-6 h-6" />, <Signpost key="p" className="w-6 h-6" />, <ClipboardCheck key="c" className="w-6 h-6" />];
@@ -1002,7 +1313,7 @@ export function HomePage({ locale }: { locale: Locale }) {
                 <p className="text-sm text-slate-400">
                   {t.downloadText}
                 </p>
-                {/* The release notes are English-only, so both languages link to the same page */}
+                {/* The release notes are English-only, so every language links to the same page */}
                 <Link href="/app/releases" className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-primary-300 hover:underline">
                   {t.whatsNew.replace('{version}', latestRelease.version)}
                   <ArrowRight className="w-4 h-4" aria-hidden="true" />

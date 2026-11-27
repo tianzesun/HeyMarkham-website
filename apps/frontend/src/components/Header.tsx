@@ -6,14 +6,14 @@ import { useState, useEffect } from 'react';
 import { Mic, Menu, X, ArrowUpRight } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { LIVE_URL } from '../lib/links';
-import { hasTranslation, localeHome, localeName, localeOf, localisePath, otherLocale, type Locale } from '../lib/i18n';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { localeHome, localeOf, type Locale } from '../lib/i18n';
 
 const copy: Record<Locale, {
   nav: { name: string; href: string }[];
   tryItLive: string;
   openMenu: string;
   closeMenu: string;
-  switchAria: string;
 }> = {
   en: {
     nav: [
@@ -25,7 +25,6 @@ const copy: Record<Locale, {
     tryItLive: 'Try it live',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
-    switchAria: '切换到中文',
   },
   zh: {
     nav: [
@@ -37,7 +36,17 @@ const copy: Record<Locale, {
     tryItLive: '在线体验',
     openMenu: '打开菜单',
     closeMenu: '关闭菜单',
-    switchAria: 'Switch to English',
+  },
+  fr: {
+    nav: [
+      { name: 'Ce qu’il fait', href: '#features' },
+      { name: 'L’application', href: '#app' },
+      { name: 'Pourquoi s’y fier', href: '#trust' },
+      { name: 'Pour les municipalités', href: '#contact' },
+    ],
+    tryItLive: 'Essayer en ligne',
+    openMenu: 'Ouvrir le menu',
+    closeMenu: 'Fermer le menu',
   },
 };
 
@@ -60,16 +69,6 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // The other language's URL for this page (keeps the section when one is in the URL bar).
-  // Pages with no Chinese version don't show the switch, so it never leads to a 404
-  const canSwitch = hasTranslation(pathname);
-  const switchHref = localisePath(pathname, otherLocale(locale));
-  const followHash = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!window.location.hash) return;
-    e.preventDefault();
-    window.location.href = switchHref + window.location.hash;
-  };
-
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-[100] border-b bg-slate-900/[0.97] transition-[box-shadow,border-color] duration-300 ${
@@ -84,19 +83,19 @@ export const Header: React.FC = () => {
               <Mic className="text-white" size={18} />
             </div>
             <Link href={home} className="flex items-center">
-              <span className="text-lg font-bold text-white">
+              <span className="text-lg font-bold text-white whitespace-nowrap">
                 Hey Markham
               </span>
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-6">
+          {/* Desktop Navigation: from lg up, because the French labels don't fit beside the buttons any narrower */}
+          <nav className="hidden lg:flex items-center gap-6">
             {navigation.map((item, index) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="animate-fade-up text-sm font-medium text-white hover:text-primary-200 transition-colors"
+                className="animate-fade-up whitespace-nowrap text-sm font-medium text-white hover:text-primary-200 transition-colors"
                 style={{ animationDelay: `${index * 0.08}s` }}
               >
                 {item.name}
@@ -105,20 +104,9 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="animate-fade-up hidden md:flex items-center gap-3 [animation-delay:300ms]">
+          <div className="animate-fade-up hidden lg:flex items-center gap-3 [animation-delay:300ms]">
             <ThemeToggle locale={locale} />
-            {canSwitch && (
-              <a
-                href={switchHref}
-                onClick={followHash}
-                lang={locale === 'en' ? 'zh-Hans' : 'en-CA'}
-                title={locale === 'en' ? '切换到中文' : 'Switch to English'}
-                aria-label={t.switchAria}
-                className="inline-flex items-center justify-center px-3 py-2 rounded-lg border border-white/20 text-sm font-medium text-white hover:bg-white/10 transition-colors"
-              >
-                {localeName[otherLocale(locale)]}
-              </a>
-            )}
+            <LanguageSwitcher pathname={pathname} locale={locale} />
             <a
               href={LIVE_URL}
               target="_blank" rel="noopener noreferrer"
@@ -130,20 +118,9 @@ export const Header: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="lg:hidden flex items-center gap-2">
             <ThemeToggle locale={locale} />
-            {canSwitch && (
-              <a
-                href={switchHref}
-                onClick={followHash}
-                lang={locale === 'en' ? 'zh-Hans' : 'en-CA'}
-                title={locale === 'en' ? '切换到中文' : 'Switch to English'}
-                aria-label={t.switchAria}
-                className="px-3 py-1.5 rounded-lg border border-white/20 text-sm font-medium text-white"
-              >
-                {localeName[otherLocale(locale)]}
-              </a>
-            )}
+            <LanguageSwitcher pathname={pathname} locale={locale} compact />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label={isMenuOpen ? t.closeMenu : t.openMenu}
@@ -157,7 +134,7 @@ export const Header: React.FC = () => {
 
         {/* Mobile Navigation: grid row height animates from 0 to content height */}
         <div
-          className={`md:hidden grid transition-[grid-template-rows,opacity] duration-300 ${
+          className={`lg:hidden grid transition-[grid-template-rows,opacity] duration-300 ${
             isMenuOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
           }`}
           inert={!isMenuOpen}

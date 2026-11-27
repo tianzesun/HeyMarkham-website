@@ -1,7 +1,7 @@
 import { A, AppLegalPage, Mail, Notice, Section } from '../AppLegal'
 import type { Locale } from '../../lib/i18n'
 
-// /app/support and /zh/app/support. One structure, both languages: strings live in `copy`,
+// /app/support, /zh/app/support and /fr/app/support. One structure, every language: strings live in `copy`,
 // links stay in the JSX and follow `locale` through <A> / <Mail />.
 const copy: Record<Locale, {
   title: string;
@@ -94,6 +94,40 @@ const copy: Record<Locale, {
     deleteLink: '删除账户',
     deleteB: '。',
     aboutSection: '关于 Hey Markham',
+  },
+  fr: {
+    title: 'Aide',
+    introStart:
+      'Hey Markham répond aux questions sur les services de la Ville de Markham, à voix haute ou par écrit, avec des liens vers les sources officielles. Pour obtenir de l’aide avec l’application, écrivez à ',
+    introEnd: '.',
+    citySection: 'Questions sur les services de la Ville ou sur votre compte municipal',
+    cityParaStart:
+      'Communiquez directement avec la Ville de Markham\u00a0: appelez le Centre de contact au 905-477-5530 ou consultez ',
+    cityParaEnd: '. Dans l’application, touchez Joindre la Ville sur l’écran d’accueil.',
+    faqSection: 'Questions fréquentes',
+    needAccountQ: 'Ai-je besoin d’un compte?',
+    needAccountA:
+      'Non. Choisissez Continuer en tant qu’invité. Connectez-vous seulement si vous voulez conserver vos questions, vos paramètres et votre profil.',
+    voiceQ: 'La voix ne fonctionne pas.',
+    voiceA:
+      'Autorisez l’accès au microphone pour Hey Markham dans les réglages de votre téléphone (dans l’application\u00a0: Paramètres, Voix, accès au microphone). Pour le français, le mandarin ou le cantonais, votre téléphone devra peut-être télécharger cette langue de reconnaissance vocale.',
+    languageQ: 'Comment changer de langue?',
+    languageA:
+      'Paramètres, Langue. Hey Markham répond, écoute et lit à voix haute en anglais, en français, en mandarin ou en cantonais.',
+    wrongAnswerQ: 'Une réponse semble inexacte.',
+    wrongAnswerA:
+      'Touchez le pouce vers le bas sous la réponse pour nous aider à l’améliorer, et vérifiez la page officielle en lien. Si quelque chose semble gravement erroné, écrivez-nous.',
+    passwordQ: 'J’ai oublié mon mot de passe.',
+    passwordA: 'Sur l’écran de connexion, entrez votre courriel et touchez Mot de passe oublié?',
+    versionQ: 'Quelle version ai-je, et qu’est-ce qui a changé?',
+    versionA: 'Votre version est indiquée au bas des Paramètres. Consultez ',
+    versionLink: 'Nouveautés',
+    versionB: ' (en anglais) pour les changements apportés à chaque version.',
+    deleteQ: 'Comment supprimer mon compte?',
+    deleteA: 'Consultez ',
+    deleteLink: 'Supprimer votre compte',
+    deleteB: ' (en anglais).',
+    aboutSection: 'À propos de Hey Markham',
   },
 }
 

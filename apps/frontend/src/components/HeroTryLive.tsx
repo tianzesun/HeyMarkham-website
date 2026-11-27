@@ -2,7 +2,7 @@ import { ArrowUpRight, Smartphone, Sparkles } from 'lucide-react'
 
 import { APP_STORE_URL, GOOGLE_PLAY_URL, LIVE_URL } from '../lib/links'
 
-import type { Locale } from '../lib/i18n'
+import { quote, type Locale } from '../lib/i18n'
 
 const copy: Record<Locale, {
   badge: string
@@ -64,6 +64,28 @@ const copy: Record<Locale, {
     appStore: 'App Store',
     comingSoon: '即将登陆',
   },
+  fr: {
+    badge: 'Maintenant offert aux résidents de Markham',
+    titleLead: 'Dites ce dont vous avez besoin.',
+    titleRest: 'Hey Markham s’occupe du côté municipal.',
+    intro:
+      'Votre assistant de vie urbaine à Markham. Posez vos questions dans vos propres mots, à voix haute ou par écrit. Il trouve la réponse dans l’information officielle de la Ville, vous indique qui s’en occupe et vous aide à passer à l’action. S’il ne sait pas, il vous le dit.',
+    examplesLabel: 'Exemples de questions',
+    examples: [
+      'Quand a lieu ma prochaine collecte des ordures?',
+      'Il y a un nid-de-poule dans ma rue',
+      'Me faut-il un permis pour une terrasse?',
+      'Qui appeler pour un bac bleu oublié?',
+      'Qui est mon conseiller municipal?',
+    ],
+    tryLive: 'Essayer Hey Markham en ligne',
+    tryLiveNote: 'Ouvre l’assistant dans un nouvel onglet. Aucun compte requis.',
+    getApp: 'Téléchargez l’application\u00a0: posez vos questions à voix haute, en anglais, en français, en mandarin ou en cantonais',
+    googlePlayLead: 'Disponible sur',
+    appStoreLead: 'Télécharger dans',
+    appStore: 'l’App Store',
+    comingSoon: 'Bientôt sur',
+  },
 }
 
 export function HeroTryLive({ locale = 'en' }: { locale?: Locale }) {
@@ -107,7 +129,7 @@ export function HeroTryLive({ locale = 'en' }: { locale?: Locale }) {
         <ul className="animate-rise [animation-delay:150ms] flex flex-wrap justify-center gap-2 mb-10 max-w-2xl mx-auto" aria-label={t.examplesLabel}>
           {t.examples.map(example => (
             <li key={example} className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-slate-300">
-              {locale === 'zh' ? `“${example}”` : <>&ldquo;{example}&rdquo;</>}
+              {quote(example, locale)}
             </li>
           ))}
         </ul>

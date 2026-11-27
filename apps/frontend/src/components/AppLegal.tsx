@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { localisePath, type Locale } from '../lib/i18n'
+import { localeHome, localisePath, type Locale } from '../lib/i18n'
 
 // Shared pieces for the mobile app's pages (/app/privacy, /app/terms, /app/delete-account,
 // /app/support, /app/releases). The App Store and Google Play link to these, and the app links to them from its
@@ -16,6 +16,7 @@ export const APP_EMAIL = 'contact@aydenait.com'
 export const APP_UPDATED: Record<Locale, string> = {
   en: 'November 2026',
   zh: '2026年11月',
+  fr: 'novembre 2026',
 }
 
 const link = 'text-primary-600 dark:text-primary-400 underline'
@@ -55,6 +56,18 @@ const copy: Record<Locale, {
     notice:
       'Hey Markham 是 AydenAIT Solution Inc. 开发的独立应用，与万锦市没有隶属关系，未获得其背书，也不由万锦市运营。回答基于万锦市公开发布的信息。如需官方决定，或涉及您本人的市政府账户，请直接联系万锦市。',
   },
+  fr: {
+    eyebrow: 'Application Hey Markham',
+    lastUpdated: 'Dernière mise à jour\u00a0:',
+    privacy: 'Politique de confidentialité de l’application',
+    terms: 'Conditions d’utilisation de l’application',
+    deleteAccount: 'Supprimer votre compte',
+    support: 'Aide sur l’application',
+    whatsNew: 'Nouveautés',
+    back: '← Retour à Hey Markham',
+    notice:
+      'Hey Markham est une application indépendante conçue par AydenAIT Solution Inc. Elle n’est ni affiliée à la Ville de Markham, ni approuvée ou exploitée par celle-ci. Les réponses sont fondées sur l’information publique de la Ville de Markham. Pour une décision officielle ou toute question sur votre propre compte municipal, communiquez directement avec la Ville de Markham.',
+  },
 }
 
 export function AppLegalPage({
@@ -85,7 +98,7 @@ export function AppLegalPage({
           <Link href={internal('/app/releases')} className={link}>{t.whatsNew}</Link>
         </p>
         <p className="mt-6">
-          <Link href={locale === 'zh' ? '/zh' : '/'} className="text-primary-600 dark:text-primary-400 font-medium hover:underline">{t.back}</Link>
+          <Link href={localeHome(locale)} className="text-primary-600 dark:text-primary-400 font-medium hover:underline">{t.back}</Link>
         </p>
       </article>
     </div>

@@ -57,6 +57,23 @@ const copy: Record<Locale, {
     builtFor: '为万锦市居民打造',
     disclaimer: 'Hey Markham 是 Aydenait Solutions 提供的独立服务，与万锦市没有隶属关系，也未获得万锦市的背书。',
   },
+  fr: {
+    tagline: 'Des réponses rapides sur les services de la Ville de Markham, à voix haute ou par écrit.',
+    product: 'Produit',
+    features: 'Fonctionnalités',
+    tryItLive: 'Essayer en ligne',
+    getApp: 'Télécharger l’application',
+    whatsNew: 'Nouveautés de l’application (en anglais)',
+    forMunicipalities: 'Pour les municipalités',
+    resources: 'Ressources',
+    citySite: 'Ville de Markham (site officiel)',
+    privacy: 'Politique de confidentialité (en anglais)',
+    appHelp: 'Aide et confidentialité de l’application mobile',
+    contact: 'Nous joindre',
+    rights: 'Tous droits réservés.',
+    builtFor: 'Conçu pour les résidents de Markham',
+    disclaimer: 'Hey Markham est un service indépendant d’Aydenait Solutions, qui n’est ni affilié à la Ville de Markham ni approuvé par celle-ci.',
+  },
 };
 
 export const Footer: React.FC = () => {

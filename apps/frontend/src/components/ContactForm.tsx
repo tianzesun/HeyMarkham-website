@@ -55,6 +55,22 @@ const copy: Record<Locale, {
     failed: '发送失败',
     failedToSend: '留言发送失败',
   },
+  fr: {
+    name: 'Nom',
+    namePlaceholder: 'Votre nom',
+    email: 'Courriel',
+    subject: 'Objet',
+    subjectPlaceholder: 'Comment pouvons-nous vous aider?',
+    message: 'Message',
+    messagePlaceholder: 'Parlez-nous de vos besoins…',
+    spamLabel: 'Laissez ce champ vide',
+    sending: 'Envoi en cours…',
+    send: 'Envoyer le message',
+    idle: 'Nous vous répondrons par courriel dès que possible',
+    success: 'Message envoyé! Nous vous répondrons sous peu.',
+    failed: 'Échec de l’envoi',
+    failedToSend: 'Le message n’a pas pu être envoyé',
+  },
 };
 
 export const ContactForm = ({ locale }: { locale: Locale }) => {

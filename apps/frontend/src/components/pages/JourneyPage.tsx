@@ -1,7 +1,7 @@
 import { A, AppLegalPage, Section } from '../AppLegal'
 import type { Locale } from '../../lib/i18n'
 
-// /app/journey and /zh/app/journey. One structure, both languages: strings live in `copy`,
+// /app/journey, /zh/app/journey and /fr/app/journey. One structure, every language: strings live in `copy`,
 // links stay in the JSX and follow `locale` through <A>.
 const copy: Record<Locale, {
   title: string;
@@ -80,6 +80,35 @@ const copy: Record<Locale, {
     whoEnd: '）。',
     mottoSection: '我们的座右铭',
     motto: '每一位居民都很重要。每一份贡献都有意义。',
+  },
+  fr: {
+    title: 'Parcours communautaire',
+    intro:
+      'Votre parcours communautaire est un petit merci pour votre participation à Hey Markham. Il grandit tout seul à mesure que vous utilisez l’application, et chaque niveau apporte un nouveau ciel à l’application. Vous n’avez rien à faire.',
+    growsSection: 'Comment il grandit',
+    droppingBy: 'Passer faire un tour.',
+    droppingByText: 'Chaque jour où vous ouvrez Hey Markham en ayant ouvert une session compte une fois.',
+    todayQ: 'La question du jour.',
+    todayQText:
+      'Le parcours propose chaque jour une question «\u00a0dans quel bac?\u00a0», tirée du guide de tri de la Ville. Y répondre compte une fois par jour, bonne ou mauvaise réponse.',
+    feedback: 'Commentaires.',
+    feedbackText:
+      'Un commentaire envoyé depuis les Paramètres qui nous apprend quelque chose compte aussi, jusqu’à deux fois par mois.',
+    progress:
+      'Chacune de ces actions compte autant, et aucune n’est obligatoire. Votre progression s’affiche sur un sentier, avec un arrêt pour chaque niveau et une barre jusqu’au suivant. Il n’y a ni points à compter, ni classement, ni séries\u00a0: sauter une journée ne vous fait rien perdre.',
+    levelsSection: 'Niveaux et ciels',
+    levelsP1:
+      'Il y a sept niveaux. Chacun a un nom et un insigne, et votre insigne devient votre image dans l’application. Pour voir votre sentier, ouvrez le menu en haut à droite de l’écran d’accueil, puis Parcours communautaire.',
+    levelsP2:
+      'Chaque niveau apporte un ciel\u00a0: les couleurs de l’écran d’accueil, des boutons et de vos questions. Bleu Markham est offert à tous dès le départ, puis viennent Vallée de la Rouge, Ciel de minuit, Aurores boréales, Coucher de soleil sur le lac, Érable d’automne et, tout en haut, Or de Markham. Choisissez n’importe quel ciel débloqué sous Vos ciels, dans le parcours. Si vous fermez votre session, vous revenez à Bleu Markham.',
+    levelsP3: 'Tout le monde reçoit la même information et les mêmes services de la Ville, quel que soit son niveau.',
+    whoSection: 'Qui peut le voir',
+    whoStart:
+      'Seulement vous. Votre niveau est conservé avec votre compte Hey Markham et n’est montré à personne d’autre. Les invités n’ont pas de parcours. Supprimer votre compte supprime aussi votre parcours (voir ',
+    whoLink: 'Supprimer votre compte',
+    whoEnd: ', en anglais).',
+    mottoSection: 'Notre devise',
+    motto: 'Chaque résident compte. Chaque contribution compte.',
   },
 }
 

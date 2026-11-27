@@ -1,4 +1,4 @@
-// Two locales: English lives at the root (/), Simplified Chinese under /zh.
+// Three locales: English lives at the root (/), Simplified Chinese under /zh, Canadian French under /fr.
 // Existing URLs never change, so links, sitemap entries and store listings stay valid.
 //
 // How a component learns its locale:
@@ -8,90 +8,116 @@
 // - <html lang> is set pre-paint by public/lang-init.js; hreflang alternates come from each
 //   route's metadata (alternates.languages below).
 //
+// Adding a language: add it to Locale, LOCALES, htmlLang, hreflang, localeName and TRANSLATED_PATHS,
+// then TypeScript lists every `copy` object that needs the new strings. Update lang-init.js too.
+//
 // Translation notes for UI copy:
-// - Proper nouns: "Hey Markham" and "markham.ca" stay in English; the City of Markham is 万锦市;
-//   neighbourhood and street names (Unionville, Cornell, Highway 7) stay in English.
-// - Punctuation in Chinese strings: full-width ，。：；？！and “ ” 《》. No em dashes (——) in UI copy.
-// - Note: "Aydenait" is a proper noun and stays in English even in Chinese copy
+// - Proper nouns: "Hey Markham", "markham.ca", "Aydenait" and app or product names stay in English;
+//   neighbourhood and street names (Unionville, Cornell, Highway 7) stay as they are.
+// - Chinese: the City of Markham is 万锦市; address the reader as 您. Full-width punctuation
+//   ，。：；？！and “ ” 《》. No em dashes (——) in UI copy.
+// - French: Canadian French (fr-CA). The City of Markham is « la Ville de Markham »; address the
+//   reader as « vous ». Canadian typography, as in the mobile app: guillemets « » with non-breaking
+//   spaces inside and a non-breaking space before a colon (write \u00a0 in strings), but no space
+//   before ? ! ; Feature names match the app's French labels (HeyMarkham-mobile src/i18n).
+//   No em dashes in UI copy.
 
-export type Locale = 'en' | 'zh'
+export type Locale = 'en' | 'zh' | 'fr'
 
-export const LOCALES: readonly Locale[] = ['en', 'zh'] as const
+export const LOCALES: readonly Locale[] = ['en', 'zh', 'fr'] as const
 
-/** <html lang> for each locale; lang-init.js applies the zh value before first paint */
+/** Narrow an untrusted value (a server action argument, say) to a Locale */
+export function isLocale(value: unknown): value is Locale {
+  return typeof value === 'string' && (LOCALES as readonly string[]).includes(value)
+}
+
+/** <html lang> for each locale; lang-init.js applies these before first paint */
 export const htmlLang: Record<Locale, string> = {
   en: 'en-CA',
   zh: 'zh-Hans',
+  fr: 'fr-CA',
 }
 
-/** The <html lang> value the Chinese pages should carry */
-export const zhLang = htmlLang.zh
-
-/** Shown in the language switcher */
+/** Shown in the language switcher, each in its own language */
 export const localeName: Record<Locale, string> = {
   en: 'English',
   zh: '中文',
+  fr: 'Français',
 }
 
-export function otherLocale(locale: Locale): Locale {
-  return locale === 'en' ? 'zh' : 'en'
+/** URL prefix for each locale */
+const prefix: Record<Locale, string> = { en: '', zh: '/zh', fr: '/fr' }
+
+/** The locale whose prefix a path starts with, if any */
+function prefixedLocale(path: string): Locale | null {
+  for (const locale of LOCALES) {
+    const p = prefix[locale]
+    if (p && (path === p || path.startsWith(`${p}/`))) return locale
+  }
+  return null
 }
 
-/** /zh and everything under it is Chinese; everything else is English */
+/** /zh and /fr and everything under them are Chinese and French; everything else is English */
 export function localeOf(pathname: string): Locale {
-  return pathname === '/zh' || pathname.startsWith('/zh/') ? 'zh' : 'en'
+  return prefixedLocale(pathname.split(/[?#]/)[0]) ?? 'en'
 }
 
 /**
- * Pages that exist in Chinese, as their English path. Add a path here when its /zh route ships;
- * links to any other page stay on the English version instead of a /zh 404.
+ * Pages that exist in each language, as their English path. Add a path here when its route ships
+ * (app/zh/... or app/fr/...); links to any other page stay on the English version instead of a 404.
  */
-export const TRANSLATED_PATHS: readonly string[] = ['/', '/app/support', '/app/journey']
+export const TRANSLATED_PATHS: Record<Exclude<Locale, 'en'>, readonly string[]> = {
+  zh: ['/', '/app/support', '/app/journey'],
+  fr: ['/', '/app/support', '/app/journey'],
+}
 
-/** The English path of any URL, without /zh, query string, hash or trailing slash */
-function barePath(pathname: string): string {
-  const path = pathname.split(/[?#]/)[0] || '/'
-  const english = path === '/zh' ? '/' : path.startsWith('/zh/') ? path.slice(3) : path
+/** The English path, without a locale prefix (path must already be free of query and hash) */
+function stripPrefix(path: string): string {
+  const locale = prefixedLocale(path)
+  const english = locale ? path.slice(prefix[locale].length) || '/' : path || '/'
   return english.length > 1 ? english.replace(/\/+$/, '') : english
 }
 
-/** Whether this page has a Chinese version (accepts English or /zh paths, with or without a hash) */
-export function hasTranslation(pathname: string): boolean {
-  return TRANSLATED_PATHS.includes(barePath(pathname))
+/** Whether this page exists in `locale` (accepts any locale's path, with or without a hash) */
+export function hasTranslation(pathname: string, locale: Locale): boolean {
+  if (locale === 'en') return true
+  return TRANSLATED_PATHS[locale].includes(stripPrefix(pathname.split(/[?#]/)[0]))
+}
+
+/** The languages this page exists in, English first */
+export function availableLocales(pathname: string): Locale[] {
+  return LOCALES.filter(locale => hasTranslation(pathname, locale))
 }
 
 /**
  * The same page in another locale:
- *   '/app/support' -> '/zh/app/support', '/zh/app/support' -> '/app/support'
- *   '/#features' -> '/zh#features', '/zh#features' -> '/#features'
- * Anchors and query strings are preserved. A page with no Chinese version stays English:
+ *   '/app/support' -> '/zh/app/support', '/fr/app/support' -> '/app/support'
+ *   '/#features' -> '/fr#features', '/zh#features' -> '/fr#features'
+ * Anchors and query strings are preserved. A page with no version in that locale stays English:
  *   '/privacy' -> '/privacy'
  */
 export function localisePath(pathname: string, locale: Locale): string {
   const cut = pathname.search(/[?#]/)
   const path = cut === -1 ? pathname : pathname.slice(0, cut)
   const suffix = cut === -1 ? '' : pathname.slice(cut)
-  const bare = path === '/zh' ? '/' : path.startsWith('/zh/') ? path.slice(3) : path
-  if (locale === 'en' || !hasTranslation(bare)) return bare + suffix
-  return (bare === '/' || bare === '' ? '/zh' : `/zh${bare}`) + suffix
+  const bare = stripPrefix(path)
+  if (locale === 'en' || !hasTranslation(bare, locale)) return bare + suffix
+  return (bare === '/' ? prefix[locale] : `${prefix[locale]}${bare}`) + suffix
 }
 
-/** Prefix a root-relative path (no hash needed) with the locale: '/privacy' -> '/zh/privacy' */
-export function localePath(path: string, locale: Locale): string {
-  return localisePath(path, locale)
-}
+/** hreflang code for each locale */
+const hreflang: Record<Locale, string> = { en: 'en', zh: 'zh-Hans', fr: 'fr-CA' }
 
 /**
- * hreflang alternates for a canonical path, for metadata.alternates.languages.
- * x-default points at English, the primary language of the site.
+ * hreflang alternates for a path (in any locale), for metadata.alternates.languages.
+ * Lists only the languages the page exists in; x-default points at English, the site's primary language.
  */
 export function languageAlternates(path: string): Record<string, string> {
-  const bare = path.startsWith('/zh') ? localisePath(path, 'en') : path
-  return {
-    en: bare,
-    'zh-Hans': localisePath(bare, 'zh'),
-    'x-default': bare,
-  }
+  const bare = localisePath(path, 'en')
+  const alternates: Record<string, string> = {}
+  for (const locale of availableLocales(bare)) alternates[hreflang[locale]] = localisePath(bare, locale)
+  alternates['x-default'] = bare
+  return alternates
 }
 
 /**
@@ -99,5 +125,10 @@ export function languageAlternates(path: string): Record<string, string> {
  * so '/#features' becomes '/zh#features' on Chinese pages.
  */
 export function localeHome(locale: Locale): string {
-  return locale === 'zh' ? '/zh' : '/'
+  return prefix[locale] || '/'
+}
+
+/** Wrap text in the quotation marks its language uses: “…” in English and Chinese, « … » in French */
+export function quote(text: string, locale: Locale): string {
+  return locale === 'fr' ? `« ${text} »` : `“${text}”`
 }
