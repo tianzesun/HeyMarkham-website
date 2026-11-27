@@ -33,6 +33,11 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   experimental: {
     optimizePackageImports: ['lucide-react'],
+    // Job applications carry a résumé and a cover letter (2 MB each, see lib/careers.ts); the default
+    // 1 MB limit would refuse them. 4.5 MB is also the most Vercel accepts in one request.
+    serverActions: {
+      bodySizeLimit: '4.5mb',
+    },
   },
   images: {
     remotePatterns: [

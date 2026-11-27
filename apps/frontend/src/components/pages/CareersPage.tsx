@@ -1,33 +1,34 @@
 import {
-  ArrowRight, Briefcase, CheckCircle2, Clock, Handshake, Mail, MapPin, Megaphone, MessageSquare,
+  ArrowRight, Briefcase, CheckCircle2, Clock, Handshake, MapPin, Megaphone, MessageSquare,
   ShieldCheck, Sparkles, Users, BrainCircuit, Code, Lock
 } from 'lucide-react';
 import { RevealOnScroll } from '../RevealOnScroll';
+import { ApplicationForm } from '../ApplicationForm';
+import { CAREER_ROLES } from '../../lib/careers';
 import type { Locale } from '../../lib/i18n';
 
 // /careers, /zh/careers and /fr/careers. One structure, every language: strings live in `en` / `zh` /
 // `fr`, and the roles line up by position with ROLES below, so keep the order the same everywhere.
 //
 // Facts confirmed with the team (November 2026): hybrid in Markham/GTA, full-time except the internship
-// and the contract advisor, apply by email to contact@aydenait.com, no pay shown (fewer than 25 employees).
+// and the contract advisor, apply through the form (emailed to the hiring inbox, see app/actions/apply.ts),
+// applications kept 12 months, no pay shown (fewer than 25 employees).
 // If the company reaches 25 employees, Ontario requires a pay range on public postings; add it here then.
 // The community role mentions the app's opt-in "Offers & ads" inbox category (HeyMarkham-mobile
 // src/i18n/inbox.ts): keep it opt-in in the copy, and don't promise features the app doesn't have.
 // Stacks named in the engineering roles match the repos: mobile is Expo/React Native, staff tools are
 // React (HeyMarkham-admin), the API is FastAPI with PostgreSQL/pgvector.
 
-const APPLY_EMAIL = 'contact@aydenait.com';
-
-// Per role: the anchor, the icon, the kind of job, and the English title used in the email subject
-// (so applications sort the same whatever language the page was in)
+// Per role: the anchor, the icon and the kind of job. Ids and order match CAREER_ROLES in lib/careers.ts,
+// which the form and the server action use.
 type RoleKind = 'fullTime' | 'internship' | 'contract';
-const ROLES: { id: string; Icon: typeof Handshake; kind: RoleKind; subject: string }[] = [
-  { id: 'business-development', Icon: Handshake, kind: 'fullTime', subject: 'Business Development Manager, Municipal Partnerships' },
-  { id: 'data-quality-intern', Icon: ShieldCheck, kind: 'internship', subject: 'Data Quality Intern, Answer Verification' },
-  { id: 'community-growth', Icon: Megaphone, kind: 'fullTime', subject: 'Community and Growth Specialist' },
-  { id: 'ai-rag-engineer', Icon: BrainCircuit, kind: 'fullTime', subject: 'AI/RAG Engineer' },
-  { id: 'full-stack-engineer', Icon: Code, kind: 'fullTime', subject: 'Full-Stack Engineer, Mobile and Web' },
-  { id: 'privacy-security-accessibility', Icon: Lock, kind: 'contract', subject: 'Privacy, Security and Accessibility Advisor' },
+const ROLES: { id: (typeof CAREER_ROLES)[number]['id']; Icon: typeof Handshake; kind: RoleKind }[] = [
+  { id: 'business-development', Icon: Handshake, kind: 'fullTime' },
+  { id: 'data-quality-intern', Icon: ShieldCheck, kind: 'internship' },
+  { id: 'community-growth', Icon: Megaphone, kind: 'fullTime' },
+  { id: 'ai-rag-engineer', Icon: BrainCircuit, kind: 'fullTime' },
+  { id: 'full-stack-engineer', Icon: Code, kind: 'fullTime' },
+  { id: 'privacy-security-accessibility', Icon: Lock, kind: 'contract' },
 ];
 
 const en = {
@@ -53,7 +54,7 @@ const en = {
   doTitle: 'What you’ll do',
   bringTitle: 'What you’ll bring',
   niceTitle: 'Nice to have',
-  apply: 'Apply by email',
+  apply: 'Apply now',
   roles: [
     {
       team: 'Business development',
@@ -205,10 +206,10 @@ const en = {
     },
   ],
 
-  applyTitle: 'How to Apply',
+  applyTitle: 'Apply to Hey Markham',
   applyText:
-    'Email your résumé to contact@aydenait.com with the role in the subject line, and tell us in a few lines why it interests you. The buttons above fill in the subject for you.',
-  applyOther: 'Don’t see your role? Write to us anyway and tell us how you’d help.',
+    'Fill in the form with your résumé and, if you like, a cover letter. It takes a few minutes, and we’ll reply by email.',
+  applyOther: 'Don’t see your role? Choose “Something else” in the form and tell us how you’d help in your cover letter.',
   accommodation: 'Accommodations are available on request for candidates taking part in all aspects of the selection process.',
   employer: 'Hey Markham is built by Aydenait Solutions.',
 };
@@ -237,7 +238,7 @@ const zh: CareersCopy = {
   doTitle: '工作内容',
   bringTitle: '任职要求',
   niceTitle: '加分项',
-  apply: '发邮件申请',
+  apply: '立即申请',
   roles: [
     {
       team: '业务拓展',
@@ -383,9 +384,9 @@ const zh: CareersCopy = {
     },
   ],
 
-  applyTitle: '如何申请',
-  applyText: '请把您的简历发送至 contact@aydenait.com，邮件主题注明申请职位，并简单说明您为什么对这个职位感兴趣。点击上方按钮会自动填好邮件主题。',
-  applyOther: '没有看到适合您的职位？也欢迎来信，告诉我们您能如何帮忙。',
+  applyTitle: '申请加入 Hey Markham',
+  applyText: '在下方表单中上传您的简历，也可以附上求职信。只需几分钟，我们会通过邮件回复您。',
+  applyOther: '没有看到适合您的职位？在表单中选择“其他”，并在求职信中告诉我们您能如何帮忙。',
   accommodation: '在招聘流程的各个环节，候选人均可申请无障碍便利安排。',
   employer: 'Hey Markham 由 Aydenait Solutions 开发。',
 };
@@ -413,7 +414,7 @@ const fr: CareersCopy = {
   doTitle: 'Ce que vous ferez',
   bringTitle: 'Ce que vous apportez',
   niceTitle: 'Atouts',
-  apply: 'Postuler par courriel',
+  apply: 'Postuler',
   roles: [
     {
       team: 'Développement des affaires',
@@ -565,10 +566,10 @@ const fr: CareersCopy = {
     },
   ],
 
-  applyTitle: 'Comment postuler',
+  applyTitle: 'Postuler chez Hey Markham',
   applyText:
-    'Envoyez votre CV à contact@aydenait.com en indiquant le poste dans l’objet, et dites-nous en quelques lignes pourquoi il vous intéresse. Les boutons ci-dessus remplissent l’objet pour vous.',
-  applyOther: 'Vous ne voyez pas votre poste? Écrivez-nous quand même et dites-nous comment vous pourriez aider.',
+    'Remplissez le formulaire avec votre CV et, si vous le souhaitez, une lettre de présentation. Cela prend quelques minutes, et nous vous répondrons par courriel.',
+  applyOther: 'Vous ne voyez pas votre poste? Choisissez «\u00a0Autre\u00a0» dans le formulaire et dites-nous dans votre lettre comment vous pourriez aider.',
   accommodation: 'Des mesures d’adaptation sont offertes sur demande aux candidats à toutes les étapes du processus de sélection.',
   employer: 'Hey Markham est conçu par Aydenait Solutions.',
 };
@@ -578,7 +579,6 @@ const copy: Record<Locale, CareersCopy> = { en, zh, fr };
 const factIcons = [MapPin, Users, Sparkles];
 const howIcons = [ShieldCheck, MessageSquare, MapPin];
 
-const mailto = (subject: string) => `mailto:${APPLY_EMAIL}?subject=${encodeURIComponent(`Application: ${subject}`)}`;
 
 export function CareersPage({ locale }: { locale: Locale }) {
   const t = copy[locale];
@@ -691,11 +691,12 @@ export function CareersPage({ locale }: { locale: Locale }) {
                     </div>
                   </div>
 
+                  {/* Picks this role in the form below and scrolls to it (see ApplicationForm) */}
                   <a
-                    href={mailto(role.subject)}
+                    href={`#apply-${role.id}`}
+                    aria-describedby={`${role.id}-title`}
                     className="mt-7 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-300"
                   >
-                    <Mail className="w-4 h-4" aria-hidden="true" />
                     {t.apply}
                     <ArrowRight className="w-4 h-4" aria-hidden="true" />
                   </a>
@@ -706,17 +707,17 @@ export function CareersPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      {/* How to apply */}
-      <section className="pb-16 md:pb-20 px-6">
-        <div data-reveal className="max-w-4xl mx-auto rounded-2xl bg-slate-900 dark:bg-slate-800 border border-slate-800 dark:border-slate-700 px-6 py-8 md:px-10">
-          <h2 className="text-xl md:text-2xl font-serif font-bold text-white mb-3">{t.applyTitle}</h2>
-          <p className="text-slate-300 leading-relaxed">{t.applyText}</p>
-          <p className="mt-3 text-slate-300 leading-relaxed">
-            {t.applyOther}{' '}
-            <a href={`mailto:${APPLY_EMAIL}`} className="text-primary-300 underline hover:no-underline">{APPLY_EMAIL}</a>
-          </p>
-          <p className="mt-6 pt-5 border-t border-slate-700 text-sm text-slate-400">{t.accommodation}</p>
-          <p className="mt-2 text-sm text-slate-400">{t.employer}</p>
+      {/* The application form; each role's Apply link lands here with that role chosen */}
+      <section id="apply" className="scroll-mt-20 pb-16 md:pb-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-3">{t.applyTitle}</h2>
+            <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{t.applyText}</p>
+            <p className="mt-2 text-sm text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">{t.applyOther}</p>
+          </div>
+          <ApplicationForm locale={locale} roleTitles={t.roles.map(r => r.title)} />
+          <p className="mt-6 text-sm text-slate-500 dark:text-slate-400">{t.accommodation}</p>
+          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{t.employer}</p>
         </div>
       </section>
     </div>

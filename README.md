@@ -53,6 +53,19 @@ pnpm check-sources    # every FAQ source page on markham.ca still loads (also ru
 The contact form sends to the webhook in `CONTACT_WEBHOOK_URL`, set in Vercel's environment settings. It
 is never committed; without it the form shows an error with a reference ID.
 
+Job applications from `/careers` are emailed to the hiring inbox with the résumé and cover letter
+attached, through [Resend](https://resend.com). Nothing is stored on the site. Set these in Vercel's
+environment settings:
+
+| Variable | Value |
+| --- | --- |
+| `RESEND_API_KEY` | A Resend API key with permission to send email |
+| `CAREERS_FROM_EMAIL` | A sender on a domain verified in Resend, e.g. `Hey Markham Careers <careers@aydenait.com>` |
+| `CAREERS_TO_EMAIL` | Where applications go; defaults to `contact@aydenait.com` |
+
+Without the first two, the form tells applicants to email their application instead. The form's privacy
+notice says applications are kept for 12 months; each email states the date to delete it by.
+
 ## Project structure
 
 ```
