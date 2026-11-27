@@ -7,10 +7,11 @@ import { Mic, Menu, X, ArrowUpRight } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { LIVE_URL } from '../lib/links';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { localeHome, localeOf, type Locale } from '../lib/i18n';
+import { localeHome, localeOf, localisePath, type Locale } from '../lib/i18n';
 
 const copy: Record<Locale, {
   nav: { name: string; href: string }[];
+  careers: string;
   tryItLive: string;
   openMenu: string;
   closeMenu: string;
@@ -22,6 +23,7 @@ const copy: Record<Locale, {
       { name: 'Why Trust It', href: '#trust' },
       { name: 'For Municipalities', href: '#contact' },
     ],
+    careers: 'Careers',
     tryItLive: 'Try it live',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
@@ -33,6 +35,7 @@ const copy: Record<Locale, {
       { name: '为何可信', href: '#trust' },
       { name: '面向市政机构', href: '#contact' },
     ],
+    careers: '加入我们',
     tryItLive: '在线体验',
     openMenu: '打开菜单',
     closeMenu: '关闭菜单',
@@ -44,6 +47,7 @@ const copy: Record<Locale, {
       { name: 'Pourquoi s’y fier', href: '#trust' },
       { name: 'Pour les municipalités', href: '#contact' },
     ],
+    careers: 'Carrières',
     tryItLive: 'Essayer en ligne',
     openMenu: 'Ouvrir le menu',
     closeMenu: 'Fermer le menu',
@@ -59,7 +63,12 @@ export const Header: React.FC = () => {
   const locale = localeOf(pathname);
   const t = copy[locale];
   const home = localeHome(locale);
-  const navigation = t.nav.map((item) => ({ name: item.name, href: `${home}${item.href}` }));
+  // Home page sections, then the Careers page (its own route, so it's marked as current when you're on it)
+  const careersHref = localisePath('/careers', locale);
+  const navigation = [
+    ...t.nav.map((item) => ({ name: item.name, href: `${home}${item.href}`, current: false })),
+    { name: t.careers, href: careersHref, current: pathname === careersHref },
+  ];
 
   // Shadow and border appear once the page scrolls under the header
   useEffect(() => {
@@ -76,7 +85,7 @@ export const Header: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center gap-3 h-16">
           {/* Logo */}
           <div className="animate-fade-up flex items-center gap-3">
             <div className="w-9 h-9 bg-primary-600 rounded-lg flex items-center justify-center">
@@ -90,11 +99,12 @@ export const Header: React.FC = () => {
           </div>
 
           {/* Desktop Navigation: from lg up, because the French labels don't fit beside the buttons any narrower */}
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-3 xl:gap-6">
             {navigation.map((item, index) => (
               <Link
                 key={item.name}
                 href={item.href}
+                aria-current={item.current ? 'page' : undefined}
                 className="animate-fade-up whitespace-nowrap text-sm font-medium text-white hover:text-primary-200 transition-colors"
                 style={{ animationDelay: `${index * 0.08}s` }}
               >
@@ -104,13 +114,15 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="animate-fade-up hidden lg:flex items-center gap-3 [animation-delay:300ms]">
+          <div className="animate-fade-up hidden lg:flex items-center gap-2 xl:gap-3 [animation-delay:300ms]">
             <ThemeToggle locale={locale} />
-            <LanguageSwitcher pathname={pathname} locale={locale} />
+            {/* Short language name ("FR") until xl, so the French menu and Careers fit at 1024px */}
+            <div className="xl:hidden"><LanguageSwitcher pathname={pathname} locale={locale} compact /></div>
+            <div className="hidden xl:block"><LanguageSwitcher pathname={pathname} locale={locale} /></div>
             <a
               href={LIVE_URL}
               target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-sm transition-all shadow-sm hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-lg font-medium text-sm whitespace-nowrap transition-all shadow-sm hover:-translate-y-0.5"
             >
               {t.tryItLive}
               <ArrowUpRight size={16} />
@@ -145,6 +157,7 @@ export const Header: React.FC = () => {
                 <Link
                   key={item.name}
                   href={item.href}
+                  aria-current={item.current ? 'page' : undefined}
                   className="block px-4 py-2.5 text-sm font-medium text-white"
                   onClick={() => setIsMenuOpen(false)}
                 >
