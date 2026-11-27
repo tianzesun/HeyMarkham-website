@@ -12,6 +12,7 @@ import { localeHome, localeOf, localisePath, type Locale } from '../lib/i18n';
 const copy: Record<Locale, {
   nav: { name: string; href: string }[];
   careers: string;
+  about: string;
   tryItLive: string;
   openMenu: string;
   closeMenu: string;
@@ -24,6 +25,7 @@ const copy: Record<Locale, {
       { name: 'For Municipalities', href: '#contact' },
     ],
     careers: 'Careers',
+    about: 'About',
     tryItLive: 'Try it live',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
@@ -36,6 +38,7 @@ const copy: Record<Locale, {
       { name: '面向市政机构', href: '#contact' },
     ],
     careers: '加入我们',
+    about: '关于我们',
     tryItLive: '在线体验',
     openMenu: '打开菜单',
     closeMenu: '关闭菜单',
@@ -48,6 +51,7 @@ const copy: Record<Locale, {
       { name: 'Pour les municipalités', href: '#contact' },
     ],
     careers: 'Carrières',
+    about: 'À propos',
     tryItLive: 'Essayer en ligne',
     openMenu: 'Ouvrir le menu',
     closeMenu: 'Fermer le menu',
@@ -63,12 +67,22 @@ export const Header: React.FC = () => {
   const locale = localeOf(pathname);
   const t = copy[locale];
   const home = localeHome(locale);
-  // Home page sections, then the Careers page (its own route, so it's marked as current when you're on it)
-  const careersHref = localisePath('/careers', locale);
+  // Home page sections, then the Careers and About pages (their own routes, marked as current when you're on them)
+  const page = (name: string, path: string) => {
+    const href = localisePath(path, locale);
+    return { name, href, current: pathname === href };
+  };
   const navigation = [
     ...t.nav.map((item) => ({ name: item.name, href: `${home}${item.href}`, current: false })),
-    { name: t.careers, href: careersHref, current: pathname === careersHref },
+    page(t.careers, '/careers'),
+    page(t.about, '/about'),
   ];
+
+  // Where the full menu replaces the ☰ button: lg, except French, whose longer labels need xl.
+  // Full class names, so Tailwind sees them.
+  const desktop = locale === 'fr'
+    ? { show: 'hidden xl:flex', hide: 'xl:hidden' }
+    : { show: 'hidden lg:flex', hide: 'lg:hidden' };
 
   // Shadow and border appear once the page scrolls under the header
   useEffect(() => {
@@ -98,8 +112,8 @@ export const Header: React.FC = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation: from lg up, because the French labels don't fit beside the buttons any narrower */}
-          <nav className="hidden lg:flex items-center gap-3 xl:gap-6">
+          {/* Desktop navigation: from lg up (xl for French, see `desktop`) */}
+          <nav className={`${desktop.show} items-center gap-3 xl:gap-6`}>
             {navigation.map((item, index) => (
               <Link
                 key={item.name}
@@ -114,9 +128,9 @@ export const Header: React.FC = () => {
           </nav>
 
           {/* CTA Button */}
-          <div className="animate-fade-up hidden lg:flex items-center gap-2 xl:gap-3 [animation-delay:300ms]">
+          <div className={`animate-fade-up ${desktop.show} items-center gap-2 xl:gap-3 [animation-delay:300ms]`}>
             <ThemeToggle locale={locale} />
-            {/* Short language name ("FR") until xl, so the French menu and Careers fit at 1024px */}
+            {/* Short language name ("EN") until xl, so the menu fits at 1024px */}
             <div className="xl:hidden"><LanguageSwitcher pathname={pathname} locale={locale} compact /></div>
             <div className="hidden xl:block"><LanguageSwitcher pathname={pathname} locale={locale} /></div>
             <a
@@ -130,7 +144,7 @@ export const Header: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center gap-2">
+          <div className={`${desktop.hide} flex items-center gap-2`}>
             <ThemeToggle locale={locale} />
             <LanguageSwitcher pathname={pathname} locale={locale} compact />
             <button
@@ -146,7 +160,7 @@ export const Header: React.FC = () => {
 
         {/* Mobile Navigation: grid row height animates from 0 to content height */}
         <div
-          className={`lg:hidden grid transition-[grid-template-rows,opacity] duration-300 ${
+          className={`${desktop.hide} grid transition-[grid-template-rows,opacity] duration-300 ${
             isMenuOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
           }`}
           inert={!isMenuOpen}
