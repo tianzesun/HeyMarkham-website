@@ -19,6 +19,8 @@ test('translated pages get a locale path', () => {
   assert.equal(localisePath('/app/support', 'fr'), '/fr/app/support');
   assert.equal(localisePath('/zh/app/support', 'en'), '/app/support');
   assert.equal(localisePath('/fr/app/journey', 'zh'), '/zh/app/journey');
+  assert.equal(localisePath('/careers', 'zh'), '/zh/careers');
+  assert.equal(localisePath('/careers#ai-rag-engineer', 'fr'), '/fr/careers#ai-rag-engineer');
 });
 
 test('pages without a translation stay English instead of a 404', () => {

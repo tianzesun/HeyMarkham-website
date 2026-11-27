@@ -14,7 +14,7 @@ import { RevealOnScroll } from '../RevealOnScroll';
 import { AnswerSource } from '../AnswerSource';
 import { APP_STORE_URL, GOOGLE_PLAY_URL, LIVE_URL } from '../../lib/links';
 import { latestRelease } from '../../lib/releases';
-import { localeHome, type Locale } from '../../lib/i18n';
+import { localeHome, localisePath, type Locale } from '../../lib/i18n';
 
 // /, /zh and /fr. One structure, every language: every string lives in `en` / `zh` below, and icons,
 // links and layout stay in the JSX. List items line up by position with the icon lists in the
@@ -334,6 +334,14 @@ const en = {
   closingTagline: 'Ask Hey Markham. Get to know your city.',
   closingAsk: 'Ask Hey Markham',
   closingContact: 'Get in touch',
+
+  // Careers band: the open roles in short; the details are on /careers
+  hiringEyebrow: 'We’re hiring',
+  hiringTitle: 'Help Build Hey Markham',
+  hiringText: 'We’re a small team in Markham, hiring for six roles. Hybrid in Markham and the GTA.',
+  hiringRoles: ['Business development, municipal partnerships', 'Data quality intern', 'Community and growth', 'AI/RAG engineer', 'Full-stack engineer, mobile and web', 'Privacy, security and accessibility (contract)'],
+  hiringLink: 'See open roles',
+
   contactEyebrow: 'For the City of Markham and other municipalities',
   contactTitle: 'Bring Hey Markham to Your Residents',
   contactSubtitle: 'Start with a pilot. See the results. Then decide.',
@@ -642,6 +650,13 @@ const zh: HomeCopy = {
   closingTagline: '问问 Hey Markham，更了解您的城市。',
   closingAsk: '问 Hey Markham',
   closingContact: '联系我们',
+
+  hiringEyebrow: '正在招聘',
+  hiringTitle: '一起打造 Hey Markham',
+  hiringText: '我们是万锦市的一支小团队，正在招聘六个职位。万锦市及大多伦多地区混合办公。',
+  hiringRoles: ['业务拓展（市政合作）', '数据质量实习生', '社区与增长', 'AI／RAG 工程师', '全栈工程师（移动端与网页）', '隐私、安全与无障碍顾问（合同制）'],
+  hiringLink: '查看招聘职位',
+
   contactEyebrow: '面向万锦市及其他市政机构',
   contactTitle: '为您的居民引入 Hey Markham',
   contactSubtitle: '从试点开始。看到成效，再做决定。',
@@ -955,6 +970,13 @@ const fr: HomeCopy = {
   closingTagline: 'Demandez à Hey Markham. Apprenez à connaître votre ville.',
   closingAsk: 'Demander à Hey Markham',
   closingContact: 'Nous joindre',
+
+  hiringEyebrow: 'Nous recrutons',
+  hiringTitle: 'Aidez-nous à bâtir Hey Markham',
+  hiringText: 'Nous sommes une petite équipe à Markham et recrutons pour six postes. Mode hybride à Markham et dans la RGT.',
+  hiringRoles: ['Développement des affaires, partenariats municipaux', 'Stage en qualité des données', 'Communauté et croissance', 'Ingénierie IA/RAG', 'Développement full stack, mobile et Web', 'Confidentialité, sécurité et accessibilité (contrat)'],
+  hiringLink: 'Voir les postes ouverts',
+
   contactEyebrow: 'Pour la Ville de Markham et les autres municipalités',
   contactTitle: 'Offrez Hey Markham à vos résidents',
   contactSubtitle: 'Commencez par un projet pilote. Constatez les résultats. Puis décidez.',
@@ -1694,6 +1716,34 @@ export function HomePage({ locale }: { locale: Locale }) {
                 className="inline-flex items-center gap-2 px-6 py-3 border border-slate-700 hover:border-slate-500 text-slate-200 rounded-lg font-medium text-sm transition-colors"
               >
                 {t.closingContact}
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Careers: the open roles in short, linking to /careers */}
+        <section className="py-14 px-6 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+          <div data-reveal className="max-w-5xl mx-auto flex flex-col lg:flex-row lg:items-center gap-8">
+            <div className="lg:w-2/5">
+              <p className="text-sm font-semibold uppercase tracking-wider text-primary-600 dark:text-primary-400 mb-2">{t.hiringEyebrow}</p>
+              <h2 className="text-2xl md:text-3xl font-serif font-bold text-slate-900 dark:text-white mb-3 text-balance">{t.hiringTitle}</h2>
+              <p className="text-slate-600 dark:text-slate-400 text-pretty">{t.hiringText}</p>
+            </div>
+            <div className="lg:w-3/5">
+              <ul className="grid sm:grid-cols-2 gap-3">
+                {t.hiringRoles.map(role => (
+                  <li key={role} className="flex items-center gap-2 px-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-800 dark:text-slate-200">
+                    <Briefcase className="w-4 h-4 flex-shrink-0 text-primary-600 dark:text-primary-400" aria-hidden="true" />
+                    {role}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href={localisePath('/careers', locale)}
+                className="mt-5 inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary-600 hover:bg-primary-700 text-white text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-4 focus-visible:ring-primary-300"
+              >
+                {t.hiringLink}
                 <ArrowRight className="w-4 h-4" aria-hidden="true" />
               </Link>
             </div>

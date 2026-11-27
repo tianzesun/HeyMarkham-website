@@ -67,8 +67,8 @@ export function localeOf(pathname: string): Locale {
  * (app/zh/... or app/fr/...); links to any other page stay on the English version instead of a 404.
  */
 export const TRANSLATED_PATHS: Record<Exclude<Locale, 'en'>, readonly string[]> = {
-  zh: ['/', '/app/support', '/app/journey'],
-  fr: ['/', '/app/support', '/app/journey'],
+  zh: ['/', '/app/support', '/app/journey', '/careers'],
+  fr: ['/', '/app/support', '/app/journey', '/careers'],
 }
 
 /** The English path, without a locale prefix (path must already be free of query and hash) */

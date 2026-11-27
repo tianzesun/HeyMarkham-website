@@ -14,6 +14,7 @@ const copy: Record<Locale, {
   getApp: string;
   whatsNew: string;
   forMunicipalities: string;
+  careers: string;
   resources: string;
   citySite: string;
   privacy: string;
@@ -31,6 +32,7 @@ const copy: Record<Locale, {
     getApp: 'Get the app',
     whatsNew: 'What’s new in the app',
     forMunicipalities: 'For Municipalities',
+    careers: 'Careers',
     resources: 'Resources',
     citySite: 'City of Markham (official site)',
     privacy: 'Privacy Policy',
@@ -48,6 +50,7 @@ const copy: Record<Locale, {
     getApp: '下载应用',
     whatsNew: '应用更新日志',
     forMunicipalities: '面向市政机构',
+    careers: '加入我们',
     resources: '相关资源',
     citySite: '万锦市官网',
     privacy: '隐私政策',
@@ -65,6 +68,7 @@ const copy: Record<Locale, {
     getApp: 'Télécharger l’application',
     whatsNew: 'Nouveautés de l’application (en anglais)',
     forMunicipalities: 'Pour les municipalités',
+    careers: 'Carrières',
     resources: 'Ressources',
     citySite: 'Ville de Markham (site officiel)',
     privacy: 'Politique de confidentialité (en anglais)',
@@ -110,6 +114,7 @@ export const Footer: React.FC = () => {
               <li><Link href={internal('/#app')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.getApp}</Link></li>
               <li><Link href={internal('/app/releases')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.whatsNew}</Link></li>
               <li><Link href={internal('/#contact')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.forMunicipalities}</Link></li>
+              <li><Link href={internal('/careers')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.careers}</Link></li>
             </ul>
           </div>
 
