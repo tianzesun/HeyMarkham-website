@@ -8,13 +8,14 @@ import { localeOf, localisePath, type Locale } from '../lib/i18n';
 
 const copy: Record<Locale, {
   tagline: string;
-  product: string;
+  explore: string;
   features: string;
   tryItLive: string;
   getApp: string;
   whatsNew: string;
   forMunicipalities: string;
   careers: string;
+  about: string;
   resources: string;
   citySite: string;
   privacy: string;
@@ -26,13 +27,14 @@ const copy: Record<Locale, {
 }> = {
   en: {
     tagline: 'Quick answers about City of Markham services, by voice or text.',
-    product: 'Product',
+    explore: 'Explore',
     features: 'Features',
     tryItLive: 'Try it live',
     getApp: 'Get the app',
     whatsNew: 'What’s new in the app',
     forMunicipalities: 'For Municipalities',
     careers: 'Careers',
+    about: 'About Aydenait',
     resources: 'Resources',
     citySite: 'City of Markham (official site)',
     privacy: 'Privacy Policy',
@@ -44,13 +46,14 @@ const copy: Record<Locale, {
   },
   zh: {
     tagline: '用语音或文字，快速获取万锦市服务信息。',
-    product: '产品',
+    explore: '快速链接',
     features: '功能介绍',
     tryItLive: '在线体验',
     getApp: '下载应用',
     whatsNew: '应用更新日志',
     forMunicipalities: '面向市政机构',
     careers: '加入我们',
+    about: '关于 Aydenait',
     resources: '相关资源',
     citySite: '万锦市官网',
     privacy: '隐私政策',
@@ -62,13 +65,14 @@ const copy: Record<Locale, {
   },
   fr: {
     tagline: 'Des réponses rapides sur les services de la Ville de Markham, à voix haute ou par écrit.',
-    product: 'Produit',
+    explore: 'Explorer',
     features: 'Fonctionnalités',
     tryItLive: 'Essayer en ligne',
     getApp: 'Télécharger l’application',
     whatsNew: 'Nouveautés de l’application (en anglais)',
     forMunicipalities: 'Pour les municipalités',
     careers: 'Carrières',
+    about: 'À propos d’Aydenait',
     resources: 'Ressources',
     citySite: 'Ville de Markham (site officiel)',
     privacy: 'Politique de confidentialité (en anglais)',
@@ -105,15 +109,16 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Product */}
+          {/* Explore: the app, then the company */}
           <div>
-            <h4 className="font-semibold text-slate-900 dark:text-white mb-4">{t.product}</h4>
+            <h4 className="font-semibold text-slate-900 dark:text-white mb-4">{t.explore}</h4>
             <ul className="space-y-2">
               <li><Link href={internal('/#features')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.features}</Link></li>
               <li><a href={LIVE_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.tryItLive}</a></li>
               <li><Link href={internal('/#app')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.getApp}</Link></li>
               <li><Link href={internal('/app/releases')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.whatsNew}</Link></li>
               <li><Link href={internal('/#contact')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.forMunicipalities}</Link></li>
+              <li><Link href={internal('/about')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.about}</Link></li>
               <li><Link href={internal('/careers')} className="text-sm text-slate-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{t.careers}</Link></li>
             </ul>
           </div>

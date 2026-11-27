@@ -77,6 +77,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...translations('/careers', { lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 }),
     {
+      url: 'https://heymarkham.vercel.app/about',
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.5,
+      alternates: languages('/about'),
+    },
+    ...translations('/about', { lastModified: new Date(), changeFrequency: 'yearly', priority: 0.5 }),
+    {
       url: 'https://heymarkham.vercel.app/app/releases',
       lastModified: new Date(`${latestRelease.date}T12:00:00Z`),
       changeFrequency: 'monthly',
