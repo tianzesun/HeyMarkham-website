@@ -25,6 +25,15 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.19',
+    date: '2026-11-27',
+    delivery: 'automatic',
+    title: 'A tidier About page',
+    improved: [
+      'About now shows the app’s version as its own row. Press and hold the number to copy it, for example when you write to us. The note that Hey Markham is independent of the City and YRT is now at the bottom of the page.',
+    ],
+  },
+  {
     version: '1.14.18',
     date: '2026-11-27',
     delivery: 'automatic',
