@@ -25,6 +25,15 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.15',
+    date: '2026-11-27',
+    delivery: 'automatic',
+    title: 'See which answers the Hey Markham team has checked',
+    new: [
+      'When a person on the Hey Markham team has checked an answer against the City’s own page, it now says so under the answer, with the date it was checked. Hey Markham is independent of the City, so this is our own check, not the City’s.',
+    ],
+  },
+  {
     version: '1.14.14',
     date: '2026-11-26',
     delivery: 'automatic',
