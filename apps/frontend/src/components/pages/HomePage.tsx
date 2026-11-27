@@ -168,33 +168,6 @@ const en = {
     { title: 'Use it as a guest', description: 'Ask without an account, or sign in with Apple, Google or email to keep your chats and settings.' },
   ],
 
-  // The City's own app, as its markham.ca page describes it (checked November 15, 2026). Only list
-  // what that page says, and keep it fair: the two apps do different jobs
-  accessTitle: 'Already use Access Markham?',
-  accessIntro:
-    'Access Markham is the City of Markham’s official app, organized by feature. Hey Markham starts with your question. They do different jobs, so many residents will want both.',
-  accessHeading: 'Access Markham, from the City',
-  accessFeatures: [
-    'Recycling and garbage collection schedule with personalized notifications',
-    'What Goes Where search for disposing of items',
-    'Winter maintenance',
-    'Bikeways, parks and paths',
-    'Report a problem',
-  ],
-  accessNote: 'The City’s own app, organized by feature.',
-  heyHeading: 'Hey Markham',
-  heyDifferences: [
-    'Ask any City question in your own words, by voice or text',
-    'Short answers with the markham.ca pages they come from',
-    'Tells you who to contact when it isn’t the City',
-    'English, French, Mandarin or Cantonese, with answers read aloud',
-    'Report a problem with a photo that drafts the details for you',
-  ],
-  heyNote: 'Best when you have a question and don’t know where on markham.ca the answer is.',
-  accessDisclaimerStart: 'Hey Markham is independent and isn’t affiliated with the City of Markham. Access Markham features as listed on ',
-  accessDisclaimerLink: 'the City’s Access Markham page',
-  accessDisclaimerEnd: ', November 2026.',
-
   downloadTitle: 'Get the Hey Markham app',
   downloadText: 'Use it as a guest, or sign in with Apple, Google or email to keep your questions and settings.',
   whatsNew: 'What’s new in version {version}',
@@ -497,31 +470,6 @@ const zh: HomeCopy = {
     { title: '以访客身份使用', description: '无需账户即可提问，也可以用 Apple、Google 或电子邮件登录，保存您的对话和设置。' },
   ],
 
-  accessTitle: '已经在用 Access Markham？',
-  accessIntro:
-    'Access Markham 是万锦市的官方应用，按功能分类。Hey Markham 则从您的问题出发。两者各有分工，很多居民会两个都用。',
-  accessHeading: 'Access Markham（市政府官方）',
-  accessFeatures: [
-    '垃圾和回收收集时间表，附个性化通知',
-    '“What Goes Where”物品分类搜索',
-    '冬季道路维护',
-    '自行车道、公园和步道',
-    '报告问题',
-  ],
-  accessNote: '市政府自己的应用，按功能分类。',
-  heyHeading: 'Hey Markham',
-  heyDifferences: [
-    '用自己的话问任何市政问题，语音或文字均可',
-    '简短的答案，附上出处的 markham.ca 网页',
-    '不归市政府管的事，告诉您该联系谁',
-    '支持英语、法语、普通话或粤语，答案可朗读',
-    '拍照报告问题，自动帮您起草详细说明',
-  ],
-  heyNote: '当您有问题、却不知道答案在 markham.ca 哪个角落时，最为好用。',
-  accessDisclaimerStart: 'Hey Markham 是独立服务，与万锦市没有隶属关系。Access Markham 的功能以',
-  accessDisclaimerLink: '市政府 Access Markham 页面',
-  accessDisclaimerEnd: '所列为准（2026 年 11 月）。',
-
   downloadTitle: '下载 Hey Markham 应用',
   downloadText: '以访客身份使用，或用 Apple、Google 或电子邮件登录，保存您的提问和设置。',
   whatsNew: '{version} 版更新内容',
@@ -814,31 +762,6 @@ const fr: HomeCopy = {
     { title: 'Utilisez-la en tant qu’invité', description: 'Posez vos questions sans compte, ou connectez-vous avec Apple, Google ou un courriel pour garder vos conversations et vos paramètres.' },
   ],
 
-  accessTitle: 'Vous utilisez déjà Access Markham?',
-  accessIntro:
-    'Access Markham est l’application officielle de la Ville de Markham, organisée par fonction. Hey Markham part de votre question. Elles ne font pas le même travail, et bien des résidents voudront les deux.',
-  accessHeading: 'Access Markham, de la Ville',
-  accessFeatures: [
-    'Calendrier de collecte du recyclage et des ordures, avec notifications personnalisées',
-    'Recherche What Goes Where pour savoir comment jeter un article',
-    'Entretien hivernal',
-    'Pistes cyclables, parcs et sentiers',
-    'Signaler un problème',
-  ],
-  accessNote: 'L’application de la Ville, organisée par fonction.',
-  heyHeading: 'Hey Markham',
-  heyDifferences: [
-    'Posez n’importe quelle question sur la Ville dans vos propres mots, à voix haute ou par écrit',
-    'Des réponses courtes avec les pages de markham.ca d’où elles viennent',
-    'Vous dit qui joindre quand ce n’est pas la Ville',
-    'Anglais, français, mandarin ou cantonais, avec lecture des réponses à voix haute',
-    'Signalez un problème avec une photo qui rédige les détails pour vous',
-  ],
-  heyNote: 'Idéal quand vous avez une question et ne savez pas où se trouve la réponse sur markham.ca.',
-  accessDisclaimerStart: 'Hey Markham est indépendant et n’est pas affilié à la Ville de Markham. Fonctions d’Access Markham telles qu’indiquées sur ',
-  accessDisclaimerLink: 'la page Access Markham de la Ville',
-  accessDisclaimerEnd: ', novembre 2026.',
-
   downloadTitle: 'Téléchargez l’application Hey Markham',
   downloadText: 'Utilisez-la en tant qu’invité, ou connectez-vous avec Apple, Google ou un courriel pour garder vos questions et vos paramètres.',
   whatsNew: 'Nouveautés de la version {version} (en anglais)',
@@ -1036,7 +959,6 @@ const roadmapTones: Record<string, { node: string; badge: string; card: string; 
 };
 
 // Examples in the app section were checked on markham.ca on November 15, 2026; recheck before changing them
-const ACCESS_MARKHAM_URL = 'https://www.markham.ca/about-city-markham/access-markham-mobile-app';
 const FENCE_URL = 'https://www.markham.ca/about-city-markham/city-hall/bylaw/fences-swimming-pools';
 const PET_LICENCE_URL = 'https://www.markham.ca/permits-licences-taxes/animal-services/pet-licence';
 // The real menu labels and search text on markham.ca, which is in English
@@ -1283,49 +1205,6 @@ export function HomePage({ locale }: { locale: Locale }) {
                   </div>
                 );
               })}
-            </div>
-
-            {/* How Hey Markham differs from the City's Access Markham app */}
-            <div data-reveal className="mt-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 md:p-8">
-              <h3 className="text-xl font-semibold text-slate-900 dark:text-white mb-2">{t.accessTitle}</h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 max-w-3xl">
-                {t.accessIntro}
-              </p>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="rounded-xl bg-slate-50 dark:bg-slate-800/60 p-5">
-                  <h4 className="font-semibold text-slate-900 dark:text-white mb-3">{t.accessHeading}</h4>
-                  <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                    {t.accessFeatures.map((item) => (
-                      <li key={item} className="flex gap-2">
-                        <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0 text-slate-400" aria-hidden="true" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">
-                    {t.accessNote}
-                  </p>
-                </div>
-                <div className="rounded-xl bg-primary-50 dark:bg-primary-900/30 border border-primary-100 dark:border-primary-800 p-5">
-                  <h4 className="font-semibold text-slate-900 dark:text-white mb-3">{t.heyHeading}</h4>
-                  <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-200">
-                    {t.heyDifferences.map((item) => (
-                      <li key={item} className="flex gap-2">
-                        <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0 text-primary-600 dark:text-primary-400" aria-hidden="true" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mt-4 text-sm text-slate-600 dark:text-slate-400">
-                    {t.heyNote}
-                  </p>
-                </div>
-              </div>
-              <p className="mt-5 text-xs text-slate-500 dark:text-slate-400">
-                {t.accessDisclaimerStart}
-                <a href={ACCESS_MARKHAM_URL} target="_blank" rel="noopener noreferrer" className="underline hover:no-underline">{t.accessDisclaimerLink}</a>
-                {t.accessDisclaimerEnd}
-              </p>
             </div>
 
             {/* Download band, dark because the store buttons are styled for the hero's dark background */}
