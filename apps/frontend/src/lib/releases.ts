@@ -25,6 +25,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.20',
+    date: '2026-11-27',
+    delivery: 'automatic',
+    title: 'Starts faster, and service pages give answers about that service',
+    improved: [
+      'The app starts faster and does less in the background, which can help your battery.',
+      'A question you ask from a page under Services, by tapping it or saying it, now stays on that service. For example, a question on the Pets page gets an answer about pets.',
+    ],
+  },
+  {
     version: '1.14.19',
     date: '2026-11-27',
     delivery: 'automatic',
