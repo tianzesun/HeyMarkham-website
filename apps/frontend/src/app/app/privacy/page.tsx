@@ -120,13 +120,19 @@ export default function AppPrivacyPage() {
           or turn notifications off in your phone&rsquo;s settings.
         </p>
         <p>
-          <b>Ratings.</b> If you rate an answer as helpful or not, we receive the rating with the question and answer,
-          not linked to your account.
+          <b>Ratings.</b> If you rate an answer as helpful or not, we receive the rating, and the reason you pick if you
+          pick one (for example &ldquo;Out of date&rdquo;), with the question and answer, not linked to your account.
+        </p>
+        <p>
+          <b>Improving answers.</b> We use ratings, their reasons and the questions residents ask to find answers that
+          are wrong, out of date or incomplete, and to improve them. A person on the Hey Markham team reviews a change
+          made because of ratings before it reaches answers; ratings never change an answer by themselves.
         </p>
         <p>
           <b>App feedback (only if you send it).</b> If you send feedback from Settings, we receive your message, the
-          app&rsquo;s version, platform and language, and your email address only if you give it for a reply. We use
-          it to look into what you tell us and, if you asked, to reply.
+          app&rsquo;s version, platform and language, and your email address only if you give it for a reply. Phone
+          numbers, email addresses and similar details you type in the message are replaced with placeholders before
+          it is stored. We use it to look into what you tell us and, if you asked, to reply.
         </p>
         <p>
           <b>Crash reports (on unless you turn them off).</b> &ldquo;Send crash reports&rdquo; in Settings is on
