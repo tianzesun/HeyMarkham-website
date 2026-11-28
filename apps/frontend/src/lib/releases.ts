@@ -25,6 +25,16 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.21',
+    date: '2026-11-27',
+    delivery: 'automatic',
+    title: 'Set your home address at home, from your location',
+    improved: [
+      'Your home address is now set from where you are, not typed. In My Markham, tap “Use my location”, then pick your home from the addresses around you. This keeps anyone from saving someone else’s home as theirs. Your location is used only to find the addresses and isn’t kept. An address you already saved stays.',
+      'When you mark an answer as not helpful, you can now say whether the information was wrong, out of date or missing something.',
+    ],
+  },
+  {
     version: '1.14.20',
     date: '2026-11-27',
     delivery: 'automatic',
