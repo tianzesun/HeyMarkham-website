@@ -25,6 +25,17 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.25',
+    date: '2026-11-27',
+    delivery: 'automatic',
+    title: 'My Markham, one tap from the home screen',
+    new: ['My Markham has its own button at the top of the home screen, next to notifications.'],
+    improved: [
+      'In My Councillor, tap your councillor’s photo to open their profile on markham.ca. Email and Call are now buttons right beside their name.',
+      'Choosing your pickup day by hand: after your weekday, pick A or B, as on the City’s collection calendar. Not sure which? Each one shows when its garbage next goes out.',
+    ],
+  },
+  {
     version: '1.14.24',
     date: '2026-11-27',
     delivery: 'automatic',
