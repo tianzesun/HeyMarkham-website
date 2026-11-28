@@ -25,6 +25,25 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.26',
+    date: '2026-11-28',
+    delivery: 'automatic',
+    title: 'A tidier My Markham, with school suggestions',
+    new: [
+      'Fold away any section of My Markham you don’t need right now: tap its title to hide it, and tap again to bring it back. The app remembers your choice.',
+      'Your schools suggests the schools closest to your home. Add one with a tap. Your own schools show a little house on their icon.',
+    ],
+    improved: [
+      'Removing a school now works the way you’d expect: tap the red button and it stays gone.',
+      'Choosing your pickup day by hand: A and B now appear right under the week, on the same page.',
+      'My Winter Markham only shows weather alerts and City announcements when there are some.',
+      'My Neighbourhood Alerts shows which alerts are on in one line. Tap it to change them in Settings › Notifications. Garbage day reminders are on the pickup page.',
+    ],
+    fixed: [
+      'If notifications are allowed but can’t reach your phone, the app now says so instead of staying silent.',
+    ],
+  },
+  {
     version: '1.14.25',
     date: '2026-11-27',
     delivery: 'automatic',
