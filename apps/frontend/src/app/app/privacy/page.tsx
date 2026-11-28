@@ -86,8 +86,8 @@ export default function AppPrivacyPage() {
         <p>
           <b>Location (only if you allow it).</b> The app asks for location only when you tap &ldquo;Use my
           location&rdquo; under an answer, such as one about your ward or the nearest library, &ldquo;Use where I
-          am&rdquo; in a problem report, or &ldquo;Use my current location&rdquo; when finding your pickup day. Your
-          phone then asks for
+          am&rdquo; in a problem report, &ldquo;Use my current location&rdquo; when finding your pickup day, or
+          &ldquo;Use my location&rdquo; when setting your home address in My Markham. Your phone then asks for
           your permission, for use only while you use the app, never in the background. Once you allow it, your
           phone&rsquo;s position, rounded to about 100 metres, is sent with each question. It is used only to answer questions about where you are, such as your
           ward and councillor or the nearest library, community centre or park. It is not stored or logged, and
@@ -95,7 +95,11 @@ export default function AppPrivacyPage() {
           your exact position and its street address, and they go only into the report you send to the City, not to
           the Hey Markham service. When you tap &ldquo;Use my current location&rdquo; for your pickup day, your phone
           turns its position into a street address, and only that address is sent, as if you had typed it (see Pickup
-          day). You can stop location at any time in your phone&rsquo;s settings.
+          day). When you tap &ldquo;Use my location&rdquo; to set your home address, your phone&rsquo;s exact position
+          (not rounded, so it can tell one house from the next) is sent to the Hey Markham service to list the
+          City&rsquo;s addresses around you, and sent again with the one you pick, so the service can check it is near
+          you. It is used only for that, and is not stored or logged. You can stop location at any time in your
+          phone&rsquo;s settings.
         </p>
         <p>
           <b>Problem reports (only if you send one).</b> A report is an email that you send from your own email app to
@@ -163,10 +167,12 @@ export default function AppPrivacyPage() {
           in, a sign-in token is kept in your phone&rsquo;s secure storage (Keychain or Keystore).
         </p>
         <p>
-          <b>Home address in My Markham (only if you add one).</b> The app keeps one home address. If you use the app
+          <b>Home address in My Markham (only if you add one).</b> The app keeps one home address. You set it at home,
+          from your location (see Location above): you pick your address from the City&rsquo;s addresses around you.
+          It can&rsquo;t be typed in, so that a home address is where its resident lives. If you use the app
           without signing in, it is stored only on your phone, in its secure storage. If you are signed in, it is the
-          home address in your optional profile (above), so it is the same in My Markham and Settings &rsaquo; Profile;
-          an address you added before signing in is saved to your profile if your profile has none. A copy is also kept
+          home address in your optional profile (above), so it is the same in My Markham and Settings &rsaquo; Profile.
+          An address you added before signing in isn&rsquo;t copied to your profile: you set it again at home. A copy is also kept
           in your phone&rsquo;s secure storage and removed when you sign out. It is sent to the Hey Markham service
           when you open My Markham, to find your ward, councillor and places near home, and with each question you
           ask, so questions such as &ldquo;nearest park&rdquo; or &ldquo;who is my councillor&rdquo; can be answered
