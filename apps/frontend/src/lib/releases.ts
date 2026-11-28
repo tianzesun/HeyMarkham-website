@@ -25,6 +25,15 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.23',
+    date: '2026-11-27',
+    delivery: 'automatic',
+    title: 'Just the schools you care about in My Markham',
+    improved: [
+      'My Markham now shows only the closest elementary school and the closest secondary school. If one isn’t yours, tap the hide button next to it and the next closest takes its place. Hidden schools stay hidden, and “Show hidden schools” brings them back.',
+    ],
+  },
+  {
     version: '1.14.22',
     date: '2026-11-27',
     delivery: 'automatic',
