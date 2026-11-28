@@ -25,6 +25,17 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.24',
+    date: '2026-11-27',
+    delivery: 'automatic',
+    title: 'Choose your kids’ schools in My Markham',
+    improved: [
+      'Schools in My Markham now shows your own schools. Tap Edit to remove a school or search every Markham school by name, so a gifted or IB program across town can be on your list, for as many kids as you have. Until you choose, the closest elementary and secondary school are shown. Your choices stay on your phone.',
+      'Don’t need schools? Hide the whole block from the same screen, and bring it back with “Show schools” at the end of the page.',
+      'My Markham is quieter: the small notes under each section are gone.',
+    ],
+  },
+  {
     version: '1.14.23',
     date: '2026-11-27',
     delivery: 'automatic',
