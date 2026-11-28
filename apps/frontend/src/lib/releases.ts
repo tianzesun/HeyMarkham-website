@@ -25,6 +25,15 @@ export interface Release {
 
 export const releases: Release[] = [
   {
+    version: '1.14.22',
+    date: '2026-11-27',
+    delivery: 'automatic',
+    title: 'Find your pickup day from your home address or where you are',
+    fixed: [
+      'On the Pickup day screen, you now find your pickup day with “Use my home address” or “Use my current location” instead of typing an address, the same way your home address is set. You can still choose your day by hand.',
+    ],
+  },
+  {
     version: '1.14.21',
     date: '2026-11-27',
     delivery: 'automatic',
